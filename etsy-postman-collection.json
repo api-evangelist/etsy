@@ -1,0 +1,5144 @@
+{
+    "id": "9ad0d42a5cfa302509382aa41c8c0d8f",
+    "name": "Etsy",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "719d46c3a844d4ec09647942f0505434",
+            "name": "Get Countries Country",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/countries\/{country_id}",
+            "description": "Retrieves a Country by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "aa915697f1455f7621d0395abdc032b0",
+            "name": "Get Countries",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/countries",
+            "description": "Finds all Country.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "0aeda90ce1ce398c7d0e7e2926a9683f",
+            "name": "Get Users User Favorites Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings",
+            "description": "Finds all favorite listings for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "0149d3fb6cd235cf5877ca87cce85f7d",
+            "name": "Get Users User Favorites Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
+            "description": "Finds a favorite listing for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "110c2c66d90a44a0ed9eb33e5b1fe7c5",
+            "name": "Post Users User Favorites Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
+            "description": "Creates a new favorite listing for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ffbcfdbf7b3d18066304a79c8397da92",
+            "name": "Delete Users User Favorites Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
+            "description": "Delete a favorite listing for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "edfac68e8222aeb94009c980a48e87d1",
+            "name": "Get Users User Favorites Users",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users",
+            "description": "Finds all favorite users for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "25cc5cf07197f18eac202c30bd57d64d",
+            "name": "Get Users User Favorites Users Target User",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
+            "description": "Finds a favorite user for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "target_user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "6eb4d52940cf0ead09108fc31abc42ba",
+            "name": "Post Users User Favorites Users Target User",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
+            "description": "Creates a new favorite listing for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "target_user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "target_user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "678fd555470df30c747604b8106775fb",
+            "name": "Delete Users User Favorites Users Target User",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
+            "description": "Delete a favorite listing for a user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "target_user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "84405995c3e53016c5e55103b4214306",
+            "name": "Get Homepages Pickers",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/",
+            "description": "Finds all FeaturedListingPicker in scope active.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "4b63024f7ed72fb6ef7365797fd30191",
+            "name": "Get Homepages Pickers Featured Listing Picker",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}",
+            "description": "Retrieves a FeaturedListingPicker by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_picker_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "757d29aa7beade68ea66ad32057c8720",
+            "name": "Get Homepages Pickers Featured Listing Picker Featured",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/featured",
+            "description": "Retrieves a set of FeaturedListing objects associated to a FeaturedListingPicker.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_picker_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "19af46bfee9525b1886b0e8e2f901398",
+            "name": "Get Homepages Pickers Featured Listing Picker Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/listings",
+            "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_picker_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "a63b260389feb47f758eb894fee1dc1c",
+            "name": "Get Homepages Pickers Featured Listing Picker Listings Active",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/listings\/active",
+            "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker in scope active.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_picker_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "41fd3d9c3f466855bf03fd3b7c51ba66",
+            "name": "Get Homepages Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/",
+            "description": "Finds all FeaturedListings regardless of Listing state",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "df4dba7f340d463e5b6b230b1a07e0c2",
+            "name": "Get Homepages Listings Active",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/active",
+            "description": "Finds all FeaturedListings that point to active Listings",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7cca440b2c884a2b07b30eec88fb3345",
+            "name": "Get Homepages Listings Featured Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}",
+            "description": "Retrieves a FeaturedListing by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "f06e5a4d994b687a0ae3c7b09ba91351",
+            "name": "Get Homepages Listings Featured Listing Picker",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}\/picker",
+            "description": "Retrieves a set of FeaturedListingPicker objects associated to a FeaturedListing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7c50d7882adc58a070b7ea2750f2f043",
+            "name": "Get Homepages Listings Featured Listing Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}\/listing",
+            "description": "Retrieves a set of Listing objects associated to a FeaturedListing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "78807d9512526df5a38af5bbf8af0ccf",
+            "name": "Get Listings Listing Images Listing Image",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images\/{listing_image_id}",
+            "description": "Retrieves a ListingImage by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_image_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7ea8a627f87895effde17c3f80e55071",
+            "name": "Delete Listings Listing Images Listing Image",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images\/{listing_image_id}",
+            "description": "Deletes a listing image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_image_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "aadfabfe38c1a2adaa8e9d3884a5e635",
+            "name": "Post Listings Listing Images",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images",
+            "description": "Upload a new listing image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "image",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "4c8fb3353dce77d45138c47abbc5d929",
+            "name": "Get Listings Listing Images",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images",
+            "description": "Retrieves a set of ListingImage objects associated to a Listing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "18b67218cfcccc3e782393c96aae4611",
+            "name": "Get Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
+            "description": "Retrieves a Listing by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "97c76ec7b1a5a31319cd0a58f39dacc3",
+            "name": "Put Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
+            "description": "Updates a Listing",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "quantity",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "materials",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "renew",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_section_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "b8e261e7eb95e881242b636008fcd324",
+            "name": "Delete Listings Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
+            "description": "Deletes a Listing",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "6b2f4abb4d8870a14912d682e9952d76",
+            "name": "Get Listings Listing Favored By",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/favored-by",
+            "description": "Retrieves a set of FavoriteListing objects associated to a Listing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "12587c433d12076117b8a1e29e5cfaf0",
+            "name": "Get Listings Listing Shipping Info",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/shipping\/info",
+            "description": "Retrieves a set of ShippingInfo objects associated to a Listing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "010fa2d7534c82792b3e17bd031e24db",
+            "name": "Post Listings Listing Shipping Info",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/shipping\/info",
+            "description": "Creates a new ShippingInfo.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "origin_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "primary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "region_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "9f7bad44e917b8fab3215f8f0b9aff65",
+            "name": "Get Listings Listing Payments",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/payments",
+            "description": "Retrieves a set of ListingPayment objects associated to a Listing.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "78973a8bfbe6df954bf7efdc61de3c04",
+            "name": "Get Listings Active",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/active",
+            "description": "Finds all active Listing",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "keywords",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_on",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_order",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "min_price",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_price",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "color",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "color_accuracy",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "materials",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "category",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "18f920d8d8a1d0dee4470bfe1202d29f",
+            "name": "Get Shops Shop Listings Active",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/active",
+            "description": "Finds all active Listings associated with a Shop",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "keywords",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_on",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_order",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "min_price",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_price",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "color",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "color_accuracy",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "materials",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "category",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "200194764b9a8b65bba085375417f607",
+            "name": "Post Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings",
+            "description": "Creates a new Listing",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "quantity",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "materials",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_section_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "0404093de8efbd9ea666cf65118d35a5",
+            "name": "Get Orders Order",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/orders\/{order_id}",
+            "description": "Retrieves a Order by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "order_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "b042741b9d8fa538edbc7228d26efca6",
+            "name": "Get Orders Order Receipts",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/orders\/{order_id}\/receipts",
+            "description": "Retrieves a set of Receipt objects associated to a Order.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "order_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "19f4203596b34b8208ef1c7afe4aba18",
+            "name": "Get Receipts Receipt",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}",
+            "description": "Retrieves a Receipt by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "receipt_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "f2c9e8d349739e13036c801fbfb5508f",
+            "name": "Put Receipts Receipt",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}",
+            "description": "Updates a Receipt",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "receipt_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "was_paid",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "was_shipped",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "message_from_seller",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "message_from_buyer",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "receipt_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "3b3f3e840b815d2c4843356edf6a9360",
+            "name": "Get Receipts Receipt Transactions",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}\/transactions",
+            "description": "Retrieves a set of Transaction objects associated to a Receipt.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "receipt_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "066f7c000564eaf156f8e263b05f8ca5",
+            "name": "Get Users User Recommended Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings",
+            "description": "Get recommended listings for an authenticated member. The number of listings returned may not match the specified limit if there is no activity from recommended shops.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excluded_listing_ids",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "618763eda483e45537becdd9c4711a7b",
+            "name": "Post Users User Recommended Listings Rejects Listing S",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings\/rejects\/{listing_ids}",
+            "description": "Registers rejections of recommended listings. Affects future recommended listings.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_ids",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5f5ec7e18efa4682e3d033434e26cb97",
+            "name": "Post Users User Recommended Listings Views Listing S",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings\/views\/{listing_ids}",
+            "description": "Register viewings of recommended listings. Affects future recommended listings.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_ids",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "0b0a022790512f545b8870a328bfbb0c",
+            "name": "Get Regions Region",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/regions\/{region_id}",
+            "description": "Retrieves a Region by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "region_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "4ea247a912c693ac9713adf2d8644af4",
+            "name": "Get Regions",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/regions",
+            "description": "Finds all Region.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "6fd4f39600524f6c6ea3e13f1c79350d",
+            "name": "Get Shipping Info Shipping Info",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
+            "description": "Retrieves a ShippingInfo by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_info_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ec72b866b902a6a4b694811bc15b1f98",
+            "name": "Put Shipping Info Shipping Info",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
+            "description": "Updates a ShippingInfo with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "origin_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "primary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "region_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shipping_info_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5348aa6d34ac297495e5298278a9ebbc",
+            "name": "Delete Shipping Info Shipping Info",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
+            "description": "Deletes the ShippingInfo with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_info_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "52a33feec901d954af5fce81739a0f4c",
+            "name": "Get Shipping Templates Entries Shipping Template Entry",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
+            "description": "Retrieves a ShippingTemplateEntry by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_entry_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "e065c9a0170bb3228e2fca0a08e50fc5",
+            "name": "Put Shipping Templates Entries Shipping Template Entry",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
+            "description": "Updates a ShippingTemplateEntry",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "destination_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "primary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shipping_template_entry_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "8d804826cda6ab387171ab357e127c59",
+            "name": "Delete Shipping Templates Entries Shipping Template Entry",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
+            "description": "Deletes a ShippingTemplateEntry",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_entry_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "46c407ece39e4aa01d4bfd11752c7815",
+            "name": "Post Shipping Templates Entries",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries",
+            "description": "Creates a new ShippingTemplateEntry",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "primary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_region_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "90e2f9025eb517d32afc89456d426aee",
+            "name": "Get Shipping Templates Shipping Template",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
+            "description": "Retrieves a ShippingTemplate by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7811ccaa5d94ce61786724ee9f7c46f4",
+            "name": "Delete Shipping Templates Shipping Template",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
+            "description": "Deletes the ShippingTemplate with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "64c520baa33d5bda15db824cb6cbc968",
+            "name": "Put Shipping Templates Shipping Template",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
+            "description": "Updates a ShippingTemplate",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "origin_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7716f5397f4ea9313834a78143022777",
+            "name": "Get Shipping Templates Shipping Template Entries",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}\/entries",
+            "description": "Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shipping_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "3dbee9eefeeb44762f9e38edfcc2df7d",
+            "name": "Post Shipping Templates",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates",
+            "description": "Creates a new ShippingTemplate",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "origin_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "primary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_cost",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "destination_region_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "9b0f18c7600c269518fcb909081921d4",
+            "name": "Get Shops Shop",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}",
+            "description": "Retrieves a Shop by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "03a30ddb45417c02b99cb7bc9a40b136",
+            "name": "Put Shops Shop",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}",
+            "description": "Updates a Shop",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "announcement",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "is_refusing_alchemy",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "alchemy_message",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sale_message",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "policy_welcome",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "policy_payment",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "policy_shipping",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "policy_refunds",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "policy_additional",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ce1a31f5d1b2daadf5f066ad5dad6bc8",
+            "name": "Get Shops Shop Receipts",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/receipts",
+            "description": "Retrieves a set of Receipt objects associated to a Shop.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5441de02100eb53431c6e2ab48525770",
+            "name": "Get Shops Shop Transactions",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/transactions",
+            "description": "Retrieves a set of Transaction objects associated to a Shop.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "8be484596f662992debeb7a4439a2562",
+            "name": "Get Shops Shop Sections",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/sections",
+            "description": "Retrieves a set of ShopSection objects associated to a Shop.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "36099a3605a2a8d17c4e651890cfc0c1",
+            "name": "Get Shops",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops",
+            "description": "Finds all Shops. If there is a keywords parameter, finds shops with shop_name starting with keywords.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_name",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "9d6a21f6f1fe6ccdd260fc326de8c220",
+            "name": "Get Shops Shop Listings Featured",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/featured",
+            "description": "Retrieves Listings associated to a Shop that are featured",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "623125bccad6f143d48740b68da3ac26",
+            "name": "Get Shops Shop Listings Inactive",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/inactive",
+            "description": "Retrieves Listings associated to a Shop that are inactive",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ec5cb2ade4282204e9a8ebe5d560b69f",
+            "name": "Get Shops Shop Listings Expired",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/expired",
+            "description": "Retrieves Listings associated to a Shop that are expired",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "61b3ee471d75d596cc9af23e1454aa67",
+            "name": "Get Shops Shop Listings Inactive Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/inactive\/{listing_id}",
+            "description": "Retrieves a Listing associated to a Shop that is inactive",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "18b5efc46a1094f6cbdce377072601c7",
+            "name": "Get Shops Shop Listings Expired Listing",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/expired\/{listing_id}",
+            "description": "Retrieves a Listing associated to a Shop that is inactive",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "31fd267340389f681802fea8fb5f47f9",
+            "name": "Post Shops Shop Appearance Banner",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/appearance\/banner",
+            "description": "Upload a new shop banner image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "image",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "abb5e9d77f0e846254a12ada1b9df04e",
+            "name": "Delete Shops Shop Appearance Banner Shop Banner",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/appearance\/banner\/{shop_banner_id}",
+            "description": "Deletes a shop banner image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_banner_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "453e3db67c352d415f952e7bd0a7cbcc",
+            "name": "Get Sections Shop Section",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
+            "description": "Retrieves a ShopSection by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_section_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "13a6a70cc55bc4b2e0b0805bfe87c70a",
+            "name": "Put Sections Shop Section",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
+            "description": "Updates a ShopSection with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "rank",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shop_section_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "8e11f0ee76e170bde44ee54df61956b5",
+            "name": "Delete Sections Shop Section",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
+            "description": "Deletes the ShopSection with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "shop_section_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "217e4abc2fdd5952a54d1c29d078de89",
+            "name": "Post Sections",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections",
+            "description": "Creates a new ShopSection.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "292d688203c3b6446615175af7c956d5",
+            "name": "Get Categories Tag",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}",
+            "description": "Retrieves a top-level Category by tag.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "tag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "7bf23013d93b7a6e12340d2c9a8c0e01",
+            "name": "Get Categories Tag Subtag",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}\/{subtag}",
+            "description": "Retrieves a second-level Category by tag and subtag.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "subtag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "989104860afc08642691b6b0e05eb39b",
+            "name": "Get Categories Tag Subtag Subsubtag",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}\/{subtag}\/{subsubtag}",
+            "description": "Retrieves a third-level Category by tag, subtag and subsubtag.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "subsubtag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "subtag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "75f70b2cded3e23f97d16a0c83301e0c",
+            "name": "Get Taxonomy Categories",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories",
+            "description": "Retrieves all top-level Categories.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "a4bdf8aa60bd390370e8f5bc8e908ff2",
+            "name": "Get Taxonomy Categories Tag",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories\/{tag}",
+            "description": "Retrieves children of a top-level Category by tag.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "tag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "99928f3dd1f0a4e83dce6b7133ae12de",
+            "name": "Get Taxonomy Categories Tag Subtag",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories\/{tag}\/{subtag}",
+            "description": "Retrieves children of a second-level Category by tag and subtag.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "subtag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tag",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "24e02cc46918640b385ea0d2bdda5bad",
+            "name": "Get Taxonomy Tags",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/tags",
+            "description": "Retrieves all related tags for the given tag set.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "eb3c39b4b658c07ad447cf26845b67ba",
+            "name": "Get Taxonomy Tags Tags",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/tags\/{tags}",
+            "description": "Retrieves all related tags for the given tag set.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "tags",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "81a45e8005104117e14282ca6cba440b",
+            "name": "Get Transactions Transaction",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/transactions\/{transaction_id}",
+            "description": "Retrieves a Transaction by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "transaction_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "a26a6859dbf1a2543eaca4afbf26b5fc",
+            "name": "Get Treasuries Treasury",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/treasuries\/{treasury_id}",
+            "description": "Get a Treasury",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "treasury_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "d8d00dc621166dec7e2dd4e20e3a7ed7",
+            "name": "Get Treasuries",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/treasuries",
+            "description": "Search Treasuries or else List all Treasuries",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "keywords",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_on",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_order",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maturity",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "detail_level",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "adbd36ce62b1b369850171338bd810c0",
+            "name": "Get Users User Treasuries",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/treasuries",
+            "description": "Get a user's Treasuries",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_on",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_order",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maturity",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "detail_level",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "fc2640cf57fc77c131bb438eeaf7832c",
+            "name": "Get Users User",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}",
+            "description": "Retrieves a User by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "6e63a9aa3fe08302cb5254f0eedaee89",
+            "name": "Get Users User Shops",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/shops",
+            "description": "Retrieves a set of Shop objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "0640a2a75c7655060e31f0278a7acdf3",
+            "name": "Get Users User Favored By",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favored-by",
+            "description": "Retrieves a set of FavoriteUser objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "a071ac3f35ef12575b7ea175e121b762",
+            "name": "Get Users User Feedback As Subject",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-subject",
+            "description": "Retrieves a set of Feedback objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "4529b0531e09079a9dee5eb653e80e5f",
+            "name": "Get Users User Feedback As Author",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-author",
+            "description": "Retrieves a set of Feedback objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "c585960ffef15660814c5a6fe7bd1d12",
+            "name": "Get Users User Feedback As Buyer",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-buyer",
+            "description": "Retrieves a set of Feedback objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "bbb82e8cf8fc82ddc71a2ff58cd13635",
+            "name": "Get Users User Feedback As Seller",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-seller",
+            "description": "Retrieves a set of Feedback objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "8d8c701fee5d95d5b416d8eb5b840052",
+            "name": "Get Users User Orders",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/orders",
+            "description": "Retrieves a set of Order objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5729b1cc2de4b2d78cc2dac16f67b2d1",
+            "name": "Get Users User Receipts",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/receipts",
+            "description": "Retrieves a set of Receipt objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "04743030a17018d1cbc27e48389e1f73",
+            "name": "Get Users User Transactions",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/transactions",
+            "description": "Retrieves a set of Transaction objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "8d5e56639c8db6e90c8f64a5afd6f9d4",
+            "name": "Get Users User Charges",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/charges",
+            "description": "Retrieves a set of BillCharge objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "bc6c0fa588e3f18c5b81c45c0ce2870a",
+            "name": "Get Users User Payments",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/payments",
+            "description": "Retrieves a set of BillPayment objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "51c28925f0adbf551836daffa9f59118",
+            "name": "Get Users User Shipping Templates",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/shipping\/templates",
+            "description": "Retrieves a set of ShippingTemplate objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "2b7eedcc46fe9a41d9c4bffbfc3f07a7",
+            "name": "Get Users User Payments Templates",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/payments\/templates",
+            "description": "Retrieves a set of PaymentTemplate objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "9c7a35d90909f2996bd0e4e0e01177e5",
+            "name": "Get Users User Addresses",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses",
+            "description": "Retrieves a set of UserAddress objects associated to a User.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "e44ae6f8100a667bbb000ca62566b81d",
+            "name": "Post Users User Addresses",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses",
+            "description": "Creates a new UserAddress.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "second_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "zip",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "338b57ab9d2642fcd1270d8f3c9807b7",
+            "name": "Get Payments Templates Payment Template",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates\/{payment_template_id}",
+            "description": "Retrieves a PaymentTemplate by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "payment_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "1b0c0fd42a031c173a7b992174d82e17",
+            "name": "Put Payments Templates Payment Template",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates\/{payment_template_id}",
+            "description": "Updates a PaymentTemplate",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "allow_check",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_mo",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_other",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_paypal",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "paypal_email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "second_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "zip",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "payment_template_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5fc00210a15b48c6369823003d448b82",
+            "name": "Post Payments Templates",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates",
+            "description": "Creates a new PaymentTemplate",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "allow_check",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_mo",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_other",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_paypal",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "paypal_email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "second_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "zip",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "cac7769343e703694358b8509d539f8a",
+            "name": "Get Payments Listing Payment",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/{listing_payment_id}",
+            "description": "Retrieves a ListingPayment by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "listing_payment_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "a75e143443ba71686fe9fc4f7822dc80",
+            "name": "Post Users User Avatar",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/avatar",
+            "description": "Upload a new user avatar image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "src",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "image",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "5bff696ff3fca9f7dcd7a593fcd5a1e4",
+            "name": "Get Users User Avatar Src",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/avatar\/src",
+            "description": "Get avatar image source",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "21c051c300c90c4c352c98150ce8619d",
+            "name": "Get Users User Addresses User Address",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
+            "description": "Retrieves a UserAddress by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_address_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "fb02355b402250d7b80b07175b159f49",
+            "name": "Put Users User Addresses User Address",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
+            "description": "Updates a UserAddress with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "second_line",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "zip",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_address_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "336d2da04032659e6b65b47578af5c8d",
+            "name": "Delete Users User Addresses User Address",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
+            "description": "Deletes the UserAddress with the given id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_address_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "f2e4b7f7e78a77352c70878e25471e27",
+            "name": "Get Featured Users",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/featured\/users",
+            "description": "Finds all FeaturedUser.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "6dfa52c194642ba8a02bcecd41e6de2a",
+            "name": "Get Featured Users Featured User",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/featured\/users\/{featured_user_id}",
+            "description": "Retrieves a FeaturedUser by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "featured_user_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ea91acebd51e9031667df9567a80aac0",
+            "name": "Get",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/",
+            "description": "Get a list of all methods available.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "366ab5316417a9b983bb2d131174f5e1",
+            "name": "Get Server Epoch",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/server\/epoch",
+            "description": "Get server time, in epoch seconds notation.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "902b3fa2ca367cc1ffa5269449e72eda",
+            "name": "Get Server Ping",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/server\/ping",
+            "description": "Check that the server is alive.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "41a602f235bbddd13a3a15277b8ed36b",
+            "name": "Get Interesting Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/interesting",
+            "description": "Collects the list of interesting listings",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        },
+        {
+            "id": "204cac5b99117b89525a7d158eb6fcb0",
+            "name": "Get Trending Listings",
+            "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/trending",
+            "description": "Collects the list of listings used to generate the trending listing page.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "rawModeData": ""
+        }
+    ]
+}
