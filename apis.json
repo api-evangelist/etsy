@@ -1,0 +1,147 @@
+{
+    "name": "Etsy",
+    "description": "Find handmade, vintage, and unique goods that express who you are.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/192-etsy.jpg",
+    "tags": [
+        "api lifeycle",
+        "api provider",
+        "children",
+        "crochet",
+        "dolls and miniatures",
+        "furniture",
+        "geekery",
+        "general data",
+        "glass",
+        "have api",
+        "holidays",
+        "housewares",
+        "jewelry",
+        "knitting",
+        "marketplaces",
+        "needlecraft",
+        "paper goods",
+        "patterns",
+        "pedestal",
+        "pets",
+        "plants and edibles",
+        "quilts",
+        "relative data",
+        "streams",
+        "supplies",
+        "toys",
+        "vintage",
+        "weddings",
+        "woodworking"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/etsy\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Etsy",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/192-etsy.jpg",
+            "humanURL": "http:\/\/etsy.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/etsy.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "API.json - Authoritative",
+            "url": "http:\/\/apis.io\/apisdef\/etsy.json"
+        },
+        {
+            "type": "Application Gallery",
+            "url": "https:\/\/www.etsy.com\/apps\/"
+        },
+        {
+            "type": "Base",
+            "url": "https:\/\/openapi.etsy.com\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/www.etsy.com\/blog\/en\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/blog.etsy.com\/en\/feed\/"
+        },
+        {
+            "type": "Copyright",
+            "url": "https:\/\/www.etsy.com\/help\/article\/482\/?ref=ftr"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/etsy"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/etsy"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/www.etsy.com\/developers\/"
+        },
+        {
+            "type": "Email",
+            "url": "enaffiliates@etsy.com"
+        },
+        {
+            "type": "Email",
+            "url": "selleraffiliate@etsy.com"
+        },
+        {
+            "type": "Email",
+            "url": "developer@etsy.com"
+        },
+        {
+            "type": "Email",
+            "url": "legal@etsy.com"
+        },
+        {
+            "type": "Email",
+            "url": "dpo@etsy.com"
+        },
+        {
+            "type": "Email",
+            "url": "dispute-resolution@etsy.com"
+        },
+        {
+            "type": "Forums",
+            "url": "https:\/\/www.etsy.com\/developers\/discussion"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/etsy"
+        },
+        {
+            "type": "Privacy",
+            "url": "https:\/\/www.etsy.com\/help\/article\/480\/?ref=ftr"
+        },
+        {
+            "type": "Terms Of Service",
+            "url": "https:\/\/www.etsy.com\/help\/article\/479\/?ref=ftr"
+        },
+        {
+            "type": "Transparency Report",
+            "url": "http:\/\/blog.etsy.com\/news\/files\/2015\/07\/Etsy_TransparencyReport_2014.pdf"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/Etsy"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/etsy.com"
+        }
+    ]
+}
