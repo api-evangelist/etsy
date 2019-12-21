@@ -1,5 +1,5 @@
 {
-    "id": "9ad0d42a5cfa302509382aa41c8c0d8f",
+    "id": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
     "name": "Etsy",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "719d46c3a844d4ec09647942f0505434",
+            "id": "d175ffc58b7a9a3d5bb1463db3fab33d",
             "name": "Get Countries Country",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/countries\/{country_id}",
             "description": "Retrieves a Country by id.",
@@ -37,11 +37,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "aa915697f1455f7621d0395abdc032b0",
+            "id": "15999f4c12575b844c72921831a7d352",
             "name": "Get Countries",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/countries",
             "description": "Finds all Country.",
@@ -60,11 +60,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "0aeda90ce1ce398c7d0e7e2926a9683f",
+            "id": "b7021eebace199a51550eaa8ad59e2f8",
             "name": "Get Users User Favorites Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings",
             "description": "Finds all favorite listings for a user",
@@ -105,11 +105,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "0149d3fb6cd235cf5877ca87cce85f7d",
+            "id": "b6e4e1125fc32c315106711a3cafbd0c",
             "name": "Get Users User Favorites Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
             "description": "Finds a favorite listing for a user",
@@ -143,11 +143,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "110c2c66d90a44a0ed9eb33e5b1fe7c5",
+            "id": "ce686d375ff1a5b641a64500d3da4157",
             "name": "Post Users User Favorites Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
             "description": "Creates a new favorite listing for a user",
@@ -181,11 +181,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "ffbcfdbf7b3d18066304a79c8397da92",
+            "id": "d760656de90302658cb3665d4f779ce4",
             "name": "Delete Users User Favorites Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/listings\/{listing_id}",
             "description": "Delete a favorite listing for a user",
@@ -219,11 +219,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "edfac68e8222aeb94009c980a48e87d1",
+            "id": "f1184416d515c83474cd640a6e2086e5",
             "name": "Get Users User Favorites Users",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users",
             "description": "Finds all favorite users for a user",
@@ -264,11 +264,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "25cc5cf07197f18eac202c30bd57d64d",
+            "id": "83df773ffefbd0146ac994d4e1e2a43c",
             "name": "Get Users User Favorites Users Target User",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
             "description": "Finds a favorite user for a user",
@@ -302,11 +302,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "6eb4d52940cf0ead09108fc31abc42ba",
+            "id": "a8429e58c7a42ecbc4d66c22084c95ca",
             "name": "Post Users User Favorites Users Target User",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
             "description": "Creates a new favorite listing for a user",
@@ -354,11 +354,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "678fd555470df30c747604b8106775fb",
+            "id": "60e5e1dc28827a49c870c6ff14ca64a3",
             "name": "Delete Users User Favorites Users Target User",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favorites\/users\/{target_user_id}",
             "description": "Delete a favorite listing for a user",
@@ -392,11 +392,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "84405995c3e53016c5e55103b4214306",
+            "id": "e72743b1817850c35fcfa7ff8460f367",
             "name": "Get Homepages Pickers",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/",
             "description": "Finds all FeaturedListingPicker in scope active.",
@@ -430,11 +430,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "4b63024f7ed72fb6ef7365797fd30191",
+            "id": "e3548b822fa3336bd5f9ee9befccee8d",
             "name": "Get Homepages Pickers Featured Listing Picker",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}",
             "description": "Retrieves a FeaturedListingPicker by id.",
@@ -461,11 +461,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "757d29aa7beade68ea66ad32057c8720",
+            "id": "5eb635c9477e75e9a57e8ada9534933e",
             "name": "Get Homepages Pickers Featured Listing Picker Featured",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/featured",
             "description": "Retrieves a set of FeaturedListing objects associated to a FeaturedListingPicker.",
@@ -506,11 +506,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "19af46bfee9525b1886b0e8e2f901398",
+            "id": "4ec6b8973316e91fe9bb7a62fad5b84d",
             "name": "Get Homepages Pickers Featured Listing Picker Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/listings",
             "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker.",
@@ -551,11 +551,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "a63b260389feb47f758eb894fee1dc1c",
+            "id": "7ca023fcf56917e9d198b9f12f397fca",
             "name": "Get Homepages Pickers Featured Listing Picker Listings Active",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/pickers\/{featured_listing_picker_id}\/listings\/active",
             "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker in scope active.",
@@ -596,11 +596,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "41fd3d9c3f466855bf03fd3b7c51ba66",
+            "id": "f9c6a8a8147a49c7f40c9e8d3eda8620",
             "name": "Get Homepages Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/",
             "description": "Finds all FeaturedListings regardless of Listing state",
@@ -634,11 +634,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "df4dba7f340d463e5b6b230b1a07e0c2",
+            "id": "f7a8ac6891ced895ab1dbf47ecdf0346",
             "name": "Get Homepages Listings Active",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/active",
             "description": "Finds all FeaturedListings that point to active Listings",
@@ -672,11 +672,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7cca440b2c884a2b07b30eec88fb3345",
+            "id": "c1570ff65a0e17286e78e80a20d22017",
             "name": "Get Homepages Listings Featured Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}",
             "description": "Retrieves a FeaturedListing by id.",
@@ -703,11 +703,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "f06e5a4d994b687a0ae3c7b09ba91351",
+            "id": "7535bf2a626467083780285c18ee42c7",
             "name": "Get Homepages Listings Featured Listing Picker",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}\/picker",
             "description": "Retrieves a set of FeaturedListingPicker objects associated to a FeaturedListing.",
@@ -734,11 +734,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7c50d7882adc58a070b7ea2750f2f043",
+            "id": "c558e95bf2a5e8e4a92d2a214de45522",
             "name": "Get Homepages Listings Featured Listing Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/homepages\/listings\/{featured_listing_id}\/listing",
             "description": "Retrieves a set of Listing objects associated to a FeaturedListing.",
@@ -765,11 +765,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "78807d9512526df5a38af5bbf8af0ccf",
+            "id": "5c98ff8038561b69cfb6ca5ceb70969c",
             "name": "Get Listings Listing Images Listing Image",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images\/{listing_image_id}",
             "description": "Retrieves a ListingImage by id.",
@@ -803,11 +803,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7ea8a627f87895effde17c3f80e55071",
+            "id": "efb3c148426f62780c229293d04ffa88",
             "name": "Delete Listings Listing Images Listing Image",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images\/{listing_image_id}",
             "description": "Deletes a listing image",
@@ -841,11 +841,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "aadfabfe38c1a2adaa8e9d3884a5e635",
+            "id": "aca6eb041fe5bffc38e2001bcc4f6dff",
             "name": "Post Listings Listing Images",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images",
             "description": "Upload a new listing image",
@@ -879,11 +879,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "4c8fb3353dce77d45138c47abbc5d929",
+            "id": "f5133ff06764af689efd08110f6251e5",
             "name": "Get Listings Listing Images",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/images",
             "description": "Retrieves a set of ListingImage objects associated to a Listing.",
@@ -910,11 +910,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "18b67218cfcccc3e782393c96aae4611",
+            "id": "1fb2d171cf8ccb30ac8782ebcb9ff13e",
             "name": "Get Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
             "description": "Retrieves a Listing by id.",
@@ -941,11 +941,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "97c76ec7b1a5a31319cd0a58f39dacc3",
+            "id": "4b88b8b101e9fbad742aec89814dda13",
             "name": "Put Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
             "description": "Updates a Listing",
@@ -1042,11 +1042,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "b8e261e7eb95e881242b636008fcd324",
+            "id": "a1cb0d02b1ace8cb06c15029724dc54c",
             "name": "Delete Listings Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}",
             "description": "Deletes a Listing",
@@ -1073,11 +1073,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "6b2f4abb4d8870a14912d682e9952d76",
+            "id": "a7107aae7cec4e64b7d22e72b505bfd4",
             "name": "Get Listings Listing Favored By",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/favored-by",
             "description": "Retrieves a set of FavoriteListing objects associated to a Listing.",
@@ -1118,11 +1118,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "12587c433d12076117b8a1e29e5cfaf0",
+            "id": "41e9248709b1d136b5764afc548cd7da",
             "name": "Get Listings Listing Shipping Info",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/shipping\/info",
             "description": "Retrieves a set of ShippingInfo objects associated to a Listing.",
@@ -1163,11 +1163,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "010fa2d7534c82792b3e17bd031e24db",
+            "id": "ac7ff2ca1fab2bf8bac4ef8877caaaca",
             "name": "Post Listings Listing Shipping Info",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/shipping\/info",
             "description": "Creates a new ShippingInfo.",
@@ -1229,11 +1229,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "9f7bad44e917b8fab3215f8f0b9aff65",
+            "id": "82ce68b63c970db0603adb6c40dbed1b",
             "name": "Get Listings Listing Payments",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/{listing_id}\/payments",
             "description": "Retrieves a set of ListingPayment objects associated to a Listing.",
@@ -1260,11 +1260,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "78973a8bfbe6df954bf7efdc61de3c04",
+            "id": "0058aea216e422da1c0fdfa6bf6f69d9",
             "name": "Get Listings Active",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/active",
             "description": "Finds all active Listing",
@@ -1368,11 +1368,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "18f920d8d8a1d0dee4470bfe1202d29f",
+            "id": "7581a83f031fc60fdf3d4c7568adb081",
             "name": "Get Shops Shop Listings Active",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/active",
             "description": "Finds all active Listings associated with a Shop",
@@ -1483,11 +1483,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "200194764b9a8b65bba085375417f607",
+            "id": "d69617dcde616f15c3d75e665da7ef45",
             "name": "Post Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings",
             "description": "Creates a new Listing",
@@ -1563,11 +1563,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "0404093de8efbd9ea666cf65118d35a5",
+            "id": "b0316aaefe2ca4c7980691c874deee10",
             "name": "Get Orders Order",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/orders\/{order_id}",
             "description": "Retrieves a Order by id.",
@@ -1594,11 +1594,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "b042741b9d8fa538edbc7228d26efca6",
+            "id": "b2d88da82adab857f69db0088a3d0c37",
             "name": "Get Orders Order Receipts",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/orders\/{order_id}\/receipts",
             "description": "Retrieves a set of Receipt objects associated to a Order.",
@@ -1639,11 +1639,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "19f4203596b34b8208ef1c7afe4aba18",
+            "id": "08a711b5cb8782af7950061faf094797",
             "name": "Get Receipts Receipt",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}",
             "description": "Retrieves a Receipt by id.",
@@ -1670,11 +1670,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "f2c9e8d349739e13036c801fbfb5508f",
+            "id": "a38519beff5223442319e0ce1574e068",
             "name": "Put Receipts Receipt",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}",
             "description": "Updates a Receipt",
@@ -1736,11 +1736,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "3b3f3e840b815d2c4843356edf6a9360",
+            "id": "e207778de5b8c999971e2a641ee3da63",
             "name": "Get Receipts Receipt Transactions",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/receipts\/{receipt_id}\/transactions",
             "description": "Retrieves a set of Transaction objects associated to a Receipt.",
@@ -1781,11 +1781,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "066f7c000564eaf156f8e263b05f8ca5",
+            "id": "3573953aac5bf9b0adfad2ee2964e5fa",
             "name": "Get Users User Recommended Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings",
             "description": "Get recommended listings for an authenticated member. The number of listings returned may not match the specified limit if there is no activity from recommended shops.",
@@ -1826,11 +1826,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "618763eda483e45537becdd9c4711a7b",
+            "id": "f4e0f6e7d3d71d1153843b755395f980",
             "name": "Post Users User Recommended Listings Rejects Listing S",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings\/rejects\/{listing_ids}",
             "description": "Registers rejections of recommended listings. Affects future recommended listings.",
@@ -1864,11 +1864,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5f5ec7e18efa4682e3d033434e26cb97",
+            "id": "17c498f075b037712333857d17b1a7a2",
             "name": "Post Users User Recommended Listings Views Listing S",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/recommended_listings\/views\/{listing_ids}",
             "description": "Register viewings of recommended listings. Affects future recommended listings.",
@@ -1902,11 +1902,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "0b0a022790512f545b8870a328bfbb0c",
+            "id": "552c35382cf414815446b75fa25bb414",
             "name": "Get Regions Region",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/regions\/{region_id}",
             "description": "Retrieves a Region by id.",
@@ -1933,11 +1933,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "4ea247a912c693ac9713adf2d8644af4",
+            "id": "e1a80abea47c19227614bfcc65cf2922",
             "name": "Get Regions",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/regions",
             "description": "Finds all Region.",
@@ -1956,11 +1956,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "6fd4f39600524f6c6ea3e13f1c79350d",
+            "id": "fe5325c9e6bad713e5c8c4b87fcdebfe",
             "name": "Get Shipping Info Shipping Info",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
             "description": "Retrieves a ShippingInfo by id.",
@@ -1987,11 +1987,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "ec72b866b902a6a4b694811bc15b1f98",
+            "id": "652b32e3d5eb1cd7749bd3c14b953ae5",
             "name": "Put Shipping Info Shipping Info",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
             "description": "Updates a ShippingInfo with the given id.",
@@ -2060,11 +2060,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5348aa6d34ac297495e5298278a9ebbc",
+            "id": "22a7a4dd701b34b324fac522bb929681",
             "name": "Delete Shipping Info Shipping Info",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/info\/{shipping_info_id}",
             "description": "Deletes the ShippingInfo with the given id.",
@@ -2091,11 +2091,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "52a33feec901d954af5fce81739a0f4c",
+            "id": "0dbb4cbf13630331013257d47f4e7421",
             "name": "Get Shipping Templates Entries Shipping Template Entry",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
             "description": "Retrieves a ShippingTemplateEntry by id.",
@@ -2122,11 +2122,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "e065c9a0170bb3228e2fca0a08e50fc5",
+            "id": "99c40e7e5eb9b410439ec2eb77f9a7a9",
             "name": "Put Shipping Templates Entries Shipping Template Entry",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
             "description": "Updates a ShippingTemplateEntry",
@@ -2174,11 +2174,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "8d804826cda6ab387171ab357e127c59",
+            "id": "d520b5aa0793213ab56ad3b92b0a6c21",
             "name": "Delete Shipping Templates Entries Shipping Template Entry",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries\/{shipping_template_entry_id}",
             "description": "Deletes a ShippingTemplateEntry",
@@ -2205,11 +2205,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "46c407ece39e4aa01d4bfd11752c7815",
+            "id": "3bc5bf5e10cb3f9c9b388e9f2b611f0d",
             "name": "Post Shipping Templates Entries",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/entries",
             "description": "Creates a new ShippingTemplateEntry",
@@ -2264,11 +2264,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "90e2f9025eb517d32afc89456d426aee",
+            "id": "d01b59e5ba52b469d82301557009ee52",
             "name": "Get Shipping Templates Shipping Template",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
             "description": "Retrieves a ShippingTemplate by id.",
@@ -2295,11 +2295,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7811ccaa5d94ce61786724ee9f7c46f4",
+            "id": "3c69fe486e4d6b8cb43acebf54cd56c1",
             "name": "Delete Shipping Templates Shipping Template",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
             "description": "Deletes the ShippingTemplate with the given id.",
@@ -2326,11 +2326,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "64c520baa33d5bda15db824cb6cbc968",
+            "id": "5ec2ae82726837f941eca05a73eddd1f",
             "name": "Put Shipping Templates Shipping Template",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}",
             "description": "Updates a ShippingTemplate",
@@ -2371,11 +2371,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7716f5397f4ea9313834a78143022777",
+            "id": "cb198942752db74457bcd3349d5c258c",
             "name": "Get Shipping Templates Shipping Template Entries",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates\/{shipping_template_id}\/entries",
             "description": "Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.",
@@ -2416,11 +2416,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "3dbee9eefeeb44762f9e38edfcc2df7d",
+            "id": "b8868db8c13aae36f5ed46406fd7e14f",
             "name": "Post Shipping Templates",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shipping\/templates",
             "description": "Creates a new ShippingTemplate",
@@ -2482,11 +2482,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "9b0f18c7600c269518fcb909081921d4",
+            "id": "a6214387ba1de000dc8565f4a1622400",
             "name": "Get Shops Shop",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}",
             "description": "Retrieves a Shop by id.",
@@ -2513,11 +2513,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "03a30ddb45417c02b99cb7bc9a40b136",
+            "id": "5fc24f140114a7db7503fd40fd248cac",
             "name": "Put Shops Shop",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}",
             "description": "Updates a Shop",
@@ -2614,11 +2614,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "ce1a31f5d1b2daadf5f066ad5dad6bc8",
+            "id": "958fa87cafe80433a3a2439f03c7089c",
             "name": "Get Shops Shop Receipts",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/receipts",
             "description": "Retrieves a set of Receipt objects associated to a Shop.",
@@ -2659,11 +2659,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5441de02100eb53431c6e2ab48525770",
+            "id": "1b09504f7b8c4a5cd224bab5976dcce4",
             "name": "Get Shops Shop Transactions",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/transactions",
             "description": "Retrieves a set of Transaction objects associated to a Shop.",
@@ -2704,11 +2704,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "8be484596f662992debeb7a4439a2562",
+            "id": "34fc7328a39e2592304c3fcf9c4c9202",
             "name": "Get Shops Shop Sections",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/sections",
             "description": "Retrieves a set of ShopSection objects associated to a Shop.",
@@ -2735,11 +2735,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "36099a3605a2a8d17c4e651890cfc0c1",
+            "id": "05467b296bbe512a04ddbb457caae4d3",
             "name": "Get Shops",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops",
             "description": "Finds all Shops. If there is a keywords parameter, finds shops with shop_name starting with keywords.",
@@ -2780,11 +2780,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "9d6a21f6f1fe6ccdd260fc326de8c220",
+            "id": "b7514318234de46f89239d6b0cf0a571",
             "name": "Get Shops Shop Listings Featured",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/featured",
             "description": "Retrieves Listings associated to a Shop that are featured",
@@ -2825,11 +2825,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "623125bccad6f143d48740b68da3ac26",
+            "id": "d8f2039976d58b46eb4912f2928e5bd2",
             "name": "Get Shops Shop Listings Inactive",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/inactive",
             "description": "Retrieves Listings associated to a Shop that are inactive",
@@ -2870,11 +2870,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "ec5cb2ade4282204e9a8ebe5d560b69f",
+            "id": "e162457717691b64decc656c7a3e5997",
             "name": "Get Shops Shop Listings Expired",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/expired",
             "description": "Retrieves Listings associated to a Shop that are expired",
@@ -2915,11 +2915,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "61b3ee471d75d596cc9af23e1454aa67",
+            "id": "b47b9f46aa77e55d9ec460fbbdfef8bf",
             "name": "Get Shops Shop Listings Inactive Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/inactive\/{listing_id}",
             "description": "Retrieves a Listing associated to a Shop that is inactive",
@@ -2953,11 +2953,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "18b5efc46a1094f6cbdce377072601c7",
+            "id": "97bef3d866f8981b4218c225c9ec6912",
             "name": "Get Shops Shop Listings Expired Listing",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/listings\/expired\/{listing_id}",
             "description": "Retrieves a Listing associated to a Shop that is inactive",
@@ -2991,11 +2991,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "31fd267340389f681802fea8fb5f47f9",
+            "id": "32ab3a06bba33533a30ffb35d34efbf0",
             "name": "Post Shops Shop Appearance Banner",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/appearance\/banner",
             "description": "Upload a new shop banner image",
@@ -3029,11 +3029,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "abb5e9d77f0e846254a12ada1b9df04e",
+            "id": "a9a043f57c1a0ea1f8e7dd5e1c469288",
             "name": "Delete Shops Shop Appearance Banner Shop Banner",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/shops\/{shop_id}\/appearance\/banner\/{shop_banner_id}",
             "description": "Deletes a shop banner image",
@@ -3067,11 +3067,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "453e3db67c352d415f952e7bd0a7cbcc",
+            "id": "7a1d5f3483c8ba385d898792526b2041",
             "name": "Get Sections Shop Section",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
             "description": "Retrieves a ShopSection by id.",
@@ -3098,11 +3098,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "13a6a70cc55bc4b2e0b0805bfe87c70a",
+            "id": "31c3e910cd8d44167221c088db4c498b",
             "name": "Put Sections Shop Section",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
             "description": "Updates a ShopSection with the given id.",
@@ -3150,11 +3150,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "8e11f0ee76e170bde44ee54df61956b5",
+            "id": "e8adb05fd2a2ab98796fec520c2c9163",
             "name": "Delete Sections Shop Section",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections\/{shop_section_id}",
             "description": "Deletes the ShopSection with the given id.",
@@ -3181,11 +3181,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "217e4abc2fdd5952a54d1c29d078de89",
+            "id": "1395bb3fe1a1574db84f5a6c126de53e",
             "name": "Post Sections",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/sections",
             "description": "Creates a new ShopSection.",
@@ -3219,11 +3219,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "292d688203c3b6446615175af7c956d5",
+            "id": "354e86a56f2036bf8956561522505092",
             "name": "Get Categories Tag",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}",
             "description": "Retrieves a top-level Category by tag.",
@@ -3250,11 +3250,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "7bf23013d93b7a6e12340d2c9a8c0e01",
+            "id": "a312286e0597b68c31f6ffa50b6b602e",
             "name": "Get Categories Tag Subtag",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}\/{subtag}",
             "description": "Retrieves a second-level Category by tag and subtag.",
@@ -3288,11 +3288,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "989104860afc08642691b6b0e05eb39b",
+            "id": "ad7ca54627b92bf8700793e88be4a089",
             "name": "Get Categories Tag Subtag Subsubtag",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/categories\/{tag}\/{subtag}\/{subsubtag}",
             "description": "Retrieves a third-level Category by tag, subtag and subsubtag.",
@@ -3333,11 +3333,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "75f70b2cded3e23f97d16a0c83301e0c",
+            "id": "657a4847782637c58ed51649f2ea8270",
             "name": "Get Taxonomy Categories",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories",
             "description": "Retrieves all top-level Categories.",
@@ -3356,11 +3356,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "a4bdf8aa60bd390370e8f5bc8e908ff2",
+            "id": "3c45a5863efe41d7d1342b0f66a7821b",
             "name": "Get Taxonomy Categories Tag",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories\/{tag}",
             "description": "Retrieves children of a top-level Category by tag.",
@@ -3387,11 +3387,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "99928f3dd1f0a4e83dce6b7133ae12de",
+            "id": "3aeeca5825cdfbc839c369922f0ed797",
             "name": "Get Taxonomy Categories Tag Subtag",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/categories\/{tag}\/{subtag}",
             "description": "Retrieves children of a second-level Category by tag and subtag.",
@@ -3425,11 +3425,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "24e02cc46918640b385ea0d2bdda5bad",
+            "id": "2d4d810eb8c387f58592c06574b04b9c",
             "name": "Get Taxonomy Tags",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/tags",
             "description": "Retrieves all related tags for the given tag set.",
@@ -3456,11 +3456,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "eb3c39b4b658c07ad447cf26845b67ba",
+            "id": "796223fea9ff34e5188555724f5575c4",
             "name": "Get Taxonomy Tags Tags",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/taxonomy\/tags\/{tags}",
             "description": "Retrieves all related tags for the given tag set.",
@@ -3494,11 +3494,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "81a45e8005104117e14282ca6cba440b",
+            "id": "86fa6fc7d98c1835d6bc4ed31b776359",
             "name": "Get Transactions Transaction",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/transactions\/{transaction_id}",
             "description": "Retrieves a Transaction by id.",
@@ -3525,11 +3525,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "a26a6859dbf1a2543eaca4afbf26b5fc",
+            "id": "6ab63cc6c33b2854e9520cefe4e861de",
             "name": "Get Treasuries Treasury",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/treasuries\/{treasury_id}",
             "description": "Get a Treasury",
@@ -3556,11 +3556,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "d8d00dc621166dec7e2dd4e20e3a7ed7",
+            "id": "4265a91c6e4ac8e7ba4fb9a7e9b2deb8",
             "name": "Get Treasuries",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/treasuries",
             "description": "Search Treasuries or else List all Treasuries",
@@ -3629,11 +3629,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "adbd36ce62b1b369850171338bd810c0",
+            "id": "66fa5c24605236bebb641ffbd5da043b",
             "name": "Get Users User Treasuries",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/treasuries",
             "description": "Get a user's Treasuries",
@@ -3702,11 +3702,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "fc2640cf57fc77c131bb438eeaf7832c",
+            "id": "94f77a2ad7ca4a36c08f3126ad78f08c",
             "name": "Get Users User",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}",
             "description": "Retrieves a User by id.",
@@ -3733,11 +3733,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "6e63a9aa3fe08302cb5254f0eedaee89",
+            "id": "aa5c893e3ae61459f9930bfd8942505a",
             "name": "Get Users User Shops",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/shops",
             "description": "Retrieves a set of Shop objects associated to a User.",
@@ -3778,11 +3778,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "0640a2a75c7655060e31f0278a7acdf3",
+            "id": "3f9930be599a50e42a7c3d44ec3bb44f",
             "name": "Get Users User Favored By",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/favored-by",
             "description": "Retrieves a set of FavoriteUser objects associated to a User.",
@@ -3823,11 +3823,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "a071ac3f35ef12575b7ea175e121b762",
+            "id": "ccfd5068b905416fed9b0925c1ab38cb",
             "name": "Get Users User Feedback As Subject",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-subject",
             "description": "Retrieves a set of Feedback objects associated to a User.",
@@ -3868,11 +3868,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "4529b0531e09079a9dee5eb653e80e5f",
+            "id": "5408c38383338aa54d36af4229689b94",
             "name": "Get Users User Feedback As Author",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-author",
             "description": "Retrieves a set of Feedback objects associated to a User.",
@@ -3913,11 +3913,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "c585960ffef15660814c5a6fe7bd1d12",
+            "id": "5db3f7bf1de5878679e9e157f9d20631",
             "name": "Get Users User Feedback As Buyer",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-buyer",
             "description": "Retrieves a set of Feedback objects associated to a User.",
@@ -3958,11 +3958,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "bbb82e8cf8fc82ddc71a2ff58cd13635",
+            "id": "fb0ec4a0bdd7b7af50ad620ac83f3b31",
             "name": "Get Users User Feedback As Seller",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/feedback\/as-seller",
             "description": "Retrieves a set of Feedback objects associated to a User.",
@@ -4003,11 +4003,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "8d8c701fee5d95d5b416d8eb5b840052",
+            "id": "0667962896655633891227dc4c651c04",
             "name": "Get Users User Orders",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/orders",
             "description": "Retrieves a set of Order objects associated to a User.",
@@ -4048,11 +4048,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5729b1cc2de4b2d78cc2dac16f67b2d1",
+            "id": "79f1e6c8a1852c8e79a073836401ec91",
             "name": "Get Users User Receipts",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/receipts",
             "description": "Retrieves a set of Receipt objects associated to a User.",
@@ -4093,11 +4093,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "04743030a17018d1cbc27e48389e1f73",
+            "id": "c28db2a860aee9051c1f74993d7e4c07",
             "name": "Get Users User Transactions",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/transactions",
             "description": "Retrieves a set of Transaction objects associated to a User.",
@@ -4138,11 +4138,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "8d5e56639c8db6e90c8f64a5afd6f9d4",
+            "id": "b95f7710b2f9ae7f8ab32e7a627c6c5a",
             "name": "Get Users User Charges",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/charges",
             "description": "Retrieves a set of BillCharge objects associated to a User.",
@@ -4183,11 +4183,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "bc6c0fa588e3f18c5b81c45c0ce2870a",
+            "id": "9d9a7f72f030ccd5058a564a06a89cc7",
             "name": "Get Users User Payments",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/payments",
             "description": "Retrieves a set of BillPayment objects associated to a User.",
@@ -4228,11 +4228,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "51c28925f0adbf551836daffa9f59118",
+            "id": "e71eab38fdece717027844f0e37ed1c2",
             "name": "Get Users User Shipping Templates",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/shipping\/templates",
             "description": "Retrieves a set of ShippingTemplate objects associated to a User.",
@@ -4273,11 +4273,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "2b7eedcc46fe9a41d9c4bffbfc3f07a7",
+            "id": "a1f16677cea6cddb605a34e6526a07da",
             "name": "Get Users User Payments Templates",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/payments\/templates",
             "description": "Retrieves a set of PaymentTemplate objects associated to a User.",
@@ -4304,11 +4304,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "9c7a35d90909f2996bd0e4e0e01177e5",
+            "id": "45f88e281604f375cc16969825781d5f",
             "name": "Get Users User Addresses",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses",
             "description": "Retrieves a set of UserAddress objects associated to a User.",
@@ -4349,11 +4349,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "e44ae6f8100a667bbb000ca62566b81d",
+            "id": "1c74584e22885f80a11ebbe7801a6704",
             "name": "Post Users User Addresses",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses",
             "description": "Creates a new UserAddress.",
@@ -4429,11 +4429,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "338b57ab9d2642fcd1270d8f3c9807b7",
+            "id": "482d3bd5939034e5c2a05b9a144e9237",
             "name": "Get Payments Templates Payment Template",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates\/{payment_template_id}",
             "description": "Retrieves a PaymentTemplate by id.",
@@ -4460,11 +4460,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "1b0c0fd42a031c173a7b992174d82e17",
+            "id": "ff94d2a04a30b5e9b7ca8739facc15cf",
             "name": "Put Payments Templates Payment Template",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates\/{payment_template_id}",
             "description": "Updates a PaymentTemplate",
@@ -4575,11 +4575,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5fc00210a15b48c6369823003d448b82",
+            "id": "382622f2b07c928fee52e9dd0bf37855",
             "name": "Post Payments Templates",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/templates",
             "description": "Creates a new PaymentTemplate",
@@ -4683,11 +4683,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "cac7769343e703694358b8509d539f8a",
+            "id": "8c7471635efa32b1fa2e78890bee5b8d",
             "name": "Get Payments Listing Payment",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/payments\/{listing_payment_id}",
             "description": "Retrieves a ListingPayment by id.",
@@ -4714,11 +4714,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "a75e143443ba71686fe9fc4f7822dc80",
+            "id": "95120e34be52a668453c99cf641667c1",
             "name": "Post Users User Avatar",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/avatar",
             "description": "Upload a new user avatar image",
@@ -4759,11 +4759,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "5bff696ff3fca9f7dcd7a593fcd5a1e4",
+            "id": "d50bf1967810dda67d8302a2fbd7fe5c",
             "name": "Get Users User Avatar Src",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/avatar\/src",
             "description": "Get avatar image source",
@@ -4790,11 +4790,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "21c051c300c90c4c352c98150ce8619d",
+            "id": "27e1d5758262e066b87244f3075f384a",
             "name": "Get Users User Addresses User Address",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
             "description": "Retrieves a UserAddress by id.",
@@ -4828,11 +4828,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "fb02355b402250d7b80b07175b159f49",
+            "id": "1dc4f5a882136b4efa8aa08688fe28d0",
             "name": "Put Users User Addresses User Address",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
             "description": "Updates a UserAddress with the given id.",
@@ -4915,11 +4915,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "336d2da04032659e6b65b47578af5c8d",
+            "id": "ae59ead46b338c9ea8a6bc3c0db4669f",
             "name": "Delete Users User Addresses User Address",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/users\/{user_id}\/addresses\/{user_address_id}",
             "description": "Deletes the UserAddress with the given id.",
@@ -4953,11 +4953,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "f2e4b7f7e78a77352c70878e25471e27",
+            "id": "17413569c775d94eeacba0b65a449279",
             "name": "Get Featured Users",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/featured\/users",
             "description": "Finds all FeaturedUser.",
@@ -4991,11 +4991,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "6dfa52c194642ba8a02bcecd41e6de2a",
+            "id": "c5216bc586d84f2960ed624885a9c2ff",
             "name": "Get Featured Users Featured User",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/featured\/users\/{featured_user_id}",
             "description": "Retrieves a FeaturedUser by id.",
@@ -5022,11 +5022,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "ea91acebd51e9031667df9567a80aac0",
+            "id": "5c74084a5d1465fccef4e7b20bb47968",
             "name": "Get",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/",
             "description": "Get a list of all methods available.",
@@ -5045,11 +5045,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "366ab5316417a9b983bb2d131174f5e1",
+            "id": "27b5a2c57157b1c30a93db48492e8884",
             "name": "Get Server Epoch",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/server\/epoch",
             "description": "Get server time, in epoch seconds notation.",
@@ -5068,11 +5068,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "902b3fa2ca367cc1ffa5269449e72eda",
+            "id": "9a609d4b8b9bf5812722bd133b88d303",
             "name": "Get Server Ping",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/server\/ping",
             "description": "Check that the server is alive.",
@@ -5091,11 +5091,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "41a602f235bbddd13a3a15277b8ed36b",
+            "id": "b3e6c04a26f2dfe44885fb17919d8481",
             "name": "Get Interesting Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/interesting",
             "description": "Collects the list of interesting listings",
@@ -5114,11 +5114,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         },
         {
-            "id": "204cac5b99117b89525a7d158eb6fcb0",
+            "id": "c406fbf51b9f9b14183451e1fa77950d",
             "name": "Get Trending Listings",
             "url": "httpsopenapi.etsy.com\/v2\/private\/\/listings\/trending",
             "description": "Collects the list of listings used to generate the trending listing page.",
@@ -5137,7 +5137,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "9ad0d42a5cfa302509382aa41c8c0d8f",
+            "collectionId": "c59a8fcdd75d15be47b5ee93a0e7c7d9",
             "rawModeData": ""
         }
     ]
