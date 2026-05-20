@@ -7,4 +7,9 @@ description: 'Fortune 1000 company ETSY. Public API documentation has not yet be
 created: '2026-05-05'
 modified: '2026-05-05'
 specificationVersion: '0.19'
+common:
+  - type: GitHubOrganization
+    url: https://github.com/etsy
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/etsy
 apis: []
