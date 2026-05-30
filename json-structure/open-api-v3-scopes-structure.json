@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-scopes-structure.json",
+  "name": "Scopes",
+  "description": "A list of scopes allowed for the token.",
+  "type": "object",
+  "properties": {}
+}

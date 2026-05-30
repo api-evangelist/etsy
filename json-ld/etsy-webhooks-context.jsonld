@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "etsy": "https://developers.etsy.com/vocab/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "WebhookEnvelope": "etsy:WebhookEnvelope",
+    "eventType": {
+      "@id": "etsy:event_type",
+      "@type": "xsd:string"
+    },
+    "resourceUrl": {
+      "@id": "etsy:resource_url",
+      "@type": "@id"
+    },
+    "shopId": {
+      "@id": "etsy:shop_id",
+      "@type": "xsd:string"
+    }
+  }
+}

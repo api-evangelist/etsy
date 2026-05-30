@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-listing-personalization-structure.json",
+  "name": "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization",
+  "description": "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization schema from Etsy Open API v3",
+  "type": "object",
+  "properties": {
+    "personalization_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion"
+      }
+    }
+  }
+}

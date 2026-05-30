@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-transaction-variations-structure.json",
+  "name": "TransactionVariations",
+  "description": "A list of variations chosen by the buyer during checkout.",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "int32",
+      "description": "The variation property ID.",
+      "example": 1
+    },
+    "value_id": {
+      "type": "int32",
+      "description": "The ID of the variation value selected.",
+      "nullable": true,
+      "example": 1
+    },
+    "formatted_name": {
+      "type": "string",
+      "description": "Formatted name of the variation.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "formatted_value": {
+      "type": "string",
+      "description": "Value of the variation entered by the buyer.",
+      "example": "example string"
+    },
+    "question_id": {
+      "type": "int32",
+      "description": "[Personalization only] The ID of the original personalization question.",
+      "nullable": true,
+      "example": 1
+    }
+  }
+}

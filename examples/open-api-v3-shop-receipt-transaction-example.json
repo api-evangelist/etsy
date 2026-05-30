@@ -1,0 +1,38 @@
+{
+  "transaction_id": 345678901,
+  "title": "Handmade Ceramic Mug \u2014 Stoneware",
+  "description": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.",
+  "seller_user_id": 456789,
+  "buyer_user_id": 456789,
+  "create_timestamp": 1758153645,
+  "created_timestamp": 1758153645,
+  "paid_timestamp": 1758153645,
+  "shipped_timestamp": 1758153645,
+  "quantity": 1,
+  "listing_image_id": 1,
+  "receipt_id": 234567890,
+  "is_digital": true,
+  "file_data": "example string",
+  "listing_id": 123456789,
+  "transaction_type": "example string",
+  "product_id": 567890123,
+  "sku": "SKU-12345",
+  "price": "example",
+  "shipping_cost": "example",
+  "variations": [
+    {},
+    {}
+  ],
+  "product_data": [
+    {},
+    {}
+  ],
+  "shipping_profile_id": 1,
+  "min_processing_days": 1,
+  "max_processing_days": 1,
+  "shipping_method": "example string",
+  "shipping_upgrade": "example string",
+  "expected_ship_date": 1,
+  "buyer_coupon": 1.0,
+  "shop_coupon": 1.0
+}

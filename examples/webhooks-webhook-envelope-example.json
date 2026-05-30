@@ -1,0 +1,5 @@
+{
+  "event_type": "order.paid",
+  "resource_url": "https://www.etsy.com/listing/123456789",
+  "shop_id": "123456"
+}

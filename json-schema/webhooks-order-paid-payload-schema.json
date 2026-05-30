@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrderPaidPayload",
+  "description": "OrderPaidPayload schema from Etsy Open API v3 Webhooks",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/webhooks-order-paid-payload-schema.json",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/WebhookEnvelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "order.paid"
+          ]
+        },
+        "resource_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Receipt resource URL. Per the documented example, this points\nat `https://api.etsy.com/v3/application/shops/{shop_id}/receipts/{receipt_id}`."
+        }
+      }
+    }
+  ],
+  "example": {
+    "event_type": "order.paid",
+    "resource_url": "https://api.etsy.com/v3/application/shops/{YOUR_SHOP_ID}/receipts/{RECEIPT_ID}",
+    "shop_id": "{YOUR_SHOP_ID}"
+  }
+}

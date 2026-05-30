@@ -1,0 +1,13 @@
+{
+  "shipping_profile_destination_id": 1,
+  "shipping_profile_id": 1,
+  "origin_country_iso": "US",
+  "destination_country_iso": "US",
+  "destination_region": "eu",
+  "primary_cost": "example",
+  "secondary_cost": "example",
+  "shipping_carrier_id": 1,
+  "mail_class": "example string",
+  "min_delivery_days": 1,
+  "max_delivery_days": 1
+}

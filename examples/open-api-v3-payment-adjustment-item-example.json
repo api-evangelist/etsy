@@ -1,0 +1,11 @@
+{
+  "payment_adjustment_id": 1,
+  "payment_adjustment_item_id": 1,
+  "adjustment_type": "example string",
+  "amount": 2500,
+  "shop_amount": 2500,
+  "transaction_id": 345678901,
+  "bill_payment_id": 1,
+  "created_timestamp": 1758153645,
+  "updated_timestamp": 1758153645
+}

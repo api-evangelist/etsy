@@ -1,0 +1,179 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Review
+  description: 'Etsy Open API v3 — Review. 2 operations. Lead operation: Get Reviews by Listing. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Review
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-review
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Review business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: listings-reviews
+          path: /v3/application/listings/{listing_id}/reviews
+          operations:
+            - name: getReviewsByListing
+              method: GET
+              description: Get Reviews by Listing
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: min_created
+                  in: query
+                  type: integer
+                  required: false
+                  description: The earliest unix timestamp for when a record was created.
+                - name: max_created
+                  in: query
+                  type: integer
+                  required: false
+                  description: The latest unix timestamp for when a record was created.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-reviews
+          path: /v3/application/shops/{shop_id}/reviews
+          operations:
+            - name: getReviewsByShop
+              method: GET
+              description: Get Reviews by Shop
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: min_created
+                  in: query
+                  type: integer
+                  required: false
+                  description: The earliest unix timestamp for when a record was created.
+                - name: max_created
+                  in: query
+                  type: integer
+                  required: false
+                  description: The latest unix timestamp for when a record was created.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-review-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Review. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/listings/{listing_id}/reviews
+          name: listings-reviews
+          description: REST surface for listings-reviews.
+          operations:
+            - method: GET
+              name: getReviewsByListing
+              description: Get Reviews by Listing
+              call: open-api-v3-review.getReviewsByListing
+              with:
+                listing_id: rest.listing_id
+                limit: rest.limit
+                offset: rest.offset
+                min_created: rest.min_created
+                max_created: rest.max_created
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/reviews
+          name: shops-reviews
+          description: REST surface for shops-reviews.
+          operations:
+            - method: GET
+              name: getReviewsByShop
+              description: Get Reviews by Shop
+              call: open-api-v3-review.getReviewsByShop
+              with:
+                shop_id: rest.shop_id
+                limit: rest.limit
+                offset: rest.offset
+                min_created: rest.min_created
+                max_created: rest.max_created
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-review-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Review. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-reviews-listing
+          description: Get Reviews by Listing
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-review.getReviewsByListing
+          with:
+            listing_id: tools.listing_id
+            limit: tools.limit
+            offset: tools.offset
+            min_created: tools.min_created
+            max_created: tools.max_created
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-reviews-shop
+          description: Get Reviews by Shop
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-review.getReviewsByShop
+          with:
+            shop_id: tools.shop_id
+            limit: tools.limit
+            offset: tools.offset
+            min_created: tools.min_created
+            max_created: tools.max_created
+          outputParameters:
+            - type: object
+              mapping: $.

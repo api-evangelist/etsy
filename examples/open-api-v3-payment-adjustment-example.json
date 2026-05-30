@@ -1,0 +1,20 @@
+{
+  "payment_adjustment_id": 1,
+  "payment_id": 1,
+  "status": "example string",
+  "is_success": true,
+  "user_id": 456789,
+  "reason_code": "example string",
+  "total_adjustment_amount": 2500,
+  "shop_total_adjustment_amount": 2500,
+  "buyer_total_adjustment_amount": 2500,
+  "total_fee_adjustment_amount": 2500,
+  "create_timestamp": 1758153645,
+  "created_timestamp": 1758153645,
+  "update_timestamp": 1758153645,
+  "updated_timestamp": 1758153645,
+  "payment_adjustment_items": [
+    {},
+    {}
+  ]
+}

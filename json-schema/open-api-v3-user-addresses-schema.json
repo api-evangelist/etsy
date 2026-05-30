@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UserAddresses",
+  "description": "Represents several UserAddress records.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-user-addresses-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of UserAddress records being returned.",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "An array of UserAddress resources.",
+      "items": {
+        "description": "An array of UserAddress resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserAddress"
+          }
+        ]
+      }
+    }
+  }
+}

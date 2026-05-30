@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingReview",
+  "description": "A listing review record left by a User.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-review-schema.json",
+  "type": "object",
+  "properties": {
+    "shop_id": {
+      "type": "integer",
+      "description": "The shop's numeric ID.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456
+    },
+    "listing_id": {
+      "type": "integer",
+      "description": "The ID of the ShopListing that the TransactionReview belongs to.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456789
+    },
+    "rating": {
+      "type": "integer",
+      "description": "Rating value on scale from 1 to 5",
+      "minimum": 1,
+      "maximum": 5,
+      "example": 5
+    },
+    "review": {
+      "type": "string",
+      "description": "A message left by the author, explaining the feedback, if provided.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "language": {
+      "type": "string",
+      "description": "The language of the TransactionReview",
+      "example": "en-US"
+    },
+    "image_url_fullxfull": {
+      "type": "string",
+      "description": "The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer's privacy settings.",
+      "nullable": true,
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "create_timestamp": {
+      "type": "integer",
+      "description": "The date and time the TransactionReview was created in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The date and time the TransactionReview was created in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "update_timestamp": {
+      "type": "integer",
+      "description": "The date and time the TransactionReview was updated in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "updated_timestamp": {
+      "type": "integer",
+      "description": "The date and time the TransactionReview was updated in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    }
+  }
+}

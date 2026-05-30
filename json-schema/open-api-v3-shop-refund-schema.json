@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopRefund",
+  "description": "The refund record for a receipt.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-refund-schema.json",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "A number equal to the refund total.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The date & time of the refund, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason string given for the refund.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "note_from_issuer": {
+      "type": "string",
+      "description": "The note string created by the refund issuer.",
+      "nullable": true,
+      "example": "Thanks for your order! Shipping out tomorrow."
+    },
+    "status": {
+      "type": "string",
+      "description": "The status indication string for the refund.",
+      "nullable": true,
+      "example": "example string"
+    }
+  }
+}

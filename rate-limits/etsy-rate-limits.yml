@@ -1,0 +1,110 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Etsy
+providerId: etsy
+created: '2026-05-30'
+modified: '2026-05-30'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Marketplace
+  - Open API v3
+  - Throttling
+  - Quotas
+description: >-
+  Etsy Open API v3 publishes application-based rate limits applied at the
+  API key level for both public-auth and private-auth requests. Each
+  Application receives a per-second (QPS) allowance and a 24-hour
+  sliding-window per-day (QPD) allowance. The defaults documented in the
+  developer portal example are 10 requests per second and 10,000 requests
+  per day for new commercial apps; the publicly cited example in the rate
+  limits documentation shows higher allowances (QPS 150, QPD 100,000) for
+  apps that have been upgraded. Per-application limits can be raised by
+  emailing developer@etsy.com with the application description and
+  projected usage. Limits apply to every API key uniformly — there is no
+  separate sandbox/test-mode tier.
+sources:
+  - https://developers.etsy.com/documentation/essentials/rate-limits
+  - https://developers.etsy.com/documentation/essentials/requests
+  - https://www.etsy.com/developers/your-apps
+headers:
+  limitPerSecond: x-limit-per-second
+  remainingThisSecond: x-remaining-this-second
+  limitPerDay: x-limit-per-day
+  remainingToday: x-remaining-today
+  retryAfter: retry-after
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+limits:
+  - name: Per-Second Requests (Default Commercial App)
+    scope: key
+    metric: requests_per_second
+    limit: 10
+    timeFrame: second
+    notes: >-
+      Default QPS allowance for a newly approved commercial application
+      (Application tier). Visible in the Developer Portal under "Your Apps."
+  - name: Per-Day Requests (Default Commercial App)
+    scope: key
+    metric: requests_per_day
+    limit: 10000
+    timeFrame: day
+    notes: >-
+      Default 24-hour sliding-window quota for a newly approved commercial
+      application. Visible in the Developer Portal.
+  - name: Per-Second Requests (Documented Upgraded Example)
+    scope: key
+    metric: requests_per_second
+    limit: 150
+    timeFrame: second
+    notes: >-
+      Example QPS allowance shown in the Etsy rate limits documentation;
+      reflects an upgraded application that has requested higher capacity.
+  - name: Per-Day Requests (Documented Upgraded Example)
+    scope: key
+    metric: requests_per_day
+    limit: 100000
+    timeFrame: day
+    notes: >-
+      Example QPD allowance shown in the Etsy rate limits documentation;
+      reflects an upgraded application that has requested higher capacity.
+  - name: Per-Application Custom Limits
+    scope: key
+    metric: varies
+    limit: 'application-specific; visible in the Etsy Developer Portal'
+    notes: >-
+      Each Application has its own per-second and per-day limits set by
+      Etsy. Limit headers on responses (x-limit-per-second, x-limit-per-day)
+      reflect the actual numbers in force for the API key making the call.
+policies:
+  - name: HTTP 429 + Retry-After
+    description: >-
+      When either the per-second or per-day allowance is exhausted, Etsy
+      returns HTTP 429 with a retry-after header indicating how long to
+      wait before retrying. Clients MUST respect this header.
+  - name: Exponential Backoff
+    description: >-
+      Etsy recommends exponential backoff when 429s persist. Use the
+      retry-after value as a floor for the wait time.
+  - name: Pre-emptive Throttling via Headers
+    description: >-
+      Every 2xx response includes x-limit-per-second, x-remaining-this-second,
+      x-limit-per-day, and x-remaining-today. Clients can throttle before
+      hitting the limit by watching the remaining counters.
+  - name: Application-Scoped, Not User-Scoped
+    description: >-
+      Rate limits are applied at the API key level and shared across all
+      OAuth users of the application. There is no per-user uplift; OAuth
+      users consume the application's bucket.
+  - name: Limit Upgrades via Support
+    description: >-
+      Upgrades to higher per-second / per-day allowances are granted by
+      Etsy on request. Email developer@etsy.com with the application name,
+      a description of the integration, and the expected request volume.
+  - name: Single-Bucket Across Environments
+    description: >-
+      Etsy does not publish a sandbox or test-mode tier with relaxed
+      limits. Live production calls and development calls draw from the
+      same per-application bucket.

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User",
+  "description": "Represents a single user of the site",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-user-schema.json",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "integer",
+      "description": "The numeric ID of a user. This number is also a valid shop ID for the user's shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 456789
+    },
+    "primary_email": {
+      "type": "string",
+      "description": "An email address string for the user's primary email address. Access to this field is granted on a case by case basis for third-party integrations that require full access",
+      "format": "email",
+      "nullable": true,
+      "example": "seller@example.com"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "The user's first name.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "The user's last name.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug"
+    },
+    "image_url_75x75": {
+      "type": "string",
+      "description": "The user's avatar URL.",
+      "nullable": true,
+      "example": "https://www.etsy.com/listing/123456789"
+    }
+  }
+}

@@ -1,0 +1,498 @@
+# Etsy Open API v3 Spectral Ruleset
+#
+# Opinionated Spectral ruleset distilled from the Etsy Open API v3 OpenAPI
+# specification published at https://www.etsy.com/openapi/generated/oas/3.0.0.json.
+# It enforces the conventions Etsy already uses across its 74 documented
+# operations: kebab-case paths under /v3/application, camelCase operationIds,
+# snake_case query and schema properties, dual x-api-key + OAuth 2.0 security,
+# Title Case tags, and the cross-cutting documentation and example
+# requirements expected by the API Evangelist toolchain (Microcks, etc.).
+#
+# Save as rules/etsy-rules.yml at the repo root.
+
+extends: spectral:oas
+
+rules:
+
+  # ── INFO / METADATA ──────────────────────────────────────────────────
+  info-title-etsy-prefix:
+    description: "info.title MUST start with 'Etsy' to match the published spec name."
+    severity: error
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Etsy( |$)'
+
+  info-description-required:
+    description: "info.description is required and SHOULD be at least 60 characters."
+    severity: warn
+    given: $.info
+    then:
+      - field: description
+        function: truthy
+      - field: description
+        function: length
+        functionOptions:
+          min: 60
+
+  info-version-required:
+    description: "info.version is required (Etsy publishes 3.0.0 today)."
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
+  info-license-required:
+    description: "Provide license info pointing at the Etsy API Terms of Use."
+    severity: warn
+    given: $.info
+    then:
+      field: license
+      function: truthy
+
+  info-contact-required:
+    description: "Provide contact info pointing at developers@etsy.com."
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  # ── OPENAPI VERSION ──────────────────────────────────────────────────
+  openapi-version-3:
+    description: "Spec MUST be OpenAPI 3.0.x (Etsy publishes 3.0.2)."
+    severity: error
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: '^3\.0\.[0-9]+$'
+
+  # ── SERVERS ──────────────────────────────────────────────────────────
+  servers-defined:
+    description: "Servers array MUST be defined."
+    severity: error
+    given: $
+    then:
+      field: servers
+      function: truthy
+
+  servers-https-only:
+    description: "All server URLs MUST use HTTPS."
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  servers-etsy-host:
+    description: "Server host MUST be openapi.etsy.com or api.etsy.com."
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://(openapi|api)\.etsy\.com'
+
+  servers-description-required:
+    description: "Each server entry SHOULD have a description."
+    severity: warn
+    given: $.servers[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── PATHS — NAMING CONVENTIONS ───────────────────────────────────────
+  paths-v3-application-prefix:
+    description: "Every path MUST live under /v3/application as published by Etsy."
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/v3/application(/|$)'
+
+  paths-kebab-case:
+    description: "Path segments MUST be lowercase kebab-case (alphanumerics + hyphen)."
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(/[a-z0-9-]+|/\{[a-z_]+\})+$'
+
+  paths-no-trailing-slash:
+    description: "Paths MUST NOT end with a trailing slash."
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '/$'
+
+  paths-no-query-string:
+    description: "Path keys MUST NOT contain query strings."
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '\?'
+
+  paths-path-param-snake-case:
+    description: "Path parameters MUST be snake_case (e.g. shop_id, listing_id)."
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '\{[a-z][a-z0-9_]*\}|^[^{]*$'
+
+  # ── OPERATIONS ───────────────────────────────────────────────────────
+  operation-operationId-required:
+    description: "Every operation MUST have an operationId."
+    severity: error
+    given: '$.paths.*[get,put,post,delete,patch,options,head]'
+    then:
+      field: operationId
+      function: truthy
+
+  operation-operationId-camel-case:
+    description: "operationId MUST be camelCase."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].operationId'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+
+  operation-summary-required:
+    description: "Every operation MUST have a summary."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head]'
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-etsy-prefix:
+    description: "Operation summary MUST be prefixed with 'Etsy '."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].summary'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Etsy '
+
+  operation-description-required:
+    description: "Every operation MUST have a description."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head]'
+    then:
+      field: description
+      function: truthy
+
+  operation-tags-required:
+    description: "Every operation MUST be tagged."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head]'
+    then:
+      field: tags
+      function: truthy
+
+  operation-x-microcks-required:
+    description: "Every operation SHOULD declare x-microcks-operation for mock-server compatibility."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head]'
+    then:
+      field: x-microcks-operation
+      function: truthy
+
+  # ── TAGS ─────────────────────────────────────────────────────────────
+  global-tags-defined:
+    description: "Global tags array MUST be defined at the document root."
+    severity: warn
+    given: $
+    then:
+      field: tags
+      function: truthy
+
+  global-tags-description-required:
+    description: "Each global tag SHOULD have a description."
+    severity: info
+    given: $.tags[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── PARAMETERS ───────────────────────────────────────────────────────
+  parameter-description-required:
+    description: "Every parameter MUST have a description."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].parameters[*]'
+    then:
+      field: description
+      function: truthy
+
+  parameter-name-snake-case:
+    description: "Parameter names MUST be snake_case (matches Etsy's published convention)."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].parameters[*].name'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$'
+
+  parameter-schema-required:
+    description: "Every parameter MUST have a schema with a type."
+    severity: error
+    given: '$.paths.*[get,put,post,delete,patch,options,head].parameters[*]'
+    then:
+      field: schema
+      function: truthy
+
+  parameter-pagination-limit-offset:
+    description: "Use 'limit' and 'offset' for pagination (Etsy's published convention)."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head].parameters[?(@.in=="query")].name'
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '^(page|page_size|per_page|cursor|after|before)$'
+
+  parameter-api-key-in-header:
+    description: "API keys MUST be carried in the x-api-key header, never in query params."
+    severity: error
+    given: '$.paths.*[get,put,post,delete,patch,options,head].parameters[?(@.in=="query")].name'
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '(?i)(api_?key|x_api_key)'
+
+  # ── REQUEST BODIES ───────────────────────────────────────────────────
+  request-body-description-required:
+    description: "Request bodies SHOULD have a description."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head].requestBody'
+    then:
+      field: description
+      function: truthy
+
+  request-body-content-type:
+    description: "Request bodies MUST declare application/json or application/x-www-form-urlencoded."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].requestBody.content'
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - application/json
+          - application/x-www-form-urlencoded
+          - multipart/form-data
+
+  # ── RESPONSES ────────────────────────────────────────────────────────
+  response-2xx-required:
+    description: "Every operation MUST define at least one 2xx response."
+    severity: error
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            '^2[0-9][0-9]$': {}
+          minProperties: 1
+
+  response-400-on-write:
+    description: "Write operations (POST/PUT/PATCH/DELETE) SHOULD document a 400 response."
+    severity: warn
+    given: '$.paths.*[post,put,patch,delete].responses'
+    then:
+      field: '400'
+      function: truthy
+
+  response-401-required:
+    description: "Every operation SHOULD document a 401 response (auth-gated API)."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses'
+    then:
+      field: '401'
+      function: truthy
+
+  response-403-required:
+    description: "Every operation SHOULD document a 403 response (scope-gated)."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses'
+    then:
+      field: '403'
+      function: truthy
+
+  response-404-on-resource:
+    description: "Operations with path parameters SHOULD document a 404 response."
+    severity: info
+    given: '$.paths[?(@property.match(/\{[a-z_]+\}/))][get,put,post,delete,patch].responses'
+    then:
+      field: '404'
+      function: truthy
+
+  response-500-required:
+    description: "Every operation SHOULD document a 500 response."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses'
+    then:
+      field: '500'
+      function: truthy
+
+  response-description-required:
+    description: "Every response MUST have a description."
+    severity: error
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses[*]'
+    then:
+      field: description
+      function: truthy
+
+  response-content-type:
+    description: "Response bodies MUST be application/json."
+    severity: warn
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses[*].content'
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - application/json
+
+  # ── SCHEMAS — PROPERTY NAMING ────────────────────────────────────────
+  schema-property-snake-case:
+    description: "Schema property names MUST be snake_case (Etsy's published convention)."
+    severity: warn
+    given: '$.components.schemas[*].properties[*]~'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$'
+
+  schema-type-required:
+    description: "Schemas MUST declare a type."
+    severity: warn
+    given: '$.components.schemas[*]'
+    then:
+      field: type
+      function: truthy
+
+  schema-id-naming:
+    description: "Identifier properties SHOULD follow {entity}_id naming."
+    severity: info
+    given: '$.components.schemas[*].properties[?(@.description && @property.match(/[Ii]dentifier/))]~'
+    then:
+      function: pattern
+      functionOptions:
+        match: '_id$|^id$'
+
+  # ── SECURITY ─────────────────────────────────────────────────────────
+  global-security-defined:
+    description: "Global security MUST be declared."
+    severity: error
+    given: $
+    then:
+      field: security
+      function: truthy
+
+  api-key-scheme-required:
+    description: "An api_key security scheme (x-api-key header) MUST be defined."
+    severity: error
+    given: '$.components.securitySchemes.api_key'
+    then:
+      function: truthy
+
+  api-key-header-name:
+    description: "The api_key scheme MUST use the x-api-key header."
+    severity: error
+    given: '$.components.securitySchemes.api_key'
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: '^x-api-key$'
+
+  oauth2-scheme-required:
+    description: "An oauth2 security scheme MUST be defined for user-scoped operations."
+    severity: warn
+    given: '$.components.securitySchemes.oauth2'
+    then:
+      function: truthy
+
+  oauth2-authorization-code-flow:
+    description: "OAuth2 MUST expose an authorizationCode flow."
+    severity: warn
+    given: '$.components.securitySchemes.oauth2.flows'
+    then:
+      field: authorizationCode
+      function: truthy
+
+  security-scheme-description-required:
+    description: "Each security scheme MUST be documented with a description."
+    severity: warn
+    given: '$.components.securitySchemes[*]'
+    then:
+      field: description
+      function: truthy
+
+  # ── HTTP METHOD CONVENTIONS ──────────────────────────────────────────
+  no-get-body:
+    description: "GET operations MUST NOT have a request body."
+    severity: error
+    given: '$.paths.*.get'
+    then:
+      field: requestBody
+      function: falsy
+
+  no-delete-body:
+    description: "DELETE operations SHOULD NOT have a request body."
+    severity: warn
+    given: '$.paths.*.delete'
+    then:
+      field: requestBody
+      function: falsy
+
+  post-put-request-body:
+    description: "POST and PUT operations SHOULD declare a request body."
+    severity: info
+    given: '$.paths.*[post,put]'
+    then:
+      field: requestBody
+      function: truthy
+
+  # ── GENERAL QUALITY ──────────────────────────────────────────────────
+  no-empty-descriptions:
+    description: "Descriptions MUST NOT be empty strings."
+    severity: warn
+    given: '$..description'
+    then:
+      function: length
+      functionOptions:
+        min: 1
+
+  deprecation-documented:
+    description: "Deprecated operations SHOULD document the replacement in description."
+    severity: info
+    given: '$.paths.*[?(@.deprecated==true)]'
+    then:
+      field: description
+      function: pattern
+      functionOptions:
+        match: '(?i)(deprecat|use instead|replac)'
+
+  examples-encouraged:
+    description: "Operations SHOULD include at least one example for their default 2xx response."
+    severity: info
+    given: '$.paths.*[get,put,post,delete,patch,options,head].responses["200","201","202","204"].content[*]'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          oneOf:
+            - required: [example]
+            - required: [examples]

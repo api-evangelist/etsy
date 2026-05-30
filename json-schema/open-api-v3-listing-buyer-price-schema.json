@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingBuyerPrice",
+  "description": "The buyer-facing price for a listing, including VAT, inclusive shipping (UK), and active promotions.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-buyer-price-schema.json",
+  "type": "object",
+  "properties": {
+    "base_price": {
+      "description": "The pre-discount listing price with VAT applied, excluding shipping. When a promotion is active, this is the price before the discount is applied.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "shipping_cost": {
+      "description": "The shipping cost to the buyer's country. Includes VAT where applicable. Null when shipping is free or unavailable \u2014 use is_free_shipping to distinguish.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "is_free_shipping": {
+      "type": "boolean",
+      "description": "Whether shipping is free to the buyer's country.",
+      "example": true
+    },
+    "original_price": {
+      "description": "The display price. For UK buyers, includes base + shipping (DMCC). For others, base price only.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "discounted_price": {
+      "description": "The sale price. For UK buyers, includes base + shipping. For others, base price only. Null if no active promotion.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "discount_amount": {
+      "description": "The discount amount as money (original_price - discounted_price). Null if no active promotion.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "discount_percentage": {
+      "type": "integer",
+      "description": "The discount percentage (e.g. 20 for 20% off). Null if no active promotion or if the promotion is a fixed-amount discount.",
+      "nullable": true,
+      "example": 1
+    },
+    "has_discount": {
+      "type": "boolean",
+      "description": "Whether an active promotion applies to this listing.",
+      "example": true
+    },
+    "discount_start_epoch": {
+      "type": "integer",
+      "description": "The start timestamp of the active promotion. Null if no active promotion.",
+      "nullable": true,
+      "example": 1758153645
+    },
+    "discount_end_epoch": {
+      "type": "integer",
+      "description": "The end timestamp of the active promotion. Null if no active promotion.",
+      "nullable": true,
+      "example": 1758153645
+    }
+  }
+}

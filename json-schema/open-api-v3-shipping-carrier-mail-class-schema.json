@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShippingCarrierMailClass",
+  "description": "A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shipping-carrier-mail-class-schema.json",
+  "type": "object",
+  "properties": {
+    "mail_class_key": {
+      "type": "string",
+      "description": "The unique identifier of this mail class.",
+      "example": "example string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of this mail class.",
+      "example": "Handmade Ceramic Mug"
+    }
+  }
+}

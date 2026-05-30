@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BuyerTaxonomyPropertyValue",
+  "description": "A property value for a specific product property, which may also employ a specific scale.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-buyer-taxonomy-property-value-schema.json",
+  "type": "object",
+  "properties": {
+    "value_id": {
+      "type": "integer",
+      "description": "The numeric ID of this property value.",
+      "format": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name string of this property value.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "scale_id": {
+      "type": "integer",
+      "description": "The numeric scale ID of the scale to which this property value belongs.",
+      "format": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "equal_to": {
+      "type": "array",
+      "description": "A list of numeric property value IDs this property value is equal to (if any).",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

@@ -1,15 +1,295 @@
 aid: etsy
 url: https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/apis.yml
-name: ETSY
+name: Etsy
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-description: 'Fortune 1000 company ETSY. Public API documentation has not yet been catalogued in the API Evangelist network.'
+description: >-
+  Etsy is a global marketplace for unique and creative handmade, vintage, and
+  craft-supply goods. The Etsy Open API v3 is a REST + OAuth 2.0 surface that
+  third-party developers, sellers, and integration partners use to manage
+  shops, listings, inventory, receipts, transactions, payments, ledger entries,
+  reviews, shipping profiles, processing profiles, production partners, return
+  policies, and seller/buyer taxonomy. Webhooks deliver order lifecycle events
+  (order.paid, order.canceled, order.shipped, order.delivered) to subscriber
+  endpoints. This profile catalogs the public API surface, machine-readable
+  artifacts, plans, rate limits, FinOps alignment, and Naftiko capabilities.
 created: '2026-05-05'
-modified: '2026-05-05'
+modified: '2026-05-30'
 specificationVersion: '0.19'
+tags:
+  - Marketplace
+  - Ecommerce
+  - Handmade
+  - Listings
+  - Orders
+  - Payments
+  - Reviews
+  - Shipping
+  - Taxonomy
+  - OAuth2
 common:
+  - type: Website
+    url: https://www.etsy.com
+  - type: DeveloperPortal
+    url: https://developers.etsy.com/
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
   - type: GitHubOrganization
     url: https://github.com/etsy
   - type: LinkedIn
     url: https://www.linkedin.com/company/etsy
-apis: []
+  - type: TwitterAccount
+    url: https://twitter.com/etsy
+  - type: StatusPage
+    url: https://www.etsystatus.com/
+  - type: TermsOfService
+    url: https://www.etsy.com/legal/api/terms
+  - type: PrivacyPolicy
+    url: https://www.etsy.com/legal/privacy
+  - type: SecurityPolicy
+    url: https://www.etsy.com/legal/api/terms
+  - type: Pricing
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Support
+    url: mailto:developers@etsy.com
+  - type: ChangeLog
+    url: https://developers.etsy.com/changelog
+  - type: CodeOfConduct
+    url: https://etsy.github.io/codeofconduct.html
+  - type: Plans
+    url: plans/etsy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/etsy-rate-limits.yml
+  - type: FinOps
+    url: finops/etsy-finops.yml
+  - type: Vocabulary
+    url: vocabulary/etsy-vocabulary.yml
+  - type: SpectralRules
+    url: rules/etsy-rules.yml
+  - type: Tools
+    title: Pinot MCP Server (Etsy fork)
+    url: https://github.com/etsy/mcp-pinot
+  - type: Tools
+    title: XCLogParser
+    url: https://github.com/etsy/XCLogParser
+  - type: Tools
+    title: Cartography
+    url: https://github.com/etsy/cartography
+apis:
+  - aid: etsy:open-api-v3
+    name: Etsy Open API v3
+    description: >-
+      The Etsy Open API v3 is the official REST + OAuth 2.0 surface used to
+      build applications against the Etsy marketplace. It focuses on three
+      primary use cases: listing management (create, update, and inventory
+      listings, plus images, files, videos, variations, translations,
+      personalization, and offerings), post-purchase order management
+      (receipts, transactions, payments, ledger entries, and reviews), and shop
+      management (shop sections, shipping profiles, processing profiles,
+      production partners, return policies, holiday preferences). The API also
+      exposes the buyer taxonomy and seller taxonomy that power Etsy category
+      navigation and listing classification. Authentication uses an x-api-key
+      header (your keystring) on every request, with OAuth 2.0 authorization
+      code + PKCE for user-scoped operations. The default base URL documented
+      in the OpenAPI spec is https://openapi.etsy.com; live production calls
+      also resolve at https://api.etsy.com/v3/application.
+    humanURL: https://developers.etsy.com/documentation
+    baseURL: https://openapi.etsy.com
+    tags:
+      - Open API v3
+      - Marketplace
+      - Listings
+      - Receipts
+      - Shop
+      - Taxonomy
+      - OAuth2
+    properties:
+      - type: Documentation
+        url: https://developers.etsy.com/documentation
+      - type: Reference
+        url: https://developers.etsy.com/documentation/reference
+      - type: Authentication
+        url: https://developers.etsy.com/documentation/essentials/authentication
+      - type: OAuth2
+        url: https://developers.etsy.com/documentation/essentials/oauth2
+      - type: RateLimits
+        url: https://developers.etsy.com/documentation/essentials/rate-limits
+      - type: Requests
+        url: https://developers.etsy.com/documentation/essentials/requests
+      - type: Migration
+        url: https://developers.etsy.com/documentation/migration/index
+      - type: OpenAPI
+        url: openapi/etsy-openapi-original.yml
+      - type: OpenAPI
+        title: Upstream OpenAPI JSON
+        url: https://www.etsy.com/openapi/generated/oas/3.0.0.json
+      - type: SourceCode
+        title: Open API repo
+        url: https://github.com/etsy/open-api
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-user.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-user-address.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-section.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-shipping-profile.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-processing-profiles.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-production-partner.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-return-policy.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-receipt.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-file.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-image.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-video.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-inventory.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-offering.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-product.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-translation.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-personalization.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-payment.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-ledger-entry.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-review.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-buyer-taxonomy.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-seller-taxonomy.yaml
+      - type: NaftikoCapability
+        url: capabilities/open-api-v3-other.yaml
+  - aid: etsy:webhooks
+    name: Etsy Open API v3 Webhooks
+    description: >-
+      AsyncAPI 2.6 description of Etsy's outbound webhook surface for the Open
+      API v3. Covers the four documented event types (order.paid,
+      order.canceled, order.shipped, order.delivered), the common webhook
+      envelope (event_type, resource_url, shop_id), the signing headers
+      (webhook-id, webhook-timestamp, webhook-signature), HMAC-SHA256 signature
+      verification procedure, and Etsy's documented retry schedule.
+    humanURL: https://developers.etsy.com/documentation/essentials/webhooks
+    tags:
+      - Webhooks
+      - Events
+      - AsyncAPI
+      - Order Lifecycle
+    properties:
+      - type: Documentation
+        url: https://developers.etsy.com/documentation/essentials/webhooks
+      - type: AsyncAPI
+        url: https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/asyncapi/etsy-webhooks-asyncapi.yml
+features:
+  - name: Listing Management
+    description: >-
+      Create, update, retrieve, deactivate, and delete shop listings;
+      manage listing images, videos, files, translations, personalization,
+      variation images, inventory, offerings, and products.
+  - name: Order & Receipt Management
+    description: >-
+      Read shop receipts, transactions, payments, and ledger entries; mark
+      receipts paid or shipped; create shipment tracking entries; manage
+      post-purchase order workflows.
+  - name: Shop Management
+    description: >-
+      Update shop properties, sections, shipping profiles, processing
+      profiles, production partners, return policies, and holiday
+      preferences.
+  - name: Taxonomy
+    description: >-
+      Browse the buyer taxonomy used for navigation and the seller taxonomy
+      used to classify listings and produce required and optional
+      properties for each category.
+  - name: Reviews
+    description: >-
+      Retrieve transaction-level and shop-level reviews left by buyers,
+      including rating, review text, language, and image URLs.
+  - name: Webhooks
+    description: >-
+      Subscribe an HTTPS endpoint to order.paid, order.canceled,
+      order.shipped, and order.delivered events; verify deliveries with
+      HMAC-SHA256 and the documented retry schedule.
+  - name: OAuth 2.0 Authentication
+    description: >-
+      Authorization Code + PKCE flow with refresh tokens for user-scoped
+      operations; per-request x-api-key header for every call.
+useCases:
+  - name: Inventory Sync
+    description: >-
+      Keep shop listings, prices, quantities, and product variations in
+      sync between Etsy and a seller's inventory management system.
+  - name: Multi-Channel Order Fulfillment
+    description: >-
+      Pull paid Etsy receipts into a fulfillment platform, generate
+      shipping labels, write tracking back to Etsy, and trigger seller
+      notifications.
+  - name: Shop Analytics
+    description: >-
+      Aggregate ledger entries, payments, and receipts to produce seller
+      revenue, fee, and payout reporting.
+  - name: Listing Automation
+    description: >-
+      Programmatically create and update listings from a product catalog,
+      including images, videos, variations, and personalization options.
+  - name: Customer Service
+    description: >-
+      Surface reviews and message-related receipt context to seller-side
+      customer service tooling.
+  - name: Shipping Integration
+    description: >-
+      Manage shop shipping profiles, attach tracking codes to fulfilled
+      receipts, and configure region- and weight-based shipping rules.
+integrations:
+  - name: QuickBooks
+    description: Sync Etsy sales, fees, and payouts into QuickBooks accounting.
+  - name: ShipStation
+    description: Pull Etsy orders into ShipStation for label generation and tracking.
+  - name: Printful / Printify
+    description: Connect print-on-demand fulfillment for Etsy listings.
+  - name: Zapier
+    description: Trigger workflows from Etsy receipts, listings, and webhook events.
+  - name: Make.com (Integromat)
+    description: Visual automation around Etsy shop, listings, and order events.
+solutions:
+  - name: Inventory & Catalog Management
+    description: >-
+      Maintain Etsy listings, inventory levels, and variations from a
+      central product information management system.
+  - name: Order Operations
+    description: >-
+      Run paid-order processing, shipping, refunds, and post-purchase
+      messaging against Etsy receipts and transactions.
+  - name: Financial Reporting
+    description: >-
+      Reconcile Etsy ledger entries, payments, and refunds into
+      bookkeeping, tax, and revenue recognition systems.
+  - name: Marketplace Expansion
+    description: >-
+      Use Etsy alongside other marketplaces to expand reach for handmade,
+      vintage, and craft-supply sellers.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

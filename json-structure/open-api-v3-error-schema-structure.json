@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-error-schema-structure.json",
+  "name": "ErrorSchema",
+  "description": "ErrorSchema schema from Etsy Open API v3",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string",
+      "example": "example string"
+    }
+  },
+  "required": [
+    "error"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopProcessingProfiles",
+  "description": "Represents several ProcessingProfiles.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-processing-profiles-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ShopProcessingProfile"
+      }
+    }
+  }
+}

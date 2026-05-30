@@ -1,0 +1,19 @@
+{
+  "shipping_profile_id": 1,
+  "title": "Handmade Ceramic Mug \u2014 Stoneware",
+  "user_id": 456789,
+  "origin_country_iso": "US",
+  "is_deleted": true,
+  "shipping_profile_destinations": [
+    {},
+    {}
+  ],
+  "shipping_profile_upgrades": [
+    {},
+    {}
+  ],
+  "origin_postal_code": "11201",
+  "profile_type": "manual",
+  "domestic_handling_fee": 1.0,
+  "international_handling_fee": 1.0
+}

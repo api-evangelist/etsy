@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopListingFile",
+  "description": "A file associated with a digital listing.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-listing-file-schema.json",
+  "type": "object",
+  "properties": {
+    "listing_file_id": {
+      "type": "integer",
+      "description": "The unique numeric ID of a file associated with a digital listing.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "listing_id": {
+      "type": "integer",
+      "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456789
+    },
+    "rank": {
+      "type": "integer",
+      "description": "The numeric index of the display order position of this file in the listing, starting at 1.",
+      "minimum": 0,
+      "example": 1
+    },
+    "filename": {
+      "type": "string",
+      "description": "The file name string for a file associated with a digital listing.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "filesize": {
+      "type": "string",
+      "description": "A human-readable format size string for the size of a file.",
+      "example": "example string"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "description": "A number indicating the size of a file, measured in bytes.",
+      "minimum": 0,
+      "example": 1
+    },
+    "filetype": {
+      "type": "string",
+      "description": "A type string indicating a file's MIME type.",
+      "example": "example string"
+    },
+    "create_timestamp": {
+      "type": "integer",
+      "description": "The unique numeric ID of a file associated with a digital listing.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The unique numeric ID of a file associated with a digital listing.",
+      "minimum": 946684800,
+      "example": 1758153645
+    }
+  }
+}

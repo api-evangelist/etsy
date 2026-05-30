@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-shipping-profiles-structure.json",
+  "name": "ShopShippingProfiles",
+  "description": "Represents several ShopShippingProfiles.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ShopShippingProfile"
+      }
+    }
+  }
+}

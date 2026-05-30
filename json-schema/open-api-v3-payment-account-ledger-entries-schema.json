@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaymentAccountLedgerEntries",
+  "description": "A set of PaymentAccountLedgerEntry resources",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-payment-account-ledger-entries-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of PaymentAccountLedgerEntry resources found.",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The PaymentAccountLedgerEntry resources found.",
+      "items": {
+        "description": "The PaymentAccountLedgerEntry resources found.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PaymentAccountLedgerEntry"
+          }
+        ]
+      }
+    }
+  }
+}

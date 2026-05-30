@@ -1,0 +1,14 @@
+{
+  "shop_id": 123456,
+  "listing_id": 123456789,
+  "transaction_id": 345678901,
+  "buyer_user_id": 456789,
+  "rating": 5,
+  "review": "example string",
+  "language": "en-US",
+  "image_url_fullxfull": "https://www.etsy.com/listing/123456789",
+  "create_timestamp": 1758153645,
+  "created_timestamp": 1758153645,
+  "update_timestamp": 1758153645,
+  "updated_timestamp": 1758153645
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shipping-carrier-mail-class-structure.json",
+  "name": "ShippingCarrierMailClass",
+  "description": "A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.",
+  "type": "object",
+  "properties": {
+    "mail_class_key": {
+      "type": "string",
+      "description": "The unique identifier of this mail class.",
+      "example": "example string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of this mail class.",
+      "example": "Handmade Ceramic Mug"
+    }
+  }
+}

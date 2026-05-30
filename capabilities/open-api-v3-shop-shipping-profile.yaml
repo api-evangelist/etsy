@@ -1,0 +1,739 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Shop ShippingProfile
+  description: 'Etsy Open API v3 — Shop ShippingProfile. 14 operations. Lead operation: Get Shipping Carriers. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Shop ShippingProfile
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-shipping-profile
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Shop ShippingProfile business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shipping-carriers
+          path: /v3/application/shipping-carriers
+          operations:
+            - name: getShippingCarriers
+              method: GET
+              description: Get Shipping Carriers
+              inputParameters:
+                - name: origin_country_iso
+                  in: query
+                  type: string
+                  required: true
+                  description: The ISO code of the country from which the listing ships.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles
+          path: /v3/application/shops/{shop_id}/shipping-profiles
+          operations:
+            - name: createShopShippingProfile
+              method: POST
+              description: Create Shop Shipping Profile
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopShippingProfiles
+              method: GET
+              description: Get Shop Shipping Profiles
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles
+          path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}
+          operations:
+            - name: deleteShopShippingProfile
+              method: DELETE
+              description: Delete Shop Shipping Profile
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopShippingProfile
+              method: GET
+              description: Get Shop Shipping Profile
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateShopShippingProfile
+              method: PUT
+              description: Update Shop Shipping Profile
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles-destinations
+          path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations
+          operations:
+            - name: createShopShippingProfileDestination
+              method: POST
+              description: Create Shop Shipping Profile Destination
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopShippingProfileDestinationsByShippingProfile
+              method: GET
+              description: Get Shop Shipping Profile Destinations by Shipping Profile
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles-destinations
+          path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations/{shipping_profile_destination_id}
+          operations:
+            - name: deleteShopShippingProfileDestination
+              method: DELETE
+              description: Delete Shop Shipping Profile Destination
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: shipping_profile_destination_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateShopShippingProfileDestination
+              method: PUT
+              description: Update Shop Shipping Profile Destination
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: shipping_profile_destination_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles-upgrades
+          path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades
+          operations:
+            - name: createShopShippingProfileUpgrade
+              method: POST
+              description: Create Shop Shipping Profile Upgrade
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopShippingProfileUpgrades
+              method: GET
+              description: Get Shop Shipping Profile Upgrades
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shipping-profiles-upgrades
+          path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades/{upgrade_id}
+          operations:
+            - name: deleteShopShippingProfileUpgrade
+              method: DELETE
+              description: Delete Shop Shipping Profile Upgrade
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the shipping profile.
+                - name: upgrade_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID that is associated with a shipping upgrade
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateShopShippingProfileUpgrade
+              method: PUT
+              description: Update Shop Shipping Profile Upgrade
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shipping_profile_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
+                - name: upgrade_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID that is associated with a shipping upgrade
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-shipping-profile-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Shop ShippingProfile. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shipping-carriers
+          name: shipping-carriers
+          description: REST surface for shipping-carriers.
+          operations:
+            - method: GET
+              name: getShippingCarriers
+              description: Get Shipping Carriers
+              call: open-api-v3-shop-shipping-profile.getShippingCarriers
+              with:
+                origin_country_iso: rest.origin_country_iso
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles
+          name: shops-shipping-profiles
+          description: REST surface for shops-shipping-profiles.
+          operations:
+            - method: POST
+              name: createShopShippingProfile
+              description: Create Shop Shipping Profile
+              call: open-api-v3-shop-shipping-profile.createShopShippingProfile
+              with:
+                shop_id: rest.shop_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopShippingProfiles
+              description: Get Shop Shipping Profiles
+              call: open-api-v3-shop-shipping-profile.getShopShippingProfiles
+              with:
+                shop_id: rest.shop_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles/{shipping_profile_id}
+          name: shops-shipping-profiles
+          description: REST surface for shops-shipping-profiles.
+          operations:
+            - method: DELETE
+              name: deleteShopShippingProfile
+              description: Delete Shop Shipping Profile
+              call: open-api-v3-shop-shipping-profile.deleteShopShippingProfile
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopShippingProfile
+              description: Get Shop Shipping Profile
+              call: open-api-v3-shop-shipping-profile.getShopShippingProfile
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateShopShippingProfile
+              description: Update Shop Shipping Profile
+              call: open-api-v3-shop-shipping-profile.updateShopShippingProfile
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations
+          name: shops-shipping-profiles-destinations
+          description: REST surface for shops-shipping-profiles-destinations.
+          operations:
+            - method: POST
+              name: createShopShippingProfileDestination
+              description: Create Shop Shipping Profile Destination
+              call: open-api-v3-shop-shipping-profile.createShopShippingProfileDestination
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopShippingProfileDestinationsByShippingProfile
+              description: Get Shop Shipping Profile Destinations by Shipping Profile
+              call: open-api-v3-shop-shipping-profile.getShopShippingProfileDestinationsByShippingProfile
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                limit: rest.limit
+                offset: rest.offset
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations/{shipping_profile_destination_id}
+          name: shops-shipping-profiles-destinations
+          description: REST surface for shops-shipping-profiles-destinations.
+          operations:
+            - method: DELETE
+              name: deleteShopShippingProfileDestination
+              description: Delete Shop Shipping Profile Destination
+              call: open-api-v3-shop-shipping-profile.deleteShopShippingProfileDestination
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                shipping_profile_destination_id: rest.shipping_profile_destination_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateShopShippingProfileDestination
+              description: Update Shop Shipping Profile Destination
+              call: open-api-v3-shop-shipping-profile.updateShopShippingProfileDestination
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                shipping_profile_destination_id: rest.shipping_profile_destination_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades
+          name: shops-shipping-profiles-upgrades
+          description: REST surface for shops-shipping-profiles-upgrades.
+          operations:
+            - method: POST
+              name: createShopShippingProfileUpgrade
+              description: Create Shop Shipping Profile Upgrade
+              call: open-api-v3-shop-shipping-profile.createShopShippingProfileUpgrade
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopShippingProfileUpgrades
+              description: Get Shop Shipping Profile Upgrades
+              call: open-api-v3-shop-shipping-profile.getShopShippingProfileUpgrades
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades/{upgrade_id}
+          name: shops-shipping-profiles-upgrades
+          description: REST surface for shops-shipping-profiles-upgrades.
+          operations:
+            - method: DELETE
+              name: deleteShopShippingProfileUpgrade
+              description: Delete Shop Shipping Profile Upgrade
+              call: open-api-v3-shop-shipping-profile.deleteShopShippingProfileUpgrade
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                upgrade_id: rest.upgrade_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateShopShippingProfileUpgrade
+              description: Update Shop Shipping Profile Upgrade
+              call: open-api-v3-shop-shipping-profile.updateShopShippingProfileUpgrade
+              with:
+                shop_id: rest.shop_id
+                shipping_profile_id: rest.shipping_profile_id
+                upgrade_id: rest.upgrade_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-shipping-profile-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Shop ShippingProfile. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-shipping-carriers
+          description: Get Shipping Carriers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.getShippingCarriers
+          with:
+            origin_country_iso: tools.origin_country_iso
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-shop-shipping-profile
+          description: Create Shop Shipping Profile
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-shipping-profile.createShopShippingProfile
+          with:
+            shop_id: tools.shop_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-shipping-profiles
+          description: Get Shop Shipping Profiles
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.getShopShippingProfiles
+          with:
+            shop_id: tools.shop_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-shop-shipping-profile
+          description: Delete Shop Shipping Profile
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.deleteShopShippingProfile
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-shipping-profile
+          description: Get Shop Shipping Profile
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.getShopShippingProfile
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-shop-shipping-profile
+          description: Update Shop Shipping Profile
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.updateShopShippingProfile
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-shop-shipping-profile-destination
+          description: Create Shop Shipping Profile Destination
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-shipping-profile.createShopShippingProfileDestination
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-shipping-profile-destinations-shipping
+          description: Get Shop Shipping Profile Destinations by Shipping Profile
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.getShopShippingProfileDestinationsByShippingProfile
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            limit: tools.limit
+            offset: tools.offset
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-shop-shipping-profile-destination
+          description: Delete Shop Shipping Profile Destination
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.deleteShopShippingProfileDestination
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            shipping_profile_destination_id: tools.shipping_profile_destination_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-shop-shipping-profile-destination
+          description: Update Shop Shipping Profile Destination
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.updateShopShippingProfileDestination
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            shipping_profile_destination_id: tools.shipping_profile_destination_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-shop-shipping-profile-upgrade
+          description: Create Shop Shipping Profile Upgrade
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-shipping-profile.createShopShippingProfileUpgrade
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-shipping-profile-upgrades
+          description: Get Shop Shipping Profile Upgrades
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.getShopShippingProfileUpgrades
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-shop-shipping-profile-upgrade
+          description: Delete Shop Shipping Profile Upgrade
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.deleteShopShippingProfileUpgrade
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            upgrade_id: tools.upgrade_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-shop-shipping-profile-upgrade
+          description: Update Shop Shipping Profile Upgrade
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-shipping-profile.updateShopShippingProfileUpgrade
+          with:
+            shop_id: tools.shop_id
+            shipping_profile_id: tools.shipping_profile_id
+            upgrade_id: tools.upgrade_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

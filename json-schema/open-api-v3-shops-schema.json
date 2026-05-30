@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shops",
+  "description": "A set of Shop records.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shops-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The total number of Shops",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The Shop resources.",
+      "items": {
+        "description": "The Shop resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Shop"
+          }
+        ]
+      }
+    }
+  }
+}

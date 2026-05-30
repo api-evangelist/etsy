@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaymentAdjustment",
+  "description": "Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-payment-adjustment-schema.json",
+  "type": "object",
+  "properties": {
+    "payment_adjustment_id": {
+      "type": "integer",
+      "description": "The numeric ID for a payment adjustment.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "payment_id": {
+      "type": "integer",
+      "description": "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "The status string of the payment adjustment.",
+      "example": "example string"
+    },
+    "is_success": {
+      "type": "boolean",
+      "description": "When true, the payment adjustment was or is likely to complete successfully.",
+      "example": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 456789
+    },
+    "reason_code": {
+      "type": "string",
+      "description": "A human-readable string describing the reason for the refund.",
+      "example": "example string"
+    },
+    "total_adjustment_amount": {
+      "type": "integer",
+      "description": "The total numeric amount of the refund in the payment currency.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 2500
+    },
+    "shop_total_adjustment_amount": {
+      "type": "integer",
+      "description": "The numeric amount of the refund in the shop currency.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 2500
+    },
+    "buyer_total_adjustment_amount": {
+      "type": "integer",
+      "description": "The numeric amount of the refund in the buyer currency.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 2500
+    },
+    "total_fee_adjustment_amount": {
+      "type": "integer",
+      "description": "The numeric amount of card processing fees associated with a payment adjustment.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 2500
+    },
+    "create_timestamp": {
+      "type": "integer",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "update_timestamp": {
+      "type": "integer",
+      "description": "The date and time of the last change to the payment adjustment in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "updated_timestamp": {
+      "type": "integer",
+      "description": "The date and time of the last change to the payment adjustment in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "payment_adjustment_items": {
+      "type": "array",
+      "description": "List of payment adjustment line items.",
+      "items": {
+        "description": "List of payment adjustment line items.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PaymentAdjustmentItem"
+          }
+        ]
+      }
+    }
+  }
+}

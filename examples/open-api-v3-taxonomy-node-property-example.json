@@ -1,0 +1,22 @@
+{
+  "property_id": 1,
+  "name": "Handmade Ceramic Mug",
+  "display_name": "Handmade Ceramic Mug",
+  "scales": [
+    {},
+    {}
+  ],
+  "is_required": true,
+  "supports_attributes": true,
+  "supports_variations": true,
+  "is_multivalued": true,
+  "max_values_allowed": 1,
+  "possible_values": [
+    {},
+    {}
+  ],
+  "selected_values": [
+    {},
+    {}
+  ]
+}

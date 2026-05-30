@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopReceiptTransactions",
+  "description": "A set of ShopReceiptTransaction resources",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-receipt-transactions-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of ShopReceiptTransaction resources found.",
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The ShopReceiptTransaction resources found.",
+      "items": {
+        "description": "The ShopReceiptTransaction resources found.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShopReceiptTransaction"
+          }
+        ]
+      }
+    }
+  }
+}

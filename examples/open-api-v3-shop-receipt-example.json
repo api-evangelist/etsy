@@ -1,0 +1,51 @@
+{
+  "receipt_id": 234567890,
+  "receipt_type": 1,
+  "seller_user_id": 456789,
+  "seller_email": "seller@example.com",
+  "buyer_user_id": 456789,
+  "buyer_email": "seller@example.com",
+  "name": "Handmade Ceramic Mug",
+  "first_line": "123 Main St",
+  "second_line": "Apt 4B",
+  "city": "Brooklyn",
+  "state": "example string",
+  "zip": "11201",
+  "status": "paid",
+  "formatted_address": "example string",
+  "country_iso": "US",
+  "payment_method": "example string",
+  "payment_email": "seller@example.com",
+  "message_from_seller": "Thanks for your order! Shipping out tomorrow.",
+  "message_from_buyer": "Thanks for your order! Shipping out tomorrow.",
+  "message_from_payment": "Thanks for your order! Shipping out tomorrow.",
+  "is_paid": true,
+  "is_shipped": true,
+  "create_timestamp": 1758153645,
+  "created_timestamp": 1758153645,
+  "update_timestamp": 1758153645,
+  "updated_timestamp": 1758153645,
+  "is_gift": true,
+  "gift_message": "Thanks for your order! Shipping out tomorrow.",
+  "gift_sender": "example string",
+  "grandtotal": "example",
+  "subtotal": "example",
+  "total_price": "example",
+  "total_shipping_cost": "example",
+  "total_tax_cost": "example",
+  "total_vat_cost": "example",
+  "discount_amt": "example",
+  "gift_wrap_price": "example",
+  "shipments": [
+    {},
+    {}
+  ],
+  "transactions": [
+    {},
+    {}
+  ],
+  "refunds": [
+    {},
+    {}
+  ]
+}

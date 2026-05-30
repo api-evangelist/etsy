@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Payment",
+  "description": "Represents a payment made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-payment-schema.json",
+  "type": "object",
+  "properties": {
+    "payment_id": {
+      "type": "integer",
+      "description": "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "buyer_user_id": {
+      "type": "integer",
+      "description": "The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 456789
+    },
+    "shop_id": {
+      "type": "integer",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456
+    },
+    "receipt_id": {
+      "type": "integer",
+      "description": "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 234567890
+    },
+    "amount_gross": {
+      "description": "An integer equal to gross amount of the order, in pennies, including shipping and taxes.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "amount_fees": {
+      "description": "An integer equal to the original card processing fee of the order in pennies.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "amount_net": {
+      "description": "An integer equal to the payment value, in pennies, less fees (`amount_gross` - `amount_fees`).",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "posted_gross": {
+      "description": "The total gross value of the payment posted once the purchase ships. This is equal to the `amount_gross` UNLESS the seller issues a refund prior to shipping. We consider \"shipping\" to be the event which \"posts\" to the ledger. Therefore, if the seller refunds first, we reduce the `amount_gross` first and post then that amount. The seller never sees the refunded amount in their ledger. This is equal to the \"Credit\" amount in the ledger entry.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "posted_fees": {
+      "description": "The total value of the fees posted once the purchase ships. Etsy refunds a proportional amount of the fees when a seller refunds a buyer. When the seller issues a refund prior to shipping, the posted amount is less than the original.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "posted_net": {
+      "description": "The total value of the payment at the time of posting, less fees. (`posted_gross` - `posted_fees`)",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "adjusted_gross": {
+      "description": "The gross payment amount after the seller refunds a payment, partially or fully.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "adjusted_fees": {
+      "description": "The new fee amount after a seller refunds a payment, partially or fully.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "adjusted_net": {
+      "description": "The total value of the payment after refunds, less fees (`adjusted_gross` - `adjusted_fees`).",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "currency": {
+      "type": "string",
+      "description": "The ISO (alphabetic) code string for the payment's currency.",
+      "example": "example string"
+    },
+    "shop_currency": {
+      "type": "string",
+      "description": "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "buyer_currency": {
+      "type": "string",
+      "description": "The currency string of the buyer.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "shipping_user_id": {
+      "type": "integer",
+      "description": "The numeric ID of the user to which the seller ships the order.",
+      "format": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 456789
+    },
+    "shipping_address_id": {
+      "type": "integer",
+      "description": "The numeric id identifying the shipping address.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "billing_address_id": {
+      "type": "integer",
+      "description": "The numeric ID identifying the billing address of the buyer.",
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "example": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "A string indicating the current status of the payment, most commonly \"settled\" or \"authed\".",
+      "example": "example string"
+    },
+    "shipped_timestamp": {
+      "type": "integer",
+      "description": "The transaction's shipping date and time, in epoch seconds.",
+      "nullable": true,
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "create_timestamp": {
+      "type": "integer",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "update_timestamp": {
+      "type": "integer",
+      "description": "The date and time of the last change to the payment adjustment in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "updated_timestamp": {
+      "type": "integer",
+      "description": "The date and time of the last change to the payment adjustment in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "payment_adjustments": {
+      "type": "array",
+      "description": "List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.",
+      "items": {
+        "description": "List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PaymentAdjustment"
+          }
+        ]
+      }
+    }
+  }
+}

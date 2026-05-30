@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-self-structure.json",
+  "name": "Self",
+  "description": "Represents a single user of the site",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "int64",
+      "description": "The numeric ID of a user. This number is also a valid shop ID for the user's shop.",
+      "minimum": 1,
+      "example": 456789
+    },
+    "shop_id": {
+      "type": "int64",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "minimum": 1,
+      "example": 123456
+    }
+  }
+}

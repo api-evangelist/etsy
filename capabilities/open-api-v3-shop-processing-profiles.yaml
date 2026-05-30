@@ -1,0 +1,277 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Shop ProcessingProfiles
+  description: 'Etsy Open API v3 — Shop ProcessingProfiles. 5 operations. Lead operation: Create Shop Readiness State Definition. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Shop ProcessingProfiles
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-processing-profiles
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Shop ProcessingProfiles business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-readiness-state-definitions
+          path: /v3/application/shops/{shop_id}/readiness-state-definitions
+          operations:
+            - name: createShopReadinessStateDefinition
+              method: POST
+              description: Create Shop Readiness State Definition
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopReadinessStateDefinitions
+              method: GET
+              description: Get Shop Readiness State Definitions
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-readiness-state-definitions
+          path: /v3/application/shops/{shop_id}/readiness-state-definitions/{readiness_state_definition_id}
+          operations:
+            - name: deleteShopReadinessStateDefinition
+              method: DELETE
+              description: Delete Shop Readiness State Definition
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: readiness_state_definition_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `phys
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getShopReadinessStateDefinition
+              method: GET
+              description: Get Shop Readiness State Definition
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: readiness_state_definition_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `phys
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateShopReadinessStateDefinition
+              method: PUT
+              description: Update Shop Readiness State Definition
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: readiness_state_definition_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `phys
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-processing-profiles-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Shop ProcessingProfiles. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/readiness-state-definitions
+          name: shops-readiness-state-definitions
+          description: REST surface for shops-readiness-state-definitions.
+          operations:
+            - method: POST
+              name: createShopReadinessStateDefinition
+              description: Create Shop Readiness State Definition
+              call: open-api-v3-shop-processing-profiles.createShopReadinessStateDefinition
+              with:
+                shop_id: rest.shop_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopReadinessStateDefinitions
+              description: Get Shop Readiness State Definitions
+              call: open-api-v3-shop-processing-profiles.getShopReadinessStateDefinitions
+              with:
+                shop_id: rest.shop_id
+                limit: rest.limit
+                offset: rest.offset
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/readiness-state-definitions/{readiness_state_definition_id}
+          name: shops-readiness-state-definitions
+          description: REST surface for shops-readiness-state-definitions.
+          operations:
+            - method: DELETE
+              name: deleteShopReadinessStateDefinition
+              description: Delete Shop Readiness State Definition
+              call: open-api-v3-shop-processing-profiles.deleteShopReadinessStateDefinition
+              with:
+                shop_id: rest.shop_id
+                readiness_state_definition_id: rest.readiness_state_definition_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getShopReadinessStateDefinition
+              description: Get Shop Readiness State Definition
+              call: open-api-v3-shop-processing-profiles.getShopReadinessStateDefinition
+              with:
+                shop_id: rest.shop_id
+                readiness_state_definition_id: rest.readiness_state_definition_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateShopReadinessStateDefinition
+              description: Update Shop Readiness State Definition
+              call: open-api-v3-shop-processing-profiles.updateShopReadinessStateDefinition
+              with:
+                shop_id: rest.shop_id
+                readiness_state_definition_id: rest.readiness_state_definition_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-processing-profiles-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Shop ProcessingProfiles. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: create-shop-readiness-state-definition
+          description: Create Shop Readiness State Definition
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-processing-profiles.createShopReadinessStateDefinition
+          with:
+            shop_id: tools.shop_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-readiness-state-definitions
+          description: Get Shop Readiness State Definitions
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-processing-profiles.getShopReadinessStateDefinitions
+          with:
+            shop_id: tools.shop_id
+            limit: tools.limit
+            offset: tools.offset
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-shop-readiness-state-definition
+          description: Delete Shop Readiness State Definition
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-processing-profiles.deleteShopReadinessStateDefinition
+          with:
+            shop_id: tools.shop_id
+            readiness_state_definition_id: tools.readiness_state_definition_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-readiness-state-definition
+          description: Get Shop Readiness State Definition
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-processing-profiles.getShopReadinessStateDefinition
+          with:
+            shop_id: tools.shop_id
+            readiness_state_definition_id: tools.readiness_state_definition_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-shop-readiness-state-definition
+          description: Update Shop Readiness State Definition
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-processing-profiles.updateShopReadinessStateDefinition
+          with:
+            shop_id: tools.shop_id
+            readiness_state_definition_id: tools.readiness_state_definition_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

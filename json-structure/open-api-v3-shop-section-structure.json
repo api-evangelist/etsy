@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-section-structure.json",
+  "name": "ShopSection",
+  "description": "A section within a shop, into which a user can sort listings.",
+  "type": "object",
+  "properties": {
+    "shop_section_id": {
+      "type": "int64",
+      "description": "The numeric ID of a section in a specific Etsy shop.",
+      "minimum": 1,
+      "example": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "The title string for a shop section.",
+      "example": "Handmade Ceramic Mug \u2014 Stoneware"
+    },
+    "rank": {
+      "type": "int32",
+      "description": "The positive non-zero numeric position of this section in the section display order for a shop, with rank 1 sections appearing first.",
+      "minimum": 0,
+      "example": 1
+    },
+    "user_id": {
+      "type": "int64",
+      "description": "The numeric ID of the [user](/documentation/reference#tag/User) who owns this shop section.",
+      "minimum": 1,
+      "example": 456789
+    },
+    "active_listing_count": {
+      "type": "int32",
+      "description": "The number of active listings in one section of a specific Etsy shop.",
+      "minimum": 0,
+      "example": 1
+    }
+  }
+}

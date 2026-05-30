@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-listing-property-value-structure.json",
+  "name": "ListingPropertyValue",
+  "description": "A representation of structured data values.",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "int64",
+      "description": "The numeric ID of the Property.",
+      "minimum": 1,
+      "example": 1
+    },
+    "property_name": {
+      "type": "string",
+      "description": "The name of the Property.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug"
+    },
+    "scale_id": {
+      "type": "int64",
+      "description": "The numeric ID of the scale (if any).",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "scale_name": {
+      "type": "string",
+      "description": "The label used to describe the chosen scale (if any).",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug"
+    },
+    "value_ids": {
+      "type": "array",
+      "description": "The numeric IDs of the Property values",
+      "items": {
+        "type": "int64",
+        "minimum": 1
+      }
+    },
+    "values": {
+      "type": "array",
+      "description": "The Property values",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

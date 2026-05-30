@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-type-discriminator-structure.json",
+  "name": "TypeDiscriminator",
+  "description": "TypeDiscriminator schema from Etsy Open API v3",
+  "type": "object",
+  "properties": {
+    "__type": {
+      "type": "string",
+      "description": "field used to determine the type of the object when deserializing union type responses",
+      "example": "example string"
+    }
+  },
+  "required": [
+    "__type"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopReceiptShipment",
+  "description": "The record of one shipment event for a ShopReceipt. A receipt may have many ShopReceiptShipment records.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-receipt-shipment-schema.json",
+  "type": "object",
+  "properties": {
+    "receipt_shipping_id": {
+      "type": "integer",
+      "description": "The unique numeric ID of a Shop Receipt Shipment record.",
+      "format": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "shipment_notification_timestamp": {
+      "type": "integer",
+      "description": "The time at which Etsy notified the buyer of the shipment event, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "carrier_name": {
+      "type": "string",
+      "description": "The name string for the carrier/company responsible for delivering the shipment.",
+      "example": "usps"
+    },
+    "tracking_code": {
+      "type": "string",
+      "description": "The tracking code string provided by the carrier/company for the shipment.",
+      "example": "1Z999AA10123456784"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-processing-profile-structure.json",
+  "name": "ShopProcessingProfile",
+  "description": "Represents a processing profile to set a product offering's readiness state and processing time info.",
+  "type": "object",
+  "properties": {
+    "shop_id": {
+      "type": "int64",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "minimum": 1,
+      "example": 123456
+    },
+    "readiness_state_id": {
+      "type": "int64",
+      "description": "The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `physical`, and the endpoint is either shop-scoped (path contains `shop_id`) or a single-listing request such as `getListing`. For every other case this field can be null.",
+      "minimum": 1,
+      "example": 1
+    },
+    "readiness_state": {
+      "type": "string",
+      "description": "The readiness state of a product: \\\"1\\\" means \\\"ready_to_ship\\\", and \\\"2\\\" means \\\"made_to_order\\\"",
+      "enum": [
+        "ready_to_ship",
+        "made_to_order"
+      ],
+      "example": "ready_to_ship"
+    },
+    "min_processing_days": {
+      "type": "int32",
+      "description": "The minimum number of days for processing a specific product.",
+      "minimum": 0,
+      "example": 1
+    },
+    "max_processing_days": {
+      "type": "int32",
+      "description": "The maximum number of days for processing a specific product.",
+      "minimum": 0,
+      "example": 1
+    },
+    "processing_days_display_label": {
+      "type": "string",
+      "description": "Translated display label string for processing days, for example \"3 - 5 days\".",
+      "example": "example string"
+    }
+  }
+}

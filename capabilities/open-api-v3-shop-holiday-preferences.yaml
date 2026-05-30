@@ -1,0 +1,137 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Shop HolidayPreferences
+  description: 'Etsy Open API v3 — Shop HolidayPreferences. 2 operations. Lead operation: Get Holiday Preferences. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Shop HolidayPreferences
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-holiday-preferences
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Shop HolidayPreferences business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-holiday-preferences
+          path: /v3/application/shops/{shop_id}/holiday-preferences
+          operations:
+            - name: getHolidayPreferences
+              method: GET
+              description: Get Holiday Preferences
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-holiday-preferences
+          path: /v3/application/shops/{shop_id}/holiday-preferences/{holiday_id}
+          operations:
+            - name: updateHolidayPreferences
+              method: PUT
+              description: Update Holiday Preferences
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: holiday_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique id that maps to the holiday a country observes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#country-holidays) for more info
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-holiday-preferences-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Shop HolidayPreferences. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/holiday-preferences
+          name: shops-holiday-preferences
+          description: REST surface for shops-holiday-preferences.
+          operations:
+            - method: GET
+              name: getHolidayPreferences
+              description: Get Holiday Preferences
+              call: open-api-v3-shop-holiday-preferences.getHolidayPreferences
+              with:
+                shop_id: rest.shop_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/holiday-preferences/{holiday_id}
+          name: shops-holiday-preferences
+          description: REST surface for shops-holiday-preferences.
+          operations:
+            - method: PUT
+              name: updateHolidayPreferences
+              description: Update Holiday Preferences
+              call: open-api-v3-shop-holiday-preferences.updateHolidayPreferences
+              with:
+                shop_id: rest.shop_id
+                holiday_id: rest.holiday_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-holiday-preferences-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Shop HolidayPreferences. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-holiday-preferences
+          description: Get Holiday Preferences
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-holiday-preferences.getHolidayPreferences
+          with:
+            shop_id: tools.shop_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-holiday-preferences
+          description: Update Holiday Preferences
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-holiday-preferences.updateHolidayPreferences
+          with:
+            shop_id: tools.shop_id
+            holiday_id: tools.holiday_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

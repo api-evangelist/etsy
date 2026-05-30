@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TaxonomyNodeProperties",
+  "description": "A list of product property definitions.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-taxonomy-node-properties-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of results.",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The list of requested resources.",
+      "items": {
+        "description": "The list of requested resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TaxonomyNodeProperty"
+          }
+        ]
+      }
+    }
+  }
+}

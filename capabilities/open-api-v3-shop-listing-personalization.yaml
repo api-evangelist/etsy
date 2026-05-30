@@ -1,0 +1,186 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — ShopListing Personalization
+  description: 'Etsy Open API v3 — ShopListing Personalization. 3 operations. Lead operation: Delete Listing Personalization. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - ShopListing Personalization
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-listing-personalization
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — ShopListing Personalization business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-listings-personalization
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}/personalization
+          operations:
+            - name: deleteListingPersonalization
+              method: DELETE
+              description: Delete Listing Personalization
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateListingPersonalization
+              method: POST
+              description: Update Listing Personalization
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: supports_multiple_personalization_questions
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: 'text_input', 'dropdown', 'unlabeled_upload', 'labeled_upload'. Sending this"
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-personalization
+          path: /v3/application/listings/{listing_id}/personalization
+          operations:
+            - name: getListingPersonalization
+              method: GET
+              description: Get Listing Personalization
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-listing-personalization-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — ShopListing Personalization. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/listings/{listing_id}/personalization
+          name: shops-listings-personalization
+          description: REST surface for shops-listings-personalization.
+          operations:
+            - method: DELETE
+              name: deleteListingPersonalization
+              description: Delete Listing Personalization
+              call: open-api-v3-shop-listing-personalization.deleteListingPersonalization
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: updateListingPersonalization
+              description: Update Listing Personalization
+              call: open-api-v3-shop-listing-personalization.updateListingPersonalization
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                supports_multiple_personalization_questions: rest.supports_multiple_personalization_questions
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/{listing_id}/personalization
+          name: listings-personalization
+          description: REST surface for listings-personalization.
+          operations:
+            - method: GET
+              name: getListingPersonalization
+              description: Get Listing Personalization
+              call: open-api-v3-shop-listing-personalization.getListingPersonalization
+              with:
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-listing-personalization-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — ShopListing Personalization. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: delete-listing-personalization
+          description: Delete Listing Personalization
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-listing-personalization.deleteListingPersonalization
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-listing-personalization
+          description: Update Listing Personalization
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-listing-personalization.updateListingPersonalization
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            supports_multiple_personalization_questions: tools.supports_multiple_personalization_questions
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing-personalization
+          description: Get Listing Personalization
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing-personalization.getListingPersonalization
+          with:
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.

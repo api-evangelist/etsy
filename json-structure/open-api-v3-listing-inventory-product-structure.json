@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-listing-inventory-product-structure.json",
+  "name": "ListingInventoryProduct",
+  "description": "A representation of a product for a listing.",
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "type": "int64",
+      "description": "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.",
+      "minimum": 1,
+      "example": 567890123
+    },
+    "sku": {
+      "type": "string",
+      "description": "The SKU string for the product",
+      "example": "SKU-12345"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "description": "When true, someone deleted this product.",
+      "example": true
+    },
+    "offerings": {
+      "type": "array",
+      "description": "A list of product offering entries for this product.",
+      "items": {
+        "description": "A list of product offering entries for this product.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListingInventoryProductOffering"
+          }
+        ]
+      }
+    },
+    "property_values": {
+      "type": "array",
+      "description": "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.",
+      "items": {
+        "description": "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListingPropertyValue"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-production-partner-structure.json",
+  "name": "ShopProductionPartner",
+  "description": "Represents a description of a shop production partner.",
+  "type": "object",
+  "properties": {
+    "production_partner_id": {
+      "type": "int64",
+      "description": "The numeric ID of a production partner.",
+      "minimum": 1,
+      "example": 1
+    },
+    "partner_name": {
+      "type": "string",
+      "description": "The name or title of the production partner.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "location": {
+      "type": "string",
+      "description": "A string representing the production partner location.",
+      "example": "example string"
+    }
+  }
+}

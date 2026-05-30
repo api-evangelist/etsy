@@ -1,0 +1,242 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — ShopListing Video
+  description: 'Etsy Open API v3 — ShopListing Video. 4 operations. Lead operation: Delete Listing Video. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - ShopListing Video
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-listing-video
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — ShopListing Video business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-listings-videos
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}/videos/{video_id}
+          operations:
+            - name: deleteListingVideo
+              method: DELETE
+              description: Delete Listing Video
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: video_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique ID of a video associated with a listing.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-videos
+          path: /v3/application/listings/{listing_id}/videos/{video_id}
+          operations:
+            - name: getListingVideo
+              method: GET
+              description: Get Listing Video
+              inputParameters:
+                - name: video_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique ID of a video associated with a listing.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-videos
+          path: /v3/application/listings/{listing_id}/videos
+          operations:
+            - name: getListingVideos
+              method: GET
+              description: Get Listing Videos
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings-videos
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}/videos
+          operations:
+            - name: uploadListingVideo
+              method: POST
+              description: Upload Listing Video
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-listing-video-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — ShopListing Video. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/listings/{listing_id}/videos/{video_id}
+          name: shops-listings-videos
+          description: REST surface for shops-listings-videos.
+          operations:
+            - method: DELETE
+              name: deleteListingVideo
+              description: Delete Listing Video
+              call: open-api-v3-shop-listing-video.deleteListingVideo
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                video_id: rest.video_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/{listing_id}/videos/{video_id}
+          name: listings-videos
+          description: REST surface for listings-videos.
+          operations:
+            - method: GET
+              name: getListingVideo
+              description: Get Listing Video
+              call: open-api-v3-shop-listing-video.getListingVideo
+              with:
+                video_id: rest.video_id
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/{listing_id}/videos
+          name: listings-videos
+          description: REST surface for listings-videos.
+          operations:
+            - method: GET
+              name: getListingVideos
+              description: Get Listing Videos
+              call: open-api-v3-shop-listing-video.getListingVideos
+              with:
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/{listing_id}/videos
+          name: shops-listings-videos
+          description: REST surface for shops-listings-videos.
+          operations:
+            - method: POST
+              name: uploadListingVideo
+              description: Upload Listing Video
+              call: open-api-v3-shop-listing-video.uploadListingVideo
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-listing-video-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — ShopListing Video. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: delete-listing-video
+          description: Delete Listing Video
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-listing-video.deleteListingVideo
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            video_id: tools.video_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing-video
+          description: Get Listing Video
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing-video.getListingVideo
+          with:
+            video_id: tools.video_id
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing-videos
+          description: Get Listing Videos
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing-video.getListingVideos
+          with:
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: upload-listing-video
+          description: Upload Listing Video
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-listing-video.uploadListingVideo
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

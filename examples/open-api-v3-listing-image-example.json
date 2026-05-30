@@ -1,0 +1,22 @@
+{
+  "listing_id": 123456789,
+  "listing_image_id": 1,
+  "hex_code": "example string",
+  "red": 1,
+  "green": 1,
+  "blue": 1,
+  "hue": 1,
+  "saturation": 1,
+  "brightness": 1,
+  "is_black_and_white": true,
+  "creation_tsz": 1,
+  "created_timestamp": 1758153645,
+  "rank": 1,
+  "url_75x75": "https://www.etsy.com/listing/123456789",
+  "url_170x135": "https://www.etsy.com/listing/123456789",
+  "url_570xN": "https://www.etsy.com/listing/123456789",
+  "url_fullxfull": "https://www.etsy.com/listing/123456789",
+  "full_height": 1,
+  "full_width": 1,
+  "alt_text": "example string"
+}

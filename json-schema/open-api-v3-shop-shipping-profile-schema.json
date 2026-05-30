@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopShippingProfile",
+  "description": "Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-shipping-profile-schema.json",
+  "type": "object",
+  "properties": {
+    "shipping_profile_id": {
+      "type": "integer",
+      "description": "The numeric ID of the shipping profile.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "The name string of this shipping profile.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug \u2014 Stoneware"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 456789
+    },
+    "origin_country_iso": {
+      "type": "string",
+      "description": "The ISO code of the country from which the listing ships.",
+      "format": "ISO 3166-1 alpha-2",
+      "example": "US"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "description": "When true, someone deleted this shipping profile.",
+      "example": true
+    },
+    "shipping_profile_destinations": {
+      "type": "array",
+      "description": "A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.",
+      "items": {
+        "description": "A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShopShippingProfileDestination"
+          }
+        ]
+      }
+    },
+    "shipping_profile_upgrades": {
+      "type": "array",
+      "description": "A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.",
+      "items": {
+        "description": "A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShopShippingProfileUpgrade"
+          }
+        ]
+      }
+    },
+    "origin_postal_code": {
+      "type": "string",
+      "description": "The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` supports postal codes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#countries-requiring-postal-codes) for more info",
+      "nullable": true,
+      "example": "11201"
+    },
+    "profile_type": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "calculated"
+      ],
+      "default": "manual",
+      "example": "manual"
+    },
+    "domestic_handling_fee": {
+      "type": "number",
+      "description": "The domestic handling fee added to buyer's shipping total - only available for calculated shipping profiles.",
+      "format": "float",
+      "minimum": 0,
+      "default": 0,
+      "example": 1.0
+    },
+    "international_handling_fee": {
+      "type": "number",
+      "description": "The international handling fee added to buyer's shipping total - only available for calculated shipping profiles.",
+      "format": "float",
+      "minimum": 0,
+      "default": 0,
+      "example": 1.0
+    }
+  }
+}

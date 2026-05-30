@@ -1,0 +1,186 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Payment
+  description: 'Etsy Open API v3 — Payment. 3 operations. Lead operation: Get Payment Account Ledger Entry Payments. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Payment
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-payment
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Payment business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-payment-account-ledger-entries-payments
+          path: /v3/application/shops/{shop_id}/payment-account/ledger-entries/payments
+          operations:
+            - name: getPaymentAccountLedgerEntryPayments
+              method: GET
+              description: Get Payment Account Ledger Entry Payments
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: ledger_entry_ids
+                  in: query
+                  type: array
+                  required: true
+                  description: ledger_entry_ids parameter.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-receipts-payments
+          path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/payments
+          operations:
+            - name: getShopPaymentByReceiptId
+              method: GET
+              description: Get Shop Payment by Receipt Id
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: receipt_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-payments
+          path: /v3/application/shops/{shop_id}/payments
+          operations:
+            - name: getPayments
+              method: GET
+              description: Get Payments
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: payment_ids
+                  in: query
+                  type: array
+                  required: true
+                  description: A comma-separated array of Payment IDs numbers.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-payment-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Payment. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/payment-account/ledger-entries/payments
+          name: shops-payment-account-ledger-entries-payments
+          description: REST surface for shops-payment-account-ledger-entries-payments.
+          operations:
+            - method: GET
+              name: getPaymentAccountLedgerEntryPayments
+              description: Get Payment Account Ledger Entry Payments
+              call: open-api-v3-payment.getPaymentAccountLedgerEntryPayments
+              with:
+                shop_id: rest.shop_id
+                ledger_entry_ids: rest.ledger_entry_ids
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/receipts/{receipt_id}/payments
+          name: shops-receipts-payments
+          description: REST surface for shops-receipts-payments.
+          operations:
+            - method: GET
+              name: getShopPaymentByReceiptId
+              description: Get Shop Payment by Receipt Id
+              call: open-api-v3-payment.getShopPaymentByReceiptId
+              with:
+                shop_id: rest.shop_id
+                receipt_id: rest.receipt_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/payments
+          name: shops-payments
+          description: REST surface for shops-payments.
+          operations:
+            - method: GET
+              name: getPayments
+              description: Get Payments
+              call: open-api-v3-payment.getPayments
+              with:
+                shop_id: rest.shop_id
+                payment_ids: rest.payment_ids
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-payment-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Payment. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-payment-account-ledger-entry-payments
+          description: Get Payment Account Ledger Entry Payments
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-payment.getPaymentAccountLedgerEntryPayments
+          with:
+            shop_id: tools.shop_id
+            ledger_entry_ids: tools.ledger_entry_ids
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-shop-payment-receipt-id
+          description: Get Shop Payment by Receipt Id
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-payment.getShopPaymentByReceiptId
+          with:
+            shop_id: tools.shop_id
+            receipt_id: tools.receipt_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-payments
+          description: Get Payments
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-payment.getPayments
+          with:
+            shop_id: tools.shop_id
+            payment_ids: tools.payment_ids
+          outputParameters:
+            - type: object
+              mapping: $.

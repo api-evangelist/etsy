@@ -1,0 +1,19 @@
+{
+  "entry_id": 1,
+  "ledger_id": 1,
+  "sequence_number": 1,
+  "amount": 2500,
+  "currency": "example string",
+  "description": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.",
+  "balance": 1,
+  "create_date": 1,
+  "created_timestamp": 1758153645,
+  "ledger_type": "example string",
+  "reference_type": "example string",
+  "reference_id": "example string",
+  "parent_entry_id": 1,
+  "payment_adjustments": [
+    {},
+    {}
+  ]
+}

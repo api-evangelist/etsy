@@ -1,0 +1,13 @@
+{
+  "user_address_id": 1,
+  "user_id": 456789,
+  "name": "Handmade Ceramic Mug",
+  "first_line": "123 Main St",
+  "second_line": "Apt 4B",
+  "city": "Brooklyn",
+  "state": "example string",
+  "zip": "11201",
+  "iso_country_code": "US",
+  "country_name": "US",
+  "is_default_shipping_address": true
+}

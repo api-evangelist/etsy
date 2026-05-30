@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingTranslation",
+  "description": "Represents the translation data for a Listing.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-translation-schema.json",
+  "type": "object",
+  "properties": {
+    "listing_id": {
+      "type": "integer",
+      "description": "The numeric ID for the Listing.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456789
+    },
+    "language": {
+      "type": "string",
+      "description": "The IETF language tag (e.g. 'fr') for the language of this translation.",
+      "example": "en-US"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the Listing of this Translation.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug \u2014 Stoneware"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the Listing of this Translation.",
+      "nullable": true,
+      "example": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio."
+    },
+    "tags": {
+      "type": "array",
+      "description": "The tags of the Listing of this Translation.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

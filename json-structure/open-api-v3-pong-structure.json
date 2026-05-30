@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-pong-structure.json",
+  "name": "Pong",
+  "description": "A confirmation that the current application has access to the Open API",
+  "type": "object",
+  "properties": {
+    "application_id": {
+      "type": "int64",
+      "description": "The authenticated application's ID",
+      "minimum": 1,
+      "example": 1
+    }
+  }
+}

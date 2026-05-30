@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "level": 1,
+  "name": "Handmade Ceramic Mug",
+  "parent_id": 1,
+  "children": [
+    {},
+    {}
+  ],
+  "full_path_taxonomy_ids": [
+    1234,
+    1234
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-personalization-question-structure.json",
+  "name": "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion",
+  "description": "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion schema from Etsy Open API v3",
+  "type": "object",
+  "properties": {
+    "question_id": {
+      "type": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "question_text": {
+      "type": "string",
+      "example": "example string"
+    },
+    "instructions": {
+      "type": "string",
+      "nullable": true,
+      "example": "example string"
+    },
+    "question_type": {
+      "type": "string",
+      "example": "example string"
+    },
+    "required": {
+      "type": "boolean",
+      "example": true
+    },
+    "max_allowed_characters": {
+      "type": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "max_allowed_files": {
+      "type": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "options": {
+      "type": "array",
+      "nullable": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "option_id": {
+            "type": "int64",
+            "nullable": true,
+            "minimum": 1,
+            "example": 1
+          },
+          "label": {
+            "type": "string",
+            "example": "example string"
+          }
+        },
+        "required": [
+          "option_id",
+          "label"
+        ]
+      }
+    }
+  }
+}

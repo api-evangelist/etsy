@@ -1,0 +1,31 @@
+{
+  "payment_id": 1,
+  "buyer_user_id": 456789,
+  "shop_id": 123456,
+  "receipt_id": 234567890,
+  "amount_gross": "example",
+  "amount_fees": "example",
+  "amount_net": "example",
+  "posted_gross": "example",
+  "posted_fees": "example",
+  "posted_net": "example",
+  "adjusted_gross": "example",
+  "adjusted_fees": "example",
+  "adjusted_net": "example",
+  "currency": "example string",
+  "shop_currency": "example string",
+  "buyer_currency": "example string",
+  "shipping_user_id": 456789,
+  "shipping_address_id": 1,
+  "billing_address_id": 1,
+  "status": "example string",
+  "shipped_timestamp": 1758153645,
+  "create_timestamp": 1758153645,
+  "created_timestamp": 1758153645,
+  "update_timestamp": 1758153645,
+  "updated_timestamp": 1758153645,
+  "payment_adjustments": [
+    {},
+    {}
+  ]
+}

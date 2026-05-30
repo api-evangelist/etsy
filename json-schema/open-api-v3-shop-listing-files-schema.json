@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopListingFiles",
+  "description": "Represents several ShopListingFiles.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-listing-files-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of ShopListingFiles being returned..",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "An array of ShopListingFile resources.",
+      "items": {
+        "description": "An array of ShopListingFile resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShopListingFile"
+          }
+        ]
+      }
+    }
+  }
+}

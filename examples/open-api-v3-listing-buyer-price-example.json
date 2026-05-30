@@ -1,0 +1,12 @@
+{
+  "base_price": "example",
+  "shipping_cost": "example",
+  "is_free_shipping": true,
+  "original_price": "example",
+  "discounted_price": "example",
+  "discount_amount": "example",
+  "discount_percentage": 1,
+  "has_discount": true,
+  "discount_start_epoch": 1758153645,
+  "discount_end_epoch": 1758153645
+}

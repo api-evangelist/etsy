@@ -1,0 +1,14 @@
+{
+  "property_id": 1,
+  "property_name": "Handmade Ceramic Mug",
+  "scale_id": 1,
+  "scale_name": "Handmade Ceramic Mug",
+  "value_ids": [
+    241,
+    538
+  ],
+  "values": [
+    "example value",
+    "example value"
+  ]
+}

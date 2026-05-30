@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shop",
+  "description": "A shop created by an Etsy user.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-schema.json",
+  "type": "object",
+  "properties": {
+    "shop_id": {
+      "type": "integer",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 456789
+    },
+    "shop_name": {
+      "type": "string",
+      "description": "The shop's name string.",
+      "example": "HandmadeCrafts"
+    },
+    "create_date": {
+      "type": "integer",
+      "description": "The date and time this shop was created, in epoch seconds.",
+      "minimum": 0,
+      "example": 1
+    },
+    "created_timestamp": {
+      "type": "integer",
+      "description": "The date and time this shop was created, in epoch seconds.",
+      "minimum": 0,
+      "example": 1758153645
+    },
+    "title": {
+      "type": "string",
+      "description": "A brief heading string for the shop's main page.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug \u2014 Stoneware"
+    },
+    "announcement": {
+      "type": "string",
+      "description": "An announcement string to buyers that displays on the shop's homepage.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "currency_code": {
+      "type": "string",
+      "description": "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.",
+      "example": "USD"
+    },
+    "is_vacation": {
+      "type": "boolean",
+      "description": "When true, this shop is not accepting purchases.",
+      "example": true
+    },
+    "vacation_message": {
+      "type": "string",
+      "description": "The shop's message string displayed when `is_vacation` is true.",
+      "nullable": true,
+      "example": "Thanks for your order! Shipping out tomorrow."
+    },
+    "sale_message": {
+      "type": "string",
+      "description": "A message string sent to users who complete a purchase from this shop.",
+      "nullable": true,
+      "example": "Thanks for your order! Shipping out tomorrow."
+    },
+    "digital_sale_message": {
+      "type": "string",
+      "description": "A message string sent to users who purchase a digital item from this shop.",
+      "nullable": true,
+      "example": "Thanks for your order! Shipping out tomorrow."
+    },
+    "update_date": {
+      "type": "integer",
+      "description": "The date and time of the last update to the shop, in epoch seconds.",
+      "minimum": 0,
+      "example": 1
+    },
+    "updated_timestamp": {
+      "type": "integer",
+      "description": "The date and time of the last update to the shop, in epoch seconds.",
+      "minimum": 0,
+      "example": 1758153645
+    },
+    "listing_active_count": {
+      "type": "integer",
+      "description": "The number of active listings in the shop.",
+      "minimum": 0,
+      "example": 1
+    },
+    "digital_listing_count": {
+      "type": "integer",
+      "description": "The number of digital listings in the shop.",
+      "minimum": 0,
+      "example": 1
+    },
+    "login_name": {
+      "type": "string",
+      "description": "The shop owner's login name string.",
+      "example": "handmade_seller"
+    },
+    "accepts_custom_requests": {
+      "type": "boolean",
+      "description": "When true, the shop accepts customization requests.",
+      "example": true
+    },
+    "policy_welcome": {
+      "type": "string",
+      "description": "The shop's policy welcome string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_payment": {
+      "type": "string",
+      "description": "The shop's payment policy string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_shipping": {
+      "type": "string",
+      "description": "The shop's shipping policy string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_refunds": {
+      "type": "string",
+      "description": "The shop's refund policy string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_additional": {
+      "type": "string",
+      "description": "The shop's additional policies string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_seller_info": {
+      "type": "string",
+      "description": "The shop's seller information string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "policy_update_date": {
+      "type": "integer",
+      "description": "The date and time of the last update to the shop's policies, in epoch seconds.",
+      "minimum": 0,
+      "example": 1
+    },
+    "policy_has_private_receipt_info": {
+      "type": "boolean",
+      "description": "When true, EU receipts display private info.",
+      "example": true
+    },
+    "has_unstructured_policies": {
+      "type": "boolean",
+      "description": "When true, the shop displays additional unstructured policy fields.",
+      "example": true
+    },
+    "policy_privacy": {
+      "type": "string",
+      "description": "The shop's privacy policy string (may be blank).",
+      "nullable": true,
+      "example": "example string"
+    },
+    "vacation_autoreply": {
+      "type": "string",
+      "description": "The shop's automatic reply string displayed in new conversations when `is_vacation` is true.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL string for this shop.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "image_url_760x100": {
+      "type": "string",
+      "description": "The URL string for this shop's banner image.",
+      "nullable": true,
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "num_favorers": {
+      "type": "integer",
+      "description": "The number of users who marked this shop a favorite.",
+      "minimum": 0,
+      "example": 1
+    },
+    "languages": {
+      "type": "array",
+      "description": "A list of language strings for the shop's enrolled languages where the default shop language is the first element in the array.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "icon_url_fullxfull": {
+      "type": "string",
+      "description": "The URL string for this shop's icon image.",
+      "nullable": true,
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "is_using_structured_policies": {
+      "type": "boolean",
+      "description": "When true, the shop accepted using structured policies.",
+      "example": true
+    },
+    "has_onboarded_structured_policies": {
+      "type": "boolean",
+      "description": "When true, the shop accepted OR declined after viewing structured policies onboarding.",
+      "example": true
+    },
+    "include_dispute_form_link": {
+      "type": "boolean",
+      "description": "When true, this shop's policies include a link to an EU online dispute form.",
+      "example": true
+    },
+    "is_direct_checkout_onboarded": {
+      "type": "boolean",
+      "description": "(**DEPRECATED: Replaced by _is_etsy_payments_onboarded_.) When true, the shop has onboarded onto Etsy Payments.",
+      "example": true
+    },
+    "is_etsy_payments_onboarded": {
+      "type": "boolean",
+      "description": "When true, the shop has onboarded onto Etsy Payments.",
+      "example": true
+    },
+    "is_calculated_eligible": {
+      "type": "boolean",
+      "description": "When true, the shop is eligible for calculated shipping profiles. (Only available in the US and Canada)",
+      "example": true
+    },
+    "is_opted_in_to_buyer_promise": {
+      "type": "boolean",
+      "description": "When true, the shop opted in to buyer promise.",
+      "example": true
+    },
+    "is_shop_us_based": {
+      "type": "boolean",
+      "description": "When true, the shop is based in the US.",
+      "example": true
+    },
+    "transaction_sold_count": {
+      "type": "integer",
+      "description": "The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop.",
+      "minimum": 0,
+      "example": 1
+    },
+    "shipping_from_country_iso": {
+      "type": "string",
+      "description": "The country ISO the shop is shipping from.",
+      "format": "ISO 3166-1 alpha-2",
+      "nullable": true,
+      "example": "US"
+    },
+    "shop_location_country_iso": {
+      "type": "string",
+      "description": "The country ISO where the shop is located.",
+      "format": "ISO 3166-1 alpha-2",
+      "nullable": true,
+      "example": "US"
+    },
+    "review_count": {
+      "type": "integer",
+      "description": "Number of reviews of shop listings in the past year.",
+      "nullable": true,
+      "example": 1
+    },
+    "review_average": {
+      "type": "number",
+      "description": "Average rating based on reviews of shop listings in the past year.",
+      "format": "float",
+      "nullable": true,
+      "example": 1.0
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrderCanceledPayload",
+  "description": "OrderCanceledPayload schema from Etsy Open API v3 Webhooks",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/webhooks-order-canceled-payload-schema.json",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/WebhookEnvelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "order.canceled"
+          ]
+        }
+      }
+    }
+  ]
+}

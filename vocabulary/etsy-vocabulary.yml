@@ -1,0 +1,1008 @@
+vocabulary: 1.0.0
+info:
+  provider: Etsy
+  description: 'Unified taxonomy for the Etsy Open API v3 marketplace surface: operational dimension (74 OpenAPI operations across 27 tags + 4 webhook events) and capability dimension (27 Naftiko capabilities exposing REST + MCP).'
+  created: '2026-05-30'
+  modified: '2026-05-30'
+operational:
+  apis:
+    - name: Etsy Open API v3
+      namespace: open-api-v3
+      version: 3.0.0
+      baseUrl: https://openapi.etsy.com
+      status: active
+      operations: 103
+    - name: Etsy Open API v3 Webhooks
+      namespace: webhooks
+      version: 1.0.0
+      baseUrl: subscriber-hosted
+      status: active
+      events: 4
+  resources:
+    - name: BuyerTaxonomy
+      api: open-api-v3
+      operations: 2
+    - name: Ledger Entry
+      api: open-api-v3
+      operations: 2
+    - name: Other
+      api: open-api-v3
+      operations: 2
+    - name: Payment
+      api: open-api-v3
+      operations: 3
+    - name: Review
+      api: open-api-v3
+      operations: 2
+    - name: SellerTaxonomy
+      api: open-api-v3
+      operations: 2
+    - name: Shop
+      api: open-api-v3
+      operations: 4
+    - name: Shop HolidayPreferences
+      api: open-api-v3
+      operations: 2
+    - name: Shop ProcessingProfiles
+      api: open-api-v3
+      operations: 5
+    - name: Shop ProductionPartner
+      api: open-api-v3
+      operations: 1
+    - name: Shop Receipt
+      api: open-api-v3
+      operations: 4
+    - name: Shop Receipt Transactions
+      api: open-api-v3
+      operations: 4
+    - name: Shop Return Policy
+      api: open-api-v3
+      operations: 6
+    - name: Shop Section
+      api: open-api-v3
+      operations: 5
+    - name: Shop ShippingProfile
+      api: open-api-v3
+      operations: 14
+    - name: ShopListing
+      api: open-api-v3
+      operations: 16
+    - name: ShopListing File
+      api: open-api-v3
+      operations: 4
+    - name: ShopListing Image
+      api: open-api-v3
+      operations: 4
+    - name: ShopListing Inventory
+      api: open-api-v3
+      operations: 2
+    - name: ShopListing Offering
+      api: open-api-v3
+      operations: 1
+    - name: ShopListing Personalization
+      api: open-api-v3
+      operations: 3
+    - name: ShopListing Product
+      api: open-api-v3
+      operations: 1
+    - name: ShopListing Translation
+      api: open-api-v3
+      operations: 3
+    - name: ShopListing VariationImage
+      api: open-api-v3
+      operations: 2
+    - name: ShopListing Video
+      api: open-api-v3
+      operations: 4
+    - name: User
+      api: open-api-v3
+      operations: 2
+    - name: UserAddress
+      api: open-api-v3
+      operations: 3
+  actions:
+    - verb: DELETE
+      count: 13
+      pattern: destructive
+    - verb: GET
+      count: 61
+      pattern: read
+    - verb: PATCH
+      count: 1
+      pattern: write
+    - verb: POST
+      count: 16
+      pattern: write
+    - verb: PUT
+      count: 12
+      pattern: write
+  schemas:
+    core:
+      - TypeDiscriminator
+      - ErrorSchema
+      - Money
+      - Pong
+      - Scopes
+      - Self
+    taxonomy:
+      - BuyerTaxonomyNodes
+      - BuyerTaxonomyNode
+      - BuyerTaxonomyNodeProperties
+      - BuyerTaxonomyNodeProperty
+      - BuyerTaxonomyPropertyScale
+      - BuyerTaxonomyPropertyValue
+      - SellerTaxonomyNodes
+      - SellerTaxonomyNode
+      - TaxonomyNodeProperties
+      - TaxonomyNodeProperty
+      - TaxonomyPropertyScale
+      - TaxonomyPropertyValue
+    listings:
+      - ShopListing
+      - ShopListingFile
+      - ShopListingFiles
+      - ShopListings
+      - ShopListingWithAssociations
+      - ListingImage
+      - ListingVideo
+      - ListingInventory
+      - ListingInventoryProduct
+      - ListingInventoryProductOffering
+      - ListingPropertyValue
+      - ShopProductionPartner
+      - ListingTranslations
+      - ListingTranslation
+      - Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
+      - Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
+      - ListingBuyerPrice
+      - ListingImages
+      - ListingInventoryWithAssociations
+      - ShopListingsWithAssociations
+      - ListingPropertyValues
+      - TransactionVariations
+      - ListingVariationImages
+      - ListingVariationImage
+      - ListingVideos
+      - ListingReviews
+      - ListingReview
+      - ShopProductionPartners
+    shop:
+      - ShopShippingProfile
+      - ShopShippingProfileDestination
+      - ShopShippingProfileUpgrade
+      - Shop
+      - ShopRefund
+      - ShopHolidayPreference
+      - Shops
+      - ShopReturnPolicy
+      - ShopReturnPolicies
+      - ShopProcessingProfile
+      - ShopProcessingProfiles
+      - ShopSection
+      - ShopSections
+      - ShopShippingProfileDestinations
+      - ShopShippingProfiles
+      - ShopShippingProfileUpgrades
+    user:
+      - User
+      - UserAddress
+      - UserAddresses
+    orders:
+      - ShopReceiptTransactions
+      - ShopReceiptTransaction
+      - ShopReceipt
+      - ShopReceiptShipment
+      - ShopReceipts
+      - TransactionReviews
+      - TransactionReview
+    finance:
+      - PaymentAccountLedgerEntry
+      - PaymentAdjustment
+      - PaymentAdjustmentItem
+      - PaymentAccountLedgerEntries
+      - Payments
+      - Payment
+    shipping:
+      - ShippingCarriers
+      - ShippingCarrier
+      - ShippingCarrierMailClass
+  parameters:
+    pagination:
+      - limit
+      - offset
+    identifiers:
+      - holiday_id
+      - ledger_entry_id
+      - listing_file_id
+      - listing_id
+      - listing_image_id
+      - product_id
+      - product_offering_id
+      - property_id
+      - readiness_state_definition_id
+      - receipt_id
+      - return_policy_id
+      - shipping_profile_destination_id
+      - shipping_profile_id
+      - shop_id
+      - shop_section_id
+      - taxonomy_id
+      - transaction_id
+      - upgrade_id
+      - user_address_id
+      - user_id
+      - video_id
+    filters:
+      - allow_suggested_title
+      - buyer_country
+      - currency
+      - includes
+      - is_safe
+      - keywords
+      - language
+      - ledger_entry_ids
+      - legacy
+      - listing_ids
+      - max_created
+      - max_last_modified
+      - max_price
+      - max_variations_supported
+      - min_created
+      - min_last_modified
+      - min_price
+      - origin_country_iso
+      - payment_ids
+      - shop_location
+      - shop_name
+      - shop_section_ids
+      - show_deleted
+      - sort_on
+      - sort_order
+      - state
+      - supports_multiple_personalization_questions
+      - was_canceled
+      - was_delivered
+      - was_paid
+  enums:
+    order_events:
+      - order.paid
+      - order.canceled
+      - order.shipped
+      - order.delivered
+    oauth_scopes_read:
+      - listings_r
+      - shops_r
+      - transactions_r
+      - profile_r
+      - address_r
+      - email_r
+      - feedback_r
+      - recommend_r
+      - favorites_r
+      - cart_r
+      - billing_r
+    oauth_scopes_write:
+      - listings_w
+      - shops_w
+      - transactions_w
+      - profile_w
+      - address_w
+      - favorites_w
+      - cart_w
+      - recommend_w
+      - feedback_w
+      - listings_d
+  authentication:
+    apiKey:
+      name: x-api-key
+      location: header
+      description: Per-application API key required on every Open API v3 request.
+    oauth2:
+      flow: authorizationCode + PKCE
+      authorizationUrl: https://www.etsy.com/oauth/connect
+      tokenUrl: https://api.etsy.com/v3/public/oauth/token
+      accessTokenTtlSeconds: 3600
+      refreshTokenTtlDays: 90
+capability:
+  workflows:
+    - name: Etsy Open API v3 — BuyerTaxonomy
+      file: capabilities/open-api-v3-buyer-taxonomy.yaml
+      tag: BuyerTaxonomy
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-buyer-taxonomy-rest
+      mcp_namespace: open-api-v3-buyer-taxonomy-mcp
+    - name: Etsy Open API v3 — Ledger Entry
+      file: capabilities/open-api-v3-ledger-entry.yaml
+      tag: Ledger Entry
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-ledger-entry-rest
+      mcp_namespace: open-api-v3-ledger-entry-mcp
+    - name: Etsy Open API v3 — Other
+      file: capabilities/open-api-v3-other.yaml
+      tag: Other
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-other-rest
+      mcp_namespace: open-api-v3-other-mcp
+    - name: Etsy Open API v3 — Payment
+      file: capabilities/open-api-v3-payment.yaml
+      tag: Payment
+      operations: 3
+      mcp_tools: 3
+      rest_namespace: open-api-v3-payment-rest
+      mcp_namespace: open-api-v3-payment-mcp
+    - name: Etsy Open API v3 — Review
+      file: capabilities/open-api-v3-review.yaml
+      tag: Review
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-review-rest
+      mcp_namespace: open-api-v3-review-mcp
+    - name: Etsy Open API v3 — SellerTaxonomy
+      file: capabilities/open-api-v3-seller-taxonomy.yaml
+      tag: SellerTaxonomy
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-seller-taxonomy-rest
+      mcp_namespace: open-api-v3-seller-taxonomy-mcp
+    - name: Etsy Open API v3 — Shop HolidayPreferences
+      file: capabilities/open-api-v3-shop-holiday-preferences.yaml
+      tag: Shop HolidayPreferences
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-shop-holiday-preferences-rest
+      mcp_namespace: open-api-v3-shop-holiday-preferences-mcp
+    - name: Etsy Open API v3 — ShopListing File
+      file: capabilities/open-api-v3-shop-listing-file.yaml
+      tag: ShopListing File
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-listing-file-rest
+      mcp_namespace: open-api-v3-shop-listing-file-mcp
+    - name: Etsy Open API v3 — ShopListing Image
+      file: capabilities/open-api-v3-shop-listing-image.yaml
+      tag: ShopListing Image
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-listing-image-rest
+      mcp_namespace: open-api-v3-shop-listing-image-mcp
+    - name: Etsy Open API v3 — ShopListing Inventory
+      file: capabilities/open-api-v3-shop-listing-inventory.yaml
+      tag: ShopListing Inventory
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-shop-listing-inventory-rest
+      mcp_namespace: open-api-v3-shop-listing-inventory-mcp
+    - name: Etsy Open API v3 — ShopListing Offering
+      file: capabilities/open-api-v3-shop-listing-offering.yaml
+      tag: ShopListing Offering
+      operations: 1
+      mcp_tools: 1
+      rest_namespace: open-api-v3-shop-listing-offering-rest
+      mcp_namespace: open-api-v3-shop-listing-offering-mcp
+    - name: Etsy Open API v3 — ShopListing Personalization
+      file: capabilities/open-api-v3-shop-listing-personalization.yaml
+      tag: ShopListing Personalization
+      operations: 3
+      mcp_tools: 3
+      rest_namespace: open-api-v3-shop-listing-personalization-rest
+      mcp_namespace: open-api-v3-shop-listing-personalization-mcp
+    - name: Etsy Open API v3 — ShopListing Product
+      file: capabilities/open-api-v3-shop-listing-product.yaml
+      tag: ShopListing Product
+      operations: 1
+      mcp_tools: 1
+      rest_namespace: open-api-v3-shop-listing-product-rest
+      mcp_namespace: open-api-v3-shop-listing-product-mcp
+    - name: Etsy Open API v3 — ShopListing Translation
+      file: capabilities/open-api-v3-shop-listing-translation.yaml
+      tag: ShopListing Translation
+      operations: 3
+      mcp_tools: 3
+      rest_namespace: open-api-v3-shop-listing-translation-rest
+      mcp_namespace: open-api-v3-shop-listing-translation-mcp
+    - name: Etsy Open API v3 — ShopListing VariationImage
+      file: capabilities/open-api-v3-shop-listing-variation-image.yaml
+      tag: ShopListing VariationImage
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-shop-listing-variation-image-rest
+      mcp_namespace: open-api-v3-shop-listing-variation-image-mcp
+    - name: Etsy Open API v3 — ShopListing Video
+      file: capabilities/open-api-v3-shop-listing-video.yaml
+      tag: ShopListing Video
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-listing-video-rest
+      mcp_namespace: open-api-v3-shop-listing-video-mcp
+    - name: Etsy Open API v3 — ShopListing
+      file: capabilities/open-api-v3-shop-listing.yaml
+      tag: ShopListing
+      operations: 16
+      mcp_tools: 16
+      rest_namespace: open-api-v3-shop-listing-rest
+      mcp_namespace: open-api-v3-shop-listing-mcp
+    - name: Etsy Open API v3 — Shop ProcessingProfiles
+      file: capabilities/open-api-v3-shop-processing-profiles.yaml
+      tag: Shop ProcessingProfiles
+      operations: 5
+      mcp_tools: 5
+      rest_namespace: open-api-v3-shop-processing-profiles-rest
+      mcp_namespace: open-api-v3-shop-processing-profiles-mcp
+    - name: Etsy Open API v3 — Shop ProductionPartner
+      file: capabilities/open-api-v3-shop-production-partner.yaml
+      tag: Shop ProductionPartner
+      operations: 1
+      mcp_tools: 1
+      rest_namespace: open-api-v3-shop-production-partner-rest
+      mcp_namespace: open-api-v3-shop-production-partner-mcp
+    - name: Etsy Open API v3 — Shop Receipt Transactions
+      file: capabilities/open-api-v3-shop-receipt-transactions.yaml
+      tag: Shop Receipt Transactions
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-receipt-transactions-rest
+      mcp_namespace: open-api-v3-shop-receipt-transactions-mcp
+    - name: Etsy Open API v3 — Shop Receipt
+      file: capabilities/open-api-v3-shop-receipt.yaml
+      tag: Shop Receipt
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-receipt-rest
+      mcp_namespace: open-api-v3-shop-receipt-mcp
+    - name: Etsy Open API v3 — Shop Return Policy
+      file: capabilities/open-api-v3-shop-return-policy.yaml
+      tag: Shop Return Policy
+      operations: 6
+      mcp_tools: 6
+      rest_namespace: open-api-v3-shop-return-policy-rest
+      mcp_namespace: open-api-v3-shop-return-policy-mcp
+    - name: Etsy Open API v3 — Shop Section
+      file: capabilities/open-api-v3-shop-section.yaml
+      tag: Shop Section
+      operations: 5
+      mcp_tools: 5
+      rest_namespace: open-api-v3-shop-section-rest
+      mcp_namespace: open-api-v3-shop-section-mcp
+    - name: Etsy Open API v3 — Shop ShippingProfile
+      file: capabilities/open-api-v3-shop-shipping-profile.yaml
+      tag: Shop ShippingProfile
+      operations: 14
+      mcp_tools: 14
+      rest_namespace: open-api-v3-shop-shipping-profile-rest
+      mcp_namespace: open-api-v3-shop-shipping-profile-mcp
+    - name: Etsy Open API v3 — Shop
+      file: capabilities/open-api-v3-shop.yaml
+      tag: Shop
+      operations: 4
+      mcp_tools: 4
+      rest_namespace: open-api-v3-shop-rest
+      mcp_namespace: open-api-v3-shop-mcp
+    - name: Etsy Open API v3 — UserAddress
+      file: capabilities/open-api-v3-user-address.yaml
+      tag: UserAddress
+      operations: 3
+      mcp_tools: 3
+      rest_namespace: open-api-v3-user-address-rest
+      mcp_namespace: open-api-v3-user-address-mcp
+    - name: Etsy Open API v3 — User
+      file: capabilities/open-api-v3-user.yaml
+      tag: User
+      operations: 2
+      mcp_tools: 2
+      rest_namespace: open-api-v3-user-rest
+      mcp_namespace: open-api-v3-user-mcp
+  personas:
+    - id: seller-operator
+      name: Seller Operator
+      description: Manages shops, listings, inventory, processing, and fulfillment.
+      workflows:
+        - Etsy Open API v3 — Shop HolidayPreferences
+        - Etsy Open API v3 — ShopListing File
+        - Etsy Open API v3 — ShopListing Image
+        - Etsy Open API v3 — ShopListing Inventory
+        - Etsy Open API v3 — ShopListing Offering
+        - Etsy Open API v3 — ShopListing Personalization
+        - Etsy Open API v3 — ShopListing Product
+        - Etsy Open API v3 — ShopListing Translation
+        - Etsy Open API v3 — ShopListing VariationImage
+        - Etsy Open API v3 — ShopListing Video
+        - Etsy Open API v3 — ShopListing
+        - Etsy Open API v3 — Shop ProcessingProfiles
+        - Etsy Open API v3 — Shop ProductionPartner
+        - Etsy Open API v3 — Shop Receipt Transactions
+        - Etsy Open API v3 — Shop Receipt
+        - Etsy Open API v3 — Shop Return Policy
+        - Etsy Open API v3 — Shop Section
+        - Etsy Open API v3 — Shop ShippingProfile
+        - Etsy Open API v3 — Shop
+    - id: finance-ops
+      name: Finance / Bookkeeping
+      description: Reconciles ledger entries, payments, refunds, and Etsy fees.
+      workflows:
+        - Etsy Open API v3 — Ledger Entry
+        - Etsy Open API v3 — Payment
+    - id: integration-developer
+      name: Integration Developer
+      description: Builds inventory sync, OMS, and ERP connectors against the Open API v3.
+      workflows:
+        - Etsy Open API v3 — BuyerTaxonomy
+        - Etsy Open API v3 — Ledger Entry
+        - Etsy Open API v3 — Other
+        - Etsy Open API v3 — Payment
+        - Etsy Open API v3 — Review
+        - Etsy Open API v3 — SellerTaxonomy
+        - Etsy Open API v3 — Shop HolidayPreferences
+        - Etsy Open API v3 — ShopListing File
+        - Etsy Open API v3 — ShopListing Image
+        - Etsy Open API v3 — ShopListing Inventory
+        - Etsy Open API v3 — ShopListing Offering
+        - Etsy Open API v3 — ShopListing Personalization
+        - Etsy Open API v3 — ShopListing Product
+        - Etsy Open API v3 — ShopListing Translation
+        - Etsy Open API v3 — ShopListing VariationImage
+        - Etsy Open API v3 — ShopListing Video
+        - Etsy Open API v3 — ShopListing
+        - Etsy Open API v3 — Shop ProcessingProfiles
+        - Etsy Open API v3 — Shop ProductionPartner
+        - Etsy Open API v3 — Shop Receipt Transactions
+        - Etsy Open API v3 — Shop Receipt
+        - Etsy Open API v3 — Shop Return Policy
+        - Etsy Open API v3 — Shop Section
+        - Etsy Open API v3 — Shop ShippingProfile
+        - Etsy Open API v3 — Shop
+        - Etsy Open API v3 — UserAddress
+        - Etsy Open API v3 — User
+    - id: customer-success
+      name: Customer Success / Reviews
+      description: Monitors transaction reviews and customer feedback.
+      workflows:
+        - Etsy Open API v3 — Review
+        - Etsy Open API v3 — Shop Receipt Transactions
+        - Etsy Open API v3 — Shop Receipt
+    - id: taxonomy-merchandising
+      name: Taxonomy / Merchandising
+      description: Browses buyer and seller taxonomies to plan catalog placement.
+      workflows:
+        - Etsy Open API v3 — BuyerTaxonomy
+        - Etsy Open API v3 — SellerTaxonomy
+  domains:
+    - id: listings
+      name: Listings
+      description: Listing management, images, files, videos, translations, personalization, variations, inventory, offerings, products.
+    - id: orders
+      name: Orders
+      description: Receipts, transactions, post-purchase order management.
+    - id: finance
+      name: Finance
+      description: Payments, ledger entries, payouts, refunds, fees.
+    - id: shop
+      name: Shop
+      description: Shop management, sections, shipping profiles, processing profiles, production partners, return policies, holiday preferences.
+    - id: user
+      name: User
+      description: User profile and addresses.
+    - id: reviews
+      name: Reviews
+      description: Shop and transaction reviews left by buyers.
+    - id: taxonomy
+      name: Taxonomy
+      description: Buyer (navigation) and Seller (classification) taxonomies.
+    - id: webhooks
+      name: Webhooks
+      description: Order lifecycle event notifications via AsyncAPI.
+  namespaces:
+    - consumed: open-api-v3-buyer-taxonomy
+      rest: open-api-v3-buyer-taxonomy-rest
+      rest_port: 8080
+      mcp: open-api-v3-buyer-taxonomy-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-ledger-entry
+      rest: open-api-v3-ledger-entry-rest
+      rest_port: 8080
+      mcp: open-api-v3-ledger-entry-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-other
+      rest: open-api-v3-other-rest
+      rest_port: 8080
+      mcp: open-api-v3-other-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-payment
+      rest: open-api-v3-payment-rest
+      rest_port: 8080
+      mcp: open-api-v3-payment-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-review
+      rest: open-api-v3-review-rest
+      rest_port: 8080
+      mcp: open-api-v3-review-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-seller-taxonomy
+      rest: open-api-v3-seller-taxonomy-rest
+      rest_port: 8080
+      mcp: open-api-v3-seller-taxonomy-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-holiday-preferences
+      rest: open-api-v3-shop-holiday-preferences-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-holiday-preferences-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-file
+      rest: open-api-v3-shop-listing-file-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-file-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-image
+      rest: open-api-v3-shop-listing-image-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-image-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-inventory
+      rest: open-api-v3-shop-listing-inventory-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-inventory-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-offering
+      rest: open-api-v3-shop-listing-offering-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-offering-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-personalization
+      rest: open-api-v3-shop-listing-personalization-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-personalization-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-product
+      rest: open-api-v3-shop-listing-product-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-product-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-translation
+      rest: open-api-v3-shop-listing-translation-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-translation-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-variation-image
+      rest: open-api-v3-shop-listing-variation-image-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-variation-image-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing-video
+      rest: open-api-v3-shop-listing-video-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-video-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-listing
+      rest: open-api-v3-shop-listing-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-listing-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-processing-profiles
+      rest: open-api-v3-shop-processing-profiles-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-processing-profiles-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-production-partner
+      rest: open-api-v3-shop-production-partner-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-production-partner-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-receipt-transactions
+      rest: open-api-v3-shop-receipt-transactions-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-receipt-transactions-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-receipt
+      rest: open-api-v3-shop-receipt-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-receipt-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-return-policy
+      rest: open-api-v3-shop-return-policy-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-return-policy-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-section
+      rest: open-api-v3-shop-section-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-section-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop-shipping-profile
+      rest: open-api-v3-shop-shipping-profile-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-shipping-profile-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-shop
+      rest: open-api-v3-shop-rest
+      rest_port: 8080
+      mcp: open-api-v3-shop-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-user-address
+      rest: open-api-v3-user-address-rest
+      rest_port: 8080
+      mcp: open-api-v3-user-address-mcp
+      mcp_port: 9090
+    - consumed: open-api-v3-user
+      rest: open-api-v3-user-rest
+      rest_port: 8080
+      mcp: open-api-v3-user-mcp
+      mcp_port: 9090
+  binds:
+    - env: ETSY_API_KEY
+      description: Per-application API key sent as the x-api-key header.
+      used_by_workflows:
+        - Etsy Open API v3 — BuyerTaxonomy
+        - Etsy Open API v3 — Ledger Entry
+        - Etsy Open API v3 — Other
+        - Etsy Open API v3 — Payment
+        - Etsy Open API v3 — Review
+        - Etsy Open API v3 — SellerTaxonomy
+        - Etsy Open API v3 — Shop HolidayPreferences
+        - Etsy Open API v3 — ShopListing File
+        - Etsy Open API v3 — ShopListing Image
+        - Etsy Open API v3 — ShopListing Inventory
+        - Etsy Open API v3 — ShopListing Offering
+        - Etsy Open API v3 — ShopListing Personalization
+        - Etsy Open API v3 — ShopListing Product
+        - Etsy Open API v3 — ShopListing Translation
+        - Etsy Open API v3 — ShopListing VariationImage
+        - Etsy Open API v3 — ShopListing Video
+        - Etsy Open API v3 — ShopListing
+        - Etsy Open API v3 — Shop ProcessingProfiles
+        - Etsy Open API v3 — Shop ProductionPartner
+        - Etsy Open API v3 — Shop Receipt Transactions
+        - Etsy Open API v3 — Shop Receipt
+        - Etsy Open API v3 — Shop Return Policy
+        - Etsy Open API v3 — Shop Section
+        - Etsy Open API v3 — Shop ShippingProfile
+        - Etsy Open API v3 — Shop
+        - Etsy Open API v3 — UserAddress
+        - Etsy Open API v3 — User
+    - env: ETSY_OAUTH_TOKEN
+      description: OAuth 2.0 access token for user-scoped operations.
+      used_by_workflows:
+        - Etsy Open API v3 — BuyerTaxonomy
+        - Etsy Open API v3 — Ledger Entry
+        - Etsy Open API v3 — Other
+        - Etsy Open API v3 — Payment
+        - Etsy Open API v3 — Review
+        - Etsy Open API v3 — SellerTaxonomy
+        - Etsy Open API v3 — Shop HolidayPreferences
+        - Etsy Open API v3 — ShopListing File
+        - Etsy Open API v3 — ShopListing Image
+        - Etsy Open API v3 — ShopListing Inventory
+        - Etsy Open API v3 — ShopListing Offering
+        - Etsy Open API v3 — ShopListing Personalization
+        - Etsy Open API v3 — ShopListing Product
+        - Etsy Open API v3 — ShopListing Translation
+        - Etsy Open API v3 — ShopListing VariationImage
+        - Etsy Open API v3 — ShopListing Video
+        - Etsy Open API v3 — ShopListing
+        - Etsy Open API v3 — Shop ProcessingProfiles
+        - Etsy Open API v3 — Shop ProductionPartner
+        - Etsy Open API v3 — Shop Receipt Transactions
+        - Etsy Open API v3 — Shop Receipt
+        - Etsy Open API v3 — Shop Return Policy
+        - Etsy Open API v3 — Shop Section
+        - Etsy Open API v3 — Shop ShippingProfile
+        - Etsy Open API v3 — Shop
+        - Etsy Open API v3 — UserAddress
+        - Etsy Open API v3 — User
+crossReference:
+  - resource: BuyerTaxonomy
+    domain: taxonomy
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — BuyerTaxonomy
+    personas:
+      - integration-developer
+      - taxonomy-merchandising
+  - resource: Ledger Entry
+    domain: core
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — Ledger Entry
+    personas:
+      - finance-ops
+      - integration-developer
+  - resource: Other
+    domain: core
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — Other
+    personas:
+      - integration-developer
+  - resource: Payment
+    domain: core
+    operations: 3
+    workflows:
+      - Etsy Open API v3 — Payment
+    personas:
+      - finance-ops
+      - integration-developer
+  - resource: Review
+    domain: reviews
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — Review
+    personas:
+      - integration-developer
+      - customer-success
+  - resource: SellerTaxonomy
+    domain: taxonomy
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — SellerTaxonomy
+    personas:
+      - integration-developer
+      - taxonomy-merchandising
+  - resource: Shop
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — Shop
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop HolidayPreferences
+    domain: shop
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — Shop HolidayPreferences
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop ProcessingProfiles
+    domain: shop
+    operations: 5
+    workflows:
+      - Etsy Open API v3 — Shop ProcessingProfiles
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop ProductionPartner
+    domain: shop
+    operations: 1
+    workflows:
+      - Etsy Open API v3 — Shop ProductionPartner
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop Receipt
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — Shop Receipt
+    personas:
+      - seller-operator
+      - integration-developer
+      - customer-success
+  - resource: Shop Receipt Transactions
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — Shop Receipt Transactions
+    personas:
+      - seller-operator
+      - integration-developer
+      - customer-success
+  - resource: Shop Return Policy
+    domain: shop
+    operations: 6
+    workflows:
+      - Etsy Open API v3 — Shop Return Policy
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop Section
+    domain: shop
+    operations: 5
+    workflows:
+      - Etsy Open API v3 — Shop Section
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: Shop ShippingProfile
+    domain: shop
+    operations: 14
+    workflows:
+      - Etsy Open API v3 — Shop ShippingProfile
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing
+    domain: shop
+    operations: 16
+    workflows:
+      - Etsy Open API v3 — ShopListing
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing File
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — ShopListing File
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Image
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — ShopListing Image
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Inventory
+    domain: shop
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — ShopListing Inventory
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Offering
+    domain: shop
+    operations: 1
+    workflows:
+      - Etsy Open API v3 — ShopListing Offering
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Personalization
+    domain: shop
+    operations: 3
+    workflows:
+      - Etsy Open API v3 — ShopListing Personalization
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Product
+    domain: shop
+    operations: 1
+    workflows:
+      - Etsy Open API v3 — ShopListing Product
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Translation
+    domain: shop
+    operations: 3
+    workflows:
+      - Etsy Open API v3 — ShopListing Translation
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing VariationImage
+    domain: shop
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — ShopListing VariationImage
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: ShopListing Video
+    domain: shop
+    operations: 4
+    workflows:
+      - Etsy Open API v3 — ShopListing Video
+    personas:
+      - seller-operator
+      - integration-developer
+  - resource: User
+    domain: user
+    operations: 2
+    workflows:
+      - Etsy Open API v3 — User
+    personas:
+      - integration-developer
+  - resource: UserAddress
+    domain: user
+    operations: 3
+    workflows:
+      - Etsy Open API v3 — UserAddress
+    personas:
+      - integration-developer

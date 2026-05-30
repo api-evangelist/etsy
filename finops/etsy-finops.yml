@@ -1,0 +1,140 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Etsy
+providerId: etsy
+created: '2026-05-30'
+modified: '2026-05-30'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Marketplace
+  - Ecommerce
+  - Take Rate
+description: >-
+  FOCUS-aligned FinOps view of the Etsy marketplace: the Open API v3
+  itself is free to developers, but every order that flows through it
+  triggers listing fees, transaction fees, payment-processing fees, and
+  optional advertising fees that appear on the seller's monthly Etsy bill.
+  This artifact maps those billable lines onto FOCUS columns and the four
+  FinOps principles so platform and finance teams can attribute and
+  optimize Etsy spend with the same rigor they apply to cloud and SaaS.
+sources:
+  - https://developers.etsy.com/documentation
+  - https://developers.etsy.com/documentation/essentials/rate-limits
+  - https://www.etsy.com/sell
+  - https://help.etsy.com/hc/en-us/articles/115014483627
+  - https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Etsy, Inc.
+serviceCategory: Marketplace + Payments
+billingModel:
+  pricingCategory: Take Rate + Subscription
+  billingFrequency: Continuous Settlement
+  billingCurrency: USD (settlement varies)
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Adjustment
+    - Refund
+    - Credit
+focusColumns:
+  ServiceName: Etsy
+  ServiceCategory: Marketplace + Payments
+  ServiceSubcategory: Online Marketplace
+  ProviderName: Etsy
+  PublisherName: Etsy, Inc.
+  InvoiceIssuerName: Etsy, Inc.
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  RegionId: marketplace.etsy.com
+meters:
+  - name: api_requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key
+      - operation
+      - response_code
+  - name: listings_published
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+  - name: marketplace_transactions
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+      - currency
+  - name: marketplace_gross_merchandise_value
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+      - currency
+  - name: payment_processing_fees
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+      - currency
+      - card_brand
+  - name: offsite_ads_attribution
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+      - rate_tier
+  - name: etsy_ads_spend
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - campaign_id
+      - country
+  - name: refunds_and_chargebacks
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - shop_id
+      - country
+      - reason_code
+principles:
+  - name: Visibility
+    description: >-
+      Use the Ledger Entry endpoints to pull every fee, deposit, refund,
+      and adjustment posted to a shop's account; pair with Receipts and
+      Transactions for line-item-level attribution. The shop's Etsy
+      Payments dashboard and monthly CSV exports are the system of record.
+  - name: Allocation
+    description: >-
+      Tag charges by shop_id, country, currency, and (for ads) campaign
+      to allocate Etsy spend back to product lines, geographies, or
+      marketing programs. The Receipt and Transaction schemas expose all
+      the dimensions needed.
+  - name: Optimization
+    description: >-
+      Levers include: pruning low-performing listings before the 4-month
+      auto-renewal fee, choosing whether to enrol in Offsite Ads (which
+      changes the take-rate tier from 12% to 15% for high-volume sellers),
+      tuning Etsy Ads daily budgets, and consolidating shipments to
+      reduce payment-processing fees. Use the Ledger Entry API to A/B
+      test these levers.
+  - name: Accountability
+    description: >-
+      Assign a marketplace operations owner per shop. Set alerts on
+      payment_processing_fees and offsite_ads_attribution as % of GMV.
+      Reconcile monthly via Etsy's invoice plus the Ledger Entry API.

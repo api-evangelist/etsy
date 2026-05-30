@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-payment-adjustment-item-structure.json",
+  "name": "PaymentAdjustmentItem",
+  "description": "A payment adjustment line item for a payment adjustment.",
+  "type": "object",
+  "properties": {
+    "payment_adjustment_id": {
+      "type": "int64",
+      "description": "The numeric ID for a payment adjustment.",
+      "minimum": 1,
+      "example": 1
+    },
+    "payment_adjustment_item_id": {
+      "type": "int64",
+      "description": "Unique ID for the adjustment line item.",
+      "minimum": 1,
+      "example": 1
+    },
+    "adjustment_type": {
+      "type": "string",
+      "description": "String indicating the type of adjustment for this line item.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "amount": {
+      "type": "int32",
+      "description": "Integer value for the amount of the adjustment in original currency.",
+      "default": 0,
+      "example": 2500
+    },
+    "shop_amount": {
+      "type": "int32",
+      "description": "Integer value for the amount of the adjustment in currency for the shop.",
+      "default": 0,
+      "example": 2500
+    },
+    "transaction_id": {
+      "type": "int64",
+      "description": "The unique numeric ID for a transaction.",
+      "nullable": true,
+      "minimum": 1,
+      "example": 345678901
+    },
+    "bill_payment_id": {
+      "type": "int64",
+      "description": "Unique ID for the bill payment adjustment.",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "created_timestamp": {
+      "type": "int32",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "updated_timestamp": {
+      "type": "int32",
+      "description": "The update date and time the payment adjustment in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    }
+  }
+}

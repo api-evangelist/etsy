@@ -1,0 +1,211 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Etsy
+providerId: etsy
+created: '2026-05-30'
+modified: '2026-05-30'
+reconciled: true
+tags:
+  - Marketplace
+  - Ecommerce
+  - Handmade
+  - Open API v3
+  - Free Tier
+description: >-
+  Etsy does not charge developers to use the Etsy Open API v3. Access is
+  gated by application approval and a per-application API key issued through
+  the Etsy Developer Portal. The cost to use Etsy is therefore on the
+  seller-marketplace side: shops are subject to listing fees, transaction
+  fees, payment processing fees, advertising fees, and (optionally) an Etsy
+  Plus subscription. This artifact captures both surfaces — the
+  free-by-default developer plan and the marketplace seller plans — so
+  consumers of the API can model the true cost of a workflow.
+sources:
+  - https://developers.etsy.com/
+  - https://developers.etsy.com/documentation/essentials/rate-limits
+  - https://www.etsy.com/sell
+  - https://help.etsy.com/hc/en-us/articles/115014483627
+  - https://www.etsy.com/legal/sellers/?ref=ftr
+plans:
+  - id: etsy-open-api-developer-free
+    name: Etsy Open API v3 (Developer Free Tier)
+    type: freemium
+    description: >-
+      Free, application-approved developer access to the Etsy Open API v3.
+      Limits are scoped to each issued API key.
+    entries:
+      - label: API Access
+        name: api_access
+        type: flat
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+      - label: Daily Request Quota
+        name: requests_per_day
+        type: quota
+        metric: request
+        limit: 100000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '$0 (included)'
+        userMultiplied: false
+      - label: Per-Second Request Rate
+        name: requests_per_second
+        type: quota
+        metric: request
+        limit: 150
+        timeFrame: second
+        geo: global
+        unit: 1
+        price: '$0 (included)'
+        userMultiplied: false
+      - label: Rate Limit Increases
+        name: rate_limit_upgrades
+        type: flat
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'contact developer@etsy.com'
+        userMultiplied: false
+    elements:
+      - name: Listing, receipt, transaction, payment, ledger, review, shop, taxonomy, and webhook endpoints
+      - name: OAuth 2.0 Authorization Code + PKCE
+      - name: Per-key x-api-key header authentication
+      - name: Order lifecycle webhooks (order.paid, order.canceled, order.shipped, order.delivered)
+      - name: Etsy Developer Portal access (app management, webhook portal)
+
+  - id: etsy-marketplace-standard
+    name: Etsy Marketplace (Standard Seller)
+    type: usage-based
+    description: >-
+      Marketplace-side per-seller fees that apply regardless of whether a
+      shop is operated manually or through an integration built on the Open
+      API v3. These line items will appear on the seller's Etsy bill.
+    entries:
+      - label: Listing Fee
+        name: listing_fee
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '$0.20 USD per listing (renews every 4 months or per sale)'
+        userMultiplied: false
+      - label: Transaction Fee
+        name: transaction_fee
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '6.5% of total order amount (item, shipping, gift wrapping)'
+        userMultiplied: false
+      - label: Payment Processing Fee (US)
+        name: payment_processing_us
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: US
+        unit: 1
+        price: '3% + $0.25 USD per transaction'
+        userMultiplied: false
+      - label: Payment Processing Fee (Non-US)
+        name: payment_processing_non_us
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: non-US
+        unit: 1
+        price: 'varies by country (see seller policy)'
+        userMultiplied: false
+      - label: Currency Conversion Fee
+        name: currency_conversion
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '2.5% of converted amount'
+        userMultiplied: false
+      - label: Etsy Ads
+        name: etsy_ads
+        type: metered
+        metric: varies
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 'seller-set daily budget (PPC)'
+        userMultiplied: false
+      - label: Offsite Ads
+        name: offsite_ads
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '12% or 15% of order from offsite ad (varies by sales volume)'
+        userMultiplied: false
+    elements:
+      - name: Open shop on Etsy.com
+      - name: List products in Etsy categories
+      - name: Receive payments via Etsy Payments
+      - name: Optional Etsy Ads / Offsite Ads
+      - name: Standard seller analytics
+
+  - id: etsy-plus-subscription
+    name: Etsy Plus
+    type: subscription
+    description: >-
+      Optional monthly subscription for sellers who want additional shop
+      customization, restock notifications, listing credits, and discounts.
+    entries:
+      - label: Etsy Plus Monthly Subscription
+        name: etsy_plus_month
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$10.00 USD per month'
+        userMultiplied: false
+      - label: Included Listing Credits
+        name: listing_credits
+        type: quota
+        metric: transaction
+        limit: 15
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Included US Etsy Ads Credit
+        name: etsy_ads_credit
+        type: quota
+        metric: varies
+        limit: 5
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '$5.00 USD credit included'
+        userMultiplied: false
+    elements:
+      - name: Advanced shop customization (banners, featured listings)
+      - name: Restock request notifications
+      - name: Discount on custom web address
+      - name: Discount on Etsy-branded packaging and marketing materials

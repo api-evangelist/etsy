@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BuyerTaxonomyPropertyScale",
+  "description": "A scale defining the assignable increments for the property values available to specific product properties.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-buyer-taxonomy-property-scale-schema.json",
+  "type": "object",
+  "properties": {
+    "scale_id": {
+      "type": "integer",
+      "description": "The unique numeric ID of a scale.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "display_name": {
+      "type": "string",
+      "description": "The name string for a scale.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description string for a scale.",
+      "example": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio."
+    }
+  }
+}

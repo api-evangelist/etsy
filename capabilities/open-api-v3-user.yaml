@@ -1,0 +1,116 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — User
+  description: 'Etsy Open API v3 — User. 2 operations. Lead operation: Get User. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - User
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-user
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — User business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: users
+          path: /v3/application/users/{user_id}
+          operations:
+            - name: getUser
+              method: GET
+              description: Get User
+              inputParameters:
+                - name: user_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: user_id parameter.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: users-me
+          path: /v3/application/users/me
+          operations:
+            - name: getMe
+              method: GET
+              description: Get Me
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-user-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — User. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/users/{user_id}
+          name: users
+          description: REST surface for users.
+          operations:
+            - method: GET
+              name: getUser
+              description: Get User
+              call: open-api-v3-user.getUser
+              with:
+                user_id: rest.user_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/users/me
+          name: users-me
+          description: REST surface for users-me.
+          operations:
+            - method: GET
+              name: getMe
+              description: Get Me
+              call: open-api-v3-user.getMe
+              with: {}
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-user-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — User. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-user
+          description: Get User
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-user.getUser
+          with:
+            user_id: tools.user_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-me
+          description: Get Me
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-user.getMe
+          with: {}
+          outputParameters:
+            - type: object
+              mapping: $.

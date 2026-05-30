@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-buyer-taxonomy-node-property-structure.json",
+  "name": "BuyerTaxonomyNodeProperty",
+  "description": "A product property definition.",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "int64",
+      "description": "The unique numeric ID of this product property.",
+      "minimum": 1,
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name string for this taxonomy node.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "The human-readable product property name string.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "scales": {
+      "type": "array",
+      "description": "A list of available scales.",
+      "items": {
+        "description": "A list of available scales.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BuyerTaxonomyPropertyScale"
+          }
+        ]
+      }
+    },
+    "is_required": {
+      "type": "boolean",
+      "description": "When true, listings assigned eligible taxonomy IDs require this property.",
+      "example": true
+    },
+    "supports_attributes": {
+      "type": "boolean",
+      "description": "When true, you can use this property in listing properties.",
+      "example": true
+    },
+    "supports_variations": {
+      "type": "boolean",
+      "description": "When true, you can use this property in listing inventory.",
+      "example": true
+    },
+    "is_multivalued": {
+      "type": "boolean",
+      "description": "When true, you can assign multiple property values to this property",
+      "example": true
+    },
+    "max_values_allowed": {
+      "type": "int32",
+      "description": "When true, you can assign multiple property values to this property",
+      "nullable": true,
+      "example": 1
+    },
+    "possible_values": {
+      "type": "array",
+      "description": "A list of supported property value strings for this property.",
+      "items": {
+        "description": "A list of supported property value strings for this property.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BuyerTaxonomyPropertyValue"
+          }
+        ]
+      }
+    },
+    "selected_values": {
+      "type": "array",
+      "description": "A list of property value strings automatically and always selected for the given property.",
+      "items": {
+        "description": "A list of property value strings automatically and always selected for the given property.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BuyerTaxonomyPropertyValue"
+          }
+        ]
+      }
+    }
+  }
+}

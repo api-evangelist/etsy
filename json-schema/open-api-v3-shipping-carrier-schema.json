@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShippingCarrier",
+  "description": "A supported shipping carrier, which is used to calculate an Estimated Delivery Date.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shipping-carrier-schema.json",
+  "type": "object",
+  "properties": {
+    "shipping_carrier_id": {
+      "type": "integer",
+      "description": "The numeric ID of this shipping carrier.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of this shipping carrier.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "domestic_classes": {
+      "type": "array",
+      "description": "Set of domestic mail classes of this shipping carrier.",
+      "items": {
+        "description": "Set of domestic mail classes of this shipping carrier.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShippingCarrierMailClass"
+          }
+        ]
+      }
+    },
+    "international_classes": {
+      "type": "array",
+      "description": "Set of international mail classes of this shipping carrier.",
+      "items": {
+        "description": "Set of international mail classes of this shipping carrier.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShippingCarrierMailClass"
+          }
+        ]
+      }
+    }
+  }
+}

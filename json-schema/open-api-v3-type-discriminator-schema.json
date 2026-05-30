@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TypeDiscriminator",
+  "description": "TypeDiscriminator schema from Etsy Open API v3",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-type-discriminator-schema.json",
+  "type": "object",
+  "properties": {
+    "__type": {
+      "type": "string",
+      "description": "field used to determine the type of the object when deserializing union type responses",
+      "example": "example string"
+    }
+  },
+  "required": [
+    "__type"
+  ]
+}

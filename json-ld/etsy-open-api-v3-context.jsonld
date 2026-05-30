@@ -1,0 +1,1516 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "etsy": "https://developers.etsy.com/vocab/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "BuyerTaxonomyNode": "etsy:BuyerTaxonomyNode",
+    "BuyerTaxonomyNodeProperties": "etsy:BuyerTaxonomyNodeProperties",
+    "BuyerTaxonomyNodeProperty": "etsy:BuyerTaxonomyNodeProperty",
+    "BuyerTaxonomyNodes": "etsy:BuyerTaxonomyNodes",
+    "BuyerTaxonomyPropertyScale": "etsy:BuyerTaxonomyPropertyScale",
+    "BuyerTaxonomyPropertyValue": "etsy:BuyerTaxonomyPropertyValue",
+    "ErrorSchema": "etsy:ErrorSchema",
+    "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization": "etsy:Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization",
+    "Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion": "etsy:Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion",
+    "ListingBuyerPrice": "etsy:ListingBuyerPrice",
+    "ListingImage": "etsy:ListingImage",
+    "ListingImages": "etsy:ListingImages",
+    "ListingInventory": "etsy:ListingInventory",
+    "ListingInventoryProduct": "etsy:ListingInventoryProduct",
+    "ListingInventoryProductOffering": "etsy:ListingInventoryProductOffering",
+    "ListingInventoryWithAssociations": "etsy:ListingInventoryWithAssociations",
+    "ListingPropertyValue": "etsy:ListingPropertyValue",
+    "ListingPropertyValues": "etsy:ListingPropertyValues",
+    "ListingReview": "etsy:ListingReview",
+    "ListingReviews": "etsy:ListingReviews",
+    "ListingTranslation": "etsy:ListingTranslation",
+    "ListingTranslations": "etsy:ListingTranslations",
+    "ListingVariationImage": "etsy:ListingVariationImage",
+    "ListingVariationImages": "etsy:ListingVariationImages",
+    "ListingVideo": "etsy:ListingVideo",
+    "ListingVideos": "etsy:ListingVideos",
+    "Money": "etsy:Money",
+    "Payment": "etsy:Payment",
+    "PaymentAccountLedgerEntries": "etsy:PaymentAccountLedgerEntries",
+    "PaymentAccountLedgerEntry": "etsy:PaymentAccountLedgerEntry",
+    "PaymentAdjustment": "etsy:PaymentAdjustment",
+    "PaymentAdjustmentItem": "etsy:PaymentAdjustmentItem",
+    "Payments": "etsy:Payments",
+    "Pong": "etsy:Pong",
+    "Scopes": "etsy:Scopes",
+    "Self": "etsy:Self",
+    "SellerTaxonomyNode": "etsy:SellerTaxonomyNode",
+    "SellerTaxonomyNodes": "etsy:SellerTaxonomyNodes",
+    "ShippingCarrier": "etsy:ShippingCarrier",
+    "ShippingCarrierMailClass": "etsy:ShippingCarrierMailClass",
+    "ShippingCarriers": "etsy:ShippingCarriers",
+    "Shop": "etsy:Shop",
+    "ShopHolidayPreference": "etsy:ShopHolidayPreference",
+    "ShopListing": "etsy:ShopListing",
+    "ShopListingFile": "etsy:ShopListingFile",
+    "ShopListingFiles": "etsy:ShopListingFiles",
+    "ShopListingWithAssociations": "etsy:ShopListingWithAssociations",
+    "ShopListings": "etsy:ShopListings",
+    "ShopListingsWithAssociations": "etsy:ShopListingsWithAssociations",
+    "ShopProcessingProfile": "etsy:ShopProcessingProfile",
+    "ShopProcessingProfiles": "etsy:ShopProcessingProfiles",
+    "ShopProductionPartner": "etsy:ShopProductionPartner",
+    "ShopProductionPartners": "etsy:ShopProductionPartners",
+    "ShopReceipt": "etsy:ShopReceipt",
+    "ShopReceiptShipment": "etsy:ShopReceiptShipment",
+    "ShopReceiptTransaction": "etsy:ShopReceiptTransaction",
+    "ShopReceiptTransactions": "etsy:ShopReceiptTransactions",
+    "ShopReceipts": "etsy:ShopReceipts",
+    "ShopRefund": "etsy:ShopRefund",
+    "ShopReturnPolicies": "etsy:ShopReturnPolicies",
+    "ShopReturnPolicy": "etsy:ShopReturnPolicy",
+    "ShopSection": "etsy:ShopSection",
+    "ShopSections": "etsy:ShopSections",
+    "ShopShippingProfile": "etsy:ShopShippingProfile",
+    "ShopShippingProfileDestination": "etsy:ShopShippingProfileDestination",
+    "ShopShippingProfileDestinations": "etsy:ShopShippingProfileDestinations",
+    "ShopShippingProfileUpgrade": "etsy:ShopShippingProfileUpgrade",
+    "ShopShippingProfileUpgrades": "etsy:ShopShippingProfileUpgrades",
+    "ShopShippingProfiles": "etsy:ShopShippingProfiles",
+    "Shops": "etsy:Shops",
+    "TaxonomyNodeProperties": "etsy:TaxonomyNodeProperties",
+    "TaxonomyNodeProperty": "etsy:TaxonomyNodeProperty",
+    "TaxonomyPropertyScale": "etsy:TaxonomyPropertyScale",
+    "TaxonomyPropertyValue": "etsy:TaxonomyPropertyValue",
+    "TransactionReview": "etsy:TransactionReview",
+    "TransactionReviews": "etsy:TransactionReviews",
+    "TransactionVariations": "etsy:TransactionVariations",
+    "TypeDiscriminator": "etsy:TypeDiscriminator",
+    "User": "etsy:User",
+    "UserAddress": "etsy:UserAddress",
+    "UserAddresses": "etsy:UserAddresses",
+    "Type": {
+      "@id": "etsy:__type",
+      "@type": "xsd:string"
+    },
+    "acceptsCustomRequests": {
+      "@id": "etsy:accepts_custom_requests",
+      "@type": "xsd:boolean"
+    },
+    "acceptsExchanges": {
+      "@id": "etsy:accepts_exchanges",
+      "@type": "xsd:boolean"
+    },
+    "acceptsReturns": {
+      "@id": "etsy:accepts_returns",
+      "@type": "xsd:boolean"
+    },
+    "activeListingCount": {
+      "@id": "etsy:active_listing_count",
+      "@type": "xsd:integer"
+    },
+    "adjustedFees": {
+      "@id": "etsy:adjusted_fees",
+      "@type": "xsd:string"
+    },
+    "adjustedGross": {
+      "@id": "etsy:adjusted_gross",
+      "@type": "xsd:string"
+    },
+    "adjustedNet": {
+      "@id": "etsy:adjusted_net",
+      "@type": "xsd:string"
+    },
+    "adjustmentType": {
+      "@id": "etsy:adjustment_type",
+      "@type": "xsd:string"
+    },
+    "altText": {
+      "@id": "etsy:alt_text",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "etsy:amount",
+      "@type": "xsd:string"
+    },
+    "amountFees": {
+      "@id": "etsy:amount_fees",
+      "@type": "xsd:string"
+    },
+    "amountGross": {
+      "@id": "etsy:amount_gross",
+      "@type": "xsd:string"
+    },
+    "amountNet": {
+      "@id": "etsy:amount_net",
+      "@type": "xsd:string"
+    },
+    "announcement": {
+      "@id": "etsy:announcement",
+      "@type": "xsd:string"
+    },
+    "applicationId": {
+      "@id": "etsy:application_id",
+      "@type": "xsd:long"
+    },
+    "balance": {
+      "@id": "etsy:balance",
+      "@type": "xsd:integer"
+    },
+    "basePrice": {
+      "@id": "etsy:base_price",
+      "@type": "xsd:string"
+    },
+    "billPaymentId": {
+      "@id": "etsy:bill_payment_id",
+      "@type": "xsd:long"
+    },
+    "billingAddressId": {
+      "@id": "etsy:billing_address_id",
+      "@type": "xsd:integer"
+    },
+    "blue": {
+      "@id": "etsy:blue",
+      "@type": "xsd:integer"
+    },
+    "brightness": {
+      "@id": "etsy:brightness",
+      "@type": "xsd:integer"
+    },
+    "buyerCoupon": {
+      "@id": "etsy:buyer_coupon",
+      "@type": "xsd:float"
+    },
+    "buyerCurrency": {
+      "@id": "etsy:buyer_currency",
+      "@type": "xsd:string"
+    },
+    "buyerEmail": {
+      "@id": "etsy:buyer_email",
+      "@type": "xsd:string"
+    },
+    "buyerPrice": {
+      "@id": "etsy:buyer_price",
+      "@type": "xsd:string"
+    },
+    "buyerTotalAdjustmentAmount": {
+      "@id": "etsy:buyer_total_adjustment_amount",
+      "@type": "xsd:integer"
+    },
+    "buyerUserId": {
+      "@id": "etsy:buyer_user_id",
+      "@type": "xsd:long"
+    },
+    "carrierName": {
+      "@id": "etsy:carrier_name",
+      "@type": "xsd:string"
+    },
+    "children": {
+      "@id": "etsy:children",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "etsy:city",
+      "@type": "xsd:string"
+    },
+    "convertedPrice": {
+      "@id": "etsy:converted_price",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "etsy:count",
+      "@type": "xsd:integer"
+    },
+    "countryIso": {
+      "@id": "etsy:country_iso",
+      "@type": "xsd:string"
+    },
+    "countryName": {
+      "@id": "etsy:country_name",
+      "@type": "xsd:string"
+    },
+    "createDate": {
+      "@id": "etsy:create_date",
+      "@type": "xsd:integer"
+    },
+    "createTimestamp": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:integer"
+    },
+    "createdTimestamp": {
+      "@id": "etsy:created_timestamp",
+      "@type": "xsd:integer"
+    },
+    "creationTimestamp": {
+      "@id": "etsy:creation_timestamp",
+      "@type": "xsd:integer"
+    },
+    "creationTsz": {
+      "@id": "etsy:creation_tsz",
+      "@type": "xsd:integer"
+    },
+    "currency": {
+      "@id": "etsy:currency",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "etsy:currency_code",
+      "@type": "xsd:string"
+    },
+    "de": {
+      "@id": "etsy:de",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "destinationCountryIso": {
+      "@id": "etsy:destination_country_iso",
+      "@type": "xsd:string"
+    },
+    "destinationRegion": {
+      "@id": "etsy:destination_region",
+      "@type": "xsd:string"
+    },
+    "digitalListingCount": {
+      "@id": "etsy:digital_listing_count",
+      "@type": "xsd:integer"
+    },
+    "digitalSaleMessage": {
+      "@id": "etsy:digital_sale_message",
+      "@type": "xsd:string"
+    },
+    "discountAmount": {
+      "@id": "etsy:discount_amount",
+      "@type": "xsd:string"
+    },
+    "discountAmt": {
+      "@id": "etsy:discount_amt",
+      "@type": "xsd:string"
+    },
+    "discountEndEpoch": {
+      "@id": "etsy:discount_end_epoch",
+      "@type": "xsd:integer"
+    },
+    "discountPercentage": {
+      "@id": "etsy:discount_percentage",
+      "@type": "xsd:integer"
+    },
+    "discountStartEpoch": {
+      "@id": "etsy:discount_start_epoch",
+      "@type": "xsd:integer"
+    },
+    "discountedPrice": {
+      "@id": "etsy:discounted_price",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "etsy:display_name",
+      "@type": "xsd:string"
+    },
+    "divisor": {
+      "@id": "etsy:divisor",
+      "@type": "xsd:integer"
+    },
+    "domesticClasses": {
+      "@id": "etsy:domestic_classes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "domesticHandlingFee": {
+      "@id": "etsy:domestic_handling_fee",
+      "@type": "xsd:float"
+    },
+    "en-GB": {
+      "@id": "etsy:en-GB",
+      "@type": "xsd:string"
+    },
+    "en-IN": {
+      "@id": "etsy:en-IN",
+      "@type": "xsd:string"
+    },
+    "en-US": {
+      "@id": "etsy:en-US",
+      "@type": "xsd:string"
+    },
+    "endingTimestamp": {
+      "@id": "etsy:ending_timestamp",
+      "@type": "xsd:integer"
+    },
+    "entryId": {
+      "@id": "etsy:entry_id",
+      "@type": "xsd:long"
+    },
+    "equalTo": {
+      "@id": "etsy:equal_to",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "error": {
+      "@id": "etsy:error",
+      "@type": "xsd:string"
+    },
+    "es": {
+      "@id": "etsy:es",
+      "@type": "xsd:string"
+    },
+    "expectedShipDate": {
+      "@id": "etsy:expected_ship_date",
+      "@type": "xsd:integer"
+    },
+    "featuredRank": {
+      "@id": "etsy:featured_rank",
+      "@type": "xsd:integer"
+    },
+    "fileData": {
+      "@id": "etsy:file_data",
+      "@type": "xsd:string"
+    },
+    "filename": {
+      "@id": "etsy:filename",
+      "@type": "xsd:string"
+    },
+    "filesize": {
+      "@id": "etsy:filesize",
+      "@type": "xsd:string"
+    },
+    "filetype": {
+      "@id": "etsy:filetype",
+      "@type": "xsd:string"
+    },
+    "firstLine": {
+      "@id": "etsy:first_line",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "etsy:first_name",
+      "@type": "xsd:string"
+    },
+    "formattedAddress": {
+      "@id": "etsy:formatted_address",
+      "@type": "xsd:string"
+    },
+    "formattedName": {
+      "@id": "etsy:formatted_name",
+      "@type": "xsd:string"
+    },
+    "formattedValue": {
+      "@id": "etsy:formatted_value",
+      "@type": "xsd:string"
+    },
+    "fr": {
+      "@id": "etsy:fr",
+      "@type": "xsd:string"
+    },
+    "fullHeight": {
+      "@id": "etsy:full_height",
+      "@type": "xsd:integer"
+    },
+    "fullPathTaxonomyIds": {
+      "@id": "etsy:full_path_taxonomy_ids",
+      "@container": "@set",
+      "@type": "xsd:long"
+    },
+    "fullWidth": {
+      "@id": "etsy:full_width",
+      "@type": "xsd:integer"
+    },
+    "giftMessage": {
+      "@id": "etsy:gift_message",
+      "@type": "xsd:string"
+    },
+    "giftSender": {
+      "@id": "etsy:gift_sender",
+      "@type": "xsd:string"
+    },
+    "giftWrapPrice": {
+      "@id": "etsy:gift_wrap_price",
+      "@type": "xsd:string"
+    },
+    "grandtotal": {
+      "@id": "etsy:grandtotal",
+      "@type": "xsd:string"
+    },
+    "green": {
+      "@id": "etsy:green",
+      "@type": "xsd:integer"
+    },
+    "hasDiscount": {
+      "@id": "etsy:has_discount",
+      "@type": "xsd:boolean"
+    },
+    "hasOnboardedStructuredPolicies": {
+      "@id": "etsy:has_onboarded_structured_policies",
+      "@type": "xsd:boolean"
+    },
+    "hasUnstructuredPolicies": {
+      "@id": "etsy:has_unstructured_policies",
+      "@type": "xsd:boolean"
+    },
+    "hasVariations": {
+      "@id": "etsy:has_variations",
+      "@type": "xsd:boolean"
+    },
+    "height": {
+      "@id": "etsy:height",
+      "@type": "xsd:integer"
+    },
+    "hexCode": {
+      "@id": "etsy:hex_code",
+      "@type": "xsd:string"
+    },
+    "holidayId": {
+      "@id": "etsy:holiday_id",
+      "@type": "xsd:integer"
+    },
+    "holidayName": {
+      "@id": "etsy:holiday_name",
+      "@type": "xsd:string"
+    },
+    "hue": {
+      "@id": "etsy:hue",
+      "@type": "xsd:integer"
+    },
+    "iconUrlFullxfull": {
+      "@id": "etsy:icon_url_fullxfull",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "etsy:id",
+      "@type": "xsd:long"
+    },
+    "imageId": {
+      "@id": "etsy:image_id",
+      "@type": "xsd:long"
+    },
+    "imageUrl75x75": {
+      "@id": "etsy:image_url_75x75",
+      "@type": "xsd:string"
+    },
+    "imageUrl760x100": {
+      "@id": "etsy:image_url_760x100",
+      "@type": "xsd:string"
+    },
+    "imageUrlFullxfull": {
+      "@id": "etsy:image_url_fullxfull",
+      "@type": "xsd:string"
+    },
+    "images": {
+      "@id": "etsy:images",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "includeDisputeFormLink": {
+      "@id": "etsy:include_dispute_form_link",
+      "@type": "xsd:boolean"
+    },
+    "instructions": {
+      "@id": "etsy:instructions",
+      "@type": "xsd:string"
+    },
+    "internationalClasses": {
+      "@id": "etsy:international_classes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "internationalHandlingFee": {
+      "@id": "etsy:international_handling_fee",
+      "@type": "xsd:float"
+    },
+    "inventory": {
+      "@id": "etsy:inventory",
+      "@type": "xsd:string"
+    },
+    "isBlackAndWhite": {
+      "@id": "etsy:is_black_and_white",
+      "@type": "xsd:boolean"
+    },
+    "isCalculatedEligible": {
+      "@id": "etsy:is_calculated_eligible",
+      "@type": "xsd:boolean"
+    },
+    "isCustomizable": {
+      "@id": "etsy:is_customizable",
+      "@type": "xsd:boolean"
+    },
+    "isDefaultShippingAddress": {
+      "@id": "etsy:is_default_shipping_address",
+      "@type": "xsd:boolean"
+    },
+    "isDeleted": {
+      "@id": "etsy:is_deleted",
+      "@type": "xsd:boolean"
+    },
+    "isDigital": {
+      "@id": "etsy:is_digital",
+      "@type": "xsd:boolean"
+    },
+    "isDirectCheckoutOnboarded": {
+      "@id": "etsy:is_direct_checkout_onboarded",
+      "@type": "xsd:boolean"
+    },
+    "isEnabled": {
+      "@id": "etsy:is_enabled",
+      "@type": "xsd:boolean"
+    },
+    "isEtsyPaymentsOnboarded": {
+      "@id": "etsy:is_etsy_payments_onboarded",
+      "@type": "xsd:boolean"
+    },
+    "isFreeShipping": {
+      "@id": "etsy:is_free_shipping",
+      "@type": "xsd:boolean"
+    },
+    "isGift": {
+      "@id": "etsy:is_gift",
+      "@type": "xsd:boolean"
+    },
+    "isMultivalued": {
+      "@id": "etsy:is_multivalued",
+      "@type": "xsd:boolean"
+    },
+    "isOptedInToBuyerPromise": {
+      "@id": "etsy:is_opted_in_to_buyer_promise",
+      "@type": "xsd:boolean"
+    },
+    "isPaid": {
+      "@id": "etsy:is_paid",
+      "@type": "xsd:boolean"
+    },
+    "isPersonalizable": {
+      "@id": "etsy:is_personalizable",
+      "@type": "xsd:boolean"
+    },
+    "isPrivate": {
+      "@id": "etsy:is_private",
+      "@type": "xsd:boolean"
+    },
+    "isRequired": {
+      "@id": "etsy:is_required",
+      "@type": "xsd:boolean"
+    },
+    "isShipped": {
+      "@id": "etsy:is_shipped",
+      "@type": "xsd:boolean"
+    },
+    "isShopUsBased": {
+      "@id": "etsy:is_shop_us_based",
+      "@type": "xsd:boolean"
+    },
+    "isSuccess": {
+      "@id": "etsy:is_success",
+      "@type": "xsd:boolean"
+    },
+    "isSupply": {
+      "@id": "etsy:is_supply",
+      "@type": "xsd:boolean"
+    },
+    "isTaxable": {
+      "@id": "etsy:is_taxable",
+      "@type": "xsd:boolean"
+    },
+    "isUsingStructuredPolicies": {
+      "@id": "etsy:is_using_structured_policies",
+      "@type": "xsd:boolean"
+    },
+    "isVacation": {
+      "@id": "etsy:is_vacation",
+      "@type": "xsd:boolean"
+    },
+    "isWorking": {
+      "@id": "etsy:is_working",
+      "@type": "xsd:boolean"
+    },
+    "isoCountryCode": {
+      "@id": "etsy:iso_country_code",
+      "@type": "xsd:string"
+    },
+    "it": {
+      "@id": "etsy:it",
+      "@type": "xsd:string"
+    },
+    "itemDimensionsUnit": {
+      "@id": "etsy:item_dimensions_unit",
+      "@type": "xsd:string"
+    },
+    "itemHeight": {
+      "@id": "etsy:item_height",
+      "@type": "xsd:float"
+    },
+    "itemLength": {
+      "@id": "etsy:item_length",
+      "@type": "xsd:float"
+    },
+    "itemWeight": {
+      "@id": "etsy:item_weight",
+      "@type": "xsd:float"
+    },
+    "itemWeightUnit": {
+      "@id": "etsy:item_weight_unit",
+      "@type": "xsd:string"
+    },
+    "itemWidth": {
+      "@id": "etsy:item_width",
+      "@type": "xsd:float"
+    },
+    "ja": {
+      "@id": "etsy:ja",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "etsy:language",
+      "@type": "xsd:string"
+    },
+    "languages": {
+      "@id": "etsy:languages",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "lastModifiedTimestamp": {
+      "@id": "etsy:last_modified_timestamp",
+      "@type": "xsd:integer"
+    },
+    "lastName": {
+      "@id": "etsy:last_name",
+      "@type": "xsd:string"
+    },
+    "ledgerId": {
+      "@id": "etsy:ledger_id",
+      "@type": "xsd:long"
+    },
+    "ledgerType": {
+      "@id": "etsy:ledger_type",
+      "@type": "xsd:string"
+    },
+    "level": {
+      "@id": "etsy:level",
+      "@type": "xsd:integer"
+    },
+    "listing": {
+      "@id": "etsy:listing",
+      "@type": "xsd:string"
+    },
+    "listingActiveCount": {
+      "@id": "etsy:listing_active_count",
+      "@type": "xsd:integer"
+    },
+    "listingFileId": {
+      "@id": "etsy:listing_file_id",
+      "@type": "xsd:long"
+    },
+    "listingId": {
+      "@id": "etsy:listing_id",
+      "@type": "xsd:long"
+    },
+    "listingImageId": {
+      "@id": "etsy:listing_image_id",
+      "@type": "xsd:long"
+    },
+    "listingType": {
+      "@id": "etsy:listing_type",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "etsy:location",
+      "@type": "xsd:string"
+    },
+    "loginName": {
+      "@id": "etsy:login_name",
+      "@type": "xsd:string"
+    },
+    "mailClass": {
+      "@id": "etsy:mail_class",
+      "@type": "xsd:string"
+    },
+    "mailClassKey": {
+      "@id": "etsy:mail_class_key",
+      "@type": "xsd:string"
+    },
+    "materials": {
+      "@id": "etsy:materials",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "maxAllowedCharacters": {
+      "@id": "etsy:max_allowed_characters",
+      "@type": "xsd:integer"
+    },
+    "maxAllowedFiles": {
+      "@id": "etsy:max_allowed_files",
+      "@type": "xsd:integer"
+    },
+    "maxDeliveryDays": {
+      "@id": "etsy:max_delivery_days",
+      "@type": "xsd:integer"
+    },
+    "maxProcessingDays": {
+      "@id": "etsy:max_processing_days",
+      "@type": "xsd:integer"
+    },
+    "maxValuesAllowed": {
+      "@id": "etsy:max_values_allowed",
+      "@type": "xsd:integer"
+    },
+    "messageFromBuyer": {
+      "@id": "etsy:message_from_buyer",
+      "@type": "xsd:string"
+    },
+    "messageFromPayment": {
+      "@id": "etsy:message_from_payment",
+      "@type": "xsd:string"
+    },
+    "messageFromSeller": {
+      "@id": "etsy:message_from_seller",
+      "@type": "xsd:string"
+    },
+    "minDeliveryDays": {
+      "@id": "etsy:min_delivery_days",
+      "@type": "xsd:integer"
+    },
+    "minProcessingDays": {
+      "@id": "etsy:min_processing_days",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "nl": {
+      "@id": "etsy:nl",
+      "@type": "xsd:string"
+    },
+    "nonTaxable": {
+      "@id": "etsy:non_taxable",
+      "@type": "xsd:boolean"
+    },
+    "noteFromIssuer": {
+      "@id": "etsy:note_from_issuer",
+      "@type": "xsd:string"
+    },
+    "numFavorers": {
+      "@id": "etsy:num_favorers",
+      "@type": "xsd:integer"
+    },
+    "offeringId": {
+      "@id": "etsy:offering_id",
+      "@type": "xsd:long"
+    },
+    "offerings": {
+      "@id": "etsy:offerings",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "options": {
+      "@id": "etsy:options",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "originCountryIso": {
+      "@id": "etsy:origin_country_iso",
+      "@type": "xsd:string"
+    },
+    "originPostalCode": {
+      "@id": "etsy:origin_postal_code",
+      "@type": "xsd:string"
+    },
+    "originalCreationTimestamp": {
+      "@id": "etsy:original_creation_timestamp",
+      "@type": "xsd:integer"
+    },
+    "originalPrice": {
+      "@id": "etsy:original_price",
+      "@type": "xsd:string"
+    },
+    "paidTimestamp": {
+      "@id": "etsy:paid_timestamp",
+      "@type": "xsd:integer"
+    },
+    "parentEntryId": {
+      "@id": "etsy:parent_entry_id",
+      "@type": "xsd:integer"
+    },
+    "parentId": {
+      "@id": "etsy:parent_id",
+      "@type": "xsd:long"
+    },
+    "partnerName": {
+      "@id": "etsy:partner_name",
+      "@type": "xsd:string"
+    },
+    "paymentAdjustmentId": {
+      "@id": "etsy:payment_adjustment_id",
+      "@type": "xsd:long"
+    },
+    "paymentAdjustmentItemId": {
+      "@id": "etsy:payment_adjustment_item_id",
+      "@type": "xsd:long"
+    },
+    "paymentAdjustmentItems": {
+      "@id": "etsy:payment_adjustment_items",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "paymentAdjustments": {
+      "@id": "etsy:payment_adjustments",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "paymentEmail": {
+      "@id": "etsy:payment_email",
+      "@type": "xsd:string"
+    },
+    "paymentId": {
+      "@id": "etsy:payment_id",
+      "@type": "xsd:long"
+    },
+    "paymentMethod": {
+      "@id": "etsy:payment_method",
+      "@type": "xsd:string"
+    },
+    "personalization": {
+      "@id": "etsy:personalization",
+      "@type": "xsd:string"
+    },
+    "personalizationQuestions": {
+      "@id": "etsy:personalization_questions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pl": {
+      "@id": "etsy:pl",
+      "@type": "xsd:string"
+    },
+    "policyAdditional": {
+      "@id": "etsy:policy_additional",
+      "@type": "xsd:string"
+    },
+    "policyHasPrivateReceiptInfo": {
+      "@id": "etsy:policy_has_private_receipt_info",
+      "@type": "xsd:boolean"
+    },
+    "policyPayment": {
+      "@id": "etsy:policy_payment",
+      "@type": "xsd:string"
+    },
+    "policyPrivacy": {
+      "@id": "etsy:policy_privacy",
+      "@type": "xsd:string"
+    },
+    "policyRefunds": {
+      "@id": "etsy:policy_refunds",
+      "@type": "xsd:string"
+    },
+    "policySellerInfo": {
+      "@id": "etsy:policy_seller_info",
+      "@type": "xsd:string"
+    },
+    "policyShipping": {
+      "@id": "etsy:policy_shipping",
+      "@type": "xsd:string"
+    },
+    "policyUpdateDate": {
+      "@id": "etsy:policy_update_date",
+      "@type": "xsd:integer"
+    },
+    "policyWelcome": {
+      "@id": "etsy:policy_welcome",
+      "@type": "xsd:string"
+    },
+    "possibleValues": {
+      "@id": "etsy:possible_values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "postedFees": {
+      "@id": "etsy:posted_fees",
+      "@type": "xsd:string"
+    },
+    "postedGross": {
+      "@id": "etsy:posted_gross",
+      "@type": "xsd:string"
+    },
+    "postedNet": {
+      "@id": "etsy:posted_net",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "etsy:price",
+      "@type": "xsd:string"
+    },
+    "priceOnProperty": {
+      "@id": "etsy:price_on_property",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "primaryCost": {
+      "@id": "etsy:primary_cost",
+      "@type": "xsd:string"
+    },
+    "primaryEmail": {
+      "@id": "etsy:primary_email",
+      "@type": "xsd:string"
+    },
+    "processingDaysDisplayLabel": {
+      "@id": "etsy:processing_days_display_label",
+      "@type": "xsd:string"
+    },
+    "processingMax": {
+      "@id": "etsy:processing_max",
+      "@type": "xsd:integer"
+    },
+    "processingMin": {
+      "@id": "etsy:processing_min",
+      "@type": "xsd:integer"
+    },
+    "productData": {
+      "@id": "etsy:product_data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productId": {
+      "@id": "etsy:product_id",
+      "@type": "xsd:long"
+    },
+    "productionPartnerId": {
+      "@id": "etsy:production_partner_id",
+      "@type": "xsd:long"
+    },
+    "productionPartners": {
+      "@id": "etsy:production_partners",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "products": {
+      "@id": "etsy:products",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "profileType": {
+      "@id": "etsy:profile_type",
+      "@type": "xsd:string"
+    },
+    "propertyId": {
+      "@id": "etsy:property_id",
+      "@type": "xsd:integer"
+    },
+    "propertyName": {
+      "@id": "etsy:property_name",
+      "@type": "xsd:string"
+    },
+    "propertyValues": {
+      "@id": "etsy:property_values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pt": {
+      "@id": "etsy:pt",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "etsy:quantity",
+      "@type": "xsd:integer"
+    },
+    "quantityOnProperty": {
+      "@id": "etsy:quantity_on_property",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "questionId": {
+      "@id": "etsy:question_id",
+      "@type": "xsd:integer"
+    },
+    "questionText": {
+      "@id": "etsy:question_text",
+      "@type": "xsd:string"
+    },
+    "questionType": {
+      "@id": "etsy:question_type",
+      "@type": "xsd:string"
+    },
+    "rank": {
+      "@id": "etsy:rank",
+      "@type": "xsd:integer"
+    },
+    "rating": {
+      "@id": "etsy:rating",
+      "@type": "xsd:integer"
+    },
+    "readinessState": {
+      "@id": "etsy:readiness_state",
+      "@type": "xsd:string"
+    },
+    "readinessStateId": {
+      "@id": "etsy:readiness_state_id",
+      "@type": "xsd:long"
+    },
+    "readinessStateOnProperty": {
+      "@id": "etsy:readiness_state_on_property",
+      "@container": "@set",
+      "@type": "xsd:long"
+    },
+    "reason": {
+      "@id": "etsy:reason",
+      "@type": "xsd:string"
+    },
+    "reasonCode": {
+      "@id": "etsy:reason_code",
+      "@type": "xsd:string"
+    },
+    "receiptId": {
+      "@id": "etsy:receipt_id",
+      "@type": "xsd:long"
+    },
+    "receiptShippingId": {
+      "@id": "etsy:receipt_shipping_id",
+      "@type": "xsd:long"
+    },
+    "receiptType": {
+      "@id": "etsy:receipt_type",
+      "@type": "xsd:integer"
+    },
+    "red": {
+      "@id": "etsy:red",
+      "@type": "xsd:integer"
+    },
+    "referenceId": {
+      "@id": "etsy:reference_id",
+      "@type": "xsd:string"
+    },
+    "referenceType": {
+      "@id": "etsy:reference_type",
+      "@type": "xsd:string"
+    },
+    "refunds": {
+      "@id": "etsy:refunds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "required": {
+      "@id": "etsy:required",
+      "@type": "xsd:boolean"
+    },
+    "results": {
+      "@id": "etsy:results",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "returnDeadline": {
+      "@id": "etsy:return_deadline",
+      "@type": "xsd:integer"
+    },
+    "returnPolicyId": {
+      "@id": "etsy:return_policy_id",
+      "@type": "xsd:long"
+    },
+    "review": {
+      "@id": "etsy:review",
+      "@type": "xsd:string"
+    },
+    "reviewAverage": {
+      "@id": "etsy:review_average",
+      "@type": "xsd:float"
+    },
+    "reviewCount": {
+      "@id": "etsy:review_count",
+      "@type": "xsd:integer"
+    },
+    "ru": {
+      "@id": "etsy:ru",
+      "@type": "xsd:string"
+    },
+    "saleMessage": {
+      "@id": "etsy:sale_message",
+      "@type": "xsd:string"
+    },
+    "saturation": {
+      "@id": "etsy:saturation",
+      "@type": "xsd:integer"
+    },
+    "scaleId": {
+      "@id": "etsy:scale_id",
+      "@type": "xsd:long"
+    },
+    "scaleName": {
+      "@id": "etsy:scale_name",
+      "@type": "xsd:string"
+    },
+    "scales": {
+      "@id": "etsy:scales",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "secondLine": {
+      "@id": "etsy:second_line",
+      "@type": "xsd:string"
+    },
+    "secondaryCost": {
+      "@id": "etsy:secondary_cost",
+      "@type": "xsd:string"
+    },
+    "secondaryPrice": {
+      "@id": "etsy:secondary_price",
+      "@type": "xsd:string"
+    },
+    "selectedValues": {
+      "@id": "etsy:selected_values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sellerEmail": {
+      "@id": "etsy:seller_email",
+      "@type": "xsd:string"
+    },
+    "sellerUserId": {
+      "@id": "etsy:seller_user_id",
+      "@type": "xsd:long"
+    },
+    "sequenceNumber": {
+      "@id": "etsy:sequence_number",
+      "@type": "xsd:integer"
+    },
+    "shipmentNotificationTimestamp": {
+      "@id": "etsy:shipment_notification_timestamp",
+      "@type": "xsd:integer"
+    },
+    "shipments": {
+      "@id": "etsy:shipments",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "shippedTimestamp": {
+      "@id": "etsy:shipped_timestamp",
+      "@type": "xsd:integer"
+    },
+    "shippingAddressId": {
+      "@id": "etsy:shipping_address_id",
+      "@type": "xsd:long"
+    },
+    "shippingCarrierId": {
+      "@id": "etsy:shipping_carrier_id",
+      "@type": "xsd:integer"
+    },
+    "shippingCost": {
+      "@id": "etsy:shipping_cost",
+      "@type": "xsd:string"
+    },
+    "shippingFromCountryIso": {
+      "@id": "etsy:shipping_from_country_iso",
+      "@type": "xsd:string"
+    },
+    "shippingMethod": {
+      "@id": "etsy:shipping_method",
+      "@type": "xsd:string"
+    },
+    "shippingProfile": {
+      "@id": "etsy:shipping_profile",
+      "@type": "xsd:string"
+    },
+    "shippingProfileDestinationId": {
+      "@id": "etsy:shipping_profile_destination_id",
+      "@type": "xsd:long"
+    },
+    "shippingProfileDestinations": {
+      "@id": "etsy:shipping_profile_destinations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "shippingProfileId": {
+      "@id": "etsy:shipping_profile_id",
+      "@type": "xsd:long"
+    },
+    "shippingProfileUpgrades": {
+      "@id": "etsy:shipping_profile_upgrades",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "shippingUpgrade": {
+      "@id": "etsy:shipping_upgrade",
+      "@type": "xsd:string"
+    },
+    "shippingUserId": {
+      "@id": "etsy:shipping_user_id",
+      "@type": "xsd:long"
+    },
+    "shop": {
+      "@id": "etsy:shop",
+      "@type": "xsd:string"
+    },
+    "shopAmount": {
+      "@id": "etsy:shop_amount",
+      "@type": "xsd:integer"
+    },
+    "shopCoupon": {
+      "@id": "etsy:shop_coupon",
+      "@type": "xsd:float"
+    },
+    "shopCurrency": {
+      "@id": "etsy:shop_currency",
+      "@type": "xsd:string"
+    },
+    "shopId": {
+      "@id": "etsy:shop_id",
+      "@type": "xsd:long"
+    },
+    "shopLocationCountryIso": {
+      "@id": "etsy:shop_location_country_iso",
+      "@type": "xsd:string"
+    },
+    "shopName": {
+      "@id": "etsy:shop_name",
+      "@type": "xsd:string"
+    },
+    "shopSectionId": {
+      "@id": "etsy:shop_section_id",
+      "@type": "xsd:long"
+    },
+    "shopTotalAdjustmentAmount": {
+      "@id": "etsy:shop_total_adjustment_amount",
+      "@type": "xsd:integer"
+    },
+    "shouldAutoRenew": {
+      "@id": "etsy:should_auto_renew",
+      "@type": "xsd:boolean"
+    },
+    "sizeBytes": {
+      "@id": "etsy:size_bytes",
+      "@type": "xsd:integer"
+    },
+    "sku": {
+      "@id": "etsy:sku",
+      "@type": "xsd:string"
+    },
+    "skuOnProperty": {
+      "@id": "etsy:sku_on_property",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "skus": {
+      "@id": "etsy:skus",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "etsy:state",
+      "@type": "xsd:string"
+    },
+    "stateTimestamp": {
+      "@id": "etsy:state_timestamp",
+      "@type": "xsd:integer"
+    },
+    "status": {
+      "@id": "etsy:status",
+      "@type": "xsd:string"
+    },
+    "style": {
+      "@id": "etsy:style",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "subtotal": {
+      "@id": "etsy:subtotal",
+      "@type": "xsd:string"
+    },
+    "suggestedTitle": {
+      "@id": "etsy:suggested_title",
+      "@type": "xsd:string"
+    },
+    "supportsAttributes": {
+      "@id": "etsy:supports_attributes",
+      "@type": "xsd:boolean"
+    },
+    "supportsVariations": {
+      "@id": "etsy:supports_variations",
+      "@type": "xsd:boolean"
+    },
+    "sv": {
+      "@id": "etsy:sv",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "etsy:tags",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxonomyId": {
+      "@id": "etsy:taxonomy_id",
+      "@type": "xsd:integer"
+    },
+    "thumbnailUrl": {
+      "@id": "etsy:thumbnail_url",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "etsy:title",
+      "@type": "xsd:string"
+    },
+    "totalAdjustmentAmount": {
+      "@id": "etsy:total_adjustment_amount",
+      "@type": "xsd:integer"
+    },
+    "totalFeeAdjustmentAmount": {
+      "@id": "etsy:total_fee_adjustment_amount",
+      "@type": "xsd:integer"
+    },
+    "totalPrice": {
+      "@id": "etsy:total_price",
+      "@type": "xsd:string"
+    },
+    "totalShippingCost": {
+      "@id": "etsy:total_shipping_cost",
+      "@type": "xsd:string"
+    },
+    "totalTaxCost": {
+      "@id": "etsy:total_tax_cost",
+      "@type": "xsd:string"
+    },
+    "totalVatCost": {
+      "@id": "etsy:total_vat_cost",
+      "@type": "xsd:string"
+    },
+    "trackingCode": {
+      "@id": "etsy:tracking_code",
+      "@type": "xsd:string"
+    },
+    "transactionId": {
+      "@id": "etsy:transaction_id",
+      "@type": "xsd:long"
+    },
+    "transactionSoldCount": {
+      "@id": "etsy:transaction_sold_count",
+      "@type": "xsd:integer"
+    },
+    "transactionType": {
+      "@id": "etsy:transaction_type",
+      "@type": "xsd:string"
+    },
+    "transactions": {
+      "@id": "etsy:transactions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "translations": {
+      "@id": "etsy:translations",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "etsy:type",
+      "@type": "xsd:integer"
+    },
+    "updateDate": {
+      "@id": "etsy:update_date",
+      "@type": "xsd:integer"
+    },
+    "updateTimestamp": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:integer"
+    },
+    "updatedTimestamp": {
+      "@id": "etsy:updated_timestamp",
+      "@type": "xsd:integer"
+    },
+    "upgradeId": {
+      "@id": "etsy:upgrade_id",
+      "@type": "xsd:long"
+    },
+    "upgradeName": {
+      "@id": "etsy:upgrade_name",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "url170x135": {
+      "@id": "etsy:url_170x135",
+      "@type": "xsd:string"
+    },
+    "url570xN": {
+      "@id": "etsy:url_570xN",
+      "@type": "xsd:string"
+    },
+    "url75x75": {
+      "@id": "etsy:url_75x75",
+      "@type": "xsd:string"
+    },
+    "urlFullxfull": {
+      "@id": "etsy:url_fullxfull",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "etsy:user",
+      "@type": "xsd:string"
+    },
+    "userAddressId": {
+      "@id": "etsy:user_address_id",
+      "@type": "xsd:long"
+    },
+    "userId": {
+      "@id": "etsy:user_id",
+      "@type": "xsd:long"
+    },
+    "vacationAutoreply": {
+      "@id": "etsy:vacation_autoreply",
+      "@type": "xsd:string"
+    },
+    "vacationMessage": {
+      "@id": "etsy:vacation_message",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "etsy:value",
+      "@type": "xsd:string"
+    },
+    "valueId": {
+      "@id": "etsy:value_id",
+      "@type": "xsd:integer"
+    },
+    "valueIds": {
+      "@id": "etsy:value_ids",
+      "@container": "@set",
+      "@type": "xsd:long"
+    },
+    "values": {
+      "@id": "etsy:values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "variations": {
+      "@id": "etsy:variations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "videoId": {
+      "@id": "etsy:video_id",
+      "@type": "xsd:long"
+    },
+    "videoState": {
+      "@id": "etsy:video_state",
+      "@type": "xsd:string"
+    },
+    "videoUrl": {
+      "@id": "etsy:video_url",
+      "@type": "xsd:string"
+    },
+    "videos": {
+      "@id": "etsy:videos",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "views": {
+      "@id": "etsy:views",
+      "@type": "xsd:integer"
+    },
+    "whenMade": {
+      "@id": "etsy:when_made",
+      "@type": "xsd:string"
+    },
+    "whoMade": {
+      "@id": "etsy:who_made",
+      "@type": "xsd:string"
+    },
+    "width": {
+      "@id": "etsy:width",
+      "@type": "xsd:integer"
+    },
+    "zip": {
+      "@id": "etsy:zip",
+      "@type": "xsd:string"
+    }
+  }
+}

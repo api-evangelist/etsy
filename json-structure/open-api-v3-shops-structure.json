@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shops-structure.json",
+  "name": "Shops",
+  "description": "A set of Shop records.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32",
+      "description": "The total number of Shops",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The Shop resources.",
+      "items": {
+        "description": "The Shop resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Shop"
+          }
+        ]
+      }
+    }
+  }
+}

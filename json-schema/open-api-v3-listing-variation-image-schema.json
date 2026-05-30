@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingVariationImage",
+  "description": "A representation of the associations of variations and images on a listing.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-variation-image-schema.json",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "integer",
+      "description": "The numeric ID of the Property.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "value_id": {
+      "type": "integer",
+      "description": "The numeric ID of the Value.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "value": {
+      "type": "string",
+      "description": "The string value of the property.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "image_id": {
+      "type": "integer",
+      "description": "The numeric ID of the Image.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    }
+  }
+}

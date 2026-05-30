@@ -1,0 +1,14 @@
+{
+  "shipping_profile_id": 1,
+  "upgrade_id": 1,
+  "upgrade_name": "Handmade Ceramic Mug",
+  "type": 0,
+  "rank": 1,
+  "language": "en-US",
+  "price": "example",
+  "secondary_price": "example",
+  "shipping_carrier_id": 1,
+  "mail_class": "example string",
+  "min_delivery_days": 1,
+  "max_delivery_days": 1
+}

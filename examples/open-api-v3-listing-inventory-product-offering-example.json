@@ -1,0 +1,8 @@
+{
+  "offering_id": 1,
+  "quantity": 1,
+  "is_enabled": true,
+  "is_deleted": true,
+  "price": "example",
+  "readiness_state_id": 1
+}

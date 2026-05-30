@@ -1,0 +1,158 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — ShopListing Inventory
+  description: 'Etsy Open API v3 — ShopListing Inventory. 2 operations. Lead operation: Get Listing Inventory. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - ShopListing Inventory
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-listing-inventory
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — ShopListing Inventory business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: listings-inventory
+          path: /v3/application/listings/{listing_id}/inventory
+          operations:
+            - name: getListingInventory
+              method: GET
+              description: Get Listing Inventory
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: show_deleted
+                  in: query
+                  type: boolean
+                  required: false
+                  description: A boolean value for inventory whether to include deleted products and their offerings. Default value is false.
+                - name: includes
+                  in: query
+                  type: string
+                  required: false
+                  description: An enumerated string that attaches a valid association. Default value is null.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateListingInventory
+              method: PUT
+              description: Update Listing Inventory
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: max_variations_supported
+                  in: query
+                  type: string
+                  required: false
+                  description: 'Coming soon: This parameter determines whether a third variation can be added to or updated for a listing. It accepts values of 2 or 3, where 3 enables third-variation support.'
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-listing-inventory-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — ShopListing Inventory. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/listings/{listing_id}/inventory
+          name: listings-inventory
+          description: REST surface for listings-inventory.
+          operations:
+            - method: GET
+              name: getListingInventory
+              description: Get Listing Inventory
+              call: open-api-v3-shop-listing-inventory.getListingInventory
+              with:
+                listing_id: rest.listing_id
+                show_deleted: rest.show_deleted
+                includes: rest.includes
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateListingInventory
+              description: Update Listing Inventory
+              call: open-api-v3-shop-listing-inventory.updateListingInventory
+              with:
+                listing_id: rest.listing_id
+                legacy: rest.legacy
+                max_variations_supported: rest.max_variations_supported
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-listing-inventory-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — ShopListing Inventory. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-listing-inventory
+          description: Get Listing Inventory
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing-inventory.getListingInventory
+          with:
+            listing_id: tools.listing_id
+            show_deleted: tools.show_deleted
+            includes: tools.includes
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-listing-inventory
+          description: Update Listing Inventory
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing-inventory.updateListingInventory
+          with:
+            listing_id: tools.listing_id
+            legacy: tools.legacy
+            max_variations_supported: tools.max_variations_supported
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

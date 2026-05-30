@@ -1,0 +1,269 @@
+asyncapi: 2.6.0
+info:
+  title: Etsy Open API v3 Webhooks
+  version: '1.0.0'
+  description: |-
+    AsyncAPI description of Etsy's outbound webhook surface for the Open API v3.
+    Etsy delivers event notifications by issuing HTTP POST requests with a JSON
+    body to a subscriber-configured callback URL. Subscriptions are managed
+    through the Etsy Developer Portal Webhook portal: in "Manage your apps,"
+    select the commercial app dropdown and choose "Go to Webhook portal,"
+    then "+Add Endpoint" to register a callback URL against one of the
+    supported event types.
+
+    Every webhook delivery shares three top-level fields:
+      - event_type   - the triggering event name (for example, "order.paid")
+      - resource_url - a prepared Open API v3 URL the subscriber can call back
+                      to fetch the updated resource
+      - shop_id      - the shop identifier related to the event
+
+    Source documentation:
+      - Webhooks overview: https://developers.etsy.com/documentation/essentials/webhooks
+      - Etsy Open API v3 reference: https://developers.etsy.com/documentation/reference
+  contact:
+    name: Etsy Developer Support
+    url: https://developers.etsy.com/
+  license:
+    name: Etsy API Terms of Use
+    url: https://www.etsy.com/legal/api/terms
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |-
+      Customer-hosted HTTPS endpoint registered through the Etsy Developer
+      Portal Webhook portal. Etsy issues HTTP POST requests with a JSON
+      payload to this URL for every subscribed event.
+    variables:
+      webhookUrl:
+        default: https://example.com/etsy/webhook
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+    security:
+      - webhookSignature: []
+
+channels:
+  /etsy/webhook:
+    description: |-
+      Single subscriber endpoint that receives every subscribed Etsy webhook
+      event. The `event_type` field on the JSON body identifies the event
+      class. Etsy sends one event per HTTP POST.
+
+      Retry policy (per Etsy docs): delivery is attempted immediately, then
+      after 5 seconds, 5 minutes, 30 minutes, 2 hours, 5 hours, 10 hours,
+      and a final attempt 10 hours after that, using exponential backoff.
+      Manual retries and automatic recovery from failed messages are
+      available through the Webhook portal. Disabled endpoints stop
+      receiving delivery attempts.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveEtsyWebhook
+      summary: Receive an Etsy webhook event
+      description: |-
+        Etsy POSTs a JSON event to the subscriber endpoint with the
+        `webhook-id`, `webhook-timestamp`, and `webhook-signature` headers.
+        Subscribers should verify the signature before processing and
+        respond with a 2xx status code.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/OrderPaid'
+          - $ref: '#/components/messages/OrderCanceled'
+          - $ref: '#/components/messages/OrderShipped'
+          - $ref: '#/components/messages/OrderDelivered'
+
+components:
+  securitySchemes:
+    webhookSignature:
+      type: httpApiKey
+      in: header
+      name: webhook-signature
+      description: |-
+        Each Etsy webhook delivery includes three headers used to verify
+        authenticity and prevent replay:
+
+          - `webhook-id`        unique identifier for the webhook call
+          - `webhook-timestamp` unix timestamp (seconds) when the event was emitted
+          - `webhook-signature` base64-encoded HMAC-SHA256 signature
+
+        Verification procedure:
+          1. Build the signed content string:
+             `webhook-id + "." + webhook-timestamp + "." + raw_request_body`
+          2. Take the endpoint secret, strip the `whsec_` prefix, and
+             base64-decode the remaining bytes to obtain the signing key.
+          3. Compute HMAC-SHA256 over the signed content using the decoded
+             key and base64-encode the digest.
+          4. Compare the result against the value of the `webhook-signature`
+             header in constant time.
+
+        Subscribers should reject deliveries whose `webhook-timestamp` lies
+        outside an allowed tolerance window to prevent replay attacks.
+
+  messageTraits:
+    EtsyWebhookHeaders:
+      headers:
+        type: object
+        required:
+          - webhook-id
+          - webhook-timestamp
+          - webhook-signature
+        properties:
+          webhook-id:
+            type: string
+            description: Unique identifier for this webhook call.
+          webhook-timestamp:
+            type: string
+            description: Unix timestamp in seconds when the event was emitted.
+          webhook-signature:
+            type: string
+            description: Base64-encoded HMAC-SHA256 signature for verification.
+
+  messages:
+    OrderPaid:
+      name: OrderPaid
+      title: order.paid
+      summary: Delivered immediately when an order receives payment.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/EtsyWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/OrderPaidPayload'
+      examples:
+        - name: OrderPaidDefaultExample
+          summary: Default OrderPaid example payload
+          x-microcks-default: true
+          payload:
+            event_type: order.paid
+            resource_url: https://api.etsy.com/v3/application/shops/123456/receipts/234567890
+            shop_id: '123456'
+    OrderCanceled:
+      name: OrderCanceled
+      title: order.canceled
+      summary: Delivered immediately when a seller initiates a cancelation.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/EtsyWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/OrderCanceledPayload'
+      examples:
+        - name: OrderCanceledDefaultExample
+          summary: Default OrderCanceled example payload
+          x-microcks-default: true
+          payload:
+            event_type: order.canceled
+            resource_url: https://api.etsy.com/v3/application/shops/123456/receipts/234567890
+            shop_id: '123456'
+    OrderShipped:
+      name: OrderShipped
+      title: order.shipped
+      summary: Delivered immediately when shipping information is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/EtsyWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/OrderShippedPayload'
+      examples:
+        - name: OrderShippedDefaultExample
+          summary: Default OrderShipped example payload
+          x-microcks-default: true
+          payload:
+            event_type: order.shipped
+            resource_url: https://api.etsy.com/v3/application/shops/123456/receipts/234567890
+            shop_id: '123456'
+    OrderDelivered:
+      name: OrderDelivered
+      title: order.delivered
+      summary: Delivered immediately when an order is marked as delivered.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/EtsyWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/OrderDeliveredPayload'
+
+      examples:
+        - name: OrderDeliveredDefaultExample
+          summary: Default OrderDelivered example payload
+          x-microcks-default: true
+          payload:
+            event_type: order.delivered
+            resource_url: https://api.etsy.com/v3/application/shops/123456/receipts/234567890
+            shop_id: '123456'
+  schemas:
+    WebhookEnvelope:
+      type: object
+      description: |-
+        Fields common to every Etsy webhook delivery, per the Etsy webhooks
+        documentation. Per-event payloads differ but all include these three
+        top-level fields.
+      required:
+        - event_type
+        - resource_url
+        - shop_id
+      properties:
+        event_type:
+          type: string
+          description: The triggering event name.
+        resource_url:
+          type: string
+          format: uri
+          description: |-
+            A prepared Open API v3 URL the subscriber can call back to
+            retrieve the updated resource referenced by the event.
+        shop_id:
+          type: string
+          description: Identifier of the Etsy shop related to the event.
+
+    OrderPaidPayload:
+      allOf:
+        - $ref: '#/components/schemas/WebhookEnvelope'
+        - type: object
+          properties:
+            event_type:
+              type: string
+              enum:
+                - order.paid
+            resource_url:
+              type: string
+              format: uri
+              description: |-
+                Receipt resource URL. Per the documented example, this points
+                at `https://api.etsy.com/v3/application/shops/{shop_id}/receipts/{receipt_id}`.
+      example:
+        event_type: order.paid
+        resource_url: https://api.etsy.com/v3/application/shops/{YOUR_SHOP_ID}/receipts/{RECEIPT_ID}
+        shop_id: '{YOUR_SHOP_ID}'
+
+    OrderCanceledPayload:
+      allOf:
+        - $ref: '#/components/schemas/WebhookEnvelope'
+        - type: object
+          properties:
+            event_type:
+              type: string
+              enum:
+                - order.canceled
+
+    OrderShippedPayload:
+      allOf:
+        - $ref: '#/components/schemas/WebhookEnvelope'
+        - type: object
+          properties:
+            event_type:
+              type: string
+              enum:
+                - order.shipped
+
+    OrderDeliveredPayload:
+      allOf:
+        - $ref: '#/components/schemas/WebhookEnvelope'
+        - type: object
+          properties:
+            event_type:
+              type: string
+              enum:
+                - order.delivered

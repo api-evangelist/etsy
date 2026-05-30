@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-listing-translations-structure.json",
+  "name": "ListingTranslations",
+  "description": "Container for all current supported translations of a listing. Note that Etsy periodically adds/removes languages, so this list may change in the future.",
+  "type": "object",
+  "properties": {
+    "de": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "en-GB": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "en-IN": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "en-US": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "es": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "fr": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "it": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "ja": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "nl": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "pl": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "pt": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "ru": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    },
+    "sv": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ListingTranslation"
+        }
+      ],
+      "nullable": true,
+      "example": "example"
+    }
+  }
+}

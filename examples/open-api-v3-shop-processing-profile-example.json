@@ -1,0 +1,8 @@
+{
+  "shop_id": 123456,
+  "readiness_state_id": 1,
+  "readiness_state": "ready_to_ship",
+  "min_processing_days": 1,
+  "max_processing_days": 1,
+  "processing_days_display_label": "example string"
+}

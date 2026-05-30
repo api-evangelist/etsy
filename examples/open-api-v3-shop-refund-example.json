@@ -1,0 +1,7 @@
+{
+  "amount": "example",
+  "created_timestamp": 1758153645,
+  "reason": "example string",
+  "note_from_issuer": "Thanks for your order! Shipping out tomorrow.",
+  "status": "example string"
+}

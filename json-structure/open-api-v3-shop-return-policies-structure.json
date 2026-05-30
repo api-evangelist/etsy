@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-return-policies-structure.json",
+  "name": "ShopReturnPolicies",
+  "description": "Represents a shop's listing-level return policies list.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ShopReturnPolicy"
+      }
+    }
+  }
+}

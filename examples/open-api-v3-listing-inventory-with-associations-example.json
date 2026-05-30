@@ -1,0 +1,23 @@
+{
+  "products": [
+    {},
+    {}
+  ],
+  "price_on_property": [
+    661,
+    78
+  ],
+  "quantity_on_property": [
+    1,
+    1
+  ],
+  "sku_on_property": [
+    55,
+    571
+  ],
+  "readiness_state_on_property": [
+    726,
+    878
+  ],
+  "listing": "example"
+}

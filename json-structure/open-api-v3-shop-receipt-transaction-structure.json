@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-shop-receipt-transaction-structure.json",
+  "name": "ShopReceiptTransaction",
+  "description": "A transaction object associated with a shop receipt. Etsy generates one transaction per listing purchased as recorded on the order receipt.",
+  "type": "object",
+  "properties": {
+    "transaction_id": {
+      "type": "int64",
+      "description": "The unique numeric ID for a transaction.",
+      "minimum": 1,
+      "example": 345678901
+    },
+    "title": {
+      "type": "string",
+      "description": "The title string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.",
+      "nullable": true,
+      "example": "Handmade Ceramic Mug \u2014 Stoneware"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.",
+      "nullable": true,
+      "example": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio."
+    },
+    "seller_user_id": {
+      "type": "int64",
+      "description": "The numeric user ID for the seller in this transaction.",
+      "minimum": 1,
+      "example": 456789
+    },
+    "buyer_user_id": {
+      "type": "int64",
+      "description": "The numeric user ID for the buyer in this transaction.",
+      "minimum": 1,
+      "example": 456789
+    },
+    "create_timestamp": {
+      "type": "int32",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "created_timestamp": {
+      "type": "int32",
+      "description": "The transaction's creation date and time, in epoch seconds.",
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "paid_timestamp": {
+      "type": "int32",
+      "description": "The transaction's paid date and time, in epoch seconds.",
+      "nullable": true,
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "shipped_timestamp": {
+      "type": "int32",
+      "description": "The transaction's shipping date and time, in epoch seconds.",
+      "nullable": true,
+      "minimum": 946684800,
+      "example": 1758153645
+    },
+    "quantity": {
+      "type": "int32",
+      "description": "The numeric quantity of products purchased in this transaction.",
+      "minimum": 0,
+      "example": 1
+    },
+    "listing_image_id": {
+      "type": "int64",
+      "description": "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "receipt_id": {
+      "type": "int64",
+      "description": "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.",
+      "minimum": 1,
+      "example": 234567890
+    },
+    "is_digital": {
+      "type": "boolean",
+      "description": "When true, the transaction recorded the purchase of a digital listing.",
+      "example": true
+    },
+    "file_data": {
+      "type": "string",
+      "description": "A string describing the files purchased in this transaction.",
+      "example": "example string"
+    },
+    "listing_id": {
+      "type": "int32",
+      "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 123456789
+    },
+    "transaction_type": {
+      "type": "string",
+      "description": "The type string for the transaction, usually \"listing\".",
+      "example": "example string"
+    },
+    "product_id": {
+      "type": "int64",
+      "description": "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.",
+      "nullable": true,
+      "minimum": 1,
+      "example": 567890123
+    },
+    "sku": {
+      "type": "string",
+      "description": "The SKU string for the product",
+      "nullable": true,
+      "example": "SKU-12345"
+    },
+    "price": {
+      "description": "A money object representing the price recorded the transaction.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "shipping_cost": {
+      "description": "A money object representing the shipping cost for this transaction.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "variations": {
+      "type": "array",
+      "description": "Array of variations and personalizations the buyer chose.",
+      "items": {
+        "description": "Array of variations and personalizations the buyer chose.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TransactionVariations"
+          }
+        ]
+      }
+    },
+    "product_data": {
+      "type": "array",
+      "description": "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.",
+      "items": {
+        "description": "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListingPropertyValue"
+          }
+        ]
+      }
+    },
+    "shipping_profile_id": {
+      "type": "int64",
+      "description": "The ID of the shipping profile selected for this listing.",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    },
+    "min_processing_days": {
+      "type": "int32",
+      "description": "The minimum number of days for processing the listing.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "max_processing_days": {
+      "type": "int32",
+      "description": "The maximum number of days for processing the listing.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "shipping_method": {
+      "type": "string",
+      "description": "Name of the selected shipping method.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "shipping_upgrade": {
+      "type": "string",
+      "description": "The name of the shipping upgrade selected for this listing. Default value is null.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "expected_ship_date": {
+      "type": "int32",
+      "description": "The date & time of the expected ship date, in epoch seconds.",
+      "nullable": true,
+      "minimum": 946684800,
+      "example": 1
+    },
+    "buyer_coupon": {
+      "type": "float",
+      "description": "The amount of the buyer coupon that was discounted in the shop's currency.",
+      "default": 0,
+      "example": 1.0
+    },
+    "shop_coupon": {
+      "type": "float",
+      "description": "The amount of the shop coupon that was discounted in the shop's currency.",
+      "default": 0,
+      "example": 1.0
+    }
+  }
+}

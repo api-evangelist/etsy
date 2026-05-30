@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-listing-image-structure.json",
+  "name": "ListingImage",
+  "description": "Reference urls and metadata for an image associated with a specific listing. The `url_fullxfull` parameter contains the URL for full-sized binary image file.",
+  "type": "object",
+  "properties": {
+    "listing_id": {
+      "type": "int64",
+      "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.",
+      "minimum": 1,
+      "example": 123456789
+    },
+    "listing_image_id": {
+      "type": "int64",
+      "description": "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.",
+      "minimum": 1,
+      "example": 1
+    },
+    "hex_code": {
+      "type": "string",
+      "description": "The webhex string for the image's average color, in webhex notation.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "red": {
+      "type": "int32",
+      "description": "The numeric red value equal to the image's average red value, from 0-255 (RGB color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "green": {
+      "type": "int32",
+      "description": "The numeric red value equal to the image's average red value, from 0-255 (RGB color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "blue": {
+      "type": "int32",
+      "description": "The numeric red value equal to the image's average red value, from 0-255 (RGB color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "hue": {
+      "type": "int32",
+      "description": "The numeric hue equal to the image's average hue, from 0-360 (HSV color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "saturation": {
+      "type": "int32",
+      "description": "The numeric saturation equal to the image's average saturation, from 0-100 (HSV color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "brightness": {
+      "type": "int32",
+      "description": "The numeric brightness equal to the image's average brightness, from 0-100 (HSV color).",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "is_black_and_white": {
+      "type": "boolean",
+      "description": "When true, the image is in black & white.",
+      "nullable": true,
+      "example": true
+    },
+    "creation_tsz": {
+      "type": "int32",
+      "description": "The listing image's creation time, in epoch seconds.",
+      "minimum": 0,
+      "example": 1
+    },
+    "created_timestamp": {
+      "type": "int32",
+      "description": "The listing image's creation time, in epoch seconds.",
+      "minimum": 0,
+      "example": 1758153645
+    },
+    "rank": {
+      "type": "int32",
+      "description": "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.",
+      "minimum": 0,
+      "example": 1
+    },
+    "url_75x75": {
+      "type": "string",
+      "description": "The url string for a 75x75 pixel thumbnail of the image.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "url_170x135": {
+      "type": "string",
+      "description": "The url string for a 170x135 pixel thumbnail of the image.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "url_570xN": {
+      "type": "string",
+      "description": "The url string for a thumbnail of the image, no more than 570 pixels wide with variable height.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "url_fullxfull": {
+      "type": "string",
+      "description": "The url string for the full-size image, up to 3000 pixels in each dimension.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "full_height": {
+      "type": "int32",
+      "description": "The numeric height, measured in pixels, of the full-sized image referenced in url_fullxfull.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "full_width": {
+      "type": "int32",
+      "description": "The numeric width, measured in pixels, of the full-sized image referenced in url_fullxfull.",
+      "nullable": true,
+      "minimum": 0,
+      "example": 1
+    },
+    "alt_text": {
+      "type": "string",
+      "description": "Alt text for the listing image. Max length 500 characters.",
+      "nullable": true,
+      "example": "example string"
+    }
+  }
+}

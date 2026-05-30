@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-listing-reviews-structure.json",
+  "name": "ListingReviews",
+  "description": "A set of listing review records left by Users.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32",
+      "description": "The number of TransactionReview resources found.",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The TransactionReview resources found.",
+      "items": {
+        "description": "The TransactionReview resources found.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListingReview"
+          }
+        ]
+      }
+    }
+  }
+}

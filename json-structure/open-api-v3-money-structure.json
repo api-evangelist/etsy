@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-money-structure.json",
+  "name": "Money",
+  "description": "A representation of an amount of money.",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "int32",
+      "description": "The amount of represented by this data.",
+      "example": 2500
+    },
+    "divisor": {
+      "type": "int32",
+      "description": "The divisor to render the amount.",
+      "minimum": 0,
+      "example": 1
+    },
+    "currency_code": {
+      "type": "string",
+      "description": "The ISO currency code for this data.",
+      "example": "USD"
+    }
+  }
+}

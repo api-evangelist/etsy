@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingInventoryProductOffering",
+  "description": "A representation of an offering for a listing.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-inventory-product-offering-schema.json",
+  "type": "object",
+  "properties": {
+    "offering_id": {
+      "type": "integer",
+      "description": "The ID for the ProductOffering",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "The quantity the ProductOffering",
+      "minimum": 0,
+      "example": 1
+    },
+    "is_enabled": {
+      "type": "boolean",
+      "description": "Whether or not the offering can be shown to buyers.",
+      "example": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "description": "Whether or not the offering has been deleted.",
+      "example": true
+    },
+    "price": {
+      "description": "Price data for this ProductOffering",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "readiness_state_id": {
+      "type": "integer",
+      "description": "Processing Profile for this ProductOffering",
+      "format": "int64",
+      "nullable": true,
+      "minimum": 1,
+      "example": 1
+    }
+  }
+}

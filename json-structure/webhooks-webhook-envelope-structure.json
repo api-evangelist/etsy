@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/webhooks-webhook-envelope-structure.json",
+  "name": "WebhookEnvelope",
+  "description": "Fields common to every Etsy webhook delivery, per the Etsy webhooks\ndocumentation. Per-event payloads differ but all include these three\ntop-level fields.",
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "description": "The triggering event name."
+    },
+    "resource_url": {
+      "type": "uri",
+      "description": "A prepared Open API v3 URL the subscriber can call back to\nretrieve the updated resource referenced by the event."
+    },
+    "shop_id": {
+      "type": "string",
+      "description": "Identifier of the Etsy shop related to the event."
+    }
+  },
+  "required": [
+    "event_type",
+    "resource_url",
+    "shop_id"
+  ]
+}

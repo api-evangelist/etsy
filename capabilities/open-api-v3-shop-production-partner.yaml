@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — Shop ProductionPartner
+  description: 'Etsy Open API v3 — Shop ProductionPartner. 1 operations. Lead operation: Get Shop Production Partners. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - Shop ProductionPartner
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-production-partner
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — Shop ProductionPartner business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-production-partners
+          path: /v3/application/shops/{shop_id}/production-partners
+          operations:
+            - name: getShopProductionPartners
+              method: GET
+              description: Get Shop Production Partners
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-production-partner-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — Shop ProductionPartner. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/production-partners
+          name: shops-production-partners
+          description: REST surface for shops-production-partners.
+          operations:
+            - method: GET
+              name: getShopProductionPartners
+              description: Get Shop Production Partners
+              call: open-api-v3-shop-production-partner.getShopProductionPartners
+              with:
+                shop_id: rest.shop_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-production-partner-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — Shop ProductionPartner. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-shop-production-partners
+          description: Get Shop Production Partners
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-production-partner.getShopProductionPartners
+          with:
+            shop_id: tools.shop_id
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,5 @@
+{
+  "event_type": "order.paid",
+  "resource_url": "https://api.etsy.com/v3/application/shops/{YOUR_SHOP_ID}/receipts/{RECEIPT_ID}",
+  "shop_id": "{YOUR_SHOP_ID}"
+}

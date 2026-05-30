@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-taxonomy-property-scale-structure.json",
+  "name": "TaxonomyPropertyScale",
+  "description": "A scale defining the assignable increments for the property values available to specific product properties.",
+  "type": "object",
+  "properties": {
+    "scale_id": {
+      "type": "int64",
+      "description": "The unique numeric ID of a scale.",
+      "minimum": 1,
+      "example": 1
+    },
+    "display_name": {
+      "type": "string",
+      "description": "The name string for a scale.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description string for a scale.",
+      "example": "Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio."
+    }
+  }
+}

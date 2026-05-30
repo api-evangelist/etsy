@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/webhooks-order-shipped-payload-structure.json",
+  "name": "OrderShippedPayload",
+  "description": "OrderShippedPayload schema from Etsy Open API v3 Webhooks",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/WebhookEnvelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "order.shipped"
+          ]
+        }
+      }
+    }
+  ]
+}

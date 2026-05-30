@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopShippingProfileDestinations",
+  "description": "Represents a list of shipping destination objects.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-shipping-profile-destinations-schema.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of results.",
+      "minimum": 0,
+      "example": 1
+    },
+    "results": {
+      "type": "array",
+      "description": "The list of requested resources.",
+      "items": {
+        "description": "The list of requested resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ShopShippingProfileDestination"
+          }
+        ]
+      }
+    }
+  }
+}

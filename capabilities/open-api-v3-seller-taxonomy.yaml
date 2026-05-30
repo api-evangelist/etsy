@@ -1,0 +1,116 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — SellerTaxonomy
+  description: 'Etsy Open API v3 — SellerTaxonomy. 2 operations. Lead operation: Get Seller Taxonomy Nodes. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - SellerTaxonomy
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-seller-taxonomy
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — SellerTaxonomy business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: seller-taxonomy-nodes
+          path: /v3/application/seller-taxonomy/nodes
+          operations:
+            - name: getSellerTaxonomyNodes
+              method: GET
+              description: Get Seller Taxonomy Nodes
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: seller-taxonomy-nodes-properties
+          path: /v3/application/seller-taxonomy/nodes/{taxonomy_id}/properties
+          operations:
+            - name: getPropertiesByTaxonomyId
+              method: GET
+              description: Get Properties by Taxonomy Id
+              inputParameters:
+                - name: taxonomy_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: 'The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the "shoes" taxonomy node (ID: 1429, level: 1)'
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-seller-taxonomy-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — SellerTaxonomy. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/seller-taxonomy/nodes
+          name: seller-taxonomy-nodes
+          description: REST surface for seller-taxonomy-nodes.
+          operations:
+            - method: GET
+              name: getSellerTaxonomyNodes
+              description: Get Seller Taxonomy Nodes
+              call: open-api-v3-seller-taxonomy.getSellerTaxonomyNodes
+              with: {}
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/seller-taxonomy/nodes/{taxonomy_id}/properties
+          name: seller-taxonomy-nodes-properties
+          description: REST surface for seller-taxonomy-nodes-properties.
+          operations:
+            - method: GET
+              name: getPropertiesByTaxonomyId
+              description: Get Properties by Taxonomy Id
+              call: open-api-v3-seller-taxonomy.getPropertiesByTaxonomyId
+              with:
+                taxonomy_id: rest.taxonomy_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-seller-taxonomy-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — SellerTaxonomy. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-seller-taxonomy-nodes
+          description: Get Seller Taxonomy Nodes
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-seller-taxonomy.getSellerTaxonomyNodes
+          with: {}
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-properties-taxonomy-id
+          description: Get Properties by Taxonomy Id
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-seller-taxonomy.getPropertiesByTaxonomyId
+          with:
+            taxonomy_id: tools.taxonomy_id
+          outputParameters:
+            - type: object
+              mapping: $.

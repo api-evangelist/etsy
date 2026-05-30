@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopReturnPolicy",
+  "description": "Represents a listing-level return policy.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-return-policy-schema.json",
+  "type": "object",
+  "properties": {
+    "return_policy_id": {
+      "type": "integer",
+      "description": "The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies).",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "shop_id": {
+      "type": "integer",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456
+    },
+    "accepts_returns": {
+      "type": "boolean",
+      "description": "return_policy_accepts_returns",
+      "example": true
+    },
+    "accepts_exchanges": {
+      "type": "boolean",
+      "description": "return_policy_accepts_exchanges",
+      "example": true
+    },
+    "return_deadline": {
+      "type": "integer",
+      "description": "The deadline for the Return Policy, measured in days. The value must be one of the following: [7, 14, 21, 30, 45, 60, 90].",
+      "nullable": true,
+      "example": 1
+    }
+  }
+}

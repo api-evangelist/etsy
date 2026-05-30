@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingInventoryWithAssociations",
+  "description": "A representation of a single listing's inventory record with associations",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-inventory-with-associations-schema.json",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "description": "A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.",
+      "items": {
+        "description": "A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListingInventoryProduct"
+          }
+        ]
+      }
+    },
+    "price_on_property": {
+      "type": "array",
+      "description": "An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "quantity_on_property": {
+      "type": "array",
+      "description": "An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "sku_on_property": {
+      "type": "array",
+      "description": "An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "readiness_state_on_property": {
+      "type": "array",
+      "description": "An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.",
+      "items": {
+        "type": "integer",
+        "format": "int64",
+        "minimum": 1
+      }
+    },
+    "listing": {
+      "description": "An enumerated string that attaches a valid association. Default value is null.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ShopListing"
+        }
+      ],
+      "example": "example"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopShippingProfileUpgrade",
+  "description": "A representation of a shipping profile upgrade option.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-shipping-profile-upgrade-schema.json",
+  "type": "object",
+  "properties": {
+    "shipping_profile_id": {
+      "type": "integer",
+      "description": "The numeric ID of the base shipping profile.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "upgrade_id": {
+      "type": "integer",
+      "description": "The numeric ID that is associated with a shipping upgrade",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "upgrade_name": {
+      "type": "string",
+      "description": "Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "type": {
+      "type": "integer",
+      "description": "The type of the shipping upgrade. Domestic (0) or international (1).",
+      "enum": [
+        0,
+        1
+      ],
+      "example": 0
+    },
+    "rank": {
+      "type": "integer",
+      "description": "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.",
+      "minimum": 0,
+      "example": 1
+    },
+    "language": {
+      "type": "string",
+      "description": "The IETF language tag for the language of the shipping profile. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`",
+      "example": "en-US"
+    },
+    "price": {
+      "description": "Additional cost of adding the shipping upgrade.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "secondary_price": {
+      "description": "Additional cost of adding the shipping upgrade for each additional item.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Money"
+        }
+      ],
+      "example": "example"
+    },
+    "shipping_carrier_id": {
+      "type": "integer",
+      "description": "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.",
+      "nullable": true,
+      "example": 1
+    },
+    "mail_class": {
+      "type": "string",
+      "description": "The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "min_delivery_days": {
+      "type": "integer",
+      "description": "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.",
+      "nullable": true,
+      "minimum": 1,
+      "maximum": 45,
+      "example": 1
+    },
+    "max_delivery_days": {
+      "type": "integer",
+      "description": "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.",
+      "nullable": true,
+      "minimum": 1,
+      "maximum": 45,
+      "example": 1
+    }
+  }
+}

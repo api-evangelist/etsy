@@ -1,0 +1,1110 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Etsy Open API v3 — ShopListing
+  description: 'Etsy Open API v3 — ShopListing. 16 operations. Lead operation: Create Draft Listing. Self-contained Naftiko capability covering one Etsy business surface.'
+  tags:
+    - Etsy
+    - Open API v3
+    - ShopListing
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+  - namespace: env
+    keys:
+      ETSY_API_KEY: ETSY_API_KEY
+      ETSY_OAUTH_TOKEN: ETSY_OAUTH_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: open-api-v3-shop-listing
+      baseUri: https://openapi.etsy.com
+      description: Etsy Open API v3 — ShopListing business capability. Self-contained, no shared references.
+      authentication:
+        type: apikey
+        key: x-api-key
+        value: '{{env.ETSY_API_KEY}}'
+        placement: header
+      resources:
+        - name: shops-listings
+          path: /v3/application/shops/{shop_id}/listings
+          operations:
+            - name: createDraftListing
+              method: POST
+              description: Create Draft Listing
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getListingsByShop
+              method: GET
+              description: Get Listings by Shop
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: state
+                  in: query
+                  type: string
+                  required: false
+                  description: 'When _updating_ a listing, this value can be either `active` or `inactive`. Note: Setting a `draft` listing to `active` will also publish the listing on etsy.com and requires that the listing have an '
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: sort_on
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will '
+                - name: sort_order
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).'
+                - name: includes
+                  in: query
+                  type: array
+                  required: false
+                  description: An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings
+          path: /v3/application/listings/{listing_id}
+          operations:
+            - name: deleteListing
+              method: DELETE
+              description: Delete Listing
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getListing
+              method: GET
+              description: Get Listing
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: includes
+                  in: query
+                  type: array
+                  required: false
+                  description: An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'.
+                - name: language
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: allow_suggested_title
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter will include in the response a suggested title for the listing, if one is available. Since suggestions are only available to the listing's owner, client must submit an oauth_access_toke
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-active
+          path: /v3/application/listings/active
+          operations:
+            - name: findAllListingsActive
+              method: GET
+              description: Find All Listings Active
+              inputParameters:
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: keywords
+                  in: query
+                  type: string
+                  required: false
+                  description: Search term or phrase that must appear in all results.
+                - name: sort_on
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will '
+                - name: sort_order
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).'
+                - name: min_price
+                  in: query
+                  type: number
+                  required: false
+                  description: The minimum price of listings to be returned by a search result.
+                - name: max_price
+                  in: query
+                  type: number
+                  required: false
+                  description: The maximum price of listings to be returned by a search result.
+                - name: taxonomy_id
+                  in: query
+                  type: integer
+                  required: false
+                  description: The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
+                - name: shop_location
+                  in: query
+                  type: string
+                  required: false
+                  description: Filters by shop location. If location cannot be parsed, Etsy responds with an error.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: is_safe
+                  in: query
+                  type: boolean
+                  required: false
+                  description: When true, filters out mature/adult content from search results.
+                - name: currency
+                  in: query
+                  type: string
+                  required: false
+                  description: The ISO 4217 alphabetic currency code (e.g., EUR, MXN) for price conversion. If provided, the listing price will be converted to this currency.
+                - name: buyer_country
+                  in: query
+                  type: string
+                  required: false
+                  description: The ISO 3166-1 alpha-2 country code (e.g., DE, MX). Filters results to listings that ship to this country.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings-active
+          path: /v3/application/shops/{shop_id}/listings/active
+          operations:
+            - name: findAllActiveListingsByShop
+              method: GET
+              description: Find All Active Listings by Shop
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: sort_on
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will '
+                - name: sort_order
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).'
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: keywords
+                  in: query
+                  type: string
+                  required: false
+                  description: Search term or phrase that must appear in all results.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-batch
+          path: /v3/application/listings/batch
+          operations:
+            - name: getListingsByListingIds
+              method: GET
+              description: Get Listings by Listing Ids
+              inputParameters:
+                - name: listing_ids
+                  in: query
+                  type: array
+                  required: true
+                  description: The list of numeric IDS for the listings in a specific Etsy shop.
+                - name: includes
+                  in: query
+                  type: array
+                  required: false
+                  description: An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: currency
+                  in: query
+                  type: string
+                  required: false
+                  description: The ISO 4217 alphabetic currency code (e.g., EUR, MXN) for price conversion. If provided, the listing price will be converted to this currency.
+                - name: buyer_country
+                  in: query
+                  type: string
+                  required: false
+                  description: The ISO 3166-1 alpha-2 country code (e.g., GB, DE). Used for buyer-facing price calculations (VAT, inclusive shipping). Does not filter listings.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings-featured
+          path: /v3/application/shops/{shop_id}/listings/featured
+          operations:
+            - name: getFeaturedListingsByShop
+              method: GET
+              description: Get Featured Listings by Shop
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings-properties
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}/properties/{property_id}
+          operations:
+            - name: deleteListingProperty
+              method: DELETE
+              description: Delete Listing Property
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: property_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateListingProperty
+              method: PUT
+              description: Update Listing Property
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: property_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: listings-properties
+          path: /v3/application/listings/{listing_id}/properties/{property_id}
+          operations:
+            - name: getListingProperty
+              method: GET
+              description: Get Listing Property
+              inputParameters:
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: property_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings-properties
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}/properties
+          operations:
+            - name: getListingProperties
+              method: GET
+              description: Get Listing Properties
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-listings
+          path: /v3/application/shops/{shop_id}/listings/{listing_id}
+          operations:
+            - name: updateListing
+              method: PATCH
+              description: Update Listing
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: listing_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+                - name: body
+                  in: body
+                  type: object
+                  required: false
+                  description: JSON request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-receipts-listings
+          path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/listings
+          operations:
+            - name: getListingsByShopReceipt
+              method: GET
+              description: Get Listings by Shop Receipt
+              inputParameters:
+                - name: receipt_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-policies-return-listings
+          path: /v3/application/shops/{shop_id}/policies/return/{return_policy_id}/listings
+          operations:
+            - name: getListingsByShopReturnPolicy
+              method: GET
+              description: Get Listings by Shop Return Policy
+              inputParameters:
+                - name: return_policy_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies).
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shops-shop-sections-listings
+          path: /v3/application/shops/{shop_id}/shop-sections/listings
+          operations:
+            - name: getListingsByShopSectionId
+              method: GET
+              description: Get Listings by Shop Section Id
+              inputParameters:
+                - name: shop_id
+                  in: path
+                  type: integer
+                  required: true
+                  description: The unique positive non-zero numeric ID for an Etsy Shop.
+                - name: shop_section_ids
+                  in: query
+                  type: array
+                  required: true
+                  description: A list of numeric IDS for all sections in a specific Etsy shop.
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: The maximum number of results to return.
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: The number of records to skip before selecting the first result.
+                - name: sort_on
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will '
+                - name: sort_order
+                  in: query
+                  type: string
+                  required: false
+                  description: 'The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).'
+                - name: legacy
+                  in: query
+                  type: boolean
+                  required: false
+                  description: This parameter is needed to enable new parameters and response values related to processing profiles.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: open-api-v3-shop-listing-rest
+      port: 8080
+      description: REST adapter for Etsy Open API v3 — ShopListing. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shops/{shop_id}/listings
+          name: shops-listings
+          description: REST surface for shops-listings.
+          operations:
+            - method: POST
+              name: createDraftListing
+              description: Create Draft Listing
+              call: open-api-v3-shop-listing.createDraftListing
+              with:
+                shop_id: rest.shop_id
+                legacy: rest.legacy
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getListingsByShop
+              description: Get Listings by Shop
+              call: open-api-v3-shop-listing.getListingsByShop
+              with:
+                shop_id: rest.shop_id
+                state: rest.state
+                limit: rest.limit
+                offset: rest.offset
+                sort_on: rest.sort_on
+                sort_order: rest.sort_order
+                includes: rest.includes
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/{listing_id}
+          name: listings
+          description: REST surface for listings.
+          operations:
+            - method: DELETE
+              name: deleteListing
+              description: Delete Listing
+              call: open-api-v3-shop-listing.deleteListing
+              with:
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: getListing
+              description: Get Listing
+              call: open-api-v3-shop-listing.getListing
+              with:
+                listing_id: rest.listing_id
+                includes: rest.includes
+                language: rest.language
+                legacy: rest.legacy
+                allow_suggested_title: rest.allow_suggested_title
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/active
+          name: listings-active
+          description: REST surface for listings-active.
+          operations:
+            - method: GET
+              name: findAllListingsActive
+              description: Find All Listings Active
+              call: open-api-v3-shop-listing.findAllListingsActive
+              with:
+                limit: rest.limit
+                offset: rest.offset
+                keywords: rest.keywords
+                sort_on: rest.sort_on
+                sort_order: rest.sort_order
+                min_price: rest.min_price
+                max_price: rest.max_price
+                taxonomy_id: rest.taxonomy_id
+                shop_location: rest.shop_location
+                legacy: rest.legacy
+                is_safe: rest.is_safe
+                currency: rest.currency
+                buyer_country: rest.buyer_country
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/active
+          name: shops-listings-active
+          description: REST surface for shops-listings-active.
+          operations:
+            - method: GET
+              name: findAllActiveListingsByShop
+              description: Find All Active Listings by Shop
+              call: open-api-v3-shop-listing.findAllActiveListingsByShop
+              with:
+                shop_id: rest.shop_id
+                limit: rest.limit
+                sort_on: rest.sort_on
+                sort_order: rest.sort_order
+                offset: rest.offset
+                keywords: rest.keywords
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/batch
+          name: listings-batch
+          description: REST surface for listings-batch.
+          operations:
+            - method: GET
+              name: getListingsByListingIds
+              description: Get Listings by Listing Ids
+              call: open-api-v3-shop-listing.getListingsByListingIds
+              with:
+                listing_ids: rest.listing_ids
+                includes: rest.includes
+                legacy: rest.legacy
+                currency: rest.currency
+                buyer_country: rest.buyer_country
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/featured
+          name: shops-listings-featured
+          description: REST surface for shops-listings-featured.
+          operations:
+            - method: GET
+              name: getFeaturedListingsByShop
+              description: Get Featured Listings by Shop
+              call: open-api-v3-shop-listing.getFeaturedListingsByShop
+              with:
+                shop_id: rest.shop_id
+                limit: rest.limit
+                offset: rest.offset
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/{listing_id}/properties/{property_id}
+          name: shops-listings-properties
+          description: REST surface for shops-listings-properties.
+          operations:
+            - method: DELETE
+              name: deleteListingProperty
+              description: Delete Listing Property
+              call: open-api-v3-shop-listing.deleteListingProperty
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                property_id: rest.property_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: updateListingProperty
+              description: Update Listing Property
+              call: open-api-v3-shop-listing.updateListingProperty
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                property_id: rest.property_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/listings/{listing_id}/properties/{property_id}
+          name: listings-properties
+          description: REST surface for listings-properties.
+          operations:
+            - method: GET
+              name: getListingProperty
+              description: Get Listing Property
+              call: open-api-v3-shop-listing.getListingProperty
+              with:
+                listing_id: rest.listing_id
+                property_id: rest.property_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/{listing_id}/properties
+          name: shops-listings-properties
+          description: REST surface for shops-listings-properties.
+          operations:
+            - method: GET
+              name: getListingProperties
+              description: Get Listing Properties
+              call: open-api-v3-shop-listing.getListingProperties
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/listings/{listing_id}
+          name: shops-listings
+          description: REST surface for shops-listings.
+          operations:
+            - method: PATCH
+              name: updateListing
+              description: Update Listing
+              call: open-api-v3-shop-listing.updateListing
+              with:
+                shop_id: rest.shop_id
+                listing_id: rest.listing_id
+                legacy: rest.legacy
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/receipts/{receipt_id}/listings
+          name: shops-receipts-listings
+          description: REST surface for shops-receipts-listings.
+          operations:
+            - method: GET
+              name: getListingsByShopReceipt
+              description: Get Listings by Shop Receipt
+              call: open-api-v3-shop-listing.getListingsByShopReceipt
+              with:
+                receipt_id: rest.receipt_id
+                shop_id: rest.shop_id
+                limit: rest.limit
+                offset: rest.offset
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/policies/return/{return_policy_id}/listings
+          name: shops-policies-return-listings
+          description: REST surface for shops-policies-return-listings.
+          operations:
+            - method: GET
+              name: getListingsByShopReturnPolicy
+              description: Get Listings by Shop Return Policy
+              call: open-api-v3-shop-listing.getListingsByShopReturnPolicy
+              with:
+                return_policy_id: rest.return_policy_id
+                shop_id: rest.shop_id
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shops/{shop_id}/shop-sections/listings
+          name: shops-shop-sections-listings
+          description: REST surface for shops-shop-sections-listings.
+          operations:
+            - method: GET
+              name: getListingsByShopSectionId
+              description: Get Listings by Shop Section Id
+              call: open-api-v3-shop-listing.getListingsByShopSectionId
+              with:
+                shop_id: rest.shop_id
+                shop_section_ids: rest.shop_section_ids
+                limit: rest.limit
+                offset: rest.offset
+                sort_on: rest.sort_on
+                sort_order: rest.sort_order
+                legacy: rest.legacy
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: open-api-v3-shop-listing-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Etsy Open API v3 — ShopListing. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: create-draft-listing
+          description: Create Draft Listing
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: open-api-v3-shop-listing.createDraftListing
+          with:
+            shop_id: tools.shop_id
+            legacy: tools.legacy
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listings-shop
+          description: Get Listings by Shop
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingsByShop
+          with:
+            shop_id: tools.shop_id
+            state: tools.state
+            limit: tools.limit
+            offset: tools.offset
+            sort_on: tools.sort_on
+            sort_order: tools.sort_order
+            includes: tools.includes
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-listing
+          description: Delete Listing
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-listing.deleteListing
+          with:
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing
+          description: Get Listing
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListing
+          with:
+            listing_id: tools.listing_id
+            includes: tools.includes
+            language: tools.language
+            legacy: tools.legacy
+            allow_suggested_title: tools.allow_suggested_title
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: find-all-listings-active
+          description: Find All Listings Active
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.findAllListingsActive
+          with:
+            limit: tools.limit
+            offset: tools.offset
+            keywords: tools.keywords
+            sort_on: tools.sort_on
+            sort_order: tools.sort_order
+            min_price: tools.min_price
+            max_price: tools.max_price
+            taxonomy_id: tools.taxonomy_id
+            shop_location: tools.shop_location
+            legacy: tools.legacy
+            is_safe: tools.is_safe
+            currency: tools.currency
+            buyer_country: tools.buyer_country
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: find-all-active-listings-shop
+          description: Find All Active Listings by Shop
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.findAllActiveListingsByShop
+          with:
+            shop_id: tools.shop_id
+            limit: tools.limit
+            sort_on: tools.sort_on
+            sort_order: tools.sort_order
+            offset: tools.offset
+            keywords: tools.keywords
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listings-listing-ids
+          description: Get Listings by Listing Ids
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingsByListingIds
+          with:
+            listing_ids: tools.listing_ids
+            includes: tools.includes
+            legacy: tools.legacy
+            currency: tools.currency
+            buyer_country: tools.buyer_country
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-featured-listings-shop
+          description: Get Featured Listings by Shop
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getFeaturedListingsByShop
+          with:
+            shop_id: tools.shop_id
+            limit: tools.limit
+            offset: tools.offset
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-listing-property
+          description: Delete Listing Property
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: open-api-v3-shop-listing.deleteListingProperty
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            property_id: tools.property_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-listing-property
+          description: Update Listing Property
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.updateListingProperty
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            property_id: tools.property_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing-property
+          description: Get Listing Property
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingProperty
+          with:
+            listing_id: tools.listing_id
+            property_id: tools.property_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listing-properties
+          description: Get Listing Properties
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingProperties
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-listing
+          description: Update Listing
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.updateListing
+          with:
+            shop_id: tools.shop_id
+            listing_id: tools.listing_id
+            legacy: tools.legacy
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listings-shop-receipt
+          description: Get Listings by Shop Receipt
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingsByShopReceipt
+          with:
+            receipt_id: tools.receipt_id
+            shop_id: tools.shop_id
+            limit: tools.limit
+            offset: tools.offset
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listings-shop-return-policy
+          description: Get Listings by Shop Return Policy
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingsByShopReturnPolicy
+          with:
+            return_policy_id: tools.return_policy_id
+            shop_id: tools.shop_id
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-listings-shop-section-id
+          description: Get Listings by Shop Section Id
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: open-api-v3-shop-listing.getListingsByShopSectionId
+          with:
+            shop_id: tools.shop_id
+            shop_section_ids: tools.shop_section_ids
+            limit: tools.limit
+            offset: tools.offset
+            sort_on: tools.sort_on
+            sort_order: tools.sort_order
+            legacy: tools.legacy
+          outputParameters:
+            - type: object
+              mapping: $.

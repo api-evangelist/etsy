@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingVideo",
+  "description": "Reference urls and metadata for a video associated with a specific listing.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-listing-video-schema.json",
+  "type": "object",
+  "properties": {
+    "video_id": {
+      "type": "integer",
+      "description": "The unique ID of a video associated with a listing.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "height": {
+      "type": "integer",
+      "description": "The video height dimension in pixels.",
+      "example": 1
+    },
+    "width": {
+      "type": "integer",
+      "description": "The video width dimension in pixels.",
+      "example": 1
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "description": "The url of the video thumbnail.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "The url of the video file.",
+      "example": "https://www.etsy.com/listing/123456789"
+    },
+    "video_state": {
+      "type": "string",
+      "description": "The current state of a given video. Value is one of `active`, `inactive`, `deleted` or `flagged`.",
+      "enum": [
+        "active",
+        "inactive",
+        "deleted",
+        "flagged"
+      ],
+      "default": "active",
+      "example": "active"
+    }
+  }
+}

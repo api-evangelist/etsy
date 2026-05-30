@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-structure/open-api-v3-user-address-structure.json",
+  "name": "UserAddress",
+  "description": "Represents a user's address.",
+  "type": "object",
+  "properties": {
+    "user_address_id": {
+      "type": "int64",
+      "description": "The numeric ID of the user's address.",
+      "minimum": 1,
+      "example": 1
+    },
+    "user_id": {
+      "type": "int64",
+      "description": "The user's numeric ID.",
+      "minimum": 1,
+      "example": 456789
+    },
+    "name": {
+      "type": "string",
+      "description": "The user's name for this address.",
+      "example": "Handmade Ceramic Mug"
+    },
+    "first_line": {
+      "type": "string",
+      "description": "The first line of the user's address.",
+      "example": "123 Main St"
+    },
+    "second_line": {
+      "type": "string",
+      "description": "The second line of the user's address.",
+      "nullable": true,
+      "example": "Apt 4B"
+    },
+    "city": {
+      "type": "string",
+      "description": "The city field of the user's address.",
+      "example": "Brooklyn"
+    },
+    "state": {
+      "type": "string",
+      "description": "The state field of the user's address.",
+      "nullable": true,
+      "example": "example string"
+    },
+    "zip": {
+      "type": "string",
+      "description": "The zip code field of the user's address.",
+      "nullable": true,
+      "example": "11201"
+    },
+    "iso_country_code": {
+      "type": "string",
+      "description": "The ISO code of the country in this address.",
+      "nullable": true,
+      "example": "US"
+    },
+    "country_name": {
+      "type": "string",
+      "description": "The name of the user's country.",
+      "nullable": true,
+      "example": "US"
+    },
+    "is_default_shipping_address": {
+      "type": "boolean",
+      "description": "Is this the user's default shipping address.",
+      "example": true
+    }
+  }
+}

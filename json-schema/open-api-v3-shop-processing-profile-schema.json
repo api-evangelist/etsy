@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShopProcessingProfile",
+  "description": "Represents a processing profile to set a product offering's readiness state and processing time info.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/json-schema/open-api-v3-shop-processing-profile-schema.json",
+  "type": "object",
+  "properties": {
+    "shop_id": {
+      "type": "integer",
+      "description": "The unique positive non-zero numeric ID for an Etsy Shop.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 123456
+    },
+    "readiness_state_id": {
+      "type": "integer",
+      "description": "The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `physical`, and the endpoint is either shop-scoped (path contains `shop_id`) or a single-listing request such as `getListing`. For every other case this field can be null.",
+      "format": "int64",
+      "minimum": 1,
+      "example": 1
+    },
+    "readiness_state": {
+      "type": "string",
+      "description": "The readiness state of a product: \\\"1\\\" means \\\"ready_to_ship\\\", and \\\"2\\\" means \\\"made_to_order\\\"",
+      "enum": [
+        "ready_to_ship",
+        "made_to_order"
+      ],
+      "example": "ready_to_ship"
+    },
+    "min_processing_days": {
+      "type": "integer",
+      "description": "The minimum number of days for processing a specific product.",
+      "minimum": 0,
+      "example": 1
+    },
+    "max_processing_days": {
+      "type": "integer",
+      "description": "The maximum number of days for processing a specific product.",
+      "minimum": 0,
+      "example": 1
+    },
+    "processing_days_display_label": {
+      "type": "string",
+      "description": "Translated display label string for processing days, for example \"3 - 5 days\".",
+      "example": "example string"
+    }
+  }
+}
