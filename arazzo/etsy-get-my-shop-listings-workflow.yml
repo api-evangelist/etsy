@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Get My Shop Listings
+  summary: Resolve the authenticated seller's shop and list its listings filtered by state.
+  description: >-
+    A read-only discovery flow that starts from the token holder's identity.
+    It calls users/me to learn the authenticated user and shop IDs, resolves
+    the full shop record by owner user ID, and then lists the shop's listings
+    filtered by state. Every step spells out its request inline — including the
+    x-api-key and OAuth bearer headers — so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: get-my-shop-listings
+  summary: List the authenticated seller's shop listings starting from their token.
+  description: >-
+    Identifies the authenticated user, resolves their shop, and retrieves the
+    shop's listings filtered by the supplied state.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      state:
+        type: string
+        description: The listing state to filter on (active, inactive, sold_out, draft, expired).
+        default: active
+      limit:
+        type: integer
+        description: The maximum number of listings to return.
+        default: 25
+  steps:
+  - stepId: whoAmI
+    description: Fetch the authenticated user's own user and shop IDs.
+    operationId: getMe
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/user_id
+      shopId: $response.body#/shop_id
+  - stepId: resolveShop
+    description: Resolve the full shop record for the authenticated owner's user ID.
+    operationId: getShopByOwnerUserId
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $steps.whoAmI.outputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+      shopName: $response.body#/shop_name
+  - stepId: listListings
+    description: List the shop's listings filtered by the requested state.
+    operationId: getListingsByShop
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.resolveShop.outputs.shopId
+    - name: state
+      in: query
+      value: $inputs.state
+    - name: limit
+      in: query
+      value: $inputs.limit
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      listings: $response.body#/results
+  outputs:
+    shopId: $steps.resolveShop.outputs.shopId
+    shopName: $steps.resolveShop.outputs.shopName
+    count: $steps.listListings.outputs.count
+    listings: $steps.listListings.outputs.listings

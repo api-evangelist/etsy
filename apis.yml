@@ -28,6 +28,63 @@ tags:
   - Taxonomy
   - OAuth2
 common:
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+    - url: arazzo/etsy-clone-image-to-new-listing-workflow.yml
+      name: Etsy Clone an Image to a New Listing
+      summary: Read a source listing's images, create a new draft listing, and assign the source image.
+    - url: arazzo/etsy-create-return-policy-and-listing-workflow.yml
+      name: Etsy Create Return Policy and Listing
+      summary: Create a shop return policy, then create a draft listing that references it.
+    - url: arazzo/etsy-create-shipping-profile-and-listing-workflow.yml
+      name: Etsy Create Shipping Profile and Listing
+      summary: Create a shop shipping profile, then create a draft listing that uses it.
+    - url: arazzo/etsy-fulfill-receipt-workflow.yml
+      name: Etsy Fulfill a Receipt
+      summary: Fetch a receipt, submit tracking to create a shipment, then mark it shipped.
+    - url: arazzo/etsy-get-my-shop-listings-workflow.yml
+      name: Etsy Get My Shop Listings
+      summary: Resolve the authenticated seller's shop and list its listings filtered by state.
+    - url: arazzo/etsy-listing-reviews-workflow.yml
+      name: Etsy Listing Reviews
+      summary: Fetch a single listing, then retrieve the reviews left on that listing.
+    - url: arazzo/etsy-listing-with-inventory-workflow.yml
+      name: Etsy Listing with Inventory
+      summary: Fetch a listing, then retrieve its full inventory record.
+    - url: arazzo/etsy-organize-listing-into-section-workflow.yml
+      name: Etsy Organize a Listing into a Section
+      summary: Create a shop section, then create a draft listing assigned to that section.
+    - url: arazzo/etsy-process-unshipped-orders-workflow.yml
+      name: Etsy Process Unshipped Orders
+      summary: Resolve the seller's shop, list paid-but-unshipped receipts, and ship the first one.
+    - url: arazzo/etsy-publish-physical-listing-workflow.yml
+      name: Etsy Publish a Physical Listing
+      summary: Create a draft physical listing, upload its image, set inventory, then publish it live.
+    - url: arazzo/etsy-receipt-listings-detail-workflow.yml
+      name: Etsy Receipt Listings Detail
+      summary: Fetch a receipt, then list the listings purchased on that receipt.
+    - url: arazzo/etsy-receipt-with-transactions-workflow.yml
+      name: Etsy Receipt with Transactions
+      summary: Fetch a receipt, then retrieve the line-item transactions on that receipt.
+    - url: arazzo/etsy-reprice-listing-inventory-workflow.yml
+      name: Etsy Reprice Listing Inventory
+      summary: Read a listing's inventory, then rewrite its product offerings with new price and quantity.
+    - url: arazzo/etsy-shop-reviews-overview-workflow.yml
+      name: Etsy Shop Reviews Overview
+      summary: Resolve the authenticated seller's shop and pull its reviews.
+    - url: arazzo/etsy-shop-shipping-profiles-workflow.yml
+      name: Etsy Shop Shipping Profiles
+      summary: Resolve the seller's shop and list its shipping profiles.
+    - url: arazzo/etsy-shop-transactions-report-workflow.yml
+      name: Etsy Shop Transactions Report
+      summary: Resolve the seller's shop and pull all of its transactions.
+    - url: arazzo/etsy-update-shop-storefront-workflow.yml
+      name: Etsy Update Shop Storefront
+      summary: Read a shop, then update its storefront messaging fields.
+    - url: arazzo/etsy-user-shop-profile-workflow.yml
+      name: Etsy User Shop Profile
+      summary: Fetch a user profile, then resolve the shop that user owns.
   - type: Website
     url: https://www.etsy.com
   - type: DeveloperPortal

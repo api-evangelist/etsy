@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Shop Transactions Report
+  summary: Resolve the seller's shop and pull all of its transactions.
+  description: >-
+    A read-only sales-reporting flow that begins from the token holder's
+    identity. It calls users/me, resolves the owner's shop record, and
+    retrieves the transactions across the entire shop with paging controls.
+    Every step spells out its request inline — including the x-api-key and OAuth
+    bearer headers — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: shop-transactions-report
+  summary: Pull all transactions for the authenticated seller's shop.
+  description: >-
+    Identifies the authenticated user, resolves their shop, and retrieves the
+    shop's transactions.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      limit:
+        type: integer
+        description: The maximum number of transactions to return.
+        default: 25
+      offset:
+        type: integer
+        description: The number of records to skip before the first result.
+        default: 0
+  steps:
+  - stepId: whoAmI
+    description: Fetch the authenticated user's own user and shop IDs.
+    operationId: getMe
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/user_id
+  - stepId: resolveShop
+    description: Resolve the shop record for the authenticated owner's user ID.
+    operationId: getShopByOwnerUserId
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $steps.whoAmI.outputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+      transactionSoldCount: $response.body#/transaction_sold_count
+  - stepId: getTransactions
+    description: Retrieve the transactions across the resolved shop.
+    operationId: getShopReceiptTransactionsByShop
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.resolveShop.outputs.shopId
+    - name: limit
+      in: query
+      value: $inputs.limit
+    - name: offset
+      in: query
+      value: $inputs.offset
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      transactions: $response.body#/results
+  outputs:
+    shopId: $steps.resolveShop.outputs.shopId
+    transactionSoldCount: $steps.resolveShop.outputs.transactionSoldCount
+    count: $steps.getTransactions.outputs.count
+    transactions: $steps.getTransactions.outputs.transactions

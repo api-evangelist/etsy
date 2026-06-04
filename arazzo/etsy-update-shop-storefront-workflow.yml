@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Update Shop Storefront
+  summary: Read a shop, then update its storefront messaging fields.
+  description: >-
+    A storefront-maintenance flow. It reads the current shop record to confirm
+    it exists, then updates the shop's storefront messaging — title,
+    announcement and sale messages. Every step spells out its request inline —
+    including the x-api-key and OAuth bearer headers — so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: update-shop-storefront
+  summary: Read a shop and update its storefront messaging.
+  description: >-
+    Reads the shop record, then updates its title, announcement and sale
+    messages.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      title:
+        type: string
+        description: A brief heading string for the shop's main page.
+      announcement:
+        type: string
+        description: An announcement string shown on the shop's homepage.
+      saleMessage:
+        type: string
+        description: A message sent to users who complete a purchase.
+  steps:
+  - stepId: readShop
+    description: Read the current shop record to confirm it exists.
+    operationId: getShop
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+      shopName: $response.body#/shop_name
+  - stepId: updateStorefront
+    description: Update the shop's storefront messaging fields.
+    operationId: updateShop
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.readShop.outputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        title: $inputs.title
+        announcement: $inputs.announcement
+        sale_message: $inputs.saleMessage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+      title: $response.body#/title
+      announcement: $response.body#/announcement
+  outputs:
+    shopId: $steps.updateStorefront.outputs.shopId
+    title: $steps.updateStorefront.outputs.title
+    announcement: $steps.updateStorefront.outputs.announcement

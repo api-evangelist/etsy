@@ -1,0 +1,183 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Publish a Physical Listing
+  summary: Create a draft physical listing, upload its image, set inventory, then publish it live.
+  description: >-
+    The canonical Etsy seller onboarding flow for a physical product. The
+    workflow creates a draft listing in a shop, uploads a primary image to it,
+    writes the inventory record with SKU, price and quantity, and finally
+    flips the listing state to active so it publishes on etsy.com. Every step
+    spells out its request inline — including the x-api-key and OAuth bearer
+    headers — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: publish-physical-listing
+  summary: Create, illustrate, stock and publish a physical Etsy listing end to end.
+  description: >-
+    Creates a draft physical listing, uploads an image, updates the inventory
+    record, and activates the listing so it goes live on etsy.com.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - title
+    - description
+    - price
+    - quantity
+    - taxonomyId
+    - shippingProfileId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      title:
+        type: string
+        description: The listing title.
+      description:
+        type: string
+        description: The listing description.
+      price:
+        type: number
+        description: The minimum listing price.
+      quantity:
+        type: integer
+        description: The number of products available for purchase.
+      taxonomyId:
+        type: integer
+        description: The seller taxonomy ID for the listing.
+      shippingProfileId:
+        type: integer
+        description: The shipping profile ID to attach to this physical listing.
+      sku:
+        type: string
+        description: The SKU string to assign to the single product offering.
+  steps:
+  - stepId: createDraft
+    description: >-
+      Create a draft physical listing in the shop with the required title,
+      description, price, quantity, who/when made and taxonomy values.
+    operationId: createDraftListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        quantity: $inputs.quantity
+        title: $inputs.title
+        description: $inputs.description
+        price: $inputs.price
+        who_made: i_did
+        when_made: made_to_order
+        taxonomy_id: $inputs.taxonomyId
+        shipping_profile_id: $inputs.shippingProfileId
+        type: physical
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingId: $response.body#/listing_id
+  - stepId: uploadImage
+    description: Upload the primary image file to the freshly created draft listing.
+    operationId: uploadListingImage
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: listing_id
+      in: path
+      value: $steps.createDraft.outputs.listingId
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        rank: 1
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingImageId: $response.body#/listing_image_id
+  - stepId: setInventory
+    description: >-
+      Write the inventory record with a single product offering carrying the
+      price, quantity and enabled flag.
+    operationId: updateListingInventory
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $steps.createDraft.outputs.listingId
+    requestBody:
+      contentType: application/json
+      payload:
+        products:
+        - sku: $inputs.sku
+          offerings:
+          - price: $inputs.price
+            quantity: $inputs.quantity
+            is_enabled: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      products: $response.body#/products
+  - stepId: publishListing
+    description: >-
+      Activate the draft listing, which publishes it on etsy.com. Requires the
+      listing to have an image, which the upload step provided.
+    operationId: updateListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: listing_id
+      in: path
+      value: $steps.createDraft.outputs.listingId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        state: active
+        shipping_profile_id: $inputs.shippingProfileId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      state: $response.body#/state
+      listingUrl: $response.body#/url
+  outputs:
+    listingId: $steps.createDraft.outputs.listingId
+    listingImageId: $steps.uploadImage.outputs.listingImageId
+    state: $steps.publishListing.outputs.state
+    listingUrl: $steps.publishListing.outputs.listingUrl

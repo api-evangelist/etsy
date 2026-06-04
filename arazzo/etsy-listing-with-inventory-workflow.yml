@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Listing with Inventory
+  summary: Fetch a listing, then retrieve its full inventory record.
+  description: >-
+    A read-only catalog-detail flow. It fetches a listing to confirm it exists
+    and read its title and quantity, then retrieves the full inventory record
+    for that listing including per-product SKUs and offerings. Every step
+    spells out its request inline — including the x-api-key and OAuth bearer
+    headers — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: listing-with-inventory
+  summary: Read a listing and its full inventory record.
+  description: >-
+    Fetches a listing, then retrieves the inventory record with its product
+    offerings.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - listingId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      listingId:
+        type: integer
+        description: The numeric ID of the listing to read.
+  steps:
+  - stepId: getListing
+    description: Fetch the listing to confirm it exists and read its title and quantity.
+    operationId: getListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $inputs.listingId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      listingId: $response.body#/listing_id
+      title: $response.body#/title
+      quantity: $response.body#/quantity
+  - stepId: getInventory
+    description: Retrieve the full inventory record for the listing.
+    operationId: getListingInventory
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $steps.getListing.outputs.listingId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      products: $response.body#/products
+  outputs:
+    listingId: $steps.getListing.outputs.listingId
+    title: $steps.getListing.outputs.title
+    products: $steps.getInventory.outputs.products

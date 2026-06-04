@@ -1,0 +1,137 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Fulfill a Receipt
+  summary: Fetch a receipt, submit tracking to create a shipment, then mark it shipped.
+  description: >-
+    The order-fulfillment loop for a single Etsy receipt. The flow fetches the
+    receipt to confirm it exists and read its buyer/shipping context, submits
+    tracking information which creates a Shop Receipt Shipment and notifies the
+    buyer, and finally updates the receipt status to record that it was
+    shipped. Every step spells out its request inline — including the x-api-key
+    and OAuth bearer headers — so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: fulfill-receipt
+  summary: Fetch a receipt, create a shipment with tracking, and mark it shipped.
+  description: >-
+    Reads a shop receipt, submits tracking to create a shipment, then updates
+    the receipt to mark it as shipped.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - receiptId
+    - trackingCode
+    - carrierName
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      receiptId:
+        type: integer
+        description: The numeric ID of the receipt to fulfill.
+      trackingCode:
+        type: string
+        description: The carrier tracking code for the shipment.
+      carrierName:
+        type: string
+        description: The carrier name for the shipment.
+      sendBcc:
+        type: boolean
+        description: When true, also sends the shipping notification to the seller.
+        default: true
+  steps:
+  - stepId: getReceipt
+    description: Fetch the receipt to confirm it exists and read its current state.
+    operationId: getShopReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $inputs.receiptId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      receiptId: $response.body#/receipt_id
+      isShipped: $response.body#/is_shipped
+      buyerEmail: $response.body#/buyer_email
+  - stepId: createShipment
+    description: >-
+      Submit tracking information for the receipt, which creates a shipment
+      entry and emails the buyer.
+    operationId: createReceiptShipment
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $steps.getReceipt.outputs.receiptId
+    requestBody:
+      contentType: application/json
+      payload:
+        tracking_code: $inputs.trackingCode
+        carrier_name: $inputs.carrierName
+        send_bcc: $inputs.sendBcc
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      receiptId: $response.body#/receipt_id
+      shipments: $response.body#/shipments
+  - stepId: markShipped
+    description: Update the receipt status to record that the order was shipped.
+    operationId: updateShopReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $steps.getReceipt.outputs.receiptId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        was_shipped: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      isShipped: $response.body#/is_shipped
+      status: $response.body#/status
+  outputs:
+    receiptId: $steps.getReceipt.outputs.receiptId
+    shipments: $steps.createShipment.outputs.shipments
+    isShipped: $steps.markShipped.outputs.isShipped
+    status: $steps.markShipped.outputs.status

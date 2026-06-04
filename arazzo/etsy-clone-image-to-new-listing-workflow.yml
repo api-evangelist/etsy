@@ -1,0 +1,145 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Clone an Image to a New Listing
+  summary: Read a source listing's images, create a new draft listing, and assign the source image.
+  description: >-
+    A merchandising flow for reusing existing imagery. It reads the images on a
+    source listing, creates a new draft physical listing, and assigns the
+    source listing's first image to the new listing by passing its
+    listing_image_id to the image upload endpoint. Every step spells out its
+    request inline — including the x-api-key and OAuth bearer headers — so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: clone-image-to-new-listing
+  summary: Reuse a source listing's image on a brand-new draft listing.
+  description: >-
+    Reads the images of a source listing, creates a new draft listing, and
+    assigns the source image to it by image ID.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - sourceListingId
+    - title
+    - description
+    - price
+    - quantity
+    - taxonomyId
+    - shippingProfileId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      sourceListingId:
+        type: integer
+        description: The listing whose image will be reused.
+      title:
+        type: string
+        description: The new listing title.
+      description:
+        type: string
+        description: The new listing description.
+      price:
+        type: number
+        description: The minimum listing price.
+      quantity:
+        type: integer
+        description: The number of products available for purchase.
+      taxonomyId:
+        type: integer
+        description: The seller taxonomy ID for the listing.
+      shippingProfileId:
+        type: integer
+        description: The shipping profile ID to attach to this physical listing.
+  steps:
+  - stepId: getSourceImages
+    description: Read the images on the source listing and capture the first image ID.
+    operationId: getListingImages
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $inputs.sourceListingId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceImageId: $response.body#/results/0/listing_image_id
+  - stepId: createListing
+    description: Create a new draft physical listing to receive the cloned image.
+    operationId: createDraftListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        quantity: $inputs.quantity
+        title: $inputs.title
+        description: $inputs.description
+        price: $inputs.price
+        who_made: i_did
+        when_made: made_to_order
+        taxonomy_id: $inputs.taxonomyId
+        shipping_profile_id: $inputs.shippingProfileId
+        type: physical
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingId: $response.body#/listing_id
+  - stepId: assignImage
+    description: >-
+      Assign the source listing's image to the new listing by referencing its
+      listing_image_id.
+    operationId: uploadListingImage
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: listing_id
+      in: path
+      value: $steps.createListing.outputs.listingId
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        listing_image_id: $steps.getSourceImages.outputs.sourceImageId
+        rank: 1
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingImageId: $response.body#/listing_image_id
+  outputs:
+    sourceImageId: $steps.getSourceImages.outputs.sourceImageId
+    listingId: $steps.createListing.outputs.listingId
+    listingImageId: $steps.assignImage.outputs.listingImageId

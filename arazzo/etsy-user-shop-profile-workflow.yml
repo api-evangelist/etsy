@@ -1,0 +1,78 @@
+arazzo: 1.0.1
+info:
+  title: Etsy User Shop Profile
+  summary: Fetch a user profile, then resolve the shop that user owns.
+  description: >-
+    A read-only profile flow that joins a user to their storefront. It fetches
+    a user profile by user ID, then resolves the shop owned by that same user
+    ID. Every step spells out its request inline — including the x-api-key and
+    OAuth bearer headers — so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: user-shop-profile
+  summary: Read a user profile and resolve the shop they own.
+  description: >-
+    Fetches a user profile by ID, then resolves the shop owned by that user.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - userId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      userId:
+        type: integer
+        description: The numeric user ID to look up.
+  steps:
+  - stepId: getUser
+    description: Fetch the user profile for the supplied user ID.
+    operationId: getUser
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $inputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/user_id
+      firstName: $response.body#/first_name
+      lastName: $response.body#/last_name
+  - stepId: resolveShop
+    description: Resolve the shop owned by the same user ID.
+    operationId: getShopByOwnerUserId
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $steps.getUser.outputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+      shopName: $response.body#/shop_name
+  outputs:
+    userId: $steps.getUser.outputs.userId
+    shopId: $steps.resolveShop.outputs.shopId
+    shopName: $steps.resolveShop.outputs.shopName

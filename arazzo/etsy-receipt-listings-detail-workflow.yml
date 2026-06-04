@@ -1,0 +1,102 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Receipt Listings Detail
+  summary: Fetch a receipt, then list the listings purchased on that receipt.
+  description: >-
+    A read-only order-detail flow. It fetches a shop receipt to confirm it
+    exists and read its status, then lists the listings that were purchased on
+    that receipt with paging controls. Every step spells out its request
+    inline — including the x-api-key and OAuth bearer headers — so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: receipt-listings-detail
+  summary: Read a receipt and the listings purchased on it.
+  description: >-
+    Fetches a receipt, then lists the listings purchased on that receipt.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - receiptId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      receiptId:
+        type: integer
+        description: The numeric ID of the receipt to read listings for.
+      limit:
+        type: integer
+        description: The maximum number of listings to return.
+        default: 25
+      offset:
+        type: integer
+        description: The number of records to skip before the first result.
+        default: 0
+  steps:
+  - stepId: getReceipt
+    description: Fetch the receipt to confirm it exists and read its status.
+    operationId: getShopReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $inputs.receiptId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      receiptId: $response.body#/receipt_id
+      status: $response.body#/status
+  - stepId: getReceiptListings
+    description: List the listings purchased on the receipt.
+    operationId: getListingsByShopReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $steps.getReceipt.outputs.receiptId
+    - name: limit
+      in: query
+      value: $inputs.limit
+    - name: offset
+      in: query
+      value: $inputs.offset
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      listings: $response.body#/results
+  outputs:
+    receiptId: $steps.getReceipt.outputs.receiptId
+    status: $steps.getReceipt.outputs.status
+    count: $steps.getReceiptListings.outputs.count
+    listings: $steps.getReceiptListings.outputs.listings

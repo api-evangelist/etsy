@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Receipt with Transactions
+  summary: Fetch a receipt, then retrieve the line-item transactions on that receipt.
+  description: >-
+    A read-only order-detail flow. It fetches a shop receipt to confirm it
+    exists and read its buyer and status context, then retrieves the
+    transactions (individual purchased line items) associated with that
+    receipt. Every step spells out its request inline — including the x-api-key
+    and OAuth bearer headers — so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: receipt-with-transactions
+  summary: Read a receipt and the transactions that compose it.
+  description: >-
+    Fetches a receipt, then retrieves the line-item transactions on that
+    receipt.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - receiptId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      receiptId:
+        type: integer
+        description: The numeric ID of the receipt to read transactions for.
+  steps:
+  - stepId: getReceipt
+    description: Fetch the receipt to confirm it exists and read its status.
+    operationId: getShopReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $inputs.receiptId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      receiptId: $response.body#/receipt_id
+      status: $response.body#/status
+  - stepId: getTransactions
+    description: Retrieve the transactions that compose the receipt.
+    operationId: getShopReceiptTransactionsByReceipt
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    - name: receipt_id
+      in: path
+      value: $steps.getReceipt.outputs.receiptId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      transactions: $response.body#/results
+  outputs:
+    receiptId: $steps.getReceipt.outputs.receiptId
+    status: $steps.getReceipt.outputs.status
+    count: $steps.getTransactions.outputs.count
+    transactions: $steps.getTransactions.outputs.transactions

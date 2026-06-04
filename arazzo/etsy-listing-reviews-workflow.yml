@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Listing Reviews
+  summary: Fetch a single listing, then retrieve the reviews left on that listing.
+  description: >-
+    A read-only flow that confirms a listing exists and reads its title, then
+    retrieves the reviews left specifically on that listing with paging
+    controls. Every step spells out its request inline — including the
+    x-api-key and OAuth bearer headers — so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: listing-reviews
+  summary: Read a listing and retrieve the reviews left on it.
+  description: >-
+    Fetches a listing to confirm it exists, then retrieves the reviews left on
+    that listing.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - listingId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      listingId:
+        type: integer
+        description: The numeric ID of the listing to read reviews for.
+      limit:
+        type: integer
+        description: The maximum number of reviews to return.
+        default: 25
+      offset:
+        type: integer
+        description: The number of records to skip before the first result.
+        default: 0
+  steps:
+  - stepId: getListing
+    description: Fetch the listing to confirm it exists and read its title.
+    operationId: getListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $inputs.listingId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      listingId: $response.body#/listing_id
+      title: $response.body#/title
+  - stepId: getReviews
+    description: Retrieve the reviews left on the listing.
+    operationId: getReviewsByListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $steps.getListing.outputs.listingId
+    - name: limit
+      in: query
+      value: $inputs.limit
+    - name: offset
+      in: query
+      value: $inputs.offset
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      reviews: $response.body#/results
+  outputs:
+    listingId: $steps.getListing.outputs.listingId
+    title: $steps.getListing.outputs.title
+    count: $steps.getReviews.outputs.count
+    reviews: $steps.getReviews.outputs.reviews

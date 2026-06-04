@@ -1,0 +1,123 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Organize a Listing into a Section
+  summary: Create a shop section, then create a draft listing assigned to that section.
+  description: >-
+    Shop sections group related listings on a seller's storefront. This flow
+    creates a new shop section by title, then creates a draft physical listing
+    assigned to the new section via its shop_section_id so the listing appears
+    under that section. Every step spells out its request inline — including the
+    x-api-key and OAuth bearer headers — so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: organize-listing-into-section
+  summary: Create a shop section and create a listing assigned to it.
+  description: >-
+    Creates a shop section, then creates a draft physical listing placed into
+    the newly created section.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - sectionTitle
+    - title
+    - description
+    - price
+    - quantity
+    - taxonomyId
+    - shippingProfileId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      sectionTitle:
+        type: string
+        description: The title of the new shop section.
+      title:
+        type: string
+        description: The listing title.
+      description:
+        type: string
+        description: The listing description.
+      price:
+        type: number
+        description: The minimum listing price.
+      quantity:
+        type: integer
+        description: The number of products available for purchase.
+      taxonomyId:
+        type: integer
+        description: The seller taxonomy ID for the listing.
+      shippingProfileId:
+        type: integer
+        description: The shipping profile ID to attach to this physical listing.
+  steps:
+  - stepId: createSection
+    description: Create a new shop section identified by its title.
+    operationId: createShopSection
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        title: $inputs.sectionTitle
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopSectionId: $response.body#/shop_section_id
+  - stepId: createListing
+    description: >-
+      Create a draft physical listing assigned to the section created in the
+      previous step.
+    operationId: createDraftListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        quantity: $inputs.quantity
+        title: $inputs.title
+        description: $inputs.description
+        price: $inputs.price
+        who_made: i_did
+        when_made: made_to_order
+        taxonomy_id: $inputs.taxonomyId
+        shipping_profile_id: $inputs.shippingProfileId
+        shop_section_id: $steps.createSection.outputs.shopSectionId
+        type: physical
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingId: $response.body#/listing_id
+  outputs:
+    shopSectionId: $steps.createSection.outputs.shopSectionId
+    listingId: $steps.createListing.outputs.listingId

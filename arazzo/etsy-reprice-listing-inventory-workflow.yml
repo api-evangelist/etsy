@@ -1,0 +1,97 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Reprice Listing Inventory
+  summary: Read a listing's inventory, then rewrite its product offerings with new price and quantity.
+  description: >-
+    A targeted inventory-maintenance flow. It reads the current inventory
+    record for a listing to confirm the record exists, then writes an updated
+    inventory record that replaces the product offering with a new price and
+    quantity. Every step spells out its request inline — including the
+    x-api-key and OAuth bearer headers — so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: reprice-listing-inventory
+  summary: Read and then rewrite a listing's inventory with a new price and quantity.
+  description: >-
+    Reads the listing inventory record, then updates it with a single product
+    offering carrying the new price and quantity.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - listingId
+    - price
+    - quantity
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      listingId:
+        type: integer
+        description: The numeric ID of the listing whose inventory is repriced.
+      price:
+        type: number
+        description: The new offering price.
+      quantity:
+        type: integer
+        description: The new offering quantity.
+      sku:
+        type: string
+        description: The SKU string to assign to the product.
+  steps:
+  - stepId: readInventory
+    description: Read the current inventory record to confirm it exists.
+    operationId: getListingInventory
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $inputs.listingId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      products: $response.body#/products
+  - stepId: writeInventory
+    description: >-
+      Write the updated inventory record with a single product offering using
+      the new price and quantity.
+    operationId: updateListingInventory
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: listing_id
+      in: path
+      value: $inputs.listingId
+    requestBody:
+      contentType: application/json
+      payload:
+        products:
+        - sku: $inputs.sku
+          offerings:
+          - price: $inputs.price
+            quantity: $inputs.quantity
+            is_enabled: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      products: $response.body#/products
+  outputs:
+    products: $steps.writeInventory.outputs.products

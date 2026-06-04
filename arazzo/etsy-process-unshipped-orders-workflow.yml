@@ -1,0 +1,144 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Process Unshipped Orders
+  summary: Resolve the seller's shop, list paid-but-unshipped receipts, and ship the first one.
+  description: >-
+    A daily fulfillment sweep that begins from the token holder's identity.
+    It calls users/me, resolves the owner's shop, then lists receipts filtered
+    to those that are paid but not yet shipped. When at least one unshipped
+    receipt exists it submits tracking for the first one to create a shipment;
+    when none remain it ends cleanly. Every step spells out its request inline —
+    including the x-api-key and OAuth bearer headers — so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: process-unshipped-orders
+  summary: Find paid-but-unshipped receipts for the seller's shop and ship the first.
+  description: >-
+    Resolves the authenticated seller's shop, lists paid unshipped receipts,
+    and branches to create a shipment for the first one when any exist.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - trackingCode
+    - carrierName
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      trackingCode:
+        type: string
+        description: The carrier tracking code to apply to the first unshipped receipt.
+      carrierName:
+        type: string
+        description: The carrier name to apply to the first unshipped receipt.
+  steps:
+  - stepId: whoAmI
+    description: Fetch the authenticated user's own user and shop IDs.
+    operationId: getMe
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/user_id
+  - stepId: resolveShop
+    description: Resolve the shop record for the authenticated owner's user ID.
+    operationId: getShopByOwnerUserId
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $steps.whoAmI.outputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+  - stepId: listUnshipped
+    description: List receipts that are paid but not yet shipped.
+    operationId: getShopReceipts
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.resolveShop.outputs.shopId
+    - name: was_paid
+      in: query
+      value: true
+    - name: was_shipped
+      in: query
+      value: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      firstReceiptId: $response.body#/results/0/receipt_id
+    onSuccess:
+    - name: hasUnshipped
+      type: goto
+      stepId: shipFirst
+      criteria:
+      - context: $response.body
+        condition: $.count > 0
+        type: jsonpath
+    - name: nothingToShip
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.count == 0
+        type: jsonpath
+  - stepId: shipFirst
+    description: Submit tracking for the first unshipped receipt, creating a shipment.
+    operationId: createReceiptShipment
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.resolveShop.outputs.shopId
+    - name: receipt_id
+      in: path
+      value: $steps.listUnshipped.outputs.firstReceiptId
+    requestBody:
+      contentType: application/json
+      payload:
+        tracking_code: $inputs.trackingCode
+        carrier_name: $inputs.carrierName
+        send_bcc: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      receiptId: $response.body#/receipt_id
+      shipments: $response.body#/shipments
+  outputs:
+    shopId: $steps.resolveShop.outputs.shopId
+    unshippedCount: $steps.listUnshipped.outputs.count
+    shippedReceiptId: $steps.shipFirst.outputs.receiptId

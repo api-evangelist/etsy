@@ -1,0 +1,88 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Shop Shipping Profiles
+  summary: Resolve the seller's shop and list its shipping profiles.
+  description: >-
+    A read-only configuration flow that begins from the token holder's
+    identity. It calls users/me to identify the authenticated user, resolves
+    the owner's shop record, and lists the shipping profiles configured for the
+    shop. Every step spells out its request inline — including the x-api-key
+    and OAuth bearer headers — so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: shop-shipping-profiles
+  summary: List the shipping profiles for the authenticated seller's shop.
+  description: >-
+    Identifies the authenticated user, resolves their shop, and lists the
+    shop's shipping profiles.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+  steps:
+  - stepId: whoAmI
+    description: Fetch the authenticated user's own user and shop IDs.
+    operationId: getMe
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/user_id
+  - stepId: resolveShop
+    description: Resolve the shop record for the authenticated owner's user ID.
+    operationId: getShopByOwnerUserId
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: user_id
+      in: path
+      value: $steps.whoAmI.outputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shopId: $response.body#/shop_id
+  - stepId: listProfiles
+    description: List the shipping profiles configured for the resolved shop.
+    operationId: getShopShippingProfiles
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $steps.resolveShop.outputs.shopId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      count: $response.body#/count
+      shippingProfiles: $response.body#/results
+  outputs:
+    shopId: $steps.resolveShop.outputs.shopId
+    count: $steps.listProfiles.outputs.count
+    shippingProfiles: $steps.listProfiles.outputs.shippingProfiles

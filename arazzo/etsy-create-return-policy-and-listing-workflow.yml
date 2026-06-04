@@ -1,0 +1,134 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Create Return Policy and Listing
+  summary: Create a shop return policy, then create a draft listing that references it.
+  description: >-
+    Active physical Etsy listings generally require a return policy. This flow
+    creates a return policy for the shop with the accepts-returns and
+    accepts-exchanges flags plus a return deadline, then creates a draft
+    physical listing that references the new policy via its return_policy_id.
+    Every step spells out its request inline — including the x-api-key and OAuth
+    bearer headers — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: create-return-policy-and-listing
+  summary: Create a return policy and immediately reference it on a new draft listing.
+  description: >-
+    Creates a shop return policy, then creates a draft physical listing that
+    references the newly created policy.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - acceptsReturns
+    - acceptsExchanges
+    - returnDeadline
+    - title
+    - description
+    - price
+    - quantity
+    - taxonomyId
+    - shippingProfileId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      acceptsReturns:
+        type: boolean
+        description: Whether the return policy accepts returns.
+      acceptsExchanges:
+        type: boolean
+        description: Whether the return policy accepts exchanges.
+      returnDeadline:
+        type: integer
+        description: The return deadline in days (one of 7, 14, 21, 30, 45, 60, 90).
+      title:
+        type: string
+        description: The listing title.
+      description:
+        type: string
+        description: The listing description.
+      price:
+        type: number
+        description: The minimum listing price.
+      quantity:
+        type: integer
+        description: The number of products available for purchase.
+      taxonomyId:
+        type: integer
+        description: The seller taxonomy ID for the listing.
+      shippingProfileId:
+        type: integer
+        description: The shipping profile ID to attach to this physical listing.
+  steps:
+  - stepId: createReturnPolicy
+    description: Create a return policy for the shop with the returns/exchanges flags and deadline.
+    operationId: createShopReturnPolicy
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        accepts_returns: $inputs.acceptsReturns
+        accepts_exchanges: $inputs.acceptsExchanges
+        return_deadline: $inputs.returnDeadline
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      returnPolicyId: $response.body#/return_policy_id
+  - stepId: createListing
+    description: >-
+      Create a draft physical listing that references the return policy created
+      in the previous step.
+    operationId: createDraftListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        quantity: $inputs.quantity
+        title: $inputs.title
+        description: $inputs.description
+        price: $inputs.price
+        who_made: i_did
+        when_made: made_to_order
+        taxonomy_id: $inputs.taxonomyId
+        shipping_profile_id: $inputs.shippingProfileId
+        return_policy_id: $steps.createReturnPolicy.outputs.returnPolicyId
+        type: physical
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingId: $response.body#/listing_id
+  outputs:
+    returnPolicyId: $steps.createReturnPolicy.outputs.returnPolicyId
+    listingId: $steps.createListing.outputs.listingId

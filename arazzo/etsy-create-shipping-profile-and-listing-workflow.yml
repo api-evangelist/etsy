@@ -1,0 +1,146 @@
+arazzo: 1.0.1
+info:
+  title: Etsy Create Shipping Profile and Listing
+  summary: Create a shop shipping profile, then create a draft listing that uses it.
+  description: >-
+    Physical Etsy listings must reference a valid shipping profile. This flow
+    creates a new shipping profile for the shop with origin, costs and either a
+    carrier/mail class or delivery-day range, then creates a draft physical
+    listing that points at the new profile via its shipping_profile_id. Every
+    step spells out its request inline — including the x-api-key and OAuth
+    bearer headers — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: etsyApi
+  url: ../openapi/etsy-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: create-shipping-profile-and-listing
+  summary: Create a shipping profile and immediately use it on a new draft listing.
+  description: >-
+    Creates a shop shipping profile, then creates a draft physical listing that
+    references the newly created profile.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - accessToken
+    - shopId
+    - profileTitle
+    - originCountryIso
+    - primaryCost
+    - secondaryCost
+    - minDeliveryDays
+    - maxDeliveryDays
+    - title
+    - description
+    - price
+    - quantity
+    - taxonomyId
+    properties:
+      apiKey:
+        type: string
+        description: The Etsy app API key sent in the x-api-key header.
+      accessToken:
+        type: string
+        description: The OAuth 2.0 bearer token for the authenticated seller.
+      shopId:
+        type: integer
+        description: The unique positive non-zero numeric ID for the Etsy shop.
+      profileTitle:
+        type: string
+        description: The name of the shipping profile.
+      originCountryIso:
+        type: string
+        description: The ISO code of the country the listing ships from.
+      primaryCost:
+        type: number
+        description: The cost of shipping this item alone.
+      secondaryCost:
+        type: number
+        description: The cost of shipping this item with another item.
+      minDeliveryDays:
+        type: integer
+        description: The minimum delivery days estimate.
+      maxDeliveryDays:
+        type: integer
+        description: The maximum delivery days estimate.
+      title:
+        type: string
+        description: The listing title.
+      description:
+        type: string
+        description: The listing description.
+      price:
+        type: number
+        description: The minimum listing price.
+      quantity:
+        type: integer
+        description: The number of products available for purchase.
+      taxonomyId:
+        type: integer
+        description: The seller taxonomy ID for the listing.
+  steps:
+  - stepId: createShippingProfile
+    description: >-
+      Create a shipping profile for the shop with origin, costs and a
+      min/max delivery-day estimate.
+    operationId: createShopShippingProfile
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        title: $inputs.profileTitle
+        origin_country_iso: $inputs.originCountryIso
+        primary_cost: $inputs.primaryCost
+        secondary_cost: $inputs.secondaryCost
+        min_delivery_days: $inputs.minDeliveryDays
+        max_delivery_days: $inputs.maxDeliveryDays
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      shippingProfileId: $response.body#/shipping_profile_id
+  - stepId: createListing
+    description: >-
+      Create a draft physical listing that references the shipping profile
+      created in the previous step.
+    operationId: createDraftListing
+    parameters:
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: shop_id
+      in: path
+      value: $inputs.shopId
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        quantity: $inputs.quantity
+        title: $inputs.title
+        description: $inputs.description
+        price: $inputs.price
+        who_made: i_did
+        when_made: made_to_order
+        taxonomy_id: $inputs.taxonomyId
+        shipping_profile_id: $steps.createShippingProfile.outputs.shippingProfileId
+        type: physical
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      listingId: $response.body#/listing_id
+  outputs:
+    shippingProfileId: $steps.createShippingProfile.outputs.shippingProfileId
+    listingId: $steps.createListing.outputs.listingId
