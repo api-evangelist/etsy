@@ -28,6 +28,8 @@ tags:
   - Taxonomy
   - OAuth2
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/etsy/overview
   - type: ArazzoWorkflows
     url: arazzo/
     workflows:
