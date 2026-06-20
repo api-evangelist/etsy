@@ -2,7 +2,7 @@ aid: etsy
 url: https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/apis.yml
 name: Etsy
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 description: >-
   Etsy is a global marketplace for unique and creative handmade, vintage, and
   craft-supply goods. The Etsy Open API v3 is a REST + OAuth 2.0 surface that
