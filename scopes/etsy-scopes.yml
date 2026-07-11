@@ -1,0 +1,133 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/etsy-openapi-original.yml
+schemes:
+- name: oauth2
+  source: openapi/etsy-openapi-original.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.etsy.com/oauth/connect
+    tokenUrl: https://openapi.etsy.com/v3/public/oauth/token
+  description: Open API v3 supports authenticating via OAuth 2.0. More information about Etsy's
+    specific implementation of OAuth2 can be found [here](/documentation/essentials/oauth2).
+scopes:
+- scope: address_r
+  description: see billing and shipping addresses
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: address_w
+  description: update billing and shipping addresses
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: billing_r
+  description: see all billing statement data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: cart_r
+  description: read shopping carts
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: cart_w
+  description: add/remove from shopping carts
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: email_r
+  description: read a user profile
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: favorites_r
+  description: see private favorites
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: favorites_w
+  description: add/remove favorites
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: feedback_r
+  description: see purchase info in feedback
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: listings_d
+  description: delete listings
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: listings_r
+  description: see all listings (including expired etc)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: listings_w
+  description: create/edit listings
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: profile_r
+  description: see all profile data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: profile_w
+  description: update user profile, avatar, etc
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: recommend_r
+  description: see recommended listings
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: recommend_w
+  description: accept/reject recommended listings
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: shops_r
+  description: see private shop info
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: shops_w
+  description: update shop
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: transactions_r
+  description: see all checkout/payment data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml
+- scope: transactions_w
+  description: update receipts
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/etsy-openapi-original.yml

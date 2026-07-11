@@ -28,6 +28,8 @@ tags:
   - Taxonomy
   - OAuth2
 common:
+  - type: OAuthScopes
+    url: scopes/etsy-scopes.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/etsy/overview
   - type: Arazzo
