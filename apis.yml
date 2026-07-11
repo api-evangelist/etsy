@@ -28,6 +28,12 @@ tags:
   - Taxonomy
   - OAuth2
 common:
+  - type: VulnerabilityDisclosure
+    url: security/etsy-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/etsy-domain-security.yml
+  - type: Authentication
+    url: authentication/etsy-authentication.yml
   - type: OAuthScopes
     url: scopes/etsy-scopes.yml
   - type: PostmanWorkspace
