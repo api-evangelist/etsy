@@ -28,6 +28,8 @@ tags:
   - Taxonomy
   - OAuth2
 common:
+  - type: AgenticAccess
+    url: agentic-access/etsy-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/etsy-vulnerability-disclosure.yml
   - type: DomainSecurity

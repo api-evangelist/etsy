@@ -1,0 +1,1462 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/etsy-openapi-original.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 103
+  by_action_class:
+    connected: 61
+    acting: 42
+  by_consequence:
+    read: 61
+    write: 32
+    physical: 10
+  human_in_the_loop_required: 0
+operations:
+- path: /v3/application/buyer-taxonomy/nodes
+  method: get
+  operationId: getBuyerTaxonomyNodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/buyer-taxonomy/nodes/{taxonomy_id}/properties
+  method: get
+  operationId: getPropertiesByBuyerTaxonomyId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings
+  method: post
+  operationId: createDraftListing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings
+  method: get
+  operationId: getListingsByShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}
+  method: delete
+  operationId: deleteListing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_d
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}
+  method: get
+  operationId: getListing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/files/{listing_file_id}
+  method: delete
+  operationId: deleteListingFile
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/files/{listing_file_id}
+  method: get
+  operationId: getListingFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/files
+  method: get
+  operationId: getAllListingFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/files
+  method: post
+  operationId: uploadListingFile
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/active
+  method: get
+  operationId: findAllListingsActive
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/active
+  method: get
+  operationId: findAllActiveListingsByShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/images/{listing_image_id}
+  method: delete
+  operationId: deleteListingImage
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/images/{listing_image_id}
+  method: get
+  operationId: getListingImage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}/images
+  method: get
+  operationId: getListingImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/images
+  method: post
+  operationId: uploadListingImage
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/inventory
+  method: get
+  operationId: getListingInventory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}/inventory
+  method: put
+  operationId: updateListingInventory
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/inventory/products/{product_id}
+  method: get
+  operationId: getListingProduct
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}/products/{product_id}/offerings/{product_offering_id}
+  method: get
+  operationId: getListingOffering
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/batch
+  method: get
+  operationId: getListingsByListingIds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/featured
+  method: get
+  operationId: getFeaturedListingsByShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/personalization
+  method: delete
+  operationId: deleteListingPersonalization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/personalization
+  method: post
+  operationId: updateListingPersonalization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/personalization
+  method: get
+  operationId: getListingPersonalization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/properties/{property_id}
+  method: delete
+  operationId: deleteListingProperty
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/properties/{property_id}
+  method: put
+  operationId: updateListingProperty
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/properties/{property_id}
+  method: get
+  operationId: getListingProperty
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/properties
+  method: get
+  operationId: getListingProperties
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/transactions
+  method: get
+  operationId: getShopReceiptTransactionsByListing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language}
+  method: post
+  operationId: createListingTranslation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language}
+  method: get
+  operationId: getListingTranslation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language}
+  method: put
+  operationId: updateListingTranslation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}
+  method: patch
+  operationId: updateListing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/variation-images
+  method: get
+  operationId: getListingVariationImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/variation-images
+  method: post
+  operationId: updateVariationImages
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/videos/{video_id}
+  method: delete
+  operationId: deleteListingVideo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/listings/{listing_id}/videos/{video_id}
+  method: get
+  operationId: getListingVideo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}/videos
+  method: get
+  operationId: getListingVideos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/listings/{listing_id}/videos
+  method: post
+  operationId: uploadListingVideo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - listings_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/payment-account/ledger-entries/{ledger_entry_id}
+  method: get
+  operationId: getShopPaymentAccountLedgerEntry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/payment-account/ledger-entries
+  method: get
+  operationId: getShopPaymentAccountLedgerEntries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/payment-account/ledger-entries/payments
+  method: get
+  operationId: getPaymentAccountLedgerEntryPayments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/payments
+  method: get
+  operationId: getShopPaymentByReceiptId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/payments
+  method: get
+  operationId: getPayments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/openapi-ping
+  method: get
+  operationId: ping
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}
+  method: get
+  operationId: getShopReceipt
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}
+  method: put
+  operationId: updateShopReceipt
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - transactions_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/receipts
+  method: get
+  operationId: getShopReceipts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/listings
+  method: get
+  operationId: getListingsByShopReceipt
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/tracking
+  method: post
+  operationId: createReceiptShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - transactions_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/receipts/{receipt_id}/transactions
+  method: get
+  operationId: getShopReceiptTransactionsByReceipt
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/listings/{listing_id}/reviews
+  method: get
+  operationId: getReviewsByListing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/reviews
+  method: get
+  operationId: getReviewsByShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/seller-taxonomy/nodes
+  method: get
+  operationId: getSellerTaxonomyNodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/seller-taxonomy/nodes/{taxonomy_id}/properties
+  method: get
+  operationId: getPropertiesByTaxonomyId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shipping-carriers
+  method: get
+  operationId: getShippingCarriers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}
+  method: get
+  operationId: getShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}
+  method: put
+  operationId: updateShop
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_r
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/users/{user_id}/shops
+  method: get
+  operationId: getShopByOwnerUserId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/holiday-preferences
+  method: get
+  operationId: getHolidayPreferences
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/holiday-preferences/{holiday_id}
+  method: put
+  operationId: updateHolidayPreferences
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops
+  method: get
+  operationId: findShops
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/policies/return/consolidate
+  method: post
+  operationId: consolidateShopReturnPolicies
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/policies/return
+  method: post
+  operationId: createShopReturnPolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/policies/return
+  method: get
+  operationId: getShopReturnPolicies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/policies/return/{return_policy_id}
+  method: delete
+  operationId: deleteShopReturnPolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/policies/return/{return_policy_id}
+  method: get
+  operationId: getShopReturnPolicy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/policies/return/{return_policy_id}
+  method: put
+  operationId: updateShopReturnPolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/policies/return/{return_policy_id}/listings
+  method: get
+  operationId: getListingsByShopReturnPolicy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - listings_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/production-partners
+  method: get
+  operationId: getShopProductionPartners
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/readiness-state-definitions
+  method: post
+  operationId: createShopReadinessStateDefinition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/readiness-state-definitions
+  method: get
+  operationId: getShopReadinessStateDefinitions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/readiness-state-definitions/{readiness_state_definition_id}
+  method: delete
+  operationId: deleteShopReadinessStateDefinition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/readiness-state-definitions/{readiness_state_definition_id}
+  method: get
+  operationId: getShopReadinessStateDefinition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/readiness-state-definitions/{readiness_state_definition_id}
+  method: put
+  operationId: updateShopReadinessStateDefinition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/sections
+  method: post
+  operationId: createShopSection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/sections
+  method: get
+  operationId: getShopSections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/sections/{shop_section_id}
+  method: delete
+  operationId: deleteShopSection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/sections/{shop_section_id}
+  method: get
+  operationId: getShopSection
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/sections/{shop_section_id}
+  method: put
+  operationId: updateShopSection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shop-sections/listings
+  method: get
+  operationId: getListingsByShopSectionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/shipping-profiles
+  method: post
+  operationId: createShopShippingProfile
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles
+  method: get
+  operationId: getShopShippingProfiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}
+  method: delete
+  operationId: deleteShopShippingProfile
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}
+  method: get
+  operationId: getShopShippingProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}
+  method: put
+  operationId: updateShopShippingProfile
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations
+  method: post
+  operationId: createShopShippingProfileDestination
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations
+  method: get
+  operationId: getShopShippingProfileDestinationsByShippingProfile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations/{shipping_profile_destination_id}
+  method: delete
+  operationId: deleteShopShippingProfileDestination
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations/{shipping_profile_destination_id}
+  method: put
+  operationId: updateShopShippingProfileDestination
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades
+  method: post
+  operationId: createShopShippingProfileUpgrade
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades
+  method: get
+  operationId: getShopShippingProfileUpgrades
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades/{upgrade_id}
+  method: delete
+  operationId: deleteShopShippingProfileUpgrade
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades/{upgrade_id}
+  method: put
+  operationId: updateShopShippingProfileUpgrade
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - shops_w
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/scopes
+  method: post
+  operationId: tokenScopes
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/shops/{shop_id}/transactions/{transaction_id}
+  method: get
+  operationId: getShopReceiptTransaction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/shops/{shop_id}/transactions
+  method: get
+  operationId: getShopReceiptTransactionsByShop
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - transactions_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/user/addresses/{user_address_id}
+  method: delete
+  operationId: deleteUserAddress
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - address_r
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/application/user/addresses/{user_address_id}
+  method: get
+  operationId: getUserAddress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - address_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/user/addresses
+  method: get
+  operationId: getUserAddresses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - address_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/users/{user_id}
+  method: get
+  operationId: getUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - email_r
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/application/users/me
+  method: get
+  operationId: getMe
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - shops_r
+    token:
+      max-ttl: 3600
+    audit: none
