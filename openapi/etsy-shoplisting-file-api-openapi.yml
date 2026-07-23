@@ -1,0 +1,670 @@
+openapi: 3.0.2
+info:
+  title: Etsy Open API v3 BuyerTaxonomy ShopListing File API
+  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  termsOfService: https://www.etsy.com/legal/api
+  contact:
+    email: developers@etsy.com
+  version: 3.0.0
+  x-generated-from: https://www.etsy.com/openapi/generated/oas/3.0.0.json
+  x-last-validated: '2026-05-30'
+servers:
+- url: https://openapi.etsy.com
+  description: Etsy Open API v3 base URL (per Etsy developer documentation; live calls also resolve at https://api.etsy.com/v3/application).
+security:
+- api_key: []
+tags:
+- name: ShopListing File
+paths:
+  /v3/application/shops/{shop_id}/listings/{listing_id}/files/{listing_file_id}:
+    delete:
+      operationId: deleteListingFile
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Deletes a file from a specific listing. When you delete the final file for a digital listing, the listing converts into a physical listing. The response to a delete request returns a list of the remaining file records associated with the given listing.'
+      tags:
+      - ShopListing File
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: listing_file_id
+        in: path
+        description: The unique numeric ID of a file associated with a digital listing.
+        required: true
+        schema:
+          type: integer
+          description: The unique numeric ID of a file associated with a digital listing.
+          format: int64
+          minimum: 1
+        example: 1
+      responses:
+        '409':
+          description: There was a request conflict with the current state of the target resource. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile409Example:
+                  summary: Default deleteListingFile 409 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile404Example:
+                  summary: Default deleteListingFile 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile400Example:
+                  summary: Default deleteListingFile 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '204':
+          description: The ShopListingFile resource was correctly deleted
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile403Example:
+                  summary: Default deleteListingFile 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile401Example:
+                  summary: Default deleteListingFile 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingFile500Example:
+                  summary: Default deleteListingFile 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Delete Listing File
+    get:
+      operationId: getListingFile
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Retrieves a single file associated with the given digital listing. Requesting a file from a physical listing returns an empty result.'
+      tags:
+      - ShopListing File
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: listing_file_id
+        in: path
+        description: The unique numeric ID of a file associated with a digital listing.
+        required: true
+        schema:
+          type: integer
+          description: The unique numeric ID of a file associated with a digital listing.
+          format: int64
+          minimum: 1
+        example: 1
+      responses:
+        '200':
+          description: The metadata for a file associated with a digital listing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShopListingFile'
+              examples:
+                GetListingFile200Example:
+                  summary: Default getListingFile 200 response
+                  x-microcks-default: true
+                  value:
+                    listing_file_id: 1
+                    listing_id: 123456789
+                    rank: 1
+                    filename: Handmade Ceramic Mug
+                    filesize: example string
+                    size_bytes: 1
+                    filetype: example string
+                    create_timestamp: 1758153645
+                    created_timestamp: 1758153645
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingFile404Example:
+                  summary: Default getListingFile 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingFile400Example:
+                  summary: Default getListingFile 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingFile403Example:
+                  summary: Default getListingFile 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingFile401Example:
+                  summary: Default getListingFile 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingFile500Example:
+                  summary: Default getListingFile 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_r
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Get Listing File
+  /v3/application/shops/{shop_id}/listings/{listing_id}/files:
+    get:
+      operationId: getAllListingFiles
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Retrieves all the files associated with the given digital listing. Requesting files from a physical listing returns an empty result.'
+      tags:
+      - ShopListing File
+      parameters:
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      responses:
+        '200':
+          description: A list of metadata objects for the file resources associated with a listing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShopListingFiles'
+              examples:
+                GetAllListingFiles200Example:
+                  summary: Default getAllListingFiles 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 1
+                    results:
+                    - null
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetAllListingFiles404Example:
+                  summary: Default getAllListingFiles 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetAllListingFiles400Example:
+                  summary: Default getAllListingFiles 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetAllListingFiles401Example:
+                  summary: Default getAllListingFiles 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetAllListingFiles500Example:
+                  summary: Default getAllListingFiles 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_r
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Get All Listing Files
+    post:
+      operationId: uploadListingFile
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Uploads a new file for a digital listing, or associates an existing file with a specific listing. You must either provide the `listing_file_id` of an existing file, or the name and binary file data for a file to upload. Associating an existing file to a physical listing converts the physical listing into a digital listing, which removes all shipping costs and any product and inventory variations.'
+      tags:
+      - ShopListing File
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                listing_file_id:
+                  type: integer
+                  description: The unique numeric ID of a file associated with a digital listing.
+                  format: int64
+                  minimum: 1
+                file:
+                  type: string
+                  description: A binary file to upload.
+                  format: binary
+                  nullable: true
+                name:
+                  type: string
+                  description: The file name string of a file to upload
+                rank:
+                  type: integer
+                  description: The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
+                  format: int64
+                  minimum: 1
+                  default: 1
+      responses:
+        '201':
+          description: The metadata for a file associated with a digital listing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShopListingFile'
+              examples:
+                UploadListingFile201Example:
+                  summary: Default uploadListingFile 201 response
+                  x-microcks-default: true
+                  value:
+                    listing_file_id: 1
+                    listing_id: 123456789
+                    rank: 1
+                    filename: Handmade Ceramic Mug
+                    filesize: example string
+                    size_bytes: 1
+                    filetype: example string
+                    create_timestamp: 1758153645
+                    created_timestamp: 1758153645
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UploadListingFile404Example:
+                  summary: Default uploadListingFile 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UploadListingFile400Example:
+                  summary: Default uploadListingFile 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UploadListingFile403Example:
+                  summary: Default uploadListingFile 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UploadListingFile401Example:
+                  summary: Default uploadListingFile 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UploadListingFile500Example:
+                  summary: Default uploadListingFile 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Upload Listing File
+components:
+  schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ShopListingFile:
+      type: object
+      x-resource-id: ShopListingFile
+      description: A file associated with a digital listing.
+      properties:
+        listing_file_id:
+          type: integer
+          description: The unique numeric ID of a file associated with a digital listing.
+          format: int64
+          minimum: 1
+          example: 1
+        listing_id:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+          example: 123456789
+        rank:
+          type: integer
+          description: The numeric index of the display order position of this file in the listing, starting at 1.
+          minimum: 0
+          example: 1
+        filename:
+          type: string
+          description: The file name string for a file associated with a digital listing.
+          example: Handmade Ceramic Mug
+        filesize:
+          type: string
+          description: A human-readable format size string for the size of a file.
+          example: example string
+        size_bytes:
+          type: integer
+          description: A number indicating the size of a file, measured in bytes.
+          minimum: 0
+          example: 1
+        filetype:
+          type: string
+          description: A type string indicating a file's MIME type.
+          example: example string
+        create_timestamp:
+          type: integer
+          description: The unique numeric ID of a file associated with a digital listing.
+          minimum: 946684800
+          example: 1758153645
+        created_timestamp:
+          type: integer
+          description: The unique numeric ID of a file associated with a digital listing.
+          minimum: 946684800
+          example: 1758153645
+    ShopListingFiles:
+      type: object
+      x-resource-id: ShopListingFiles
+      description: Represents several ShopListingFiles.
+      properties:
+        count:
+          type: integer
+          description: The number of ShopListingFiles being returned..
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: An array of ShopListingFile resources.
+          items:
+            description: An array of ShopListingFile resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopListingFile'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+      description: Every request to a v3 API endpoint must include this data in the format `keystring:shared_secret`. Your keystring and shared secret are available on the [Your Apps](https://www.etsy.com/developers/your-apps) page.
+    oauth2:
+      type: oauth2
+      description: Open API v3 supports authenticating via OAuth 2.0. More information about Etsy's specific implementation of OAuth2 can be found [here](/documentation/essentials/oauth2).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.etsy.com/oauth/connect
+          tokenUrl: https://openapi.etsy.com/v3/public/oauth/token
+          scopes:
+            address_r: see billing and shipping addresses
+            address_w: update billing and shipping addresses
+            billing_r: see all billing statement data
+            cart_r: read shopping carts
+            cart_w: add/remove from shopping carts
+            email_r: read a user profile
+            favorites_r: see private favorites
+            favorites_w: add/remove favorites
+            feedback_r: see purchase info in feedback
+            listings_d: delete listings
+            listings_r: see all listings (including expired etc)
+            listings_w: create/edit listings
+            profile_r: see all profile data
+            profile_w: update user profile, avatar, etc
+            recommend_r: see recommended listings
+            recommend_w: accept/reject recommended listings
+            shops_r: see private shop info
+            shops_w: update shop
+            transactions_r: see all checkout/payment data
+            transactions_w: update receipts
+x-tagGroups:
+- name: Listing Management
+  tags:
+  - BuyerTaxonomy
+  - SellerTaxonomy
+  - ShopListing
+  - ShopListing File
+  - ShopListing Image
+  - ShopListing Inventory
+  - ShopListing Offering
+  - ShopListing Personalization
+  - ShopListing Product
+  - ShopListing Translation
+  - ShopListing VariationImage
+  - ShopListing Video
+- name: Other
+  tags:
+  - Other
+- name: Payment Management
+  tags:
+  - Ledger Entry
+  - Payment
+- name: Receipt Management
+  tags:
+  - Shop Receipt
+  - Shop Receipt Transactions
+- name: Review Management
+  tags:
+  - Review
+- name: Shipping Management
+  tags:
+  - Shop HolidayPreferences
+  - Shop ProcessingProfiles
+  - Shop ShippingProfile
+- name: Shop Management
+  tags:
+  - Shop
+  - Shop ProductionPartner
+  - Shop Section
+- name: Shop Policy Management
+  tags:
+  - Shop Return Policy
+- name: User Management
+  tags:
+  - User
+  - UserAddress

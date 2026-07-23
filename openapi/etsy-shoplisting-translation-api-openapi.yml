@@ -1,0 +1,539 @@
+openapi: 3.0.2
+info:
+  title: Etsy Open API v3 BuyerTaxonomy ShopListing Translation API
+  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  termsOfService: https://www.etsy.com/legal/api
+  contact:
+    email: developers@etsy.com
+  version: 3.0.0
+  x-generated-from: https://www.etsy.com/openapi/generated/oas/3.0.0.json
+  x-last-validated: '2026-05-30'
+servers:
+- url: https://openapi.etsy.com
+  description: Etsy Open API v3 base URL (per Etsy developer documentation; live calls also resolve at https://api.etsy.com/v3/application).
+security:
+- api_key: []
+tags:
+- name: ShopListing Translation
+paths:
+  /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language}:
+    post:
+      operationId: createListingTranslation
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Creates a ListingTranslation by listing_id and language'
+      tags:
+      - ShopListing Translation
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: language
+        in: path
+        description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        required: true
+        schema:
+          type: string
+          description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        example: en-US
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - title
+              - description
+              properties:
+                title:
+                  type: string
+                  description: The title of the Listing of this Translation.
+                description:
+                  type: string
+                  description: The description of the Listing of this Translation.
+                tags:
+                  type: array
+                  description: The tags of the Listing of this Translation.
+                  items:
+                    type: string
+            examples:
+              CreateListingTranslationRequestExample:
+                summary: Default createListingTranslation request
+                x-microcks-default: true
+                value:
+                  title: example string
+                  description: example string
+                  tags:
+                  - example string
+      responses:
+        '200':
+          description: A single ListingTranslation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingTranslation'
+              examples:
+                CreateListingTranslation200Example:
+                  summary: Default createListingTranslation 200 response
+                  x-microcks-default: true
+                  value:
+                    listing_id: 123456789
+                    language: en-US
+                    title: Handmade Ceramic Mug — Stoneware
+                    description: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+                    tags:
+                    - example string
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                CreateListingTranslation404Example:
+                  summary: Default createListingTranslation 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                CreateListingTranslation400Example:
+                  summary: Default createListingTranslation 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                CreateListingTranslation403Example:
+                  summary: Default createListingTranslation 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                CreateListingTranslation401Example:
+                  summary: Default createListingTranslation 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                CreateListingTranslation500Example:
+                  summary: Default createListingTranslation 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Create Listing Translation
+    get:
+      operationId: getListingTranslation
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Get a Translation for a Listing in the given language'
+      tags:
+      - ShopListing Translation
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: language
+        in: path
+        description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        required: true
+        schema:
+          type: string
+          description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        example: en-US
+      responses:
+        '200':
+          description: A single ListingTranslation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingTranslation'
+              examples:
+                GetListingTranslation200Example:
+                  summary: Default getListingTranslation 200 response
+                  x-microcks-default: true
+                  value:
+                    listing_id: 123456789
+                    language: en-US
+                    title: Handmade Ceramic Mug — Stoneware
+                    description: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+                    tags:
+                    - example string
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingTranslation404Example:
+                  summary: Default getListingTranslation 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingTranslation400Example:
+                  summary: Default getListingTranslation 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingTranslation500Example:
+                  summary: Default getListingTranslation 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Get Listing Translation
+    put:
+      operationId: updateListingTranslation
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Updates a ListingTranslation by listing_id and language'
+      tags:
+      - ShopListing Translation
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: language
+        in: path
+        description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        required: true
+        schema:
+          type: string
+          description: 'The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.'
+        example: en-US
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - title
+              - description
+              properties:
+                title:
+                  type: string
+                  description: The title of the Listing of this Translation.
+                description:
+                  type: string
+                  description: The description of the Listing of this Translation.
+                tags:
+                  type: array
+                  description: The tags of the Listing of this Translation.
+                  items:
+                    type: string
+            examples:
+              UpdateListingTranslationRequestExample:
+                summary: Default updateListingTranslation request
+                x-microcks-default: true
+                value:
+                  title: example string
+                  description: example string
+                  tags:
+                  - example string
+      responses:
+        '200':
+          description: A single ListingTranslation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingTranslation'
+              examples:
+                UpdateListingTranslation200Example:
+                  summary: Default updateListingTranslation 200 response
+                  x-microcks-default: true
+                  value:
+                    listing_id: 123456789
+                    language: en-US
+                    title: Handmade Ceramic Mug — Stoneware
+                    description: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+                    tags:
+                    - example string
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingTranslation404Example:
+                  summary: Default updateListingTranslation 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingTranslation400Example:
+                  summary: Default updateListingTranslation 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingTranslation403Example:
+                  summary: Default updateListingTranslation 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingTranslation401Example:
+                  summary: Default updateListingTranslation 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingTranslation500Example:
+                  summary: Default updateListingTranslation 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Update Listing Translation
+components:
+  schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ListingTranslation:
+      type: object
+      x-resource-id: ListingTranslation
+      description: Represents the translation data for a Listing.
+      properties:
+        listing_id:
+          type: integer
+          description: The numeric ID for the Listing.
+          format: int64
+          minimum: 1
+          example: 123456789
+        language:
+          type: string
+          description: The IETF language tag (e.g. 'fr') for the language of this translation.
+          example: en-US
+        title:
+          type: string
+          description: The title of the Listing of this Translation.
+          nullable: true
+          example: Handmade Ceramic Mug — Stoneware
+        description:
+          type: string
+          description: The description of the Listing of this Translation.
+          nullable: true
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+        tags:
+          type: array
+          description: The tags of the Listing of this Translation.
+          items:
+            type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+      description: Every request to a v3 API endpoint must include this data in the format `keystring:shared_secret`. Your keystring and shared secret are available on the [Your Apps](https://www.etsy.com/developers/your-apps) page.
+    oauth2:
+      type: oauth2
+      description: Open API v3 supports authenticating via OAuth 2.0. More information about Etsy's specific implementation of OAuth2 can be found [here](/documentation/essentials/oauth2).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.etsy.com/oauth/connect
+          tokenUrl: https://openapi.etsy.com/v3/public/oauth/token
+          scopes:
+            address_r: see billing and shipping addresses
+            address_w: update billing and shipping addresses
+            billing_r: see all billing statement data
+            cart_r: read shopping carts
+            cart_w: add/remove from shopping carts
+            email_r: read a user profile
+            favorites_r: see private favorites
+            favorites_w: add/remove favorites
+            feedback_r: see purchase info in feedback
+            listings_d: delete listings
+            listings_r: see all listings (including expired etc)
+            listings_w: create/edit listings
+            profile_r: see all profile data
+            profile_w: update user profile, avatar, etc
+            recommend_r: see recommended listings
+            recommend_w: accept/reject recommended listings
+            shops_r: see private shop info
+            shops_w: update shop
+            transactions_r: see all checkout/payment data
+            transactions_w: update receipts
+x-tagGroups:
+- name: Listing Management
+  tags:
+  - BuyerTaxonomy
+  - SellerTaxonomy
+  - ShopListing
+  - ShopListing File
+  - ShopListing Image
+  - ShopListing Inventory
+  - ShopListing Offering
+  - ShopListing Personalization
+  - ShopListing Product
+  - ShopListing Translation
+  - ShopListing VariationImage
+  - ShopListing Video
+- name: Other
+  tags:
+  - Other
+- name: Payment Management
+  tags:
+  - Ledger Entry
+  - Payment
+- name: Receipt Management
+  tags:
+  - Shop Receipt
+  - Shop Receipt Transactions
+- name: Review Management
+  tags:
+  - Review
+- name: Shipping Management
+  tags:
+  - Shop HolidayPreferences
+  - Shop ProcessingProfiles
+  - Shop ShippingProfile
+- name: Shop Management
+  tags:
+  - Shop
+  - Shop ProductionPartner
+  - Shop Section
+- name: Shop Policy Management
+  tags:
+  - Shop Return Policy
+- name: User Management
+  tags:
+  - User
+  - UserAddress

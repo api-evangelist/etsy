@@ -1,0 +1,584 @@
+openapi: 3.0.2
+info:
+  title: Etsy Open API v3 BuyerTaxonomy ShopListing Personalization API
+  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  termsOfService: https://www.etsy.com/legal/api
+  contact:
+    email: developers@etsy.com
+  version: 3.0.0
+  x-generated-from: https://www.etsy.com/openapi/generated/oas/3.0.0.json
+  x-last-validated: '2026-05-30'
+servers:
+- url: https://openapi.etsy.com
+  description: Etsy Open API v3 base URL (per Etsy developer documentation; live calls also resolve at https://api.etsy.com/v3/application).
+security:
+- api_key: []
+tags:
+- name: ShopListing Personalization
+paths:
+  /v3/application/shops/{shop_id}/listings/{listing_id}/personalization:
+    delete:
+      operationId: deleteListingPersonalization
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Deletes personalization for a listing.'
+      tags:
+      - ShopListing Personalization
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      responses:
+        '204':
+          description: The ListingPersonalization resource was correctly deleted
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingPersonalization404Example:
+                  summary: Default deleteListingPersonalization 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingPersonalization400Example:
+                  summary: Default deleteListingPersonalization 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingPersonalization403Example:
+                  summary: Default deleteListingPersonalization 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingPersonalization401Example:
+                  summary: Default deleteListingPersonalization 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                DeleteListingPersonalization500Example:
+                  summary: Default deleteListingPersonalization 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Delete Listing Personalization
+    post:
+      operationId: updateListingPersonalization
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Creates or updates personalization settings for a listing, allowing the seller to collect personalization from the buyer. This endpoint will fully replace any existing personalization on the listing.'
+      tags:
+      - ShopListing Personalization
+      parameters:
+      - name: shop_id
+        in: path
+        description: The unique positive non-zero numeric ID for an Etsy Shop.
+        required: true
+        schema:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+        example: 123456
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: supports_multiple_personalization_questions
+        in: query
+        description: 'This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: ''text_input'', ''dropdown'', ''unlabeled_upload'', ''labeled_upload''. Sending this param without updating your application can lead to inadvertently deleting seller-entered data.'
+        required: false
+        schema:
+          type: boolean
+          description: 'This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: ''text_input'', ''dropdown'', ''unlabeled_upload'', ''labeled_upload''. Sending this param without updating your application can lead to inadvertently deleting seller-entered data.'
+          nullable: true
+        example: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - personalization_questions
+              properties:
+                personalization_questions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      question_id:
+                        type: integer
+                        description: 'The ID of the personalization question. This field is optional. Include it when updating an existing question; omit it when creating a new question. Note: This value may change if the personalization question is updated.'
+                        format: int64
+                        nullable: true
+                        minimum: 1
+                      question_text:
+                        type: string
+                        description: 'The title of the personalization question. Must be between 1 and 45 characters. Note: During the migration to the new personalization endpoints, if you''re still using a legacy UI (without a title input),please send the default value ''Personalization''.'
+                      instructions:
+                        type: string
+                        description: Optional instructions for a personalization question. This field is not allowed for 'dropdown' questions. For legacy, single personalization, max length is 256 characters. Once multiple personalization questions are enabled, the max length will be 120 characters.
+                        nullable: true
+                      question_type:
+                        type: string
+                        description: 'The type of the personalization question. Note: Currently, only a single question with type ''text_input'' is supported. See https://developers.etsy.com/documentation/tutorials/personalization-migration for details about new question types.'
+                        enum:
+                        - text_input
+                        - dropdown
+                        - unlabeled_upload
+                        - labeled_upload
+                      required:
+                        type: boolean
+                        description: When true, the personalization question is required.
+                      max_allowed_files:
+                        type: integer
+                        description: The maximum number of files the buyer may upload in response to a personalization question. This field is optional and only applicable to 'unlabeled_upload' and 'labeled_upload' questions.
+                        nullable: true
+                      max_allowed_characters:
+                        type: integer
+                        description: The maximum number of characters the buyer may enter in response to a personalization question. This field is optional and only applicable to 'text_input' questions.
+                        nullable: true
+                      options:
+                        type: array
+                        description: The list of options for a personalization question. For 'dropdown' questions, this list contains the options for the dropdown. For 'labeled_upload' questions, this list contains the labels for the files that the buyer may upload, and must match the max_allowed_files value..
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            option_id:
+                              type: integer
+                              description: 'The ID of the option. This field is optional. Include it when updating an existing option; omit it when creating a new option. Note: This value may change if the option or question is updated.'
+                              format: int64
+                              nullable: true
+                              minimum: 1
+                            label:
+                              type: string
+                              description: 'The option label. Note: For ''dropdown'' questions, max length is 20 characters. For ''labeled_upload'' questions, max length is 45 characters.'
+                          required:
+                          - label
+                    required:
+                    - question_text
+                    - question_type
+                    - required
+            examples:
+              UpdateListingPersonalizationRequestExample:
+                summary: Default updateListingPersonalization request
+                x-microcks-default: true
+                value:
+                  personalization_questions:
+                  - question_id: 1
+                    question_text: example string
+                    instructions: example string
+                    question_type: text_input
+                    required: true
+                    max_allowed_files: 1
+                    max_allowed_characters: 1
+                    options:
+                    - option_id: 1
+                      label: example string
+      responses:
+        '201':
+          description: A single Listing Personalization record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization'
+              examples:
+                UpdateListingPersonalization201Example:
+                  summary: Default updateListingPersonalization 201 response
+                  x-microcks-default: true
+                  value:
+                    personalization_questions:
+                    - question_id: 1
+                      question_text: example string
+                      instructions: example string
+                      question_type: example string
+                      required: true
+                      max_allowed_characters: 1
+                      max_allowed_files: 1
+                      options:
+                      - {}
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization400Example:
+                  summary: Default updateListingPersonalization 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '401':
+          description: The request lacks valid authentication credentials. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization401Example:
+                  summary: Default updateListingPersonalization 401 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization403Example:
+                  summary: Default updateListingPersonalization 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization404Example:
+                  summary: Default updateListingPersonalization 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '409':
+          description: There was a request conflict with the current state of the target resource. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization409Example:
+                  summary: Default updateListingPersonalization 409 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                UpdateListingPersonalization500Example:
+                  summary: Default updateListingPersonalization 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      security:
+      - api_key: []
+        oauth2:
+        - listings_w
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Update Listing Personalization
+  /v3/application/listings/{listing_id}/personalization:
+    get:
+      operationId: getListingPersonalization
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Retrieves a listing''s personalization questions by listing ID.'
+      tags:
+      - ShopListing Personalization
+      parameters:
+      - name: listing_id
+        in: path
+        description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+        required: true
+        schema:
+          type: integer
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+          format: int64
+          minimum: 1
+        example: 123456789
+      responses:
+        '200':
+          description: A listing personalization questions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization'
+              examples:
+                GetListingPersonalization200Example:
+                  summary: Default getListingPersonalization 200 response
+                  x-microcks-default: true
+                  value:
+                    personalization_questions:
+                    - question_id: 1
+                      question_text: example string
+                      instructions: example string
+                      question_type: example string
+                      required: true
+                      max_allowed_characters: 1
+                      max_allowed_files: 1
+                      options:
+                      - {}
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingPersonalization404Example:
+                  summary: Default getListingPersonalization 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingPersonalization400Example:
+                  summary: Default getListingPersonalization 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '403':
+          description: The request attempted to perform an operation it is not allowed to. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingPersonalization403Example:
+                  summary: Default getListingPersonalization 403 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingPersonalization500Example:
+                  summary: Default getListingPersonalization 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Get Listing Personalization
+components:
+  schemas:
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
+      type: object
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
+      properties:
+        personalization_questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion:
+      type: object
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
+      properties:
+        question_id:
+          type: integer
+          format: int64
+          nullable: true
+          minimum: 1
+          example: 1
+        question_text:
+          type: string
+          example: example string
+        instructions:
+          type: string
+          nullable: true
+          example: example string
+        question_type:
+          type: string
+          example: example string
+        required:
+          type: boolean
+          example: true
+        max_allowed_characters:
+          type: integer
+          nullable: true
+          example: 1
+        max_allowed_files:
+          type: integer
+          nullable: true
+          example: 1
+        options:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              option_id:
+                type: integer
+                format: int64
+                nullable: true
+                minimum: 1
+                example: 1
+              label:
+                type: string
+                example: example string
+            required:
+            - option_id
+            - label
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+      description: Every request to a v3 API endpoint must include this data in the format `keystring:shared_secret`. Your keystring and shared secret are available on the [Your Apps](https://www.etsy.com/developers/your-apps) page.
+    oauth2:
+      type: oauth2
+      description: Open API v3 supports authenticating via OAuth 2.0. More information about Etsy's specific implementation of OAuth2 can be found [here](/documentation/essentials/oauth2).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.etsy.com/oauth/connect
+          tokenUrl: https://openapi.etsy.com/v3/public/oauth/token
+          scopes:
+            address_r: see billing and shipping addresses
+            address_w: update billing and shipping addresses
+            billing_r: see all billing statement data
+            cart_r: read shopping carts
+            cart_w: add/remove from shopping carts
+            email_r: read a user profile
+            favorites_r: see private favorites
+            favorites_w: add/remove favorites
+            feedback_r: see purchase info in feedback
+            listings_d: delete listings
+            listings_r: see all listings (including expired etc)
+            listings_w: create/edit listings
+            profile_r: see all profile data
+            profile_w: update user profile, avatar, etc
+            recommend_r: see recommended listings
+            recommend_w: accept/reject recommended listings
+            shops_r: see private shop info
+            shops_w: update shop
+            transactions_r: see all checkout/payment data
+            transactions_w: update receipts
+x-tagGroups:
+- name: Listing Management
+  tags:
+  - BuyerTaxonomy
+  - SellerTaxonomy
+  - ShopListing
+  - ShopListing File
+  - ShopListing Image
+  - ShopListing Inventory
+  - ShopListing Offering
+  - ShopListing Personalization
+  - ShopListing Product
+  - ShopListing Translation
+  - ShopListing VariationImage
+  - ShopListing Video
+- name: Other
+  tags:
+  - Other
+- name: Payment Management
+  tags:
+  - Ledger Entry
+  - Payment
+- name: Receipt Management
+  tags:
+  - Shop Receipt
+  - Shop Receipt Transactions
+- name: Review Management
+  tags:
+  - Review
+- name: Shipping Management
+  tags:
+  - Shop HolidayPreferences
+  - Shop ProcessingProfiles
+  - Shop ShippingProfile
+- name: Shop Management
+  tags:
+  - Shop
+  - Shop ProductionPartner
+  - Shop Section
+- name: Shop Policy Management
+  tags:
+  - Shop Return Policy
+- name: User Management
+  tags:
+  - User
+  - UserAddress

@@ -1,0 +1,266 @@
+openapi: 3.0.2
+info:
+  title: Etsy Open API v3 BuyerTaxonomy ShopListing Offering API
+  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  termsOfService: https://www.etsy.com/legal/api
+  contact:
+    email: developers@etsy.com
+  version: 3.0.0
+  x-generated-from: https://www.etsy.com/openapi/generated/oas/3.0.0.json
+  x-last-validated: '2026-05-30'
+servers:
+- url: https://openapi.etsy.com
+  description: Etsy Open API v3 base URL (per Etsy developer documentation; live calls also resolve at https://api.etsy.com/v3/application).
+security:
+- api_key: []
+tags:
+- name: ShopListing Offering
+paths:
+  /v3/application/listings/{listing_id}/products/{product_id}/offerings/{product_offering_id}:
+    get:
+      operationId: getListingOffering
+      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+
+        Get an Offering for a Listing'
+      tags:
+      - ShopListing Offering
+      parameters:
+      - name: listing_id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+        example: 123456789
+      - name: product_id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+        example: 567890123
+      - name: product_offering_id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+        example: 1
+      - name: legacy
+        in: query
+        description: This parameter is needed to enable new parameters and response values related to processing profiles.
+        required: false
+        schema:
+          type: boolean
+          description: This parameter is needed to enable new parameters and response values related to processing profiles.
+        example: true
+      responses:
+        '200':
+          description: A single ListingInventoryProductOffering
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingInventoryProductOffering'
+              examples:
+                GetListingOffering200Example:
+                  summary: Default getListingOffering 200 response
+                  x-microcks-default: true
+                  value:
+                    offering_id: 1
+                    quantity: 1
+                    is_enabled: true
+                    is_deleted: true
+                    price: example
+                    readiness_state_id: 1
+        '404':
+          description: A resource could not be found. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingOffering404Example:
+                  summary: Default getListingOffering 404 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '400':
+          description: There was a problem with the request data. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingOffering400Example:
+                  summary: Default getListingOffering 400 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+        '500':
+          description: The server encountered an internal error. See the error message for details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+              examples:
+                GetListingOffering500Example:
+                  summary: Default getListingOffering 500 response
+                  x-microcks-default: true
+                  value:
+                    error: example string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Etsy Get Listing Offering
+components:
+  schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ListingInventoryProductOffering:
+      type: object
+      x-resource-id: ListingInventoryProductOffering
+      description: A representation of an offering for a listing.
+      properties:
+        offering_id:
+          type: integer
+          description: The ID for the ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+        quantity:
+          type: integer
+          description: The quantity the ProductOffering
+          minimum: 0
+          example: 1
+        is_enabled:
+          type: boolean
+          description: Whether or not the offering can be shown to buyers.
+          example: true
+        is_deleted:
+          type: boolean
+          description: Whether or not the offering has been deleted.
+          example: true
+        price:
+          description: Price data for this ProductOffering
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        readiness_state_id:
+          type: integer
+          description: Processing Profile for this ProductOffering
+          format: int64
+          nullable: true
+          minimum: 1
+          example: 1
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+      description: Every request to a v3 API endpoint must include this data in the format `keystring:shared_secret`. Your keystring and shared secret are available on the [Your Apps](https://www.etsy.com/developers/your-apps) page.
+    oauth2:
+      type: oauth2
+      description: Open API v3 supports authenticating via OAuth 2.0. More information about Etsy's specific implementation of OAuth2 can be found [here](/documentation/essentials/oauth2).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.etsy.com/oauth/connect
+          tokenUrl: https://openapi.etsy.com/v3/public/oauth/token
+          scopes:
+            address_r: see billing and shipping addresses
+            address_w: update billing and shipping addresses
+            billing_r: see all billing statement data
+            cart_r: read shopping carts
+            cart_w: add/remove from shopping carts
+            email_r: read a user profile
+            favorites_r: see private favorites
+            favorites_w: add/remove favorites
+            feedback_r: see purchase info in feedback
+            listings_d: delete listings
+            listings_r: see all listings (including expired etc)
+            listings_w: create/edit listings
+            profile_r: see all profile data
+            profile_w: update user profile, avatar, etc
+            recommend_r: see recommended listings
+            recommend_w: accept/reject recommended listings
+            shops_r: see private shop info
+            shops_w: update shop
+            transactions_r: see all checkout/payment data
+            transactions_w: update receipts
+x-tagGroups:
+- name: Listing Management
+  tags:
+  - BuyerTaxonomy
+  - SellerTaxonomy
+  - ShopListing
+  - ShopListing File
+  - ShopListing Image
+  - ShopListing Inventory
+  - ShopListing Offering
+  - ShopListing Personalization
+  - ShopListing Product
+  - ShopListing Translation
+  - ShopListing VariationImage
+  - ShopListing Video
+- name: Other
+  tags:
+  - Other
+- name: Payment Management
+  tags:
+  - Ledger Entry
+  - Payment
+- name: Receipt Management
+  tags:
+  - Shop Receipt
+  - Shop Receipt Transactions
+- name: Review Management
+  tags:
+  - Review
+- name: Shipping Management
+  tags:
+  - Shop HolidayPreferences
+  - Shop ProcessingProfiles
+  - Shop ShippingProfile
+- name: Shop Management
+  tags:
+  - Shop
+  - Shop ProductionPartner
+  - Shop Section
+- name: Shop Policy Management
+  tags:
+  - Shop Return Policy
+- name: User Management
+  tags:
+  - User
+  - UserAddress
