@@ -2,7 +2,20 @@ aid: etsy
 url: https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/apis.yml
 name: Etsy
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/etsy.png
 description: >-
   Etsy is a global marketplace for unique and creative handmade, vintage, and
   craft-supply goods. The Etsy Open API v3 is a REST + OAuth 2.0 surface that
@@ -144,130 +157,2188 @@ common:
     title: Cartography
     url: https://github.com/etsy/cartography
 apis:
-  - aid: etsy:open-api-v3
-    name: Etsy Open API v3
-    description: >-
-      The Etsy Open API v3 is the official REST + OAuth 2.0 surface used to
-      build applications against the Etsy marketplace. It focuses on three
-      primary use cases: listing management (create, update, and inventory
-      listings, plus images, files, videos, variations, translations,
-      personalization, and offerings), post-purchase order management
-      (receipts, transactions, payments, ledger entries, and reviews), and shop
-      management (shop sections, shipping profiles, processing profiles,
-      production partners, return policies, holiday preferences). The API also
-      exposes the buyer taxonomy and seller taxonomy that power Etsy category
-      navigation and listing classification. Authentication uses an x-api-key
-      header (your keystring) on every request, with OAuth 2.0 authorization
-      code + PKCE for user-scoped operations. The default base URL documented
-      in the OpenAPI spec is https://openapi.etsy.com; live production calls
-      also resolve at https://api.etsy.com/v3/application.
-    humanURL: https://developers.etsy.com/documentation
-    baseURL: https://openapi.etsy.com
-    tags:
-      - Open API v3
-      - Marketplace
-      - Listings
-      - Receipts
-      - Shop
-      - Taxonomy
-      - OAuth2
-    properties:
-      - type: Documentation
-        url: https://developers.etsy.com/documentation
-      - type: Reference
-        url: https://developers.etsy.com/documentation/reference
-      - type: Authentication
-        url: https://developers.etsy.com/documentation/essentials/authentication
-      - type: OAuth2
-        url: https://developers.etsy.com/documentation/essentials/oauth2
-      - type: RateLimits
-        url: https://developers.etsy.com/documentation/essentials/rate-limits
-      - type: Requests
-        url: https://developers.etsy.com/documentation/essentials/requests
-      - type: Migration
-        url: https://developers.etsy.com/documentation/migration/index
-      - type: OpenAPI
-        url: openapi/etsy-openapi-original.yml
-      - type: OpenAPI
-        title: Upstream OpenAPI JSON
-        url: https://www.etsy.com/openapi/generated/oas/3.0.0.json
-      - type: SourceCode
-        title: Open API repo
-        url: https://github.com/etsy/open-api
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-user.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-user-address.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-section.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-shipping-profile.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-processing-profiles.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-production-partner.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-return-policy.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-holiday-preferences.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-receipt.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-receipt-transactions.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-file.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-image.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-video.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-inventory.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-offering.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-product.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-translation.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-personalization.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-shop-listing-variation-image.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-payment.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-ledger-entry.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-review.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-buyer-taxonomy.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-seller-taxonomy.yaml
-      - type: X-NaftikoCapability
-        url: capabilities/open-api-v3-other.yaml
-  - aid: etsy:webhooks
-    name: Etsy Open API v3 Webhooks
-    description: >-
-      AsyncAPI 2.6 description of Etsy's outbound webhook surface for the Open
-      API v3. Covers the four documented event types (order.paid,
-      order.canceled, order.shipped, order.delivered), the common webhook
-      envelope (event_type, resource_url, shop_id), the signing headers
-      (webhook-id, webhook-timestamp, webhook-signature), HMAC-SHA256 signature
-      verification procedure, and Etsy's documented retry schedule.
-    humanURL: https://developers.etsy.com/documentation/essentials/webhooks
-    tags:
-      - Webhooks
-      - Events
-      - AsyncAPI
-      - Order Lifecycle
-    properties:
-      - type: Documentation
-        url: https://developers.etsy.com/documentation/essentials/webhooks
-      - type: AsyncAPI
-        url: https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/asyncapi/etsy-webhooks-asyncapi.yml
+- aid: etsy:webhooks
+  name: Etsy Open API v3 Webhooks
+  description: >-
+    AsyncAPI 2.6 description of Etsy's outbound webhook surface for the Open API v3. Covers the four documented
+    event types (order.paid, order.canceled, order.shipped, order.delivered), the common webhook envelope
+    (event_type, resource_url, shop_id), the signing headers (webhook-id, webhook-timestamp, webhook-signature),
+    HMAC-SHA256 signature verification procedure, and Etsy's documented retry schedule.
+  humanURL: https://developers.etsy.com/documentation/essentials/webhooks
+  tags:
+  - Webhooks
+  - Events
+  - AsyncAPI
+  - Order Lifecycle
+  properties:
+  - type: Documentation
+    url: https://developers.etsy.com/documentation/essentials/webhooks
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/etsy/refs/heads/main/asyncapi/etsy-webhooks-asyncapi.yml
+- aid: etsy:etsy-buyertaxonomy-api
+  name: Etsy BuyerTaxonomy API
+  description: The BuyerTaxonomy API from Etsy — 2 operation(s) for buyertaxonomy.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - BuyerTaxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-buyertaxonomy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-ledger-entry-api
+  name: Etsy Ledger Entry API
+  description: The Ledger Entry API from Etsy — 2 operation(s) for ledger entry.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Ledger Entry
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-ledger-entry-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-other-api
+  name: Etsy Other API
+  description: The Other API from Etsy — 2 operation(s) for other.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Other
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-other-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-payment-api
+  name: Etsy Payment API
+  description: The Payment API from Etsy — 3 operation(s) for payment.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Payment
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-payment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-review-api
+  name: Etsy Review API
+  description: The Review API from Etsy — 2 operation(s) for review.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Review
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-review-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-sellertaxonomy-api
+  name: Etsy SellerTaxonomy API
+  description: The SellerTaxonomy API from Etsy — 2 operation(s) for sellertaxonomy.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - SellerTaxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-sellertaxonomy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-api
+  name: Etsy Shop API
+  description: The Shop API from Etsy — 3 operation(s) for shop.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-holidaypreferences-api
+  name: Etsy Shop HolidayPreferences API
+  description: The Shop HolidayPreferences API from Etsy — 2 operation(s) for shop holidaypreferences.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop HolidayPreferences
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-holidaypreferences-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-processingprofiles-api
+  name: Etsy Shop ProcessingProfiles API
+  description: The Shop ProcessingProfiles API from Etsy — 2 operation(s) for shop processingprofiles.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop ProcessingProfiles
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-processingprofiles-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-productionpartner-api
+  name: Etsy Shop ProductionPartner API
+  description: The Shop ProductionPartner API from Etsy — 1 operation(s) for shop productionpartner.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop ProductionPartner
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-productionpartner-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-receipt-api
+  name: Etsy Shop Receipt API
+  description: The Shop Receipt API from Etsy — 3 operation(s) for shop receipt.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop Receipt
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-receipt-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-receipt-transactions-api
+  name: Etsy Shop Receipt Transactions API
+  description: >-
+    The Shop Receipt Transactions API from Etsy — 4 operation(s) for shop receipt transactions.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop Receipt Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-receipt-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-return-policy-api
+  name: Etsy Shop Return Policy API
+  description: The Shop Return Policy API from Etsy — 3 operation(s) for shop return policy.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop Return Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-return-policy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-section-api
+  name: Etsy Shop Section API
+  description: The Shop Section API from Etsy — 2 operation(s) for shop section.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop Section
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-section-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shop-shippingprofile-api
+  name: Etsy Shop ShippingProfile API
+  description: The Shop ShippingProfile API from Etsy — 7 operation(s) for shop shippingprofile.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - Shop ShippingProfile
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shop-shippingprofile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-api
+  name: Etsy ShopListing API
+  description: The ShopListing API from Etsy — 13 operation(s) for shoplisting.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-file-api
+  name: Etsy ShopListing File API
+  description: The ShopListing File API from Etsy — 2 operation(s) for shoplisting file.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing File
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-file-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-image-api
+  name: Etsy ShopListing Image API
+  description: The ShopListing Image API from Etsy — 4 operation(s) for shoplisting image.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Image
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-image-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-inventory-api
+  name: Etsy ShopListing Inventory API
+  description: The ShopListing Inventory API from Etsy — 1 operation(s) for shoplisting inventory.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-offering-api
+  name: Etsy ShopListing Offering API
+  description: The ShopListing Offering API from Etsy — 1 operation(s) for shoplisting offering.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Offering
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-offering-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-personalization-api
+  name: Etsy ShopListing Personalization API
+  description: >-
+    The ShopListing Personalization API from Etsy — 2 operation(s) for shoplisting personalization.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Personalization
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-personalization-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-product-api
+  name: Etsy ShopListing Product API
+  description: The ShopListing Product API from Etsy — 1 operation(s) for shoplisting product.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Product
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-product-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-translation-api
+  name: Etsy ShopListing Translation API
+  description: The ShopListing Translation API from Etsy — 1 operation(s) for shoplisting translation.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Translation
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-translation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-variationimage-api
+  name: Etsy ShopListing VariationImage API
+  description: >-
+    The ShopListing VariationImage API from Etsy — 1 operation(s) for shoplisting variationimage.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing VariationImage
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-variationimage-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-shoplisting-video-api
+  name: Etsy ShopListing Video API
+  description: The ShopListing Video API from Etsy — 4 operation(s) for shoplisting video.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - ShopListing Video
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-shoplisting-video-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-user-api
+  name: Etsy User API
+  description: The User API from Etsy — 2 operation(s) for user.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-user-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
+- aid: etsy:etsy-useraddress-api
+  name: Etsy UserAddress API
+  description: The UserAddress API from Etsy — 2 operation(s) for useraddress.
+  humanURL: https://developers.etsy.com/documentation
+  baseURL: https://openapi.etsy.com
+  tags:
+  - UserAddress
+  properties:
+  - type: OpenAPI
+    url: openapi/etsy-useraddress-api-openapi.yml
+  - type: Documentation
+    url: https://developers.etsy.com/documentation
+  - type: Reference
+    url: https://developers.etsy.com/documentation/reference
+  - type: Authentication
+    url: https://developers.etsy.com/documentation/essentials/authentication
+  - type: OAuth2
+    url: https://developers.etsy.com/documentation/essentials/oauth2
+  - type: RateLimits
+    url: https://developers.etsy.com/documentation/essentials/rate-limits
+  - type: Requests
+    url: https://developers.etsy.com/documentation/essentials/requests
+  - type: Migration
+    url: https://developers.etsy.com/documentation/migration/index
+  - type: SourceCode
+    url: https://github.com/etsy/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-user-address.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-section.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-shipping-profile.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-processing-profiles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-production-partner.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-return-policy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-holiday-preferences.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-receipt-transactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-video.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-offering.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-product.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-translation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-personalization.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-shop-listing-variation-image.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-payment.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-ledger-entry.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-review.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-buyer-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-seller-taxonomy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/open-api-v3-other.yaml
 features:
   - name: Listing Management
     description: >-
