@@ -1,0 +1,1454 @@
+{
+  "item": [
+    {
+      "id": "0c295b0b-6e61-495d-b084-7170b8451223",
+      "name": "ShopListing Personalization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1321a69f-f3b5-4b52-bc50-4d75fc079f50",
+          "name": "Etsy Delete Listing Personalization",
+          "request": {
+            "name": "Etsy Delete Listing Personalization",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes personalization for a listing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "listings",
+                ":listing_id",
+                "personalization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "listing_id",
+                  "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd166ba0-d2bd-409d-bb55-2a821a873f87",
+              "name": "The ListingPersonalization resource was correctly deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0d2597b-e10c-4edf-8053-b8e16a3f162f",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7af0a83-eeb9-4255-9bd7-9bab1af0782c",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8921311-05bb-4752-a8a1-dd418e39f172",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6f05765-353e-4883-a209-a21435d6218c",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c37339c-81d2-49ad-a81d-87f06b17f071",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "465bf398-2a96-49c7-940e-53568c75aa53",
+          "name": "Etsy Update Listing Personalization",
+          "request": {
+            "name": "Etsy Update Listing Personalization",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nCreates or updates personalization settings for a listing, allowing the seller to collect personalization from the buyer. This endpoint will fully replace any existing personalization on the listing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "listings",
+                ":listing_id",
+                "personalization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "supports_multiple_personalization_questions",
+                  "value": "<boolean>",
+                  "description": "This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: 'text_input', 'dropdown', 'unlabeled_upload', 'labeled_upload'. Sending this param without updating your application can lead to inadvertently deleting seller-entered data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "listing_id",
+                  "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_text\": \"<string>\",\n      \"question_type\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"question_id\": \"<long>\",\n      \"instructions\": \"<string>\",\n      \"max_allowed_files\": \"<integer>\",\n      \"max_allowed_characters\": \"<integer>\",\n      \"options\": [\n        {\n          \"label\": \"<string>\",\n          \"option_id\": \"<long>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"option_id\": \"<long>\"\n        }\n      ]\n    },\n    {\n      \"question_text\": \"<string>\",\n      \"question_type\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"question_id\": \"<long>\",\n      \"instructions\": \"<string>\",\n      \"max_allowed_files\": \"<integer>\",\n      \"max_allowed_characters\": \"<integer>\",\n      \"options\": [\n        {\n          \"label\": \"<string>\",\n          \"option_id\": \"<long>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"option_id\": \"<long>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da89bd0f-388d-476c-bb3f-d982b19bed89",
+              "name": "A single Listing Personalization record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"example string\",\n      \"required\": true,\n      \"max_allowed_characters\": 1,\n      \"max_allowed_files\": 1,\n      \"options\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "888b273e-6145-416c-ad0f-ffbba120b4fe",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c689d7b1-f715-4311-bd7a-f2fb27950ec7",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d0dbc89-fcae-4daa-9f55-089845e58aa2",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91fb2bc3-1762-46fe-9c61-4a555641b2ed",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8fb412d-a2fd-47f9-b3fc-901d04ae4a4e",
+              "name": "There was a request conflict with the current state of the target resource. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caf08c51-27cc-4d23-96f0-c5c0072af5be",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "supports_multiple_personalization_questions",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"text_input\",\n      \"required\": true,\n      \"max_allowed_files\": 1,\n      \"max_allowed_characters\": 1,\n      \"options\": [\n        {\n          \"option_id\": 1,\n          \"label\": \"example string\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd2ad344-a032-4993-8fb5-67669ac3a03b",
+          "name": "Etsy Get Listing Personalization",
+          "request": {
+            "name": "Etsy Get Listing Personalization",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a listing's personalization questions by listing ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "listings",
+                ":listing_id",
+                "personalization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "listing_id",
+                  "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42b5dde8-0870-47d7-8b8e-03345a2c1402",
+              "name": "A listing personalization questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"personalization_questions\": [\n    {\n      \"question_id\": 1,\n      \"question_text\": \"example string\",\n      \"instructions\": \"example string\",\n      \"question_type\": \"example string\",\n      \"required\": true,\n      \"max_allowed_characters\": 1,\n      \"max_allowed_files\": 1,\n      \"options\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c657c4b-78cf-4529-90d5-f71bcc06247a",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82a22b4a-90f4-4d16-b60e-5afe5ddc585a",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a23ee0c3-cf7e-413c-94c8-13c99a229a5d",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7896ab18-cad1-49fa-baaf-9f8809949e91",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "personalization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.etsy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5b2564af-5ed9-486f-99c1-279d572c3ec5",
+    "name": "Etsy Open API v3 BuyerTaxonomy ShopListing Personalization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.\n\nContact Support:\n Email: developers@etsy.com",
+      "type": "text/plain"
+    }
+  }
+}

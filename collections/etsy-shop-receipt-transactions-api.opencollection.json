@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Etsy Open API v3 BuyerTaxonomy Shop Receipt Transactions API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shop Receipt Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Etsy Get Shop Receipt Transactions by Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/transactions",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the "
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Receipt Transactions by Receipt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/receipts/:receipt_id/transactions",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "receipt_id",
+                "value": "234567890",
+                "type": "path",
+                "description": "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the "
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Receipt Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "transaction_id",
+                "value": "345678901",
+                "type": "path",
+                "description": "The unique numeric ID for a transaction."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a tr"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Receipt Transactions by Shop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/transactions",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

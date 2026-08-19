@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Etsy Open API v3 BuyerTaxonomy ShopListing Inventory API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ShopListing Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Etsy Get Listing Inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/listings/:listing_id/inventory",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "show_deleted",
+                "value": "true",
+                "type": "query",
+                "description": "A boolean value for inventory whether to include deleted products and their offerings. Default value is false."
+              },
+              {
+                "name": "includes",
+                "value": "Listing",
+                "type": "query",
+                "description": "An enumerated string that attaches a valid association. Default value is null."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the "
+        },
+        {
+          "info": {
+            "name": "Etsy Update Listing Inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.etsy.com/v3/application/listings/:listing_id/inventory",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              },
+              {
+                "name": "max_variations_supported",
+                "value": "2",
+                "type": "query",
+                "description": "Coming soon: This parameter determines whether a third variation can be added to or updated for a listing. It accepts values of 2 or 3, where 3 enables third-variation support."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates the in"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

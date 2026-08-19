@@ -1,0 +1,991 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Etsy Open API v3 BuyerTaxonomy ShopListing API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ShopListing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Etsy Get Listings by Shop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "state",
+                "value": "active",
+                "type": "query",
+                "description": "When _updating_ a listing, this value can be either `active` or `inactive`. Note: Setting a `draft` listing to `active` will also publish the listing on etsy.com and requires that the listing have an image set. Setting a `sold_out` listing to active will update the quantity to 1 and renew the listing on etsy.com."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "sort_on",
+                "value": "created",
+                "type": "query",
+                "description": "The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will always be in _descending_ order, regardless of the `sort_order` parameter."
+              },
+              {
+                "name": "sort_order",
+                "value": "asc",
+                "type": "query",
+                "description": "The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.)."
+              },
+              {
+                "name": "includes",
+                "value": "Shipping",
+                "type": "query",
+                "description": "An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nEndpoint to li"
+        },
+        {
+          "info": {
+            "name": "Etsy Create Draft Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "quantity",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "price",
+                  "value": ""
+                },
+                {
+                  "name": "who_made",
+                  "value": ""
+                },
+                {
+                  "name": "when_made",
+                  "value": ""
+                },
+                {
+                  "name": "taxonomy_id",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_profile_id",
+                  "value": ""
+                },
+                {
+                  "name": "return_policy_id",
+                  "value": ""
+                },
+                {
+                  "name": "materials",
+                  "value": ""
+                },
+                {
+                  "name": "shop_section_id",
+                  "value": ""
+                },
+                {
+                  "name": "processing_min",
+                  "value": ""
+                },
+                {
+                  "name": "processing_max",
+                  "value": ""
+                },
+                {
+                  "name": "readiness_state_id",
+                  "value": ""
+                },
+                {
+                  "name": "tags",
+                  "value": ""
+                },
+                {
+                  "name": "styles",
+                  "value": ""
+                },
+                {
+                  "name": "item_weight",
+                  "value": ""
+                },
+                {
+                  "name": "item_length",
+                  "value": ""
+                },
+                {
+                  "name": "item_width",
+                  "value": ""
+                },
+                {
+                  "name": "item_height",
+                  "value": ""
+                },
+                {
+                  "name": "item_weight_unit",
+                  "value": ""
+                },
+                {
+                  "name": "item_dimensions_unit",
+                  "value": ""
+                },
+                {
+                  "name": "is_personalizable",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_is_required",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_char_count_max",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_instructions",
+                  "value": ""
+                },
+                {
+                  "name": "production_partner_ids",
+                  "value": ""
+                },
+                {
+                  "name": "image_ids",
+                  "value": ""
+                },
+                {
+                  "name": "is_supply",
+                  "value": ""
+                },
+                {
+                  "name": "is_customizable",
+                  "value": ""
+                },
+                {
+                  "name": "should_auto_renew",
+                  "value": ""
+                },
+                {
+                  "name": "is_taxable",
+                  "value": ""
+                },
+                {
+                  "name": "type",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nCreates a phys"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/listings/:listing_id",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "includes",
+                "value": "Shipping",
+                "type": "query",
+                "description": "An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'."
+              },
+              {
+                "name": "language",
+                "value": "en-US",
+                "type": "query",
+                "description": "The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              },
+              {
+                "name": "allow_suggested_title",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter will include in the response a suggested title for the listing, if one is available. Since suggestions are only available to the listing's owner, client must submit an oauth_access_token scoped to the owner of the listing."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a li"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/listings/:listing_id",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nOpen API V3 en"
+        },
+        {
+          "info": {
+            "name": "Etsy Find All Listings Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/listings/active",
+            "params": [
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "keywords",
+                "value": "example string",
+                "type": "query",
+                "description": "Search term or phrase that must appear in all results."
+              },
+              {
+                "name": "sort_on",
+                "value": "created",
+                "type": "query",
+                "description": "The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will always be in _descending_ order, regardless of the `sort_order` parameter."
+              },
+              {
+                "name": "sort_order",
+                "value": "asc",
+                "type": "query",
+                "description": "The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.)."
+              },
+              {
+                "name": "min_price",
+                "value": "25",
+                "type": "query",
+                "description": "The minimum price of listings to be returned by a search result."
+              },
+              {
+                "name": "max_price",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum price of listings to be returned by a search result."
+              },
+              {
+                "name": "taxonomy_id",
+                "value": "1234",
+                "type": "query",
+                "description": "The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information."
+              },
+              {
+                "name": "shop_location",
+                "value": "example string",
+                "type": "query",
+                "description": "Filters by shop location. If location cannot be parsed, Etsy responds with an error."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              },
+              {
+                "name": "is_safe",
+                "value": "true",
+                "type": "query",
+                "description": "When true, filters out mature/adult content from search results."
+              },
+              {
+                "name": "currency",
+                "value": "example string",
+                "type": "query",
+                "description": "The ISO 4217 alphabetic currency code (e.g., EUR, MXN) for price conversion. If provided, the listing price will be converted to this currency."
+              },
+              {
+                "name": "buyer_country",
+                "value": "US",
+                "type": "query",
+                "description": "The ISO 3166-1 alpha-2 country code (e.g., DE, MX). Filters results to listings that ship to this country."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nA list of all "
+        },
+        {
+          "info": {
+            "name": "Etsy Find All Active Listings by Shop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/active",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "sort_on",
+                "value": "created",
+                "type": "query",
+                "description": "The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will always be in _descending_ order, regardless of the `sort_order` parameter."
+              },
+              {
+                "name": "sort_order",
+                "value": "asc",
+                "type": "query",
+                "description": "The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.)."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "keywords",
+                "value": "example string",
+                "type": "query",
+                "description": "Search term or phrase that must appear in all results."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a li"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listings by Listing Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/listings/batch",
+            "params": [
+              {
+                "name": "listing_ids",
+                "value": "123456789",
+                "type": "query",
+                "description": "The list of numeric IDS for the listings in a specific Etsy shop."
+              },
+              {
+                "name": "includes",
+                "value": "Shipping",
+                "type": "query",
+                "description": "An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations', 'Videos', 'Inventory' and 'Personalization'."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              },
+              {
+                "name": "currency",
+                "value": "example string",
+                "type": "query",
+                "description": "The ISO 4217 alphabetic currency code (e.g., EUR, MXN) for price conversion. If provided, the listing price will be converted to this currency."
+              },
+              {
+                "name": "buyer_country",
+                "value": "US",
+                "type": "query",
+                "description": "The ISO 3166-1 alpha-2 country code (e.g., GB, DE). Used for buyer-facing price calculations (VAT, inclusive shipping). Does not filter listings."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nAllows to quer"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Featured Listings by Shop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/featured",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves List"
+        },
+        {
+          "info": {
+            "name": "Etsy Update Listing Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/properties/:property_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "property_id",
+                "value": "1",
+                "type": "path",
+                "description": "The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties)."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "value_ids",
+                  "value": ""
+                },
+                {
+                  "name": "values",
+                  "value": ""
+                },
+                {
+                  "name": "scale_id",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates or pop"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Listing Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/properties/:property_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "property_id",
+                "value": "1",
+                "type": "path",
+                "description": "The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties)."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes a prop"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listing Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/listings/:listing_id/properties/:property_id",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "property_id",
+                "value": "1",
+                "type": "path",
+                "description": "The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties)."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationTertiary wt-mr-xs-2\"> Feedback only </span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Give feedback</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">Development for this endpoint is in progress. It will only return a 501 response."
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listing Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/properties",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nGet a listing'"
+        },
+        {
+          "info": {
+            "name": "Etsy Update Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "image_ids",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "materials",
+                  "value": ""
+                },
+                {
+                  "name": "should_auto_renew",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_profile_id",
+                  "value": ""
+                },
+                {
+                  "name": "return_policy_id",
+                  "value": ""
+                },
+                {
+                  "name": "shop_section_id",
+                  "value": ""
+                },
+                {
+                  "name": "item_weight",
+                  "value": ""
+                },
+                {
+                  "name": "item_length",
+                  "value": ""
+                },
+                {
+                  "name": "item_width",
+                  "value": ""
+                },
+                {
+                  "name": "item_height",
+                  "value": ""
+                },
+                {
+                  "name": "item_weight_unit",
+                  "value": ""
+                },
+                {
+                  "name": "item_dimensions_unit",
+                  "value": ""
+                },
+                {
+                  "name": "is_taxable",
+                  "value": ""
+                },
+                {
+                  "name": "taxonomy_id",
+                  "value": ""
+                },
+                {
+                  "name": "tags",
+                  "value": ""
+                },
+                {
+                  "name": "who_made",
+                  "value": ""
+                },
+                {
+                  "name": "when_made",
+                  "value": ""
+                },
+                {
+                  "name": "featured_rank",
+                  "value": ""
+                },
+                {
+                  "name": "is_personalizable",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_is_required",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_char_count_max",
+                  "value": ""
+                },
+                {
+                  "name": "personalization_instructions",
+                  "value": ""
+                },
+                {
+                  "name": "state",
+                  "value": ""
+                },
+                {
+                  "name": "is_supply",
+                  "value": ""
+                },
+                {
+                  "name": "production_partner_ids",
+                  "value": ""
+                },
+                {
+                  "name": "type",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates a list"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listings by Shop Receipt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/receipts/:receipt_id/listings",
+            "params": [
+              {
+                "name": "receipt_id",
+                "value": "234567890",
+                "type": "path",
+                "description": "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+              },
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nGets all listi"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listings by Shop Return Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/policies/return/:return_policy_id/listings",
+            "params": [
+              {
+                "name": "return_policy_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies)."
+              },
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nGets all listi"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Listings by Shop Section Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shop-sections/listings",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shop_section_ids",
+                "value": "1",
+                "type": "query",
+                "description": "A list of numeric IDS for all sections in a specific Etsy shop."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              },
+              {
+                "name": "sort_on",
+                "value": "created",
+                "type": "query",
+                "description": "The value to sort a search result of listings on. NOTES: a) `sort_on` only works when combined with one of the search options (keywords, region, etc.). b) when using `score` the returned results will always be in _descending_ order, regardless of the `sort_order` parameter."
+              },
+              {
+                "name": "sort_order",
+                "value": "asc",
+                "type": "query",
+                "description": "The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.)."
+              },
+              {
+                "name": "legacy",
+                "value": "true",
+                "type": "query",
+                "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves all "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

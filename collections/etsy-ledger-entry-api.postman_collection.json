@@ -1,0 +1,895 @@
+{
+  "item": [
+    {
+      "id": "cc5b10f0-29f4-4bc5-8330-69d701884305",
+      "name": "Ledger Entry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21ffa478-3e05-4454-b9c4-1375b272df54",
+          "name": "Etsy Get Shop Payment Account Ledger Entry",
+          "request": {
+            "name": "Etsy Get Shop Payment Account Ledger Entry",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nGet a single Shop Payment Account Ledger's Entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "payment-account",
+                "ledger-entries",
+                ":ledger_entry_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "ledger_entry_id",
+                  "description": "(Required) The unique ID of the shop owner ledger entry."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fa4bd592-82cc-45d7-bdcb-4fab6024cc71",
+              "name": "A single of PaymentAccountLedgerEntry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries",
+                    ":ledger_entry_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ledger_entry_id",
+                      "description": "(Required) The unique ID of the shop owner ledger entry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entry_id\": 1,\n  \"ledger_id\": 1,\n  \"sequence_number\": 1,\n  \"amount\": 2500,\n  \"currency\": \"example string\",\n  \"description\": \"Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.\",\n  \"balance\": 1,\n  \"create_date\": 1,\n  \"created_timestamp\": 1758153645,\n  \"ledger_type\": \"example string\",\n  \"reference_type\": \"example string\",\n  \"reference_id\": \"example string\",\n  \"parent_entry_id\": 1,\n  \"payment_adjustments\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a11b0fbf-e71c-4c1c-b208-87b1aeddbb2c",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries",
+                    ":ledger_entry_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ledger_entry_id",
+                      "description": "(Required) The unique ID of the shop owner ledger entry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2abc6efc-95ac-4f8e-ace7-4aa950b5b164",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries",
+                    ":ledger_entry_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ledger_entry_id",
+                      "description": "(Required) The unique ID of the shop owner ledger entry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bef765eb-92cb-4421-bd23-e60da2efbb8b",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries",
+                    ":ledger_entry_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ledger_entry_id",
+                      "description": "(Required) The unique ID of the shop owner ledger entry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b035fdd3-c66a-4cbf-ad04-0359b78054ba",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries",
+                    ":ledger_entry_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ledger_entry_id",
+                      "description": "(Required) The unique ID of the shop owner ledger entry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "213e91ef-20dc-45ef-bf84-a97e97f89993",
+          "name": "Etsy Get Shop Payment Account Ledger Entries",
+          "request": {
+            "name": "Etsy Get Shop Payment Account Ledger Entries",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nGet a Shop Payment Account Ledger's Entries",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "payment-account",
+                "ledger-entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_created",
+                  "value": "<integer>",
+                  "description": "(Required) The earliest unix timestamp for when a record was created."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_created",
+                  "value": "<integer>",
+                  "description": "(Required) The latest unix timestamp for when a record was created."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "The maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The number of records to skip before selecting the first result."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a63a965c-b447-4ef1-a2a9-9b925533665b",
+              "name": "A list of PaymentAccountLedgerEntries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"results\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85a6cf2c-e26e-4449-95d6-accd067aab0e",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5856d3ca-bd4e-4fdc-8a8e-cb117a4323ec",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "288d024f-e6df-45d6-b023-20ac67998ab2",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fad2b11-26e8-44c6-bd43-d0d15045dbca",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "payment-account",
+                    "ledger-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.etsy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8bf0c43-8818-4ef2-b922-49b892b06698",
+    "name": "Etsy Open API v3 BuyerTaxonomy Ledger Entry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.\n\nContact Support:\n Email: developers@etsy.com",
+      "type": "text/plain"
+    }
+  }
+}

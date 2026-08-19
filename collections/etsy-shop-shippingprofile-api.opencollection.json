@@ -1,0 +1,710 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Etsy Open API v3 BuyerTaxonomy Shop ShippingProfile API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shop ShippingProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Etsy Get Shipping Carriers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shipping-carriers",
+            "params": [
+              {
+                "name": "origin_country_iso",
+                "value": "US",
+                "type": "query",
+                "description": "The ISO code of the country from which the listing ships."
+              }
+            ]
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a li"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Shipping Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a li"
+        },
+        {
+          "info": {
+            "name": "Etsy Create Shop Shipping Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "origin_country_iso",
+                  "value": ""
+                },
+                {
+                  "name": "primary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "secondary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "min_processing_time",
+                  "value": ""
+                },
+                {
+                  "name": "max_processing_time",
+                  "value": ""
+                },
+                {
+                  "name": "processing_time_unit",
+                  "value": ""
+                },
+                {
+                  "name": "destination_country_iso",
+                  "value": ""
+                },
+                {
+                  "name": "destination_region",
+                  "value": ""
+                },
+                {
+                  "name": "origin_postal_code",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_carrier_id",
+                  "value": ""
+                },
+                {
+                  "name": "mail_class",
+                  "value": ""
+                },
+                {
+                  "name": "min_delivery_days",
+                  "value": ""
+                },
+                {
+                  "name": "max_delivery_days",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nCreates a new "
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Shipping Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a Sh"
+        },
+        {
+          "info": {
+            "name": "Etsy Update Shop Shipping Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "origin_country_iso",
+                  "value": ""
+                },
+                {
+                  "name": "min_processing_time",
+                  "value": ""
+                },
+                {
+                  "name": "max_processing_time",
+                  "value": ""
+                },
+                {
+                  "name": "processing_time_unit",
+                  "value": ""
+                },
+                {
+                  "name": "origin_postal_code",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nChanges the se"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Shop Shipping Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes a Ship"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Shipping Profile Destinations by Shipping Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/destinations",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              },
+              {
+                "name": "limit",
+                "value": "25",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of records to skip before selecting the first result."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a li"
+        },
+        {
+          "info": {
+            "name": "Etsy Create Shop Shipping Profile Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/destinations",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "primary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "secondary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "destination_country_iso",
+                  "value": ""
+                },
+                {
+                  "name": "destination_region",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_carrier_id",
+                  "value": ""
+                },
+                {
+                  "name": "mail_class",
+                  "value": ""
+                },
+                {
+                  "name": "min_delivery_days",
+                  "value": ""
+                },
+                {
+                  "name": "max_delivery_days",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nCreates a new "
+        },
+        {
+          "info": {
+            "name": "Etsy Update Shop Shipping Profile Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/destinations/:shipping_profile_destination_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              },
+              {
+                "name": "shipping_profile_destination_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "primary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "secondary_cost",
+                  "value": ""
+                },
+                {
+                  "name": "destination_country_iso",
+                  "value": ""
+                },
+                {
+                  "name": "destination_region",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_carrier_id",
+                  "value": ""
+                },
+                {
+                  "name": "mail_class",
+                  "value": ""
+                },
+                {
+                  "name": "min_delivery_days",
+                  "value": ""
+                },
+                {
+                  "name": "max_delivery_days",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates an exi"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Shop Shipping Profile Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/destinations/:shipping_profile_destination_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              },
+              {
+                "name": "shipping_profile_destination_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes a ship"
+        },
+        {
+          "info": {
+            "name": "Etsy Get Shop Shipping Profile Upgrades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/upgrades",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the "
+        },
+        {
+          "info": {
+            "name": "Etsy Create Shop Shipping Profile Upgrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/upgrades",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "type",
+                  "value": ""
+                },
+                {
+                  "name": "upgrade_name",
+                  "value": ""
+                },
+                {
+                  "name": "price",
+                  "value": ""
+                },
+                {
+                  "name": "secondary_price",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_carrier_id",
+                  "value": ""
+                },
+                {
+                  "name": "mail_class",
+                  "value": ""
+                },
+                {
+                  "name": "min_delivery_days",
+                  "value": ""
+                },
+                {
+                  "name": "max_delivery_days",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nCreates a new "
+        },
+        {
+          "info": {
+            "name": "Etsy Update Shop Shipping Profile Upgrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/upgrades/:upgrade_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`."
+              },
+              {
+                "name": "upgrade_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID that is associated with a shipping upgrade"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "upgrade_name",
+                  "value": ""
+                },
+                {
+                  "name": "type",
+                  "value": ""
+                },
+                {
+                  "name": "price",
+                  "value": ""
+                },
+                {
+                  "name": "secondary_price",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_carrier_id",
+                  "value": ""
+                },
+                {
+                  "name": "mail_class",
+                  "value": ""
+                },
+                {
+                  "name": "min_delivery_days",
+                  "value": ""
+                },
+                {
+                  "name": "max_delivery_days",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates a ship"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Shop Shipping Profile Upgrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/shipping-profiles/:shipping_profile_id/upgrades/:upgrade_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "shipping_profile_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID of the shipping profile."
+              },
+              {
+                "name": "upgrade_id",
+                "value": "1",
+                "type": "path",
+                "description": "The numeric ID that is associated with a shipping upgrade"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes a ship"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Etsy Open API v3 BuyerTaxonomy ShopListing File API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ShopListing File",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Etsy Get Listing File",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/files/:listing_file_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "listing_file_id",
+                "value": "1",
+                "type": "path",
+                "description": "The unique numeric ID of a file associated with a digital listing."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a si"
+        },
+        {
+          "info": {
+            "name": "Etsy Delete Listing File",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/files/:listing_file_id",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "listing_file_id",
+                "value": "1",
+                "type": "path",
+                "description": "The unique numeric ID of a file associated with a digital listing."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nDeletes a file"
+        },
+        {
+          "info": {
+            "name": "Etsy Get All Listing Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/files",
+            "params": [
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              },
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves all "
+        },
+        {
+          "info": {
+            "name": "Etsy Upload Listing File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.etsy.com/v3/application/shops/:shop_id/listings/:listing_id/files",
+            "params": [
+              {
+                "name": "shop_id",
+                "value": "123456",
+                "type": "path",
+                "description": "The unique positive non-zero numeric ID for an Etsy Shop."
+              },
+              {
+                "name": "listing_id",
+                "value": "123456789",
+                "type": "path",
+                "description": "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "listing_file_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "rank",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUploads a new "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

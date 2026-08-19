@@ -1,0 +1,2595 @@
+{
+  "item": [
+    {
+      "id": "684a3833-508a-4b92-a078-6db81d36e067",
+      "name": "Shop Receipt",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a39d3a3-d986-4421-93da-44f244d04e03",
+          "name": "Etsy Get Shop Receipt",
+          "request": {
+            "name": "Etsy Get Shop Receipt",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves a receipt, identified by a receipt id, from an Etsy shop. **NOTE** Access to ShopReceipt's first_line, second_line, city, state, zip, country_iso and formatted_address is contingent in some regions to a preferred partnership status with Etsy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "receipts",
+                ":receipt_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "receipt_id",
+                  "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e5fe9b36-0a9a-47c5-ad68-0793867bceaa",
+              "name": "A single Shop Receipt",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"receipt_id\": 234567890,\n  \"receipt_type\": 1,\n  \"seller_user_id\": 456789,\n  \"seller_email\": \"seller@example.com\",\n  \"buyer_user_id\": 456789,\n  \"buyer_email\": \"seller@example.com\",\n  \"name\": \"Handmade Ceramic Mug\",\n  \"first_line\": \"123 Main St\",\n  \"second_line\": \"Apt 4B\",\n  \"city\": \"Brooklyn\",\n  \"state\": \"example string\",\n  \"zip\": \"11201\",\n  \"status\": \"paid\",\n  \"formatted_address\": \"example string\",\n  \"country_iso\": \"US\",\n  \"payment_method\": \"example string\",\n  \"payment_email\": \"seller@example.com\",\n  \"message_from_seller\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_buyer\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_payment\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"is_paid\": true,\n  \"is_shipped\": true,\n  \"create_timestamp\": 1758153645,\n  \"created_timestamp\": 1758153645,\n  \"update_timestamp\": 1758153645,\n  \"updated_timestamp\": 1758153645,\n  \"is_gift\": true,\n  \"gift_message\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"gift_sender\": \"example string\",\n  \"grandtotal\": \"example\",\n  \"subtotal\": \"example\",\n  \"total_price\": \"example\",\n  \"total_shipping_cost\": \"example\",\n  \"total_tax_cost\": \"example\",\n  \"total_vat_cost\": \"example\",\n  \"discount_amt\": \"example\",\n  \"gift_wrap_price\": \"example\",\n  \"shipments\": [\n    null\n  ],\n  \"transactions\": [\n    null\n  ],\n  \"refunds\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7013da54-e624-41e7-92f6-1affbe5c32d2",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cb31357-a486-4b8b-ae15-3f9344ad0fbc",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "410cca56-2dc6-4fd7-8ef5-1274ff74e12a",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95f2fcc8-1d34-4c88-abb3-d506d920f4ec",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e40b5448-46d5-479f-adc6-9a83797ac8e0",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b604d75c-049f-4996-b942-bceb6d7c3b77",
+          "name": "Etsy Update Shop Receipt",
+          "request": {
+            "name": "Etsy Update Shop Receipt",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates the status of a receipt, identified by a receipt id, from an Etsy shop. **NOTE** Access to ShopReceipt's first_line, second_line, city, state, zip, country_iso and formatted_address is contingent in some regions to a preferred partnership status with Etsy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "receipts",
+                ":receipt_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "receipt_id",
+                  "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "was_shipped",
+                  "value": "<boolean>",
+                  "description": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set."
+                },
+                {
+                  "disabled": false,
+                  "key": "was_paid",
+                  "value": "<boolean>",
+                  "description": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19a2d742-91ae-4922-969a-730a15abe136",
+              "name": "Update A Shop Receipt",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"receipt_id\": 234567890,\n  \"receipt_type\": 1,\n  \"seller_user_id\": 456789,\n  \"seller_email\": \"seller@example.com\",\n  \"buyer_user_id\": 456789,\n  \"buyer_email\": \"seller@example.com\",\n  \"name\": \"Handmade Ceramic Mug\",\n  \"first_line\": \"123 Main St\",\n  \"second_line\": \"Apt 4B\",\n  \"city\": \"Brooklyn\",\n  \"state\": \"example string\",\n  \"zip\": \"11201\",\n  \"status\": \"paid\",\n  \"formatted_address\": \"example string\",\n  \"country_iso\": \"US\",\n  \"payment_method\": \"example string\",\n  \"payment_email\": \"seller@example.com\",\n  \"message_from_seller\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_buyer\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_payment\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"is_paid\": true,\n  \"is_shipped\": true,\n  \"create_timestamp\": 1758153645,\n  \"created_timestamp\": 1758153645,\n  \"update_timestamp\": 1758153645,\n  \"updated_timestamp\": 1758153645,\n  \"is_gift\": true,\n  \"gift_message\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"gift_sender\": \"example string\",\n  \"grandtotal\": \"example\",\n  \"subtotal\": \"example\",\n  \"total_price\": \"example\",\n  \"total_shipping_cost\": \"example\",\n  \"total_tax_cost\": \"example\",\n  \"total_vat_cost\": \"example\",\n  \"discount_amt\": \"example\",\n  \"gift_wrap_price\": \"example\",\n  \"shipments\": [\n    null\n  ],\n  \"transactions\": [\n    null\n  ],\n  \"refunds\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37454ccd-93ec-4d0b-afc7-2214ca237cd5",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c625db2f-43eb-48e2-8ae7-183f7525baf3",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aacc12de-9a13-4b86-b430-74d93aa55461",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9223c29f-b105-4691-89ed-a88d712bfb5c",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "261460e8-c4c4-47de-856a-680c6e27a8e0",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received.",
+                        "type": "text/plain"
+                      },
+                      "key": "was_paid",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d2cb0d4-4dc9-4da0-8c8d-1d004113e928",
+          "name": "Etsy Get Shop Receipts",
+          "request": {
+            "name": "Etsy Get Shop Receipts",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRequests the Shop Receipts from a specific Shop, unfiltered or filtered by receipt id range or offset, date, paid, and/or shipped purchases. **NOTE** Access to ShopReceipt's first_line, second_line, city, state, zip, country_iso and formatted_address is contingent in some regions to a preferred partnership status with Etsy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "receipts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_created",
+                  "value": "",
+                  "description": "The earliest unix timestamp for when a record was created."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_created",
+                  "value": "",
+                  "description": "The latest unix timestamp for when a record was created."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_last_modified",
+                  "value": "",
+                  "description": "The earliest unix timestamp for when a record last changed."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_last_modified",
+                  "value": "",
+                  "description": "The latest unix timestamp for when a record last changed."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "The maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The number of records to skip before selecting the first result."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_on",
+                  "value": "created",
+                  "description": "The value to sort a search result of listings on."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "desc",
+                  "description": "The ascending(up) or descending(down) order to sort receipts by."
+                },
+                {
+                  "disabled": false,
+                  "key": "was_paid",
+                  "value": "<boolean>",
+                  "description": "When `true`, returns receipts where the seller has received payment for the receipt. When `false`, returns receipts where payment has not been received."
+                },
+                {
+                  "disabled": false,
+                  "key": "was_shipped",
+                  "value": "<boolean>",
+                  "description": "When `true`, returns receipts where the seller shipped the product(s) in this receipt. When `false`, returns receipts where shipment has not been set."
+                },
+                {
+                  "disabled": false,
+                  "key": "was_delivered",
+                  "value": "<boolean>",
+                  "description": "When `true`, returns receipts that have been marked as delivered. When `false`, returns receipts where shipment has not been marked as delivered."
+                },
+                {
+                  "disabled": false,
+                  "key": "was_canceled",
+                  "value": "<boolean>",
+                  "description": "When `true`, the endpoint will only return the canceled receipts. When `false`, the endpoint will only return non-canceled receipts."
+                },
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c0aaa300-b507-4ea4-bcc6-2aed0aa89923",
+              "name": "A list of Shop Receipts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"results\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f092884-7c1c-4eb9-ad83-85d471c94d87",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d14111c1-4186-42d9-8441-66815b94d666",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd0ab29b-41e3-4e8f-b0b5-91e9399b52e6",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3da93573-7927-4cbc-b945-b9e2a1e0ec67",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c08bb02f-9c75-4105-aaba-5d059c6daa2f",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_created",
+                      "value": ""
+                    },
+                    {
+                      "key": "min_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "max_last_modified",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_on",
+                      "value": "created"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "was_paid",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_shipped",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_delivered",
+                      "value": "true"
+                    },
+                    {
+                      "key": "was_canceled",
+                      "value": "true"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c023584-7414-4708-8bb1-537656062e1a",
+          "name": "Etsy Create Receipt Shipment",
+          "request": {
+            "name": "Etsy Create Receipt Shipment",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nSubmits tracking information for a Shop Receipt, which creates a Shop Receipt Shipment entry for the given receipt_id. Each time you successfully submit tracking info, Etsy sends a notification email to the buyer User. When send_bcc is true, Etsy sends shipping notifications to the seller as well. When tracking_code and carrier_name aren't sent, the receipt is marked as shipped only. If the carrier is not supported, you may use `other` as the carrier name so you can provide the tracking code. **NOTES** When shipping within the United States AND the order is over $10 _or_ when shipping to India, tracking code and carrier name ARE required. Access to ShopReceipt's first_line, second_line, city, state, zip, country_iso and formatted_address is contingent in some regions to a preferred partnership status with Etsy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "shops",
+                ":shop_id",
+                "receipts",
+                ":receipt_id",
+                "tracking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter needed to enable new parameters and response values related to processing profiles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "shop_id",
+                  "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "receipt_id",
+                  "description": "(Required) The receipt to submit tracking for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tracking_code\": \"<string>\",\n  \"carrier_name\": \"<string>\",\n  \"send_bcc\": \"<boolean>\",\n  \"note_to_buyer\": \"<string>\",\n  \"mail_class\": \"<string>\",\n  \"weight\": \"<float>\",\n  \"weight_units\": \"<string>\",\n  \"length\": \"<float>\",\n  \"width\": \"<float>\",\n  \"height\": \"<float>\",\n  \"dimension_units\": \"<string>\",\n  \"shipping_label_cost\": \"<float>\",\n  \"shipping_label_currency\": \"<string>\",\n  \"revenue_eligibility\": \"<string>\",\n  \"ship_from_country\": \"<string>\",\n  \"ship_to_country\": \"<string>\",\n  \"incoterm\": \"<string>\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": null,\n      \"declared_value\": null,\n      \"HS_code\": null\n    },\n    {\n      \"country_of_origin\": null,\n      \"declared_value\": null,\n      \"HS_code\": null\n    }\n  ],\n  \"duty_amount\": \"<float>\",\n  \"duty_currency\": \"<string>\",\n  \"ship_date\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2221b193-f3c3-4442-afec-3035c3bd1b31",
+              "name": "A single ShopReceipt",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"receipt_id\": 234567890,\n  \"receipt_type\": 1,\n  \"seller_user_id\": 456789,\n  \"seller_email\": \"seller@example.com\",\n  \"buyer_user_id\": 456789,\n  \"buyer_email\": \"seller@example.com\",\n  \"name\": \"Handmade Ceramic Mug\",\n  \"first_line\": \"123 Main St\",\n  \"second_line\": \"Apt 4B\",\n  \"city\": \"Brooklyn\",\n  \"state\": \"example string\",\n  \"zip\": \"11201\",\n  \"status\": \"paid\",\n  \"formatted_address\": \"example string\",\n  \"country_iso\": \"US\",\n  \"payment_method\": \"example string\",\n  \"payment_email\": \"seller@example.com\",\n  \"message_from_seller\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_buyer\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"message_from_payment\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"is_paid\": true,\n  \"is_shipped\": true,\n  \"create_timestamp\": 1758153645,\n  \"created_timestamp\": 1758153645,\n  \"update_timestamp\": 1758153645,\n  \"updated_timestamp\": 1758153645,\n  \"is_gift\": true,\n  \"gift_message\": \"Thanks for your order! Shipping out tomorrow.\",\n  \"gift_sender\": \"example string\",\n  \"grandtotal\": \"example\",\n  \"subtotal\": \"example\",\n  \"total_price\": \"example\",\n  \"total_shipping_cost\": \"example\",\n  \"total_tax_cost\": \"example\",\n  \"total_vat_cost\": \"example\",\n  \"discount_amt\": \"example\",\n  \"gift_wrap_price\": \"example\",\n  \"shipments\": [\n    null\n  ],\n  \"transactions\": [\n    null\n  ],\n  \"refunds\": [\n    null\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e2850b8-4c75-4d4e-8e97-867a0f77ca9c",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75b1750f-90b6-45e8-9362-6de13cf3ab75",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51fd1d37-d852-415a-8b75-f55b5b91fbb9",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94540b58-ad5c-430f-b3b8-142d0ec526ce",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fe2534d-a1df-4958-b93c-4d24d6cfa2e0",
+              "name": "There was a request conflict with the current state of the target resource. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44f1b9a9-538d-412e-a67c-b319cc0e8f16",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "shops",
+                    ":shop_id",
+                    "receipts",
+                    ":receipt_id",
+                    "tracking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "shop_id",
+                      "description": "(Required) The unique positive non-zero numeric ID for an Etsy Shop."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "receipt_id",
+                      "description": "(Required) The receipt to submit tracking for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracking_code\": \"example string\",\n  \"carrier_name\": \"example string\",\n  \"send_bcc\": true,\n  \"note_to_buyer\": \"example string\",\n  \"mail_class\": \"example string\",\n  \"weight\": 1,\n  \"weight_units\": \"example string\",\n  \"length\": 1,\n  \"width\": 1,\n  \"height\": 1,\n  \"dimension_units\": \"example string\",\n  \"shipping_label_cost\": 1,\n  \"shipping_label_currency\": \"example string\",\n  \"revenue_eligibility\": \"example string\",\n  \"ship_from_country\": \"example string\",\n  \"ship_to_country\": \"example string\",\n  \"incoterm\": \"example string\",\n  \"customs_data\": [\n    {\n      \"country_of_origin\": \"example string\",\n      \"declared_value\": 1,\n      \"HS_code\": \"example string\"\n    }\n  ],\n  \"duty_amount\": 1,\n  \"duty_currency\": \"example string\",\n  \"ship_date\": \"example string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.etsy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b71a64d7-57d2-436a-8cfa-2ef4c8cb013a",
+    "name": "Etsy Open API v3 BuyerTaxonomy Shop Receipt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.\n\nContact Support:\n Email: developers@etsy.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1060 @@
+{
+  "item": [
+    {
+      "id": "3b7dadf6-635f-4348-b7b4-481e23ed9d74",
+      "name": "ShopListing Inventory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff282bd6-afc6-4d63-a607-82182ce3b297",
+          "name": "Etsy Get Listing Inventory",
+          "request": {
+            "name": "Etsy Get Listing Inventory",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nRetrieves the inventory record for a listing. Listings you did not edit using the Etsy.com inventory tools have no inventory records. This endpoint returns SKU data if you are the owner of the inventory records being fetched.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "listings",
+                ":listing_id",
+                "inventory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_deleted",
+                  "value": "<boolean>",
+                  "description": "A boolean value for inventory whether to include deleted products and their offerings. Default value is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "includes",
+                  "value": "<string>",
+                  "description": "An enumerated string that attaches a valid association. Default value is null."
+                },
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "listing_id",
+                  "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2510e9dd-e214-4279-9d5f-af572168b55b",
+              "name": "A single listing inventory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    null\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ],\n  \"listing\": \"example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a242fe5d-39c1-424b-bc0d-913d9bb07f5f",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc7e2efb-99ce-44ae-af8d-e12e1894b801",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a923c7c1-df53-4a4e-b541-786a89044d0e",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105d746e-004b-43b2-a08c-0b33ed32d79b",
+              "name": "There was a problem processing your request. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a39a884-725b-4407-afe1-7bf2fc027a7e",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_deleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includes",
+                      "value": "Listing"
+                    },
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c45dde6d-2a79-4a58-bfb9-11e776bdf195",
+          "name": "Etsy Update Listing Inventory",
+          "request": {
+            "name": "Etsy Update Listing Inventory",
+            "description": {
+              "content": "<div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><span class=\"wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2\">General Release</span><a class=\"wt-text-link\" href=\"https://github.com/etsy/open-api/discussions\" target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\nUpdates the inventory for a listing identified by a listing ID. The update fails if the supplied values for product sku, offering quantity, price, and/or processing profile are incompatible with values in `*_on_property` fields. When setting a price, assign a float equal to amount divided by divisor as specified in the Money resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "application",
+                "listings",
+                ":listing_id",
+                "inventory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "legacy",
+                  "value": "<boolean>",
+                  "description": "This parameter is needed to enable new parameters and response values related to processing profiles."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_variations_supported",
+                  "value": "<string>",
+                  "description": "Coming soon: This parameter determines whether a third variation can be added to or updated for a listing. It accepts values of 2 or 3, where 3 enables third-variation support."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "listing_id",
+                  "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"products\": [\n    {\n      \"offerings\": [\n        {\n          \"price\": \"<float>\",\n          \"quantity\": \"<integer>\",\n          \"is_enabled\": \"<boolean>\",\n          \"readiness_state_id\": \"<long>\"\n        },\n        {\n          \"price\": \"<float>\",\n          \"quantity\": \"<integer>\",\n          \"is_enabled\": \"<boolean>\",\n          \"readiness_state_id\": \"<long>\"\n        }\n      ],\n      \"sku\": \"<string>\",\n      \"property_values\": [\n        {\n          \"property_id\": \"<long>\",\n          \"value_ids\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"scale_id\": \"<long>\",\n          \"property_name\": \"<string>\"\n        },\n        {\n          \"property_id\": \"<long>\",\n          \"value_ids\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"scale_id\": \"<long>\",\n          \"property_name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"offerings\": [\n        {\n          \"price\": \"<float>\",\n          \"quantity\": \"<integer>\",\n          \"is_enabled\": \"<boolean>\",\n          \"readiness_state_id\": \"<long>\"\n        },\n        {\n          \"price\": \"<float>\",\n          \"quantity\": \"<integer>\",\n          \"is_enabled\": \"<boolean>\",\n          \"readiness_state_id\": \"<long>\"\n        }\n      ],\n      \"sku\": \"<string>\",\n      \"property_values\": [\n        {\n          \"property_id\": \"<long>\",\n          \"value_ids\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"scale_id\": \"<long>\",\n          \"property_name\": \"<string>\"\n        },\n        {\n          \"property_id\": \"<long>\",\n          \"value_ids\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"scale_id\": \"<long>\",\n          \"property_name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"quantity_on_property\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"sku_on_property\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"readiness_state_on_property\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "99115123-53fc-4880-861e-45af30a1a009",
+              "name": "A single listing's inventory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    null\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8da95be2-3516-4e26-bc74-e046c75a1d46",
+              "name": "There was a problem with the request data. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa3a1bad-11c1-4c33-9244-cbb1ebc5be55",
+              "name": "The request lacks valid authentication credentials. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54339890-9fdd-4ba9-836b-f0c8cac0238d",
+              "name": "The request attempted to perform an operation it is not allowed to. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfb968fb-bd98-494d-88aa-0ef3a703463b",
+              "name": "A resource could not be found. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84937334-0410-4a1f-80e3-db12e706915b",
+              "name": "The server encountered an internal error. See the error message for details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "application",
+                    "listings",
+                    ":listing_id",
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "legacy",
+                      "value": "true"
+                    },
+                    {
+                      "key": "max_variations_supported",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "listing_id",
+                      "description": "(Required) The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"sku\": \"example string\",\n      \"property_values\": [\n        {\n          \"property_id\": 1,\n          \"value_ids\": [\n            {}\n          ],\n          \"scale_id\": 1,\n          \"property_name\": \"example string\",\n          \"values\": [\n            {}\n          ]\n        }\n      ],\n      \"offerings\": [\n        {\n          \"price\": 1,\n          \"quantity\": 1,\n          \"is_enabled\": true,\n          \"readiness_state_id\": 1\n        }\n      ]\n    }\n  ],\n  \"price_on_property\": [\n    1\n  ],\n  \"quantity_on_property\": [\n    1\n  ],\n  \"sku_on_property\": [\n    1\n  ],\n  \"readiness_state_on_property\": [\n    1\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"example string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.etsy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4dff462f-4588-4796-b086-955b61a07d30",
+    "name": "Etsy Open API v3 BuyerTaxonomy ShopListing Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.\n\nContact Support:\n Email: developers@etsy.com",
+      "type": "text/plain"
+    }
+  }
+}
