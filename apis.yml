@@ -28,7 +28,7 @@ description: >-
   artifacts, plans, rate limits, FinOps alignment, and Naftiko capabilities.
 created: '2026-05-05'
 modified: '2026-05-30'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
   - Marketplace
   - Ecommerce
