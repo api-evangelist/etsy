@@ -31,6 +31,17 @@ modified: '2026-05-30'
 specificationVersion: '0.23'
 tags:
   - Marketplace
+  - E-Commerce
+  - Handmade
+  - Listings
+  - Order
+  - Payments
+  - Reviews
+  - Shipping
+  - Taxonomy
+  - Authentication
+tags_raw:
+  - Marketplace
   - Ecommerce
   - Handmade
   - Listings
@@ -172,6 +183,11 @@ apis:
     HMAC-SHA256 signature verification procedure, and Etsy's documented retry schedule.
   humanURL: https://developers.etsy.com/documentation/essentials/webhooks
   tags:
+  - Webhook
+  - Event
+  - AsyncAPI
+  - Order Lifecycle
+  tags_raw:
   - Webhooks
   - Events
   - AsyncAPI
@@ -239,7 +255,8 @@ apis:
   description: The Other API from Etsy — 2 operation(s) for other.
   humanURL: https://developers.etsy.com/documentation
   baseURL: https://openapi.etsy.com
-  tags:
+  tags: []
+  tags_raw:
   - Other
   properties:
   - type: OpenAPI
