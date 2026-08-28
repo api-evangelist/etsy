@@ -12,8 +12,14 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: shopApi
+  url: ../openapi/etsy-shop-api-openapi.yml
+  type: openapi
+- name: shopReceiptApi
+  url: ../openapi/etsy-shop-receipt-api-openapi.yml
+  type: openapi
+- name: userApi
+  url: ../openapi/etsy-user-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: process-unshipped-orders

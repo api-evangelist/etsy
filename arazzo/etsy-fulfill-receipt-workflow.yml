@@ -12,8 +12,8 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: shopReceiptApi
+  url: ../openapi/etsy-shop-receipt-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: fulfill-receipt

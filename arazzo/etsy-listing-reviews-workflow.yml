@@ -10,8 +10,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: reviewApi
+  url: ../openapi/etsy-review-api-openapi.yml
+  type: openapi
+- name: shoplistingApi
+  url: ../openapi/etsy-shoplisting-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: listing-reviews

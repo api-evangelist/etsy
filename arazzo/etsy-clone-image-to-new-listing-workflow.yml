@@ -12,8 +12,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: shoplistingApi
+  url: ../openapi/etsy-shoplisting-api-openapi.yml
+  type: openapi
+- name: shoplistingImageApi
+  url: ../openapi/etsy-shoplisting-image-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: clone-image-to-new-listing

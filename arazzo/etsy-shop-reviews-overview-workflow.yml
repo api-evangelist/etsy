@@ -11,8 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: reviewApi
+  url: ../openapi/etsy-review-api-openapi.yml
+  type: openapi
+- name: shopApi
+  url: ../openapi/etsy-shop-api-openapi.yml
+  type: openapi
+- name: userApi
+  url: ../openapi/etsy-user-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: shop-reviews-overview

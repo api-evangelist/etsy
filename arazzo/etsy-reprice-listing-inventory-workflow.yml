@@ -11,8 +11,8 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: etsyApi
-  url: ../openapi/etsy-openapi-original.yml
+- name: shoplistingInventoryApi
+  url: ../openapi/etsy-shoplisting-inventory-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: reprice-listing-inventory
