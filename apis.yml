@@ -65,6 +65,9 @@ tags_raw:
   - Taxonomy
   - OAuth2
 common:
+  - type: CapabilityMap
+    url: capabilities/etsy-capability-edges.yml
+    name: Etsy Business Capability Map
   - type: Releases
     url: https://github.com/etsy/open-api/releases
   - type: SecurityPolicy

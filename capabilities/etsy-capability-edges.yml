@@ -1,0 +1,79 @@
+slug: etsy
+provider: Etsy
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Retail & Consumer Goods
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: ShopListing Image
+  spec_file: etsy-shoplisting-image-api-openapi.yml
+  capability_id: BC-2370.20
+  capability_id_l1: BC-2370
+  capability_name: Product Content Authoring Management
+  confidence: 0.75
+  evidence: POST /v3/application/shops/{shop_id}/listings/{listing_id}/images uploadListingImage 'Etsy
+    Upload Listing Image'; schema ListingImage
+  reason: Operations upload, retrieve and delete product-listing imagery — authoring of rich media that
+    turns an item record into a sellable consumer offer, i.e. product content authoring rather than generic
+    file upload (images are bound to listings).
+- tag: ShopListing Video
+  spec_file: etsy-shoplisting-video-api-openapi.yml
+  capability_id: BC-2370.20
+  capability_id_l1: BC-2370
+  capability_name: Product Content Authoring Management
+  confidence: 0.75
+  evidence: POST /v3/application/shops/{shop_id}/listings/{listing_id}/videos uploadListingVideo 'Etsy
+    Upload Listing Video'
+  reason: Upload/retrieve/delete of listing videos — authoring of video and rich media attached to the
+    product listing.
+- tag: ShopListing Translation
+  spec_file: etsy-shoplisting-translation-api-openapi.yml
+  capability_id: BC-2370.20
+  capability_id_l1: BC-2370
+  capability_name: Product Content Authoring Management
+  confidence: 0.72
+  evidence: POST /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language} createListingTranslation;
+    schema ListingTranslation
+  reason: Creates and maintains localised listing title/description content per language — authoring of
+    product marketing copy for consumer-facing channels.
+- tag: BuyerTaxonomy
+  spec_file: etsy-buyertaxonomy-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.7
+  evidence: GET /v3/application/buyer-taxonomy/nodes getBuyerTaxonomyNodes; GET .../nodes/{taxonomy_id}/properties
+    getPropertiesByBuyerTaxonomyId; schemas BuyerTaxonomyNode, BuyerTaxonomyNodeProperty
+  reason: Exposes the marketplace product taxonomy tree and the attribute properties/scales valid for
+    each node — i.e. the canonical item taxonomy and attribute definitions used to classify products,
+    which is item master data management. Not category business management (no performance or strategy
+    operations).
+- tag: Review
+  spec_file: etsy-review-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.7
+  evidence: GET /v3/application/listings/{listing_id}/reviews getReviewsByListing; GET /v3/application/shops/{shop_id}/reviews
+    getReviewsByShop; schemas ListingReview, TransactionReview
+  reason: Exposes buyer-submitted reviews of listings and shops — voice-of-customer feedback capture.
+    Some ambiguity with product performance & feedback management, hence moderate confidence.
+- tag: SellerTaxonomy
+  spec_file: etsy-sellertaxonomy-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.7
+  evidence: GET /v3/application/seller-taxonomy/nodes  getSellerTaxonomyNodes; schemas SellerTaxonomyNode,
+    TaxonomyNodeProperty
+  reason: Exposes the marketplace's product category taxonomy nodes and their allowed item properties/values
+    — the canonical attribute and hierarchy scaffolding for item records, i.e. item master data / taxonomy
+    management rather than any pricing or order function.
