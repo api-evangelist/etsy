@@ -299,6 +299,8 @@ apis:
   humanURL: https://developers.etsy.com/documentation
   baseURL: https://openapi.etsy.com
   tags:
+  - Payments
+  tags_raw:
   - Payment
   properties:
   - type: OpenAPI
