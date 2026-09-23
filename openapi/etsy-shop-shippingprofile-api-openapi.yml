@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Shop ShippingProfile API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Shop ShippingProfile API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shipping-carriers:
     get:
       operationId: getShippingCarriers
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a list of available shipping carriers and the mail classes associated with them for a given country'
@@ -86,7 +95,10 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles:
     post:
       operationId: createShopShippingProfile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Creates a new ShippingProfile. You can pass a country iso code or a region when creating a ShippingProfile, but not both. Only one is required. You must pass either a shipping_carrier_id AND mail_class, or both min and max_delivery_days.'
@@ -288,7 +300,10 @@ paths:
       summary: Etsy Create Shop Shipping Profile
     get:
       operationId: getShopShippingProfiles
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a list of shipping profiles available in the specific Etsy shop identified by its shop ID.'
@@ -379,7 +394,10 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}:
     delete:
       operationId: deleteShopShippingProfile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Deletes a ShippingProfile by given id.'
@@ -479,7 +497,10 @@ paths:
       summary: Etsy Delete Shop Shipping Profile
     get:
       operationId: getShopShippingProfile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a Shipping Profile referenced by shipping profile ID.'
@@ -601,7 +622,10 @@ paths:
       summary: Etsy Get Shop Shipping Profile
     put:
       operationId: updateShopShippingProfile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Changes the settings in a shipping profile. You can pass a country iso code or a region when updating a ShippingProfile, but not both. Only one is required. You must pass either a shipping_carrier_id AND mail_class, or both min and max_delivery_days.'
@@ -781,10 +805,13 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations:
     post:
       operationId: createShopShippingProfileDestination
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
 
 
-        Creates a new shipping destination, which sets the shipping cost, carrier, and class for a destination in a [shipping profile](/documentation/reference/#tag/Shop-ShippingProfile). createShopShippingProfileDestination assigns costs using the currency of the associated shop. Set the destination using either `destination_country_iso` or `destination_region`; `destination_country_iso` and `destination_region` are mutually exclusive — set one or the other. Setting both triggers error 400. If the request sets neither `destination_country_iso` nor `destination_region`, the default destination is "everywhere". You must also either assign both a `shipping_carrier_id` AND `mail_class` or both `min_delivery_days` AND `max_delivery_days`.'
+        This endpoint is ready for production use.
+
+
+        Creates a new shipping destination, which sets the shipping cost, carrier, and class for a destination in a shipping profile. createShopShippingProfileDestination assigns costs using the currency of the associated shop. Set the destination using either `destination_country_iso` or `destination_region`; `destination_country_iso` and `destination_region` are mutually exclusive — set one or the other. Setting both triggers error 400. If the request sets neither `destination_country_iso` nor `destination_region`, the default destination is "everywhere". You must also either assign both a `shipping_carrier_id` AND `mail_class` or both `min_delivery_days` AND `max_delivery_days`.'
       tags:
       - Shop ShippingProfile
       parameters:
@@ -955,7 +982,10 @@ paths:
       summary: Etsy Create Shop Shipping Profile Destination
     get:
       operationId: getShopShippingProfileDestinationsByShippingProfile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a list of shipping destination objects associated with a shipping profile.'
@@ -1089,10 +1119,13 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/destinations/{shipping_profile_destination_id}:
     delete:
       operationId: deleteShopShippingProfileDestination
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
 
 
-        Deletes a shipping destination and removes the destination option from every listing that uses the associated shipping profile. A shipping profile requires at least one shipping destination, so this endpoint cannot delete the final shipping destination for any shipping profile. To delete the final shipping destination from a shipping profile, you must [delete the entire shipping profile](/documentation/reference/#operation/deleteShopShippingProfile).'
+        This endpoint is ready for production use.
+
+
+        Deletes a shipping destination and removes the destination option from every listing that uses the associated shipping profile. A shipping profile requires at least one shipping destination, so this endpoint cannot delete the final shipping destination for any shipping profile. To delete the final shipping destination from a shipping profile, you must delete the entire shipping profile.'
       tags:
       - Shop ShippingProfile
       parameters:
@@ -1199,7 +1232,10 @@ paths:
       summary: Etsy Delete Shop Shipping Profile Destination
     put:
       operationId: updateShopShippingProfileDestination
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates an existing shipping destination, which can set or reassign the shipping cost, carrier, and class for a destination.'
@@ -1407,7 +1443,10 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades:
     post:
       operationId: createShopShippingProfileUpgrade
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Creates a new shipping profile upgrade, which can establish a price for a shipping option, such as an alternate carrier or faster delivery.'
@@ -1592,7 +1631,10 @@ paths:
       summary: Etsy Create Shop Shipping Profile Upgrade
     get:
       operationId: getShopShippingProfileUpgrades
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the list of shipping profile upgrades assigned to a specific shipping profile.'
@@ -1705,7 +1747,10 @@ paths:
   /v3/application/shops/{shop_id}/shipping-profiles/{shipping_profile_id}/upgrades/{upgrade_id}:
     delete:
       operationId: deleteShopShippingProfileUpgrade
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Deletes a shipping profile upgrade and removes the upgrade option from every listing that uses the associated shipping profile.'
@@ -1815,7 +1860,10 @@ paths:
       summary: Etsy Delete Shop Shipping Profile Upgrade
     put:
       operationId: updateShopShippingProfileUpgrade
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates a shipping profile upgrade and updates any listings that use the shipping profile.'
@@ -2020,10 +2068,23 @@ paths:
       summary: Etsy Update Shop Shipping Profile Upgrade
 components:
   schemas:
-    ShopShippingProfileUpgrades:
+    ShippingCarriers:
       type: object
-      x-resource-id: ShopShippingProfileUpgrades
-      description: A list of shipping upgrade options.
+      x-resource-id: ShippingCarriers
+      description: Represents several ShippingCarriers.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingCarrier'
+    ShopShippingProfileDestinations:
+      type: object
+      x-resource-id: ShopShippingProfileDestinations
+      description: Represents a list of shipping destination objects.
       properties:
         count:
           type: integer
@@ -2036,16 +2097,93 @@ components:
           items:
             description: The list of requested resources.
             oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
-    ErrorSchema:
+            - $ref: '#/components/schemas/ShopShippingProfileDestination'
+    ShippingCarrierMailClass:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: ShippingCarrierMailClass
+      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
       properties:
-        error:
+        mail_class_key:
           type: string
+          description: The unique identifier of this mail class.
           example: example string
+        name:
+          type: string
+          description: The name of this mail class.
+          example: Handmade Ceramic Mug
+    ShopShippingProfile:
+      type: object
+      x-resource-id: ShopShippingProfile
+      description: Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
+      properties:
+        shipping_profile_id:
+          type: integer
+          description: The numeric ID of the shipping profile.
+          format: int64
+          minimum: 1
+          example: 1
+        title:
+          type:
+          - string
+          - 'null'
+          description: The name string of this shipping profile.
+          example: Handmade Ceramic Mug — Stoneware
+        user_id:
+          type: integer
+          description: The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.
+          format: int64
+          minimum: 1
+          example: 456789
+        origin_country_iso:
+          type: string
+          description: The ISO code of the country from which the listing ships.
+          format: ISO 3166-1 alpha-2
+          example: US
+        is_deleted:
+          type: boolean
+          description: When true, someone deleted this shipping profile.
+          example: true
+        shipping_profile_destinations:
+          type: array
+          description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
+          items:
+            description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileDestination'
+        shipping_profile_upgrades:
+          type: array
+          description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
+          items:
+            description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
+        origin_postal_code:
+          type:
+          - string
+          - 'null'
+          description: The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` supports postal codes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#countries-requiring-postal-codes) for more info
+          example: '11201'
+        profile_type:
+          type: string
+          enum:
+          - manual
+          - calculated
+          default: manual
+          example: manual
+        domestic_handling_fee:
+          type: number
+          description: The domestic handling fee added to buyer's shipping total - only available for calculated shipping profiles.
+          format: float
+          minimum: 0
+          default: 0
+          example: 1.0
+        international_handling_fee:
+          type: number
+          description: The international handling fee added to buyer's shipping total - only available for calculated shipping profiles.
+          format: float
+          minimum: 0
+          default: 0
+          example: 1.0
     ShippingCarrier:
       type: object
       x-resource-id: ShippingCarrier
@@ -2075,6 +2213,19 @@ components:
             description: Set of international mail classes of this shipping carrier.
             oneOf:
             - $ref: '#/components/schemas/ShippingCarrierMailClass'
+    ShopShippingProfiles:
+      type: object
+      x-resource-id: ShopShippingProfiles
+      description: Represents several ShopShippingProfiles.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopShippingProfile'
     ShopShippingProfileDestination:
       type: object
       x-resource-id: ShopShippingProfileDestination
@@ -2120,126 +2271,50 @@ components:
           - $ref: '#/components/schemas/Money'
           example: example
         shipping_carrier_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          nullable: true
           example: 1
         mail_class:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-          nullable: true
           example: example string
         min_delivery_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          nullable: true
           minimum: 1
           maximum: 45
           example: 1
         max_delivery_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          nullable: true
           minimum: 1
           maximum: 45
           example: 1
-    ShopShippingProfile:
+    ShopShippingProfileUpgrades:
       type: object
-      x-resource-id: ShopShippingProfile
-      description: Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
+      x-resource-id: ShopShippingProfileUpgrades
+      description: A list of shipping upgrade options.
       properties:
-        shipping_profile_id:
+        count:
           type: integer
-          description: The numeric ID of the shipping profile.
-          format: int64
-          minimum: 1
+          description: The number of results.
+          minimum: 0
           example: 1
-        title:
-          type: string
-          description: The name string of this shipping profile.
-          nullable: true
-          example: Handmade Ceramic Mug — Stoneware
-        user_id:
-          type: integer
-          description: The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.
-          format: int64
-          minimum: 1
-          example: 456789
-        origin_country_iso:
-          type: string
-          description: The ISO code of the country from which the listing ships.
-          format: ISO 3166-1 alpha-2
-          example: US
-        is_deleted:
-          type: boolean
-          description: When true, someone deleted this shipping profile.
-          example: true
-        shipping_profile_destinations:
+        results:
           type: array
-          description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
+          description: The list of requested resources.
           items:
-            description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileDestination'
-        shipping_profile_upgrades:
-          type: array
-          description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
-          items:
-            description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
+            description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
-        origin_postal_code:
-          type: string
-          description: The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` supports postal codes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#countries-requiring-postal-codes) for more info
-          nullable: true
-          example: '11201'
-        profile_type:
-          type: string
-          enum:
-          - manual
-          - calculated
-          default: manual
-          example: manual
-        domestic_handling_fee:
-          type: number
-          description: The domestic handling fee added to buyer's shipping total - only available for calculated shipping profiles.
-          format: float
-          minimum: 0
-          default: 0
-          example: 1.0
-        international_handling_fee:
-          type: number
-          description: The international handling fee added to buyer's shipping total - only available for calculated shipping profiles.
-          format: float
-          minimum: 0
-          default: 0
-          example: 1.0
-    ShopShippingProfiles:
-      type: object
-      x-resource-id: ShopShippingProfiles
-      description: Represents several ShopShippingProfiles.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopShippingProfile'
-    ShippingCarriers:
-      type: object
-      x-resource-id: ShippingCarriers
-      description: Represents several ShippingCarriers.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShippingCarrier'
     Money:
       type: object
       x-resource-id: Money
@@ -2258,36 +2333,15 @@ components:
           type: string
           description: The ISO currency code for this data.
           example: USD
-    ShopShippingProfileDestinations:
+    ErrorSchema:
       type: object
-      x-resource-id: ShopShippingProfileDestinations
-      description: Represents a list of shipping destination objects.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileDestination'
-    ShippingCarrierMailClass:
-      type: object
-      x-resource-id: ShippingCarrierMailClass
-      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
-      properties:
-        mail_class_key:
+        error:
           type: string
-          description: The unique identifier of this mail class.
           example: example string
-        name:
-          type: string
-          description: The name of this mail class.
-          example: Handmade Ceramic Mug
     ShopShippingProfileUpgrade:
       type: object
       x-resource-id: ShopShippingProfileUpgrade
@@ -2336,26 +2390,30 @@ components:
           - $ref: '#/components/schemas/Money'
           example: example
         shipping_carrier_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          nullable: true
           example: 1
         mail_class:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-          nullable: true
           example: example string
         min_delivery_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          nullable: true
           minimum: 1
           maximum: 45
           example: 1
         max_delivery_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          nullable: true
           minimum: 1
           maximum: 45
           example: 1

@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Review API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Review API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/listings/{listing_id}/reviews:
     get:
       operationId: getReviewsByListing
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 to retrieve the reviews for a listing given its ID.'
@@ -62,9 +71,10 @@ paths:
         description: The earliest unix timestamp for when a record was created.
         required: false
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The earliest unix timestamp for when a record was created.
-          nullable: true
           minimum: 946684800
         example: 1
       - name: max_created
@@ -72,9 +82,10 @@ paths:
         description: The latest unix timestamp for when a record was created.
         required: false
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The latest unix timestamp for when a record was created.
-          nullable: true
           minimum: 946684800
         example: 1
       responses:
@@ -135,7 +146,10 @@ paths:
   /v3/application/shops/{shop_id}/reviews:
     get:
       operationId: getReviewsByShop
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 to retrieve the reviews from a shop given its ID.'
@@ -178,9 +192,10 @@ paths:
         description: The earliest unix timestamp for when a record was created.
         required: false
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The earliest unix timestamp for when a record was created.
-          nullable: true
           minimum: 946684800
         example: 1
       - name: max_created
@@ -188,9 +203,10 @@ paths:
         description: The latest unix timestamp for when a record was created.
         required: false
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The latest unix timestamp for when a record was created.
-          nullable: true
           minimum: 946684800
         example: 1
       responses:
@@ -250,72 +266,23 @@ paths:
       summary: Etsy Get Reviews by Shop
 components:
   schemas:
-    ErrorSchema:
+    ListingReviews:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: ListingReviews
+      description: A set of listing review records left by Users.
       properties:
-        error:
-          type: string
-          example: example string
-    ListingReview:
-      type: object
-      x-resource-id: ListingReview
-      description: A listing review record left by a User.
-      properties:
-        shop_id:
+        count:
           type: integer
-          description: The shop's numeric ID.
-          format: int64
-          minimum: 1
-          example: 123456
-        listing_id:
-          type: integer
-          description: The ID of the ShopListing that the TransactionReview belongs to.
-          format: int64
-          minimum: 1
-          example: 123456789
-        rating:
-          type: integer
-          description: Rating value on scale from 1 to 5
-          minimum: 1
-          maximum: 5
-          example: 5
-        review:
-          type: string
-          description: A message left by the author, explaining the feedback, if provided.
-          nullable: true
-          example: example string
-        language:
-          type: string
-          description: The language of the TransactionReview
-          example: en-US
-        image_url_fullxfull:
-          type: string
-          description: 'The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer''s privacy settings.'
-          nullable: true
-          example: https://www.etsy.com/listing/123456789
-        create_timestamp:
-          type: integer
-          description: The date and time the TransactionReview was created in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        created_timestamp:
-          type: integer
-          description: The date and time the TransactionReview was created in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        update_timestamp:
-          type: integer
-          description: The date and time the TransactionReview was updated in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        updated_timestamp:
-          type: integer
-          description: The date and time the TransactionReview was updated in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
+          description: The number of TransactionReview resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The TransactionReview resources found.
+          items:
+            description: The TransactionReview resources found.
+            oneOf:
+            - $ref: '#/components/schemas/ListingReview'
     TransactionReviews:
       type: object
       x-resource-id: TransactionReviews
@@ -357,10 +324,11 @@ components:
           minimum: 1
           example: 345678901
         buyer_user_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'The numeric ID of the user who was the buyer in this transaction. Note: This field may be absent, depending on the buyer''s privacy settings.'
           format: int64
-          nullable: true
           minimum: 1
           example: 456789
         rating:
@@ -379,9 +347,10 @@ components:
           description: The language of the TransactionReview
           example: en-US
         image_url_fullxfull:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer''s privacy settings.'
-          nullable: true
           example: https://www.etsy.com/listing/123456789
         create_timestamp:
           type: integer
@@ -403,23 +372,74 @@ components:
           description: The date and time the TransactionReview was updated in epoch seconds.
           minimum: 946684800
           example: 1758153645
-    ListingReviews:
+    ListingReview:
       type: object
-      x-resource-id: ListingReviews
-      description: A set of listing review records left by Users.
+      x-resource-id: ListingReview
+      description: A listing review record left by a User.
       properties:
-        count:
+        shop_id:
           type: integer
-          description: The number of TransactionReview resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The TransactionReview resources found.
-          items:
-            description: The TransactionReview resources found.
-            oneOf:
-            - $ref: '#/components/schemas/ListingReview'
+          description: The shop's numeric ID.
+          format: int64
+          minimum: 1
+          example: 123456
+        listing_id:
+          type: integer
+          description: The ID of the ShopListing that the TransactionReview belongs to.
+          format: int64
+          minimum: 1
+          example: 123456789
+        rating:
+          type: integer
+          description: Rating value on scale from 1 to 5
+          minimum: 1
+          maximum: 5
+          example: 5
+        review:
+          type:
+          - string
+          - 'null'
+          description: A message left by the author, explaining the feedback, if provided.
+          example: example string
+        language:
+          type: string
+          description: The language of the TransactionReview
+          example: en-US
+        image_url_fullxfull:
+          type:
+          - string
+          - 'null'
+          description: 'The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer''s privacy settings.'
+          example: https://www.etsy.com/listing/123456789
+        create_timestamp:
+          type: integer
+          description: The date and time the TransactionReview was created in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        created_timestamp:
+          type: integer
+          description: The date and time the TransactionReview was created in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        update_timestamp:
+          type: integer
+          description: The date and time the TransactionReview was updated in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        updated_timestamp:
+          type: integer
+          description: The date and time the TransactionReview was updated in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

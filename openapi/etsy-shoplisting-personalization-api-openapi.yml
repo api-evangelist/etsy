@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy ShopListing Personalization API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 ShopListing Personalization API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/personalization:
     delete:
       operationId: deleteListingPersonalization
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Deletes personalization for a listing.'
@@ -119,7 +128,10 @@ paths:
       summary: Etsy Delete Listing Personalization
     post:
       operationId: updateListingPersonalization
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Creates or updates personalization settings for a listing, allowing the seller to collect personalization from the buyer. This endpoint will fully replace any existing personalization on the listing.'
@@ -151,9 +163,10 @@ paths:
         description: 'This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: ''text_input'', ''dropdown'', ''unlabeled_upload'', ''labeled_upload''. Sending this param without updating your application can lead to inadvertently deleting seller-entered data.'
         required: false
         schema:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: 'This query parameter indicates that the caller supports up to 5 personalization questions and the following question types: ''text_input'', ''dropdown'', ''unlabeled_upload'', ''labeled_upload''. Sending this param without updating your application can lead to inadvertently deleting seller-entered data.'
-          nullable: true
         example: true
       requestBody:
         content:
@@ -169,18 +182,20 @@ paths:
                     type: object
                     properties:
                       question_id:
-                        type: integer
+                        type:
+                        - integer
+                        - 'null'
                         description: 'The ID of the personalization question. This field is optional. Include it when updating an existing question; omit it when creating a new question. Note: This value may change if the personalization question is updated.'
                         format: int64
-                        nullable: true
                         minimum: 1
                       question_text:
                         type: string
                         description: 'The title of the personalization question. Must be between 1 and 45 characters. Note: During the migration to the new personalization endpoints, if you''re still using a legacy UI (without a title input),please send the default value ''Personalization''.'
                       instructions:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Optional instructions for a personalization question. This field is not allowed for 'dropdown' questions. For legacy, single personalization, max length is 256 characters. Once multiple personalization questions are enabled, the max length will be 120 characters.
-                        nullable: true
                       question_type:
                         type: string
                         description: 'The type of the personalization question. Note: Currently, only a single question with type ''text_input'' is supported. See https://developers.etsy.com/documentation/tutorials/personalization-migration for details about new question types.'
@@ -193,25 +208,29 @@ paths:
                         type: boolean
                         description: When true, the personalization question is required.
                       max_allowed_files:
-                        type: integer
+                        type:
+                        - integer
+                        - 'null'
                         description: The maximum number of files the buyer may upload in response to a personalization question. This field is optional and only applicable to 'unlabeled_upload' and 'labeled_upload' questions.
-                        nullable: true
                       max_allowed_characters:
-                        type: integer
+                        type:
+                        - integer
+                        - 'null'
                         description: The maximum number of characters the buyer may enter in response to a personalization question. This field is optional and only applicable to 'text_input' questions.
-                        nullable: true
                       options:
-                        type: array
+                        type:
+                        - array
+                        - 'null'
                         description: The list of options for a personalization question. For 'dropdown' questions, this list contains the options for the dropdown. For 'labeled_upload' questions, this list contains the labels for the files that the buyer may upload, and must match the max_allowed_files value..
-                        nullable: true
                         items:
                           type: object
                           properties:
                             option_id:
-                              type: integer
+                              type:
+                              - integer
+                              - 'null'
                               description: 'The ID of the option. This field is optional. Include it when updating an existing option; omit it when creating a new option. Note: This value may change if the option or question is updated.'
                               format: int64
-                              nullable: true
                               minimum: 1
                             label:
                               type: string
@@ -343,7 +362,10 @@ paths:
   /v3/application/listings/{listing_id}/personalization:
     get:
       operationId: getListingPersonalization
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a listing''s personalization questions by listing ID.'
@@ -436,30 +458,24 @@ paths:
       summary: Etsy Get Listing Personalization
 components:
   schemas:
-    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
-      type: object
-      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
-      properties:
-        personalization_questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
     Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion:
       type: object
       x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
       properties:
         question_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         question_text:
           type: string
           example: example string
         instructions:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example string
         question_type:
           type: string
@@ -468,23 +484,27 @@ components:
           type: boolean
           example: true
         max_allowed_characters:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           example: 1
         max_allowed_files:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           example: 1
         options:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           items:
             type: object
             properties:
               option_id:
-                type: integer
+                type:
+                - integer
+                - 'null'
                 format: int64
-                nullable: true
                 minimum: 1
                 example: 1
               label:
@@ -493,6 +513,14 @@ components:
             required:
             - option_id
             - label
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
+      type: object
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
+      properties:
+        personalization_questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema

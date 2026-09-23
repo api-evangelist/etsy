@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Ledger Entry API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Ledger Entry API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/payment-account/ledger-entries/{ledger_entry_id}:
     get:
       operationId: getShopPaymentAccountLedgerEntry
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Get a single Shop Payment Account Ledger''s Entry'
@@ -132,7 +141,10 @@ paths:
   /v3/application/shops/{shop_id}/payment-account/ledger-entries:
     get:
       operationId: getShopPaymentAccountLedgerEntries
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Get a Shop Payment Account Ledger''s Entries'
@@ -261,15 +273,23 @@ paths:
       summary: Etsy Get Shop Payment Account Ledger Entries
 components:
   schemas:
-    ErrorSchema:
+    PaymentAccountLedgerEntries:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: PaymentAccountLedgerEntries
+      description: A set of PaymentAccountLedgerEntry resources
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of PaymentAccountLedgerEntry resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The PaymentAccountLedgerEntry resources found.
+          items:
+            description: The PaymentAccountLedgerEntry resources found.
+            oneOf:
+            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
     PaymentAccountLedgerEntry:
       type: object
       x-resource-id: PaymentAccountLedgerEntry
@@ -326,9 +346,10 @@ components:
           description: The object type the ledger entry refers to.
           example: example string
         reference_id:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The object id the ledger entry refers to.
-          nullable: true
           example: example string
         parent_entry_id:
           type: integer
@@ -360,9 +381,10 @@ components:
           minimum: 1
           example: 1
         adjustment_type:
-          type: string
+          type:
+          - string
+          - 'null'
           description: String indicating the type of adjustment for this line item.
-          nullable: true
           example: example string
         amount:
           type: integer
@@ -375,17 +397,19 @@ components:
           default: 0
           example: 2500
         transaction_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The unique numeric ID for a transaction.
           format: int64
-          nullable: true
           minimum: 1
           example: 345678901
         bill_payment_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Unique ID for the bill payment adjustment.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         created_timestamp:
@@ -434,27 +458,31 @@ components:
           description: A human-readable string describing the reason for the refund.
           example: example string
         total_adjustment_amount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The total numeric amount of the refund in the payment currency.
-          nullable: true
           minimum: 0
           example: 2500
         shop_total_adjustment_amount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric amount of the refund in the shop currency.
-          nullable: true
           minimum: 0
           example: 2500
         buyer_total_adjustment_amount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric amount of the refund in the buyer currency.
-          nullable: true
           minimum: 0
           example: 2500
         total_fee_adjustment_amount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric amount of card processing fees associated with a payment adjustment.
-          nullable: true
           minimum: 0
           example: 2500
         create_timestamp:
@@ -484,23 +512,15 @@ components:
             description: List of payment adjustment line items.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustmentItem'
-    PaymentAccountLedgerEntries:
+    ErrorSchema:
       type: object
-      x-resource-id: PaymentAccountLedgerEntries
-      description: A set of PaymentAccountLedgerEntry resources
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of PaymentAccountLedgerEntry resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The PaymentAccountLedgerEntry resources found.
-          items:
-            description: The PaymentAccountLedgerEntry resources found.
-            oneOf:
-            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy ShopListing Translation API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 ShopListing Translation API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/translations/{language}:
     post:
       operationId: createListingTranslation
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Creates a ListingTranslation by listing_id and language'
@@ -171,7 +180,10 @@ paths:
       summary: Etsy Create Listing Translation
     get:
       operationId: getListingTranslation
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Get a Translation for a Listing in the given language'
@@ -266,7 +278,10 @@ paths:
       summary: Etsy Get Listing Translation
     put:
       operationId: updateListingTranslation
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates a ListingTranslation by listing_id and language'
@@ -418,15 +433,6 @@ paths:
       summary: Etsy Update Listing Translation
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingTranslation:
       type: object
       x-resource-id: ListingTranslation
@@ -443,20 +449,31 @@ components:
           description: The IETF language tag (e.g. 'fr') for the language of this translation.
           example: en-US
         title:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The title of the Listing of this Translation.
-          nullable: true
           example: Handmade Ceramic Mug — Stoneware
         description:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The description of the Listing of this Translation.
-          nullable: true
           example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
         tags:
           type: array
           description: The tags of the Listing of this Translation.
           items:
             type: string
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

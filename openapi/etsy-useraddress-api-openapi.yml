@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy UserAddress API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 User Address API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/user/addresses/{user_address_id}:
     delete:
       operationId: deleteUserAddress
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 endpoint to delete a UserAddress for a User.'
@@ -85,7 +94,10 @@ paths:
       summary: Etsy Delete User Address
     get:
       operationId: getUserAddress
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 endpoint to retrieve a UserAddress for a User.'
@@ -184,7 +196,10 @@ paths:
   /v3/application/user/addresses:
     get:
       operationId: getUserAddresses
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 endpoint to retrieve UserAddresses for a User.'
@@ -273,15 +288,23 @@ paths:
       summary: Etsy Get User Addresses
 components:
   schemas:
-    ErrorSchema:
+    UserAddresses:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: UserAddresses
+      description: Represents several UserAddress records.
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of UserAddress records being returned.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: An array of UserAddress resources.
+          items:
+            description: An array of UserAddress resources.
+            oneOf:
+            - $ref: '#/components/schemas/UserAddress'
     UserAddress:
       type: object
       x-resource-id: UserAddress
@@ -308,55 +331,52 @@ components:
           description: The first line of the user's address.
           example: 123 Main St
         second_line:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The second line of the user's address.
-          nullable: true
           example: Apt 4B
         city:
           type: string
           description: The city field of the user's address.
           example: Brooklyn
         state:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The state field of the user's address.
-          nullable: true
           example: example string
         zip:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The zip code field of the user's address.
-          nullable: true
           example: '11201'
         iso_country_code:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The ISO code of the country in this address.
-          nullable: true
           example: US
         country_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The name of the user's country.
-          nullable: true
           example: US
         is_default_shipping_address:
           type: boolean
           description: Is this the user's default shipping address.
           example: true
-    UserAddresses:
+    ErrorSchema:
       type: object
-      x-resource-id: UserAddresses
-      description: Represents several UserAddress records.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of UserAddress records being returned.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: An array of UserAddress resources.
-          items:
-            description: An array of UserAddress resources.
-            oneOf:
-            - $ref: '#/components/schemas/UserAddress'
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy ShopListing File API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 ShopListing File API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/files/{listing_file_id}:
     delete:
       operationId: deleteListingFile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Deletes a file from a specific listing. When you delete the final file for a digital listing, the listing converts into a physical listing. The response to a delete request returns a list of the remaining file records associated with the given listing.'
@@ -141,7 +150,10 @@ paths:
       summary: Etsy Delete Listing File
     get:
       operationId: getListingFile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a single file associated with the given digital listing. Requesting a file from a physical listing returns an empty result.'
@@ -270,7 +282,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/files:
     get:
       operationId: getAllListingFiles
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves all the files associated with the given digital listing. Requesting files from a physical listing returns an empty result.'
@@ -370,7 +385,10 @@ paths:
       summary: Etsy Get All Listing Files
     post:
       operationId: uploadListingFile
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Uploads a new file for a digital listing, or associates an existing file with a specific listing. You must either provide the `listing_file_id` of an existing file, or the name and binary file data for a file to upload. Associating an existing file to a physical listing converts the physical listing into a digital listing, which removes all shipping costs and any product and inventory variations.'
@@ -409,10 +427,11 @@ paths:
                   format: int64
                   minimum: 1
                 file:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   description: A binary file to upload.
                   format: binary
-                  nullable: true
                 name:
                   type: string
                   description: The file name string of a file to upload
@@ -513,15 +532,23 @@ paths:
       summary: Etsy Upload Listing File
 components:
   schemas:
-    ErrorSchema:
+    ShopListingFiles:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: ShopListingFiles
+      description: Represents several ShopListingFiles.
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of ShopListingFiles being returned..
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: An array of ShopListingFile resources.
+          items:
+            description: An array of ShopListingFile resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopListingFile'
     ShopListingFile:
       type: object
       x-resource-id: ShopListingFile
@@ -571,23 +598,15 @@ components:
           description: The unique numeric ID of a file associated with a digital listing.
           minimum: 946684800
           example: 1758153645
-    ShopListingFiles:
+    ErrorSchema:
       type: object
-      x-resource-id: ShopListingFiles
-      description: Represents several ShopListingFiles.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of ShopListingFiles being returned..
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: An array of ShopListingFile resources.
-          items:
-            description: An array of ShopListingFile resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopListingFile'
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

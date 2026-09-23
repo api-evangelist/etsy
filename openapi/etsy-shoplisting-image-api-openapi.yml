@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy ShopListing Image API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 ShopListing Image API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/images/{listing_image_id}:
     delete:
       operationId: deleteListingImage
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 endpoint to delete a listing image. A copy of the file remains on our servers, and so a deleted image may be re-associated with the listing without re-uploading the original image; see uploadListingImage.'
@@ -130,7 +139,10 @@ paths:
   /v3/application/listings/{listing_id}/images/{listing_image_id}:
     get:
       operationId: getListingImage
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the references and metadata for a listing image with a specific image ID.'
@@ -244,7 +256,10 @@ paths:
   /v3/application/listings/{listing_id}/images:
     get:
       operationId: getListingImages
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves all listing image resources for a listing with a specific listing ID.'
@@ -331,7 +346,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/images:
     post:
       operationId: uploadListingImage
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Uploads or assigns an image to a listing identified by a shop ID with a listing ID. To upload a new image, set the image file as the value for the `image` parameter. You can assign a previously deleted image to a listing using the deleted image''s image ID in the `listing_image_id` parameter. When a request contains both `image` and `listing_image_id` parameter values, the endpoint uploads the image in the `image` parameter only. Note: When uploading a new image, data such as colors and size may return as null values due to asynchronous processing of the image. Use getListingImage endpoint to fetch these values.'
@@ -365,10 +383,11 @@ paths:
               type: object
               properties:
                 image:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   description: The file name string of a file to upload
                   format: binary
-                  nullable: true
                 listing_image_id:
                   type: integer
                   description: The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
@@ -505,15 +524,6 @@ paths:
       summary: Etsy Upload Listing Image
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingImage:
       type: object
       x-resource-id: ListingImage
@@ -532,50 +542,58 @@ components:
           minimum: 1
           example: 1
         hex_code:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The webhex string for the image's average color, in webhex notation.
-          nullable: true
           example: example string
         red:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric red value equal to the image's average red value, from 0-255 (RGB color).
-          nullable: true
           minimum: 0
           example: 1
         green:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric red value equal to the image's average red value, from 0-255 (RGB color).
-          nullable: true
           minimum: 0
           example: 1
         blue:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric red value equal to the image's average red value, from 0-255 (RGB color).
-          nullable: true
           minimum: 0
           example: 1
         hue:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric hue equal to the image's average hue, from 0-360 (HSV color).
-          nullable: true
           minimum: 0
           example: 1
         saturation:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric saturation equal to the image's average saturation, from 0-100 (HSV color).
-          nullable: true
           minimum: 0
           example: 1
         brightness:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric brightness equal to the image's average brightness, from 0-100 (HSV color).
-          nullable: true
           minimum: 0
           example: 1
         is_black_and_white:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: When true, the image is in black & white.
-          nullable: true
           example: true
         creation_tsz:
           type: integer
@@ -609,21 +627,33 @@ components:
           description: The url string for the full-size image, up to 3000 pixels in each dimension.
           example: https://www.etsy.com/listing/123456789
         full_height:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric height, measured in pixels, of the full-sized image referenced in url_fullxfull.
-          nullable: true
           minimum: 0
           example: 1
         full_width:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric width, measured in pixels, of the full-sized image referenced in url_fullxfull.
-          nullable: true
           minimum: 0
           example: 1
         alt_text:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Alt text for the listing image. Max length 500 characters.
-          nullable: true
+          example: example string
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
           example: example string
     ListingImages:
       type: object

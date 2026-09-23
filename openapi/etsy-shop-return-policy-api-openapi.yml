@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Shop Return Policy API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Shop Return Policy API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/policies/return/consolidate:
     post:
       operationId: consolidateShopReturnPolicies
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Consolidates Return Policies by moving all listings from a source return policy to a destination return policy, and deleting the source return policy. This is commonly used in the event that a user attempts to update a Return Policy such that its data is a duplicate of some other Return Policy, which is prevented.'
@@ -150,7 +159,10 @@ paths:
   /v3/application/shops/{shop_id}/policies/return:
     post:
       operationId: createShopReturnPolicy
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Creates a new Return Policy. Note: if either accepts_returns or accepts_exchanges is true, then a return_deadline is required.'
@@ -181,9 +193,10 @@ paths:
                 accepts_exchanges:
                   type: boolean
                 return_deadline:
-                  type: integer
+                  type:
+                  - integer
+                  - 'null'
                   description: 'The deadline for the Return Policy, measured in days. The value must be one of the following: [7, 14, 21, 30, 45, 60, 90].'
-                  nullable: true
             examples:
               CreateShopReturnPolicyRequestExample:
                 summary: Default createShopReturnPolicy request
@@ -267,7 +280,10 @@ paths:
       summary: Etsy Create Shop Return Policy
     get:
       operationId: getShopReturnPolicies
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Returns a shop''s list of existing Return Policies'
@@ -358,7 +374,10 @@ paths:
   /v3/application/shops/{shop_id}/policies/return/{return_policy_id}:
     delete:
       operationId: deleteShopReturnPolicy
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Deletes an existing Return Policy. Deletion is only allowed for policies which have no associated listings – move them to another policy before attempting deletion.'
@@ -446,7 +465,10 @@ paths:
       summary: Etsy Delete Shop Return Policy
     get:
       operationId: getShopReturnPolicy
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves an existing Return Policy.'
@@ -544,7 +566,10 @@ paths:
       summary: Etsy Get Shop Return Policy
     put:
       operationId: updateShopReturnPolicy
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates an existing Return Policy. Note: if either accepts_returns or accepts_exchanges is true, then a return_deadline is required.'
@@ -585,9 +610,10 @@ paths:
                 accepts_exchanges:
                   type: boolean
                 return_deadline:
-                  type: integer
+                  type:
+                  - integer
+                  - 'null'
                   description: 'The deadline for the Return Policy, measured in days. The value must be one of the following: [7, 14, 21, 30, 45, 60, 90].'
-                  nullable: true
             examples:
               UpdateShopReturnPolicyRequestExample:
                 summary: Default updateShopReturnPolicy request
@@ -695,28 +721,6 @@ paths:
       summary: Etsy Update Shop Return Policy
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
-    ShopReturnPolicies:
-      type: object
-      x-resource-id: ShopReturnPolicies
-      description: Represents a shop's listing-level return policies list.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopReturnPolicy'
     ShopReturnPolicy:
       type: object
       x-resource-id: ShopReturnPolicy
@@ -743,10 +747,33 @@ components:
           description: return_policy_accepts_exchanges
           example: true
         return_deadline:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'The deadline for the Return Policy, measured in days. The value must be one of the following: [7, 14, 21, 30, 45, 60, 90].'
-          nullable: true
           example: 1
+    ShopReturnPolicies:
+      type: object
+      x-resource-id: ShopReturnPolicies
+      description: Represents a shop's listing-level return policies list.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopReturnPolicy'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

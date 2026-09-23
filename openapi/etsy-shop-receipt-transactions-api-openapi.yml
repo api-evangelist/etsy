@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Shop Receipt Transactions API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Shop Receipt Transactions API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}/listings/{listing_id}/transactions:
     get:
       operationId: getShopReceiptTransactionsByListing
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the list of transactions associated with a listing.'
@@ -161,7 +170,10 @@ paths:
   /v3/application/shops/{shop_id}/receipts/{receipt_id}/transactions:
     get:
       operationId: getShopReceiptTransactionsByReceipt
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the list of transactions associated with a specific receipt.'
@@ -282,7 +294,10 @@ paths:
   /v3/application/shops/{shop_id}/transactions/{transaction_id}:
     get:
       operationId: getShopReceiptTransaction
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves a transaction by transaction ID.'
@@ -424,7 +439,10 @@ paths:
   /v3/application/shops/{shop_id}/transactions:
     get:
       operationId: getShopReceiptTransactionsByShop
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the list of transactions associated with a shop.'
@@ -543,15 +561,51 @@ paths:
       summary: Etsy Get Shop Receipt Transactions by Shop
 components:
   schemas:
-    ErrorSchema:
+    ShopReceiptTransactions:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: ShopReceiptTransactions
+      description: A set of ShopReceiptTransaction resources
       properties:
-        error:
+        count:
+          type: integer
+          description: The number of ShopReceiptTransaction resources found.
+          example: 1
+        results:
+          type: array
+          description: The ShopReceiptTransaction resources found.
+          items:
+            description: The ShopReceiptTransaction resources found.
+            oneOf:
+            - $ref: '#/components/schemas/ShopReceiptTransaction'
+    TransactionVariations:
+      type: object
+      x-resource-id: TransactionVariations
+      description: A list of variations chosen by the buyer during checkout.
+      properties:
+        property_id:
+          type: integer
+          description: The variation property ID.
+          example: 1
+        value_id:
+          type:
+          - integer
+          - 'null'
+          description: The ID of the variation value selected.
+          example: 1
+        formatted_name:
           type: string
+          description: Formatted name of the variation.
+          example: Handmade Ceramic Mug
+        formatted_value:
+          type: string
+          description: Value of the variation entered by the buyer.
           example: example string
+        question_id:
+          type:
+          - integer
+          - 'null'
+          description: '[Personalization only] The ID of the original personalization question.'
+          example: 1
     ShopReceiptTransaction:
       type: object
       x-resource-id: ShopReceiptTransaction
@@ -564,14 +618,16 @@ components:
           minimum: 1
           example: 345678901
         title:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The title string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.
-          nullable: true
           example: Handmade Ceramic Mug — Stoneware
         description:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The description string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.
-          nullable: true
           example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
         seller_user_id:
           type: integer
@@ -596,15 +652,17 @@ components:
           minimum: 946684800
           example: 1758153645
         paid_timestamp:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The transaction's paid date and time, in epoch seconds.
-          nullable: true
           minimum: 946684800
           example: 1758153645
         shipped_timestamp:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The transaction's shipping date and time, in epoch seconds.
-          nullable: true
           minimum: 946684800
           example: 1758153645
         quantity:
@@ -613,10 +671,11 @@ components:
           minimum: 0
           example: 1
         listing_image_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         receipt_id:
@@ -634,9 +693,10 @@ components:
           description: A string describing the files purchased in this transaction.
           example: example string
         listing_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-          nullable: true
           minimum: 0
           example: 123456789
         transaction_type:
@@ -644,16 +704,18 @@ components:
           description: The type string for the transaction, usually "listing".
           example: example string
         product_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
           format: int64
-          nullable: true
           minimum: 1
           example: 567890123
         sku:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The SKU string for the product
-          nullable: true
           example: SKU-12345
         price:
           description: A money object representing the price recorded the transaction.
@@ -680,38 +742,44 @@ components:
             oneOf:
             - $ref: '#/components/schemas/ListingPropertyValue'
         shipping_profile_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The ID of the shipping profile selected for this listing.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         min_processing_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The minimum number of days for processing the listing.
-          nullable: true
           minimum: 0
           example: 1
         max_processing_days:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The maximum number of days for processing the listing.
-          nullable: true
           minimum: 0
           example: 1
         shipping_method:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Name of the selected shipping method.
-          nullable: true
           example: example string
         shipping_upgrade:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The name of the shipping upgrade selected for this listing. Default value is null.
-          nullable: true
           example: example string
         expected_ship_date:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The date & time of the expected ship date, in epoch seconds.
-          nullable: true
           minimum: 946684800
           example: 1
         buyer_coupon:
@@ -738,21 +806,24 @@ components:
           minimum: 1
           example: 1
         property_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The name of the Property.
-          nullable: true
           example: Handmade Ceramic Mug
         scale_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the scale (if any).
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         scale_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The label used to describe the chosen scale (if any).
-          nullable: true
           example: Handmade Ceramic Mug
         value_ids:
           type: array
@@ -766,22 +837,6 @@ components:
           description: The Property values
           items:
             type: string
-    ShopReceiptTransactions:
-      type: object
-      x-resource-id: ShopReceiptTransactions
-      description: A set of ShopReceiptTransaction resources
-      properties:
-        count:
-          type: integer
-          description: The number of ShopReceiptTransaction resources found.
-          example: 1
-        results:
-          type: array
-          description: The ShopReceiptTransaction resources found.
-          items:
-            description: The ShopReceiptTransaction resources found.
-            oneOf:
-            - $ref: '#/components/schemas/ShopReceiptTransaction'
     Money:
       type: object
       x-resource-id: Money
@@ -800,33 +855,15 @@ components:
           type: string
           description: The ISO currency code for this data.
           example: USD
-    TransactionVariations:
+    ErrorSchema:
       type: object
-      x-resource-id: TransactionVariations
-      description: A list of variations chosen by the buyer during checkout.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        property_id:
-          type: integer
-          description: The variation property ID.
-          example: 1
-        value_id:
-          type: integer
-          description: The ID of the variation value selected.
-          nullable: true
-          example: 1
-        formatted_name:
+        error:
           type: string
-          description: Formatted name of the variation.
-          example: Handmade Ceramic Mug
-        formatted_value:
-          type: string
-          description: Value of the variation entered by the buyer.
           example: example string
-        question_id:
-          type: integer
-          description: '[Personalization only] The ID of the original personalization question.'
-          nullable: true
-          example: 1
   securitySchemes:
     api_key:
       type: apiKey

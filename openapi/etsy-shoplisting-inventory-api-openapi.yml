@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy ShopListing Inventory API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 ShopListing Inventory API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/listings/{listing_id}/inventory:
     get:
       operationId: getListingInventory
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the inventory record for a listing. Listings you did not edit using the Etsy.com inventory tools have no inventory records. This endpoint returns SKU data if you are the owner of the inventory records being fetched.'
@@ -155,7 +164,10 @@ paths:
       summary: Etsy Get Listing Inventory
     put:
       operationId: updateListingInventory
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates the inventory for a listing identified by a listing ID. The update fails if the supplied values for product sku, offering quantity, price, and/or processing profile are incompatible with values in `*_on_property` fields. When setting a price, assign a float equal to amount divided by divisor as specified in the Money resource.'
@@ -206,9 +218,10 @@ paths:
                     type: object
                     properties:
                       sku:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: The SKU string for the product
-                        nullable: true
                       property_values:
                         type: array
                         description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
@@ -228,10 +241,11 @@ paths:
                                 format: int64
                                 minimum: 1
                             scale_id:
-                              type: integer
+                              type:
+                              - integer
+                              - 'null'
                               description: The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three `scale_id`s available - `UK`, `US/Canada`, and `EU`, where `US/Canada` has `scale_id` 19.
                               format: int64
-                              nullable: true
                               minimum: 1
                             property_name:
                               type: string
@@ -262,10 +276,11 @@ paths:
                               type: boolean
                               description: True if the offering is shown to buyers
                             readiness_state_id:
-                              type: integer
+                              type:
+                              - integer
+                              - 'null'
                               description: The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `physical`, and the endpoint is either shop-scoped (path contains `shop_id`) or a single-listing request such as `getListing`. For every other case this field can be null.
                               format: int64
-                              nullable: true
                               minimum: 1
                           required:
                           - price
@@ -290,9 +305,10 @@ paths:
                   items:
                     type: integer
                 readiness_state_on_property:
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
-                  nullable: true
                   items:
                     type: integer
                     format: int64
@@ -417,54 +433,6 @@ paths:
       summary: Etsy Update Listing Inventory
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
-    ListingInventoryWithAssociations:
-      type: object
-      x-resource-id: ListingInventoryWithAssociations
-      description: A representation of a single listing's inventory record with associations
-      properties:
-        products:
-          type: array
-          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-          items:
-            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProduct'
-        price_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
-          items:
-            type: integer
-        quantity_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        sku_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        readiness_state_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        listing:
-          description: An enumerated string that attaches a valid association. Default value is null.
-          oneOf:
-          - $ref: '#/components/schemas/ShopListing'
-          example: example
     ListingPropertyValue:
       type: object
       x-resource-id: ListingPropertyValue
@@ -477,21 +445,24 @@ components:
           minimum: 1
           example: 1
         property_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The name of the Property.
-          nullable: true
           example: Handmade Ceramic Mug
         scale_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the scale (if any).
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         scale_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The label used to describe the chosen scale (if any).
-          nullable: true
           example: Handmade Ceramic Mug
         value_ids:
           type: array
@@ -610,9 +581,10 @@ components:
           minimum: 946684800
           example: 1758153645
         state_timestamp:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The date and time of the last state change of this listing.
-          nullable: true
           minimum: 946684800
           example: 1758153645
         quantity:
@@ -621,10 +593,11 @@ components:
           minimum: 0
           example: 1
         shop_section_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of a section in a specific Etsy shop.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         featured_rank:
@@ -675,44 +648,50 @@ components:
           items:
             type: string
         shipping_profile_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         return_policy_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies).
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         processing_min:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The minimum number of days required to process this listing. Default value is null.
-          nullable: true
           minimum: 0
           example: 1
         processing_max:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The maximum number of days required to process this listing. Default value is null.
-          nullable: true
           minimum: 0
           example: 1
         who_made:
-          type: string
+          type:
+          - string
+          - 'null'
           description: An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires 'is_supply' and 'when_made'.
-          nullable: true
           enum:
           - i_did
           - someone_else
           - collective
           example: i_did
         when_made:
-          type: string
+          type:
+          - string
+          - 'null'
           description: An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires 'is_supply' and 'who_made'.
-          nullable: true
           enum:
           - made_to_order
           - '2020_2026'
@@ -735,20 +714,23 @@ components:
           - before_1700
           example: made_to_order
         is_supply:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: When true, tags the listing as a supply product, else indicates that it's a finished product. Helps buyers locate the listing under the Supplies heading. Requires 'who_made' and 'when_made'.
-          nullable: true
           example: true
         item_weight:
-          type: number
+          type:
+          - number
+          - 'null'
           description: The numeric weight of the product measured in units set in 'item_weight_unit'. Default value is null. If set, the value must be greater than 0.
           format: float
-          nullable: true
           example: 0.5
         item_weight_unit:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A string defining the units used to measure the weight of the product. Default value is null.
-          nullable: true
           enum:
           - oz
           - lb
@@ -756,27 +738,31 @@ components:
           - kg
           example: oz
         item_length:
-          type: number
+          type:
+          - number
+          - 'null'
           description: The numeric length of the product measured in units set in 'item_dimensions_unit'. Default value is null. If set, the value must be greater than 0.
           format: float
-          nullable: true
           example: 1.0
         item_width:
-          type: number
+          type:
+          - number
+          - 'null'
           description: The numeric width of the product measured in units set in 'item_dimensions_unit'. Default value is null. If set, the value must be greater than 0.
           format: float
-          nullable: true
           example: 1.0
         item_height:
-          type: number
+          type:
+          - number
+          - 'null'
           description: The numeric length of the product measured in units set in 'item_dimensions_unit'. Default value is null. If set, the value must be greater than 0.
           format: float
-          nullable: true
           example: 1.0
         item_dimensions_unit:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A string defining the units used to measure the dimensions of the product. Default value is null.
-          nullable: true
           enum:
           - in
           - ft
@@ -796,9 +782,10 @@ components:
           items:
             type: string
         file_data:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A string describing the files attached to a digital listing.
-          nullable: true
           example: example string
         has_variations:
           type: boolean
@@ -809,9 +796,10 @@ components:
           description: When true, renews a listing for four months upon expiration.
           example: true
         language:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'The IETF language tag for the default language of the listing. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`, `ru`.'
-          nullable: true
           example: en-US
         price:
           description: 'The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.'
@@ -822,25 +810,130 @@ components:
           description: The listing price converted to the currency requested via the currency parameter. Only present when the currency parameter is provided. Null if the conversion rate is unavailable.
           oneOf:
           - $ref: '#/components/schemas/Money'
-          nullable: true
           example: example
         taxonomy_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
-          nullable: true
           example: 1234
         readiness_state_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The numeric ID of the [processing profile](/documentation/reference#operation/getShopReadinessStateDefinition) associated with the listing. Returned only when the listing is `active` and of type `physical`, and the endpoint is either shop-scoped (path contains `shop_id`) or a single-listing request such as `getListing`. For every other case this field can be null.
           format: int64
-          nullable: true
           minimum: 1
           example: 1
         suggested_title:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A title string suggested by Etsy. Only available for a user's own listings, when allow_suggested_title param is present, and when a shop's language setting is English. Not all listings will have suggestions.
-          nullable: true
           example: Handmade Ceramic Mug — Stoneware
+    ListingInventoryProductOffering:
+      type: object
+      x-resource-id: ListingInventoryProductOffering
+      description: A representation of an offering for a listing.
+      properties:
+        offering_id:
+          type: integer
+          description: The ID for the ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+        quantity:
+          type: integer
+          description: The quantity the ProductOffering
+          minimum: 0
+          example: 1
+        is_enabled:
+          type: boolean
+          description: Whether or not the offering can be shown to buyers.
+          example: true
+        is_deleted:
+          type: boolean
+          description: Whether or not the offering has been deleted.
+          example: true
+        price:
+          description: Price data for this ProductOffering
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        readiness_state_id:
+          type:
+          - integer
+          - 'null'
+          description: Processing Profile for this ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
+    ListingInventoryWithAssociations:
+      type: object
+      x-resource-id: ListingInventoryWithAssociations
+      description: A representation of a single listing's inventory record with associations
+      properties:
+        products:
+          type: array
+          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+          items:
+            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProduct'
+        price_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
+          items:
+            type: integer
+        quantity_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        sku_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        readiness_state_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        listing:
+          description: An enumerated string that attaches a valid association. Default value is null.
+          oneOf:
+          - $ref: '#/components/schemas/ShopListing'
+          example: example
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ListingInventory:
       type: object
       x-resource-id: ListingInventory
@@ -875,60 +968,6 @@ components:
             type: integer
             format: int64
             minimum: 1
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
-    ListingInventoryProductOffering:
-      type: object
-      x-resource-id: ListingInventoryProductOffering
-      description: A representation of an offering for a listing.
-      properties:
-        offering_id:
-          type: integer
-          description: The ID for the ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
-        quantity:
-          type: integer
-          description: The quantity the ProductOffering
-          minimum: 0
-          example: 1
-        is_enabled:
-          type: boolean
-          description: Whether or not the offering can be shown to buyers.
-          example: true
-        is_deleted:
-          type: boolean
-          description: Whether or not the offering has been deleted.
-          example: true
-        price:
-          description: Price data for this ProductOffering
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        readiness_state_id:
-          type: integer
-          description: Processing Profile for this ProductOffering
-          format: int64
-          nullable: true
-          minimum: 1
-          example: 1
   securitySchemes:
     api_key:
       type: apiKey

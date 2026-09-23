@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy User API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 User API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,10 +25,13 @@ paths:
   /v3/application/users/{user_id}:
     get:
       operationId: getUser
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
 
 
-        Retrieves a user profile based on a unique user ID.                 Access is limited to profiles of the authenticated user                 or linked buyers. For the primary_email field, specific                 app-based permissions are required and granted case-by-case.'
+        This endpoint is ready for production use.
+
+
+        Retrieves a user profile based on a unique user ID. Access is limited to profiles of the authenticated user or linked buyers. For the primary_email field, specific app-based permissions are required and granted case-by-case.'
       tags:
       - User
       parameters:
@@ -111,7 +120,10 @@ paths:
   /v3/application/users/me:
     get:
       operationId: getMe
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Returns basic info for the user making the request.'
@@ -190,6 +202,23 @@ paths:
       summary: Etsy Get Me
 components:
   schemas:
+    Self:
+      type: object
+      x-resource-id: Self
+      description: Represents a single user of the site
+      properties:
+        user_id:
+          type: integer
+          description: The numeric ID of a user. This number is also a valid shop ID for the user's shop.
+          format: int64
+          minimum: 1
+          example: 456789
+        shop_id:
+          type: integer
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          format: int64
+          minimum: 1
+          example: 123456
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema
@@ -211,43 +240,30 @@ components:
           minimum: 1
           example: 456789
         primary_email:
-          type: string
+          type:
+          - string
+          - 'null'
           description: An email address string for the user's primary email address. Access to this field is granted on a case by case basis for third-party integrations that require full access
           format: email
-          nullable: true
           example: seller@example.com
         first_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The user's first name.
-          nullable: true
           example: Handmade Ceramic Mug
         last_name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The user's last name.
-          nullable: true
           example: Handmade Ceramic Mug
         image_url_75x75:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The user's avatar URL.
-          nullable: true
           example: https://www.etsy.com/listing/123456789
-    Self:
-      type: object
-      x-resource-id: Self
-      description: Represents a single user of the site
-      properties:
-        user_id:
-          type: integer
-          description: The numeric ID of a user. This number is also a valid shop ID for the user's shop.
-          format: int64
-          minimum: 1
-          example: 456789
-        shop_id:
-          type: integer
-          description: The unique positive non-zero numeric ID for an Etsy Shop.
-          format: int64
-          minimum: 1
-          example: 123456
   securitySchemes:
     api_key:
       type: apiKey

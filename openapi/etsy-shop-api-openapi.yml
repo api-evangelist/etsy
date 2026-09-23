@@ -1,7 +1,13 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Etsy Open API v3 BuyerTaxonomy Shop API
-  description: <div class="wt-text-body-01"><p class="wt-pt-xs-2 wt-pb-xs-2">Etsy's Open API provides a simple RESTful interface for various Etsy.com features.</p><p class="wt-pb-xs-2">If you'd like to report an issue or provide feedback on the API design, <a target="_blank" class="wt-text-link wt-p-xs-0" href="https://github.com/etsy/open-api/discussions">please add an issue in Github</a>.</p></div>&copy; 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+  title: Etsy Open API v3 Shop API
+  description: 'Etsy''s Open API provides a simple RESTful interface for various Etsy.com features.
+
+
+    If you''d like to report an issue or provide feedback on the API design, please add an issue in Github.
+
+
+    © 2021-2026 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy''s API Developer Terms of Use.'
   termsOfService: https://www.etsy.com/legal/api
   contact:
     email: developers@etsy.com
@@ -19,7 +25,10 @@ paths:
   /v3/application/shops/{shop_id}:
     get:
       operationId: getShop
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the shop identified by a specific shop ID.'
@@ -138,7 +147,10 @@ paths:
       summary: Etsy Get Shop
     put:
       operationId: updateShop
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Updates a shop. Assumes that all string parameters are provided in the shop''s primary language. Please note that the policy_additional field should only be set for shops located in the EU. Passing a value for this field for shops outside of the EU, will result in an error.'
@@ -318,7 +330,10 @@ paths:
   /v3/application/users/{user_id}/shops:
     get:
       operationId: getShopByOwnerUserId
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Retrieves the shop identified by the shop owner''s user ID.'
@@ -450,7 +465,10 @@ paths:
   /v3/application/shops:
     get:
       operationId: findShops
-      description: '<div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notificationPrimary wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/discussions" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+      description: 'General ReleaseReport bug
+
+
+        This endpoint is ready for production use.
 
 
         Open API V3 endpoint for searching shops by name. Note: We make every effort to ensure that frozen or removed shops are not included in the search results. However, rarely, due to timing issues, they may appear.'
@@ -519,15 +537,6 @@ paths:
       summary: Etsy Find Shops
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     Shop:
       type: object
       x-resource-id: Shop
@@ -560,14 +569,16 @@ components:
           minimum: 0
           example: 1758153645
         title:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A brief heading string for the shop's main page.
-          nullable: true
           example: Handmade Ceramic Mug — Stoneware
         announcement:
-          type: string
+          type:
+          - string
+          - 'null'
           description: An announcement string to buyers that displays on the shop's homepage.
-          nullable: true
           example: example string
         currency_code:
           type: string
@@ -578,19 +589,22 @@ components:
           description: When true, this shop is not accepting purchases.
           example: true
         vacation_message:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's message string displayed when `is_vacation` is true.
-          nullable: true
           example: Thanks for your order! Shipping out tomorrow.
         sale_message:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A message string sent to users who complete a purchase from this shop.
-          nullable: true
           example: Thanks for your order! Shipping out tomorrow.
         digital_sale_message:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A message string sent to users who purchase a digital item from this shop.
-          nullable: true
           example: Thanks for your order! Shipping out tomorrow.
         update_date:
           type: integer
@@ -621,34 +635,40 @@ components:
           description: When true, the shop accepts customization requests.
           example: true
         policy_welcome:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's policy welcome string (may be blank).
-          nullable: true
           example: example string
         policy_payment:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's payment policy string (may be blank).
-          nullable: true
           example: example string
         policy_shipping:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's shipping policy string (may be blank).
-          nullable: true
           example: example string
         policy_refunds:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's refund policy string (may be blank).
-          nullable: true
           example: example string
         policy_additional:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's additional policies string (may be blank).
-          nullable: true
           example: example string
         policy_seller_info:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's seller information string (may be blank).
-          nullable: true
           example: example string
         policy_update_date:
           type: integer
@@ -664,23 +684,26 @@ components:
           description: When true, the shop displays additional unstructured policy fields.
           example: true
         policy_privacy:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's privacy policy string (may be blank).
-          nullable: true
           example: example string
         vacation_autoreply:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The shop's automatic reply string displayed in new conversations when `is_vacation` is true.
-          nullable: true
           example: example string
         url:
           type: string
           description: The URL string for this shop.
           example: https://www.etsy.com/listing/123456789
         image_url_760x100:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The URL string for this shop's banner image.
-          nullable: true
           example: https://www.etsy.com/listing/123456789
         num_favorers:
           type: integer
@@ -693,9 +716,10 @@ components:
           items:
             type: string
         icon_url_fullxfull:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The URL string for this shop's icon image.
-          nullable: true
           example: https://www.etsy.com/listing/123456789
         is_using_structured_policies:
           type: boolean
@@ -735,28 +759,41 @@ components:
           minimum: 0
           example: 1
         shipping_from_country_iso:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The country ISO the shop is shipping from.
           format: ISO 3166-1 alpha-2
-          nullable: true
           example: US
         shop_location_country_iso:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The country ISO where the shop is located.
           format: ISO 3166-1 alpha-2
-          nullable: true
           example: US
         review_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Number of reviews of shop listings in the past year.
-          nullable: true
           example: 1
         review_average:
-          type: number
+          type:
+          - number
+          - 'null'
           description: Average rating based on reviews of shop listings in the past year.
           format: float
-          nullable: true
           example: 1.0
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     Shops:
       type: object
       x-resource-id: Shops
