@@ -325,6 +325,15 @@ components:
           format: int64
           minimum: 1
           example: 1
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ListingVariationImages:
       type: object
       x-resource-id: ListingVariationImages
@@ -338,15 +347,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ListingVariationImage'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

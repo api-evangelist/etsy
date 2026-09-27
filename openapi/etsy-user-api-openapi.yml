@@ -219,15 +219,6 @@ components:
           format: int64
           minimum: 1
           example: 123456
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     User:
       type: object
       x-resource-id: User
@@ -264,6 +255,15 @@ components:
           - 'null'
           description: The user's avatar URL.
           example: https://www.etsy.com/listing/123456789
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

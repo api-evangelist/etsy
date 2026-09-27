@@ -146,42 +146,6 @@ paths:
       summary: Etsy Get Properties by Buyer Taxonomy Id
 components:
   schemas:
-    BuyerTaxonomyNodes:
-      type: object
-      x-resource-id: BuyerTaxonomyNodes
-      description: A list of taxonomy nodes from the buyer taxonomy tree.
-      properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/BuyerTaxonomyNode'
-    BuyerTaxonomyPropertyScale:
-      type: object
-      x-resource-id: BuyerTaxonomyPropertyScale
-      description: A scale defining the assignable increments for the property values available to specific product properties.
-      properties:
-        scale_id:
-          type: integer
-          description: The unique numeric ID of a scale.
-          format: int64
-          minimum: 1
-          example: 1
-        display_name:
-          type: string
-          description: The name string for a scale.
-          example: Handmade Ceramic Mug
-        description:
-          type: string
-          description: The description string for a scale.
-          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
     BuyerTaxonomyNodeProperties:
       type: object
       x-resource-id: BuyerTaxonomyNodeProperties
@@ -199,80 +163,6 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/BuyerTaxonomyNodeProperty'
-    BuyerTaxonomyPropertyValue:
-      type: object
-      x-resource-id: BuyerTaxonomyPropertyValue
-      description: A property value for a specific product property, which may also employ a specific scale.
-      properties:
-        value_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of this property value.
-          format: int64
-          minimum: 1
-          example: 1
-        name:
-          type: string
-          description: The name string of this property value.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric scale ID of the scale to which this property value belongs.
-          format: int64
-          minimum: 1
-          example: 1
-        equal_to:
-          type: array
-          description: A list of numeric property value IDs this property value is equal to (if any).
-          items:
-            type: integer
-            minimum: 0
-    BuyerTaxonomyNode:
-      type: object
-      x-resource-id: BuyerTaxonomyNode
-      description: A taxonomy node in the buyer taxonomy tree.
-      properties:
-        id:
-          type: integer
-          description: 'The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the "shoes" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than "girls'' shoes" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes "shoes" or "girls'' shoes" support access to the "EU" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:"1394", and `name`:"38".'
-          format: int64
-          minimum: 1
-          example: 1
-        level:
-          type: integer
-          description: The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.
-          minimum: 0
-          example: 1
-        name:
-          type: string
-          description: The name string for this taxonomy node.
-          example: Handmade Ceramic Mug
-        parent_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric taxonomy ID of the parent of this node.
-          format: int64
-          minimum: 1
-          default: null
-          example: 1
-        children:
-          type: array
-          description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
-          items:
-            description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
-            oneOf:
-            - $ref: '#/components/schemas/BuyerTaxonomyNode'
-        full_path_taxonomy_ids:
-          type: array
-          description: An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
     BuyerTaxonomyNodeProperty:
       type: object
       x-resource-id: BuyerTaxonomyNodeProperty
@@ -335,6 +225,80 @@ components:
             description: A list of property value strings automatically and always selected for the given property.
             oneOf:
             - $ref: '#/components/schemas/BuyerTaxonomyPropertyValue'
+    BuyerTaxonomyNode:
+      type: object
+      x-resource-id: BuyerTaxonomyNode
+      description: A taxonomy node in the buyer taxonomy tree.
+      properties:
+        id:
+          type: integer
+          description: 'The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the "shoes" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than "girls'' shoes" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes "shoes" or "girls'' shoes" support access to the "EU" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:"1394", and `name`:"38".'
+          format: int64
+          minimum: 1
+          example: 1
+        level:
+          type: integer
+          description: The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.
+          minimum: 0
+          example: 1
+        name:
+          type: string
+          description: The name string for this taxonomy node.
+          example: Handmade Ceramic Mug
+        parent_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric taxonomy ID of the parent of this node.
+          format: int64
+          minimum: 1
+          default: null
+          example: 1
+        children:
+          type: array
+          description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
+          items:
+            description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
+            oneOf:
+            - $ref: '#/components/schemas/BuyerTaxonomyNode'
+        full_path_taxonomy_ids:
+          type: array
+          description: An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+    BuyerTaxonomyPropertyValue:
+      type: object
+      x-resource-id: BuyerTaxonomyPropertyValue
+      description: A property value for a specific product property, which may also employ a specific scale.
+      properties:
+        value_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric ID of this property value.
+          format: int64
+          minimum: 1
+          example: 1
+        name:
+          type: string
+          description: The name string of this property value.
+          example: Handmade Ceramic Mug
+        scale_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric scale ID of the scale to which this property value belongs.
+          format: int64
+          minimum: 1
+          example: 1
+        equal_to:
+          type: array
+          description: A list of numeric property value IDs this property value is equal to (if any).
+          items:
+            type: integer
+            minimum: 0
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema
@@ -344,6 +308,42 @@ components:
         error:
           type: string
           example: example string
+    BuyerTaxonomyNodes:
+      type: object
+      x-resource-id: BuyerTaxonomyNodes
+      description: A list of taxonomy nodes from the buyer taxonomy tree.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/BuyerTaxonomyNode'
+    BuyerTaxonomyPropertyScale:
+      type: object
+      x-resource-id: BuyerTaxonomyPropertyScale
+      description: A scale defining the assignable increments for the property values available to specific product properties.
+      properties:
+        scale_id:
+          type: integer
+          description: The unique numeric ID of a scale.
+          format: int64
+          minimum: 1
+          example: 1
+        display_name:
+          type: string
+          description: The name string for a scale.
+          example: Handmade Ceramic Mug
+        description:
+          type: string
+          description: The description string for a scale.
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
   securitySchemes:
     api_key:
       type: apiKey

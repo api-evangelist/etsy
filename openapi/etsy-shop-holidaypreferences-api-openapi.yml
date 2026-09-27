@@ -325,6 +325,15 @@ paths:
       summary: Etsy Update Holiday Preferences
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ShopHolidayPreference:
       type: object
       x-resource-id: ShopHolidayPreference
@@ -459,15 +468,6 @@ components:
           type: string
           description: The name of the holiday that a country observes.
           example: Handmade Ceramic Mug
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

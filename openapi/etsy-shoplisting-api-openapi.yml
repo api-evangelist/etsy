@@ -2816,6 +2816,101 @@ paths:
       summary: Etsy Get Listings by Shop Section Id
 components:
   schemas:
+    ListingInventoryProduct:
+      type: object
+      x-resource-id: ListingInventoryProduct
+      description: A representation of a product for a listing.
+      properties:
+        product_id:
+          type: integer
+          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
+          format: int64
+          minimum: 1
+          example: 567890123
+        sku:
+          type: string
+          description: The SKU string for the product
+          example: SKU-12345
+        is_deleted:
+          type: boolean
+          description: When true, someone deleted this product.
+          example: true
+        offerings:
+          type: array
+          description: A list of product offering entries for this product.
+          items:
+            description: A list of product offering entries for this product.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProductOffering'
+        property_values:
+          type: array
+          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+          items:
+            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+            oneOf:
+            - $ref: '#/components/schemas/ListingPropertyValue'
+    ListingPropertyValue:
+      type: object
+      x-resource-id: ListingPropertyValue
+      description: A representation of structured data values.
+      properties:
+        property_id:
+          type: integer
+          description: The numeric ID of the Property.
+          format: int64
+          minimum: 1
+          example: 1
+        property_name:
+          type:
+          - string
+          - 'null'
+          description: The name of the Property.
+          example: Handmade Ceramic Mug
+        scale_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric ID of the scale (if any).
+          format: int64
+          minimum: 1
+          example: 1
+        scale_name:
+          type:
+          - string
+          - 'null'
+          description: The label used to describe the chosen scale (if any).
+          example: Handmade Ceramic Mug
+        value_ids:
+          type: array
+          description: The numeric IDs of the Property values
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        values:
+          type: array
+          description: The Property values
+          items:
+            type: string
+    ShopProductionPartner:
+      type: object
+      x-resource-id: ShopProductionPartner
+      description: Represents a description of a shop production partner.
+      properties:
+        production_partner_id:
+          type: integer
+          description: The numeric ID of a production partner.
+          format: int64
+          minimum: 1
+          example: 1
+        partner_name:
+          type: string
+          description: The name or title of the production partner.
+          example: Handmade Ceramic Mug
+        location:
+          type: string
+          description: A string representing the production partner location.
+          example: example string
     Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
       type: object
       x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
@@ -2946,133 +3041,23 @@ components:
           - 'null'
           description: Alt text for the listing image. Max length 500 characters.
           example: example string
-    ListingInventoryProduct:
+    ShopListingsWithAssociations:
       type: object
-      x-resource-id: ListingInventoryProduct
-      description: A representation of a product for a listing.
+      x-resource-id: ShopListingsWithAssociations
+      description: A set of ShopListing resources with associations.
       properties:
-        product_id:
+        count:
           type: integer
-          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
-          format: int64
-          minimum: 1
-          example: 567890123
-        sku:
-          type: string
-          description: The SKU string for the product
-          example: SKU-12345
-        is_deleted:
-          type: boolean
-          description: When true, someone deleted this product.
-          example: true
-        offerings:
-          type: array
-          description: A list of product offering entries for this product.
-          items:
-            description: A list of product offering entries for this product.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProductOffering'
-        property_values:
-          type: array
-          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-          items:
-            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-            oneOf:
-            - $ref: '#/components/schemas/ListingPropertyValue'
-    ListingTranslations:
-      type: object
-      x-resource-id: ListingTranslations
-      description: Container for all current supported translations of a listing. Note that Etsy periodically adds/removes languages, so this list may change in the future.
-      properties:
-        de:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        en-GB:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        en-IN:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        en-US:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        es:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        fr:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        it:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        ja:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        nl:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        pl:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        pt:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        ru:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-        sv:
-          oneOf:
-          - $ref: '#/components/schemas/ListingTranslation'
-          example: example
-    ListingInventoryProductOffering:
-      type: object
-      x-resource-id: ListingInventoryProductOffering
-      description: A representation of an offering for a listing.
-      properties:
-        offering_id:
-          type: integer
-          description: The ID for the ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
-        quantity:
-          type: integer
-          description: The quantity the ProductOffering
+          description: The number of ShopListing resources found.
           minimum: 0
           example: 1
-        is_enabled:
-          type: boolean
-          description: Whether or not the offering can be shown to buyers.
-          example: true
-        is_deleted:
-          type: boolean
-          description: Whether or not the offering has been deleted.
-          example: true
-        price:
-          description: Price data for this ProductOffering
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        readiness_state_id:
-          type:
-          - integer
-          - 'null'
-          description: Processing Profile for this ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
+        results:
+          type: array
+          description: The ShopListing resources found.
+          items:
+            description: The ShopListing resources found.
+            oneOf:
+            - $ref: '#/components/schemas/ShopListingWithAssociations'
     ShopListingWithAssociations:
       type: object
       x-resource-id: ShopListingWithAssociations
@@ -3459,38 +3444,43 @@ components:
           oneOf:
           - $ref: '#/components/schemas/ListingBuyerPrice'
           example: example
-    ListingTranslation:
+    ListingVideo:
       type: object
-      x-resource-id: ListingTranslation
-      description: Represents the translation data for a Listing.
+      x-resource-id: ListingVideo
+      description: Reference urls and metadata for a video associated with a specific listing.
       properties:
-        listing_id:
+        video_id:
           type: integer
-          description: The numeric ID for the Listing.
+          description: The unique ID of a video associated with a listing.
           format: int64
           minimum: 1
-          example: 123456789
-        language:
+          example: 1
+        height:
+          type: integer
+          description: The video height dimension in pixels.
+          example: 1
+        width:
+          type: integer
+          description: The video width dimension in pixels.
+          example: 1
+        thumbnail_url:
           type: string
-          description: The IETF language tag (e.g. 'fr') for the language of this translation.
-          example: en-US
-        title:
-          type:
-          - string
-          - 'null'
-          description: The title of the Listing of this Translation.
-          example: Handmade Ceramic Mug — Stoneware
-        description:
-          type:
-          - string
-          - 'null'
-          description: The description of the Listing of this Translation.
-          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
-        tags:
-          type: array
-          description: The tags of the Listing of this Translation.
-          items:
-            type: string
+          description: The url of the video thumbnail.
+          example: https://www.etsy.com/listing/123456789
+        video_url:
+          type: string
+          description: The url of the video file.
+          example: https://www.etsy.com/listing/123456789
+        video_state:
+          type: string
+          description: The current state of a given video. Value is one of `active`, `inactive`, `deleted` or `flagged`.
+          enum:
+          - active
+          - inactive
+          - deleted
+          - flagged
+          default: active
+          example: active
     ShopShippingProfile:
       type: object
       x-resource-id: ShopShippingProfile
@@ -3564,6 +3554,72 @@ components:
           minimum: 0
           default: 0
           example: 1.0
+    ListingInventory:
+      type: object
+      x-resource-id: ListingInventory
+      description: A representation of a single listing's inventory record.
+      properties:
+        products:
+          type: array
+          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+          items:
+            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProduct'
+        price_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
+          items:
+            type: integer
+        quantity_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        sku_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        readiness_state_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+    ListingTranslation:
+      type: object
+      x-resource-id: ListingTranslation
+      description: Represents the translation data for a Listing.
+      properties:
+        listing_id:
+          type: integer
+          description: The numeric ID for the Listing.
+          format: int64
+          minimum: 1
+          example: 123456789
+        language:
+          type: string
+          description: The IETF language tag (e.g. 'fr') for the language of this translation.
+          example: en-US
+        title:
+          type:
+          - string
+          - 'null'
+          description: The title of the Listing of this Translation.
+          example: Handmade Ceramic Mug — Stoneware
+        description:
+          type:
+          - string
+          - 'null'
+          description: The description of the Listing of this Translation.
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+        tags:
+          type: array
+          description: The tags of the Listing of this Translation.
+          items:
+            type: string
     ListingBuyerPrice:
       type: object
       x-resource-id: ListingBuyerPrice
@@ -3620,63 +3676,244 @@ components:
           - 'null'
           description: The end timestamp of the active promotion. Null if no active promotion.
           example: 1758153645
-    ListingPropertyValues:
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion:
       type: object
-      x-resource-id: ListingPropertyValues
-      description: Represents several ListingPropertyValues.
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
       properties:
-        count:
-          type: integer
-          minimum: 0
+        question_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          minimum: 1
           example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListingPropertyValue'
-    ShopListingsWithAssociations:
-      type: object
-      x-resource-id: ShopListingsWithAssociations
-      description: A set of ShopListing resources with associations.
-      properties:
-        count:
-          type: integer
-          description: The number of ShopListing resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The ShopListing resources found.
-          items:
-            description: The ShopListing resources found.
-            oneOf:
-            - $ref: '#/components/schemas/ShopListingWithAssociations'
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
+        question_text:
           type: string
           example: example string
+        instructions:
+          type:
+          - string
+          - 'null'
+          example: example string
+        question_type:
+          type: string
+          example: example string
+        required:
+          type: boolean
+          example: true
+        max_allowed_characters:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        max_allowed_files:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        options:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              option_id:
+                type:
+                - integer
+                - 'null'
+                format: int64
+                minimum: 1
+                example: 1
+              label:
+                type: string
+                example: example string
+            required:
+            - option_id
+            - label
+    User:
+      type: object
+      x-resource-id: User
+      description: Represents a single user of the site
+      properties:
+        user_id:
+          type: integer
+          description: The numeric ID of a user. This number is also a valid shop ID for the user's shop.
+          format: int64
+          minimum: 1
+          example: 456789
+        primary_email:
+          type:
+          - string
+          - 'null'
+          description: An email address string for the user's primary email address. Access to this field is granted on a case by case basis for third-party integrations that require full access
+          format: email
+          example: seller@example.com
+        first_name:
+          type:
+          - string
+          - 'null'
+          description: The user's first name.
+          example: Handmade Ceramic Mug
+        last_name:
+          type:
+          - string
+          - 'null'
+          description: The user's last name.
+          example: Handmade Ceramic Mug
+        image_url_75x75:
+          type:
+          - string
+          - 'null'
+          description: The user's avatar URL.
+          example: https://www.etsy.com/listing/123456789
+    ShopShippingProfileUpgrade:
+      type: object
+      x-resource-id: ShopShippingProfileUpgrade
+      description: A representation of a shipping profile upgrade option.
+      properties:
+        shipping_profile_id:
+          type: integer
+          description: The numeric ID of the base shipping profile.
+          format: int64
+          minimum: 1
+          example: 1
+        upgrade_id:
+          type: integer
+          description: The numeric ID that is associated with a shipping upgrade
+          format: int64
+          minimum: 1
+          example: 1
+        upgrade_name:
+          type: string
+          description: Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.
+          example: Handmade Ceramic Mug
+        type:
+          type: integer
+          description: The type of the shipping upgrade. Domestic (0) or international (1).
+          enum:
+          - 0
+          - 1
+          example: 0
+        rank:
+          type: integer
+          description: The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
+          minimum: 0
+          example: 1
+        language:
+          type: string
+          description: 'The IETF language tag for the language of the shipping profile. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`'
+          example: en-US
+        price:
+          description: Additional cost of adding the shipping upgrade.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        secondary_price:
+          description: Additional cost of adding the shipping upgrade for each additional item.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        shipping_carrier_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: 1
+        mail_class:
+          type:
+          - string
+          - 'null'
+          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: example string
+        min_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+        max_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+    ShopShippingProfileDestination:
+      type: object
+      x-resource-id: ShopShippingProfileDestination
+      description: Represents a shipping destination assigned to a shipping profile.
+      properties:
+        shipping_profile_destination_id:
+          type: integer
+          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
+          format: int64
+          minimum: 1
+          example: 1
+        shipping_profile_id:
+          type: integer
+          description: The numeric ID of the shipping profile.
+          format: int64
+          minimum: 1
+          example: 1
+        origin_country_iso:
+          type: string
+          description: The ISO code of the country from which the listing ships.
+          format: ISO 3166-1 alpha-2
+          example: US
+        destination_country_iso:
+          type: string
+          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
+          example: US
+        destination_region:
+          type: string
+          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
+          enum:
+          - eu
+          - non_eu
+          - none
+          example: eu
+        primary_cost:
+          description: The cost of shipping to this country/region alone, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        secondary_cost:
+          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        shipping_carrier_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: 1
+        mail_class:
+          type:
+          - string
+          - 'null'
+          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: example string
+        min_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+        max_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
     ShopListing:
       type: object
       x-resource-id: ShopListing
@@ -3999,151 +4236,131 @@ components:
           - 'null'
           description: A title string suggested by Etsy. Only available for a user's own listings, when allow_suggested_title param is present, and when a shop's language setting is English. Not all listings will have suggestions.
           example: Handmade Ceramic Mug — Stoneware
-    User:
+    ListingPropertyValues:
       type: object
-      x-resource-id: User
-      description: Represents a single user of the site
+      x-resource-id: ListingPropertyValues
+      description: Represents several ListingPropertyValues.
       properties:
-        user_id:
+        count:
           type: integer
-          description: The numeric ID of a user. This number is also a valid shop ID for the user's shop.
-          format: int64
-          minimum: 1
-          example: 456789
-        primary_email:
-          type:
-          - string
-          - 'null'
-          description: An email address string for the user's primary email address. Access to this field is granted on a case by case basis for third-party integrations that require full access
-          format: email
-          example: seller@example.com
-        first_name:
-          type:
-          - string
-          - 'null'
-          description: The user's first name.
-          example: Handmade Ceramic Mug
-        last_name:
-          type:
-          - string
-          - 'null'
-          description: The user's last name.
-          example: Handmade Ceramic Mug
-        image_url_75x75:
-          type:
-          - string
-          - 'null'
-          description: The user's avatar URL.
-          example: https://www.etsy.com/listing/123456789
-    ShopShippingProfileUpgrade:
-      type: object
-      x-resource-id: ShopShippingProfileUpgrade
-      description: A representation of a shipping profile upgrade option.
-      properties:
-        shipping_profile_id:
-          type: integer
-          description: The numeric ID of the base shipping profile.
-          format: int64
-          minimum: 1
-          example: 1
-        upgrade_id:
-          type: integer
-          description: The numeric ID that is associated with a shipping upgrade
-          format: int64
-          minimum: 1
-          example: 1
-        upgrade_name:
-          type: string
-          description: Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.
-          example: Handmade Ceramic Mug
-        type:
-          type: integer
-          description: The type of the shipping upgrade. Domestic (0) or international (1).
-          enum:
-          - 0
-          - 1
-          example: 0
-        rank:
-          type: integer
-          description: The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
           minimum: 0
           example: 1
-        language:
-          type: string
-          description: 'The IETF language tag for the language of the shipping profile. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`'
-          example: en-US
-        price:
-          description: Additional cost of adding the shipping upgrade.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        secondary_price:
-          description: Additional cost of adding the shipping upgrade for each additional item.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        shipping_carrier_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: 1
-        mail_class:
-          type:
-          - string
-          - 'null'
-          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: example string
-        min_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-        max_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-    ListingInventory:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListingPropertyValue'
+    ListingInventoryProductOffering:
       type: object
-      x-resource-id: ListingInventory
-      description: A representation of a single listing's inventory record.
+      x-resource-id: ListingInventoryProductOffering
+      description: A representation of an offering for a listing.
       properties:
-        products:
-          type: array
-          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-          items:
-            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProduct'
-        price_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
-          items:
-            type: integer
-        quantity_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        sku_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        readiness_state_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
+        offering_id:
+          type: integer
+          description: The ID for the ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+        quantity:
+          type: integer
+          description: The quantity the ProductOffering
+          minimum: 0
+          example: 1
+        is_enabled:
+          type: boolean
+          description: Whether or not the offering can be shown to buyers.
+          example: true
+        is_deleted:
+          type: boolean
+          description: Whether or not the offering has been deleted.
+          example: true
+        price:
+          description: Price data for this ProductOffering
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        readiness_state_id:
+          type:
+          - integer
+          - 'null'
+          description: Processing Profile for this ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
+    ListingTranslations:
+      type: object
+      x-resource-id: ListingTranslations
+      description: Container for all current supported translations of a listing. Note that Etsy periodically adds/removes languages, so this list may change in the future.
+      properties:
+        de:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        en-GB:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        en-IN:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        en-US:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        es:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        fr:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        it:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        ja:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        nl:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        pl:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        pt:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        ru:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
+        sv:
+          oneOf:
+          - $ref: '#/components/schemas/ListingTranslation'
+          example: example
     ShopListings:
       type: object
       x-resource-id: ShopListings
@@ -4161,49 +4378,6 @@ components:
             description: The ShopListing resources found.
             oneOf:
             - $ref: '#/components/schemas/ShopListing'
-    ListingPropertyValue:
-      type: object
-      x-resource-id: ListingPropertyValue
-      description: A representation of structured data values.
-      properties:
-        property_id:
-          type: integer
-          description: The numeric ID of the Property.
-          format: int64
-          minimum: 1
-          example: 1
-        property_name:
-          type:
-          - string
-          - 'null'
-          description: The name of the Property.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of the scale (if any).
-          format: int64
-          minimum: 1
-          example: 1
-        scale_name:
-          type:
-          - string
-          - 'null'
-          description: The label used to describe the chosen scale (if any).
-          example: Handmade Ceramic Mug
-        value_ids:
-          type: array
-          description: The numeric IDs of the Property values
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        values:
-          type: array
-          description: The Property values
-          items:
-            type: string
     Shop:
       type: object
       x-resource-id: Shop
@@ -4452,189 +4626,15 @@ components:
           description: Average rating based on reviews of shop listings in the past year.
           format: float
           example: 1.0
-    ShopProductionPartner:
+    ErrorSchema:
       type: object
-      x-resource-id: ShopProductionPartner
-      description: Represents a description of a shop production partner.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        production_partner_id:
-          type: integer
-          description: The numeric ID of a production partner.
-          format: int64
-          minimum: 1
-          example: 1
-        partner_name:
-          type: string
-          description: The name or title of the production partner.
-          example: Handmade Ceramic Mug
-        location:
-          type: string
-          description: A string representing the production partner location.
-          example: example string
-    ShopShippingProfileDestination:
-      type: object
-      x-resource-id: ShopShippingProfileDestination
-      description: Represents a shipping destination assigned to a shipping profile.
-      properties:
-        shipping_profile_destination_id:
-          type: integer
-          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
-          format: int64
-          minimum: 1
-          example: 1
-        shipping_profile_id:
-          type: integer
-          description: The numeric ID of the shipping profile.
-          format: int64
-          minimum: 1
-          example: 1
-        origin_country_iso:
-          type: string
-          description: The ISO code of the country from which the listing ships.
-          format: ISO 3166-1 alpha-2
-          example: US
-        destination_country_iso:
-          type: string
-          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
-          example: US
-        destination_region:
-          type: string
-          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
-          enum:
-          - eu
-          - non_eu
-          - none
-          example: eu
-        primary_cost:
-          description: The cost of shipping to this country/region alone, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        secondary_cost:
-          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        shipping_carrier_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: 1
-        mail_class:
-          type:
-          - string
-          - 'null'
-          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: example string
-        min_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-        max_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-    ListingVideo:
-      type: object
-      x-resource-id: ListingVideo
-      description: Reference urls and metadata for a video associated with a specific listing.
-      properties:
-        video_id:
-          type: integer
-          description: The unique ID of a video associated with a listing.
-          format: int64
-          minimum: 1
-          example: 1
-        height:
-          type: integer
-          description: The video height dimension in pixels.
-          example: 1
-        width:
-          type: integer
-          description: The video width dimension in pixels.
-          example: 1
-        thumbnail_url:
-          type: string
-          description: The url of the video thumbnail.
-          example: https://www.etsy.com/listing/123456789
-        video_url:
-          type: string
-          description: The url of the video file.
-          example: https://www.etsy.com/listing/123456789
-        video_state:
-          type: string
-          description: The current state of a given video. Value is one of `active`, `inactive`, `deleted` or `flagged`.
-          enum:
-          - active
-          - inactive
-          - deleted
-          - flagged
-          default: active
-          example: active
-    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion:
-      type: object
-      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
-      properties:
-        question_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          minimum: 1
-          example: 1
-        question_text:
+        error:
           type: string
           example: example string
-        instructions:
-          type:
-          - string
-          - 'null'
-          example: example string
-        question_type:
-          type: string
-          example: example string
-        required:
-          type: boolean
-          example: true
-        max_allowed_characters:
-          type:
-          - integer
-          - 'null'
-          example: 1
-        max_allowed_files:
-          type:
-          - integer
-          - 'null'
-          example: 1
-        options:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-            properties:
-              option_id:
-                type:
-                - integer
-                - 'null'
-                format: int64
-                minimum: 1
-                example: 1
-              label:
-                type: string
-                example: example string
-            required:
-            - option_id
-            - label
   securitySchemes:
     api_key:
       type: apiKey

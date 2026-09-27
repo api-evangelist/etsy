@@ -159,6 +159,17 @@ paths:
       summary: Etsy Token Scopes
 components:
   schemas:
+    Pong:
+      type: object
+      x-resource-id: Pong
+      description: A confirmation that the current application has access to the Open API
+      properties:
+        application_id:
+          type: integer
+          description: The authenticated application's ID
+          format: int64
+          minimum: 1
+          example: 1
     Scopes:
       type: object
       x-resource-id: Scopes
@@ -173,17 +184,6 @@ components:
         error:
           type: string
           example: example string
-    Pong:
-      type: object
-      x-resource-id: Pong
-      description: A confirmation that the current application has access to the Open API
-      properties:
-        application_id:
-          type: integer
-          description: The authenticated application's ID
-          format: int64
-          minimum: 1
-          example: 1
   securitySchemes:
     api_key:
       type: apiKey

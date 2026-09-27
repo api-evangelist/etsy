@@ -288,23 +288,15 @@ paths:
       summary: Etsy Get User Addresses
 components:
   schemas:
-    UserAddresses:
+    ErrorSchema:
       type: object
-      x-resource-id: UserAddresses
-      description: Represents several UserAddress records.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of UserAddress records being returned.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: An array of UserAddress resources.
-          items:
-            description: An array of UserAddress resources.
-            oneOf:
-            - $ref: '#/components/schemas/UserAddress'
+        error:
+          type: string
+          example: example string
     UserAddress:
       type: object
       x-resource-id: UserAddress
@@ -368,15 +360,23 @@ components:
           type: boolean
           description: Is this the user's default shipping address.
           example: true
-    ErrorSchema:
+    UserAddresses:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: UserAddresses
+      description: Represents several UserAddress records.
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of UserAddress records being returned.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: An array of UserAddress resources.
+          items:
+            description: An array of UserAddress resources.
+            oneOf:
+            - $ref: '#/components/schemas/UserAddress'
   securitySchemes:
     api_key:
       type: apiKey

@@ -561,51 +561,49 @@ paths:
       summary: Etsy Get Shop Receipt Transactions by Shop
 components:
   schemas:
-    ShopReceiptTransactions:
+    ListingPropertyValue:
       type: object
-      x-resource-id: ShopReceiptTransactions
-      description: A set of ShopReceiptTransaction resources
-      properties:
-        count:
-          type: integer
-          description: The number of ShopReceiptTransaction resources found.
-          example: 1
-        results:
-          type: array
-          description: The ShopReceiptTransaction resources found.
-          items:
-            description: The ShopReceiptTransaction resources found.
-            oneOf:
-            - $ref: '#/components/schemas/ShopReceiptTransaction'
-    TransactionVariations:
-      type: object
-      x-resource-id: TransactionVariations
-      description: A list of variations chosen by the buyer during checkout.
+      x-resource-id: ListingPropertyValue
+      description: A representation of structured data values.
       properties:
         property_id:
           type: integer
-          description: The variation property ID.
+          description: The numeric ID of the Property.
+          format: int64
+          minimum: 1
           example: 1
-        value_id:
+        property_name:
           type:
-          - integer
+          - string
           - 'null'
-          description: The ID of the variation value selected.
-          example: 1
-        formatted_name:
-          type: string
-          description: Formatted name of the variation.
+          description: The name of the Property.
           example: Handmade Ceramic Mug
-        formatted_value:
-          type: string
-          description: Value of the variation entered by the buyer.
-          example: example string
-        question_id:
+        scale_id:
           type:
           - integer
           - 'null'
-          description: '[Personalization only] The ID of the original personalization question.'
+          description: The numeric ID of the scale (if any).
+          format: int64
+          minimum: 1
           example: 1
+        scale_name:
+          type:
+          - string
+          - 'null'
+          description: The label used to describe the chosen scale (if any).
+          example: Handmade Ceramic Mug
+        value_ids:
+          type: array
+          description: The numeric IDs of the Property values
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        values:
+          type: array
+          description: The Property values
+          items:
+            type: string
     ShopReceiptTransaction:
       type: object
       x-resource-id: ShopReceiptTransaction
@@ -794,49 +792,6 @@ components:
           format: float
           default: 0
           example: 1.0
-    ListingPropertyValue:
-      type: object
-      x-resource-id: ListingPropertyValue
-      description: A representation of structured data values.
-      properties:
-        property_id:
-          type: integer
-          description: The numeric ID of the Property.
-          format: int64
-          minimum: 1
-          example: 1
-        property_name:
-          type:
-          - string
-          - 'null'
-          description: The name of the Property.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of the scale (if any).
-          format: int64
-          minimum: 1
-          example: 1
-        scale_name:
-          type:
-          - string
-          - 'null'
-          description: The label used to describe the chosen scale (if any).
-          example: Handmade Ceramic Mug
-        value_ids:
-          type: array
-          description: The numeric IDs of the Property values
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        values:
-          type: array
-          description: The Property values
-          items:
-            type: string
     Money:
       type: object
       x-resource-id: Money
@@ -864,6 +819,51 @@ components:
         error:
           type: string
           example: example string
+    ShopReceiptTransactions:
+      type: object
+      x-resource-id: ShopReceiptTransactions
+      description: A set of ShopReceiptTransaction resources
+      properties:
+        count:
+          type: integer
+          description: The number of ShopReceiptTransaction resources found.
+          example: 1
+        results:
+          type: array
+          description: The ShopReceiptTransaction resources found.
+          items:
+            description: The ShopReceiptTransaction resources found.
+            oneOf:
+            - $ref: '#/components/schemas/ShopReceiptTransaction'
+    TransactionVariations:
+      type: object
+      x-resource-id: TransactionVariations
+      description: A list of variations chosen by the buyer during checkout.
+      properties:
+        property_id:
+          type: integer
+          description: The variation property ID.
+          example: 1
+        value_id:
+          type:
+          - integer
+          - 'null'
+          description: The ID of the variation value selected.
+          example: 1
+        formatted_name:
+          type: string
+          description: Formatted name of the variation.
+          example: Handmade Ceramic Mug
+        formatted_value:
+          type: string
+          description: Value of the variation entered by the buyer.
+          example: example string
+        question_id:
+          type:
+          - integer
+          - 'null'
+          description: '[Personalization only] The ID of the original personalization question.'
+          example: 1
   securitySchemes:
     api_key:
       type: apiKey

@@ -553,32 +553,6 @@ paths:
       summary: Etsy Update Shop Section
 components:
   schemas:
-    ShopSections:
-      type: object
-      x-resource-id: ShopSections
-      description: All the sections in a specific Shop.
-      properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopSection'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ShopSection:
       type: object
       x-resource-id: ShopSection
@@ -610,6 +584,32 @@ components:
           description: The number of active listings in one section of a specific Etsy shop.
           minimum: 0
           example: 1
+    ShopSections:
+      type: object
+      x-resource-id: ShopSections
+      description: All the sections in a specific Shop.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopSection'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

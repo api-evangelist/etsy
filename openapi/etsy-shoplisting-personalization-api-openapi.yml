@@ -513,14 +513,6 @@ components:
             required:
             - option_id
             - label
-    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
-      type: object
-      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
-      properties:
-        personalization_questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema
@@ -530,6 +522,14 @@ components:
         error:
           type: string
           example: example string
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
+      type: object
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
+      properties:
+        personalization_questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
   securitySchemes:
     api_key:
       type: apiKey

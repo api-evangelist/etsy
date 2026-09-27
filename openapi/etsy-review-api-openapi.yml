@@ -283,23 +283,6 @@ components:
             description: The TransactionReview resources found.
             oneOf:
             - $ref: '#/components/schemas/ListingReview'
-    TransactionReviews:
-      type: object
-      x-resource-id: TransactionReviews
-      description: A set of transaction review records left by Users.
-      properties:
-        count:
-          type: integer
-          description: The number of TransactionReview resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The TransactionReview resources found.
-          items:
-            description: The TransactionReview resources found.
-            oneOf:
-            - $ref: '#/components/schemas/TransactionReview'
     TransactionReview:
       type: object
       x-resource-id: TransactionReview
@@ -440,6 +423,23 @@ components:
         error:
           type: string
           example: example string
+    TransactionReviews:
+      type: object
+      x-resource-id: TransactionReviews
+      description: A set of transaction review records left by Users.
+      properties:
+        count:
+          type: integer
+          description: The number of TransactionReview resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The TransactionReview resources found.
+          items:
+            description: The TransactionReview resources found.
+            oneOf:
+            - $ref: '#/components/schemas/TransactionReview'
   securitySchemes:
     api_key:
       type: apiKey

@@ -721,6 +721,19 @@ paths:
       summary: Etsy Update Shop Return Policy
 components:
   schemas:
+    ShopReturnPolicies:
+      type: object
+      x-resource-id: ShopReturnPolicies
+      description: Represents a shop's listing-level return policies list.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopReturnPolicy'
     ShopReturnPolicy:
       type: object
       x-resource-id: ShopReturnPolicy
@@ -752,19 +765,6 @@ components:
           - 'null'
           description: 'The deadline for the Return Policy, measured in days. The value must be one of the following: [7, 14, 21, 30, 45, 60, 90].'
           example: 1
-    ShopReturnPolicies:
-      type: object
-      x-resource-id: ShopReturnPolicies
-      description: Represents a shop's listing-level return policies list.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopReturnPolicy'
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema

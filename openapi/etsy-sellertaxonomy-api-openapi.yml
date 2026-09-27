@@ -158,40 +158,56 @@ paths:
       summary: Etsy Get Properties by Taxonomy Id
 components:
   schemas:
-    TaxonomyNodeProperties:
+    TaxonomyPropertyScale:
       type: object
-      x-resource-id: TaxonomyNodeProperties
-      description: A list of product property definitions.
+      x-resource-id: TaxonomyPropertyScale
+      description: A scale defining the assignable increments for the property values available to specific product properties.
       properties:
-        count:
+        scale_id:
           type: integer
-          description: The number of results.
-          minimum: 0
+          description: The unique numeric ID of a scale.
+          format: int64
+          minimum: 1
           example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/TaxonomyNodeProperty'
-    SellerTaxonomyNodes:
+        display_name:
+          type: string
+          description: The name string for a scale.
+          example: Handmade Ceramic Mug
+        description:
+          type: string
+          description: The description string for a scale.
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+    TaxonomyPropertyValue:
       type: object
-      x-resource-id: SellerTaxonomyNodes
-      description: A list of taxonomy nodes from the seller taxonomy tree.
+      x-resource-id: TaxonomyPropertyValue
+      description: A property value for a specific product property, which may also employ a specific scale.
       properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
+        value_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric ID of this property value.
+          format: int64
+          minimum: 1
           example: 1
-        results:
+        name:
+          type: string
+          description: The name string of this property value.
+          example: Handmade Ceramic Mug
+        scale_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric scale ID of the scale to which this property value belongs.
+          format: int64
+          minimum: 1
+          example: 1
+        equal_to:
           type: array
-          description: The list of requested resources.
+          description: A list of numeric property value IDs this property value is equal to (if any).
           items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/SellerTaxonomyNode'
+            type: integer
+            minimum: 0
     SellerTaxonomyNode:
       type: object
       x-resource-id: SellerTaxonomyNode
@@ -235,56 +251,32 @@ components:
             type: integer
             format: int64
             minimum: 1
-    TaxonomyPropertyValue:
+    SellerTaxonomyNodes:
       type: object
-      x-resource-id: TaxonomyPropertyValue
-      description: A property value for a specific product property, which may also employ a specific scale.
+      x-resource-id: SellerTaxonomyNodes
+      description: A list of taxonomy nodes from the seller taxonomy tree.
       properties:
-        value_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of this property value.
-          format: int64
-          minimum: 1
-          example: 1
-        name:
-          type: string
-          description: The name string of this property value.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric scale ID of the scale to which this property value belongs.
-          format: int64
-          minimum: 1
-          example: 1
-        equal_to:
-          type: array
-          description: A list of numeric property value IDs this property value is equal to (if any).
-          items:
-            type: integer
-            minimum: 0
-    TaxonomyPropertyScale:
-      type: object
-      x-resource-id: TaxonomyPropertyScale
-      description: A scale defining the assignable increments for the property values available to specific product properties.
-      properties:
-        scale_id:
+        count:
           type: integer
-          description: The unique numeric ID of a scale.
-          format: int64
-          minimum: 1
+          description: The number of results.
+          minimum: 0
           example: 1
-        display_name:
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/SellerTaxonomyNode'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
           type: string
-          description: The name string for a scale.
-          example: Handmade Ceramic Mug
-        description:
-          type: string
-          description: The description string for a scale.
-          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+          example: example string
     TaxonomyNodeProperty:
       type: object
       x-resource-id: TaxonomyNodeProperty
@@ -347,15 +339,23 @@ components:
             description: A list of property value strings automatically and always selected for the given property.
             oneOf:
             - $ref: '#/components/schemas/TaxonomyPropertyValue'
-    ErrorSchema:
+    TaxonomyNodeProperties:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: TaxonomyNodeProperties
+      description: A list of product property definitions.
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/TaxonomyNodeProperty'
   securitySchemes:
     api_key:
       type: apiKey

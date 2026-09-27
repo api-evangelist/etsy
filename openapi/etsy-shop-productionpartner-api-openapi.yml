@@ -125,6 +125,15 @@ components:
           type: string
           description: A string representing the production partner location.
           example: example string
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ShopProductionPartners:
       type: object
       x-resource-id: ShopProductionPartners
@@ -142,15 +151,6 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/ShopProductionPartner'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

@@ -2068,23 +2068,10 @@ paths:
       summary: Etsy Update Shop Shipping Profile Upgrade
 components:
   schemas:
-    ShippingCarriers:
+    ShopShippingProfileUpgrades:
       type: object
-      x-resource-id: ShippingCarriers
-      description: Represents several ShippingCarriers.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShippingCarrier'
-    ShopShippingProfileDestinations:
-      type: object
-      x-resource-id: ShopShippingProfileDestinations
-      description: Represents a list of shipping destination objects.
+      x-resource-id: ShopShippingProfileUpgrades
+      description: A list of shipping upgrade options.
       properties:
         count:
           type: integer
@@ -2097,20 +2084,7 @@ components:
           items:
             description: The list of requested resources.
             oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileDestination'
-    ShippingCarrierMailClass:
-      type: object
-      x-resource-id: ShippingCarrierMailClass
-      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
-      properties:
-        mail_class_key:
-          type: string
-          description: The unique identifier of this mail class.
-          example: example string
-        name:
-          type: string
-          description: The name of this mail class.
-          example: Handmade Ceramic Mug
+            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
     ShopShippingProfile:
       type: object
       x-resource-id: ShopShippingProfile
@@ -2184,164 +2158,6 @@ components:
           minimum: 0
           default: 0
           example: 1.0
-    ShippingCarrier:
-      type: object
-      x-resource-id: ShippingCarrier
-      description: A supported shipping carrier, which is used to calculate an Estimated Delivery Date.
-      properties:
-        shipping_carrier_id:
-          type: integer
-          description: The numeric ID of this shipping carrier.
-          format: int64
-          minimum: 1
-          example: 1
-        name:
-          type: string
-          description: The name of this shipping carrier.
-          example: Handmade Ceramic Mug
-        domestic_classes:
-          type: array
-          description: Set of domestic mail classes of this shipping carrier.
-          items:
-            description: Set of domestic mail classes of this shipping carrier.
-            oneOf:
-            - $ref: '#/components/schemas/ShippingCarrierMailClass'
-        international_classes:
-          type: array
-          description: Set of international mail classes of this shipping carrier.
-          items:
-            description: Set of international mail classes of this shipping carrier.
-            oneOf:
-            - $ref: '#/components/schemas/ShippingCarrierMailClass'
-    ShopShippingProfiles:
-      type: object
-      x-resource-id: ShopShippingProfiles
-      description: Represents several ShopShippingProfiles.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopShippingProfile'
-    ShopShippingProfileDestination:
-      type: object
-      x-resource-id: ShopShippingProfileDestination
-      description: Represents a shipping destination assigned to a shipping profile.
-      properties:
-        shipping_profile_destination_id:
-          type: integer
-          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
-          format: int64
-          minimum: 1
-          example: 1
-        shipping_profile_id:
-          type: integer
-          description: The numeric ID of the shipping profile.
-          format: int64
-          minimum: 1
-          example: 1
-        origin_country_iso:
-          type: string
-          description: The ISO code of the country from which the listing ships.
-          format: ISO 3166-1 alpha-2
-          example: US
-        destination_country_iso:
-          type: string
-          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
-          example: US
-        destination_region:
-          type: string
-          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
-          enum:
-          - eu
-          - non_eu
-          - none
-          example: eu
-        primary_cost:
-          description: The cost of shipping to this country/region alone, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        secondary_cost:
-          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        shipping_carrier_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: 1
-        mail_class:
-          type:
-          - string
-          - 'null'
-          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: example string
-        min_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-        max_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-    ShopShippingProfileUpgrades:
-      type: object
-      x-resource-id: ShopShippingProfileUpgrades
-      description: A list of shipping upgrade options.
-      properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ShopShippingProfileUpgrade:
       type: object
       x-resource-id: ShopShippingProfileUpgrade
@@ -2417,6 +2233,190 @@ components:
           minimum: 1
           maximum: 45
           example: 1
+    ShopShippingProfileDestination:
+      type: object
+      x-resource-id: ShopShippingProfileDestination
+      description: Represents a shipping destination assigned to a shipping profile.
+      properties:
+        shipping_profile_destination_id:
+          type: integer
+          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
+          format: int64
+          minimum: 1
+          example: 1
+        shipping_profile_id:
+          type: integer
+          description: The numeric ID of the shipping profile.
+          format: int64
+          minimum: 1
+          example: 1
+        origin_country_iso:
+          type: string
+          description: The ISO code of the country from which the listing ships.
+          format: ISO 3166-1 alpha-2
+          example: US
+        destination_country_iso:
+          type: string
+          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
+          example: US
+        destination_region:
+          type: string
+          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
+          enum:
+          - eu
+          - non_eu
+          - none
+          example: eu
+        primary_cost:
+          description: The cost of shipping to this country/region alone, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        secondary_cost:
+          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        shipping_carrier_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: 1
+        mail_class:
+          type:
+          - string
+          - 'null'
+          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: example string
+        min_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+        max_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+    ShippingCarrier:
+      type: object
+      x-resource-id: ShippingCarrier
+      description: A supported shipping carrier, which is used to calculate an Estimated Delivery Date.
+      properties:
+        shipping_carrier_id:
+          type: integer
+          description: The numeric ID of this shipping carrier.
+          format: int64
+          minimum: 1
+          example: 1
+        name:
+          type: string
+          description: The name of this shipping carrier.
+          example: Handmade Ceramic Mug
+        domestic_classes:
+          type: array
+          description: Set of domestic mail classes of this shipping carrier.
+          items:
+            description: Set of domestic mail classes of this shipping carrier.
+            oneOf:
+            - $ref: '#/components/schemas/ShippingCarrierMailClass'
+        international_classes:
+          type: array
+          description: Set of international mail classes of this shipping carrier.
+          items:
+            description: Set of international mail classes of this shipping carrier.
+            oneOf:
+            - $ref: '#/components/schemas/ShippingCarrierMailClass'
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
+    ShippingCarriers:
+      type: object
+      x-resource-id: ShippingCarriers
+      description: Represents several ShippingCarriers.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingCarrier'
+    ShippingCarrierMailClass:
+      type: object
+      x-resource-id: ShippingCarrierMailClass
+      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
+      properties:
+        mail_class_key:
+          type: string
+          description: The unique identifier of this mail class.
+          example: example string
+        name:
+          type: string
+          description: The name of this mail class.
+          example: Handmade Ceramic Mug
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ShopShippingProfiles:
+      type: object
+      x-resource-id: ShopShippingProfiles
+      description: Represents several ShopShippingProfiles.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopShippingProfile'
+    ShopShippingProfileDestinations:
+      type: object
+      x-resource-id: ShopShippingProfileDestinations
+      description: Represents a list of shipping destination objects.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileDestination'
   securitySchemes:
     api_key:
       type: apiKey

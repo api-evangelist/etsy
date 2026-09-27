@@ -365,6 +365,190 @@ paths:
       summary: Etsy Get Payments
 components:
   schemas:
+    Payments:
+      type: object
+      x-resource-id: Payments
+      description: Represents several payments made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.
+      properties:
+        count:
+          type: integer
+          description: The number of payments in the response.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: A list of payments.
+          items:
+            description: A list of payments.
+            oneOf:
+            - $ref: '#/components/schemas/Payment'
+    PaymentAdjustment:
+      type: object
+      x-resource-id: PaymentAdjustment
+      description: Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.
+      properties:
+        payment_adjustment_id:
+          type: integer
+          description: The numeric ID for a payment adjustment.
+          format: int64
+          minimum: 1
+          example: 1
+        payment_id:
+          type: integer
+          description: A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).
+          format: int64
+          minimum: 1
+          example: 1
+        status:
+          type: string
+          description: The status string of the payment adjustment.
+          example: example string
+        is_success:
+          type: boolean
+          description: When true, the payment adjustment was or is likely to complete successfully.
+          example: true
+        user_id:
+          type: integer
+          description: The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.
+          format: int64
+          minimum: 1
+          example: 456789
+        reason_code:
+          type: string
+          description: A human-readable string describing the reason for the refund.
+          example: example string
+        total_adjustment_amount:
+          type:
+          - integer
+          - 'null'
+          description: The total numeric amount of the refund in the payment currency.
+          minimum: 0
+          example: 2500
+        shop_total_adjustment_amount:
+          type:
+          - integer
+          - 'null'
+          description: The numeric amount of the refund in the shop currency.
+          minimum: 0
+          example: 2500
+        buyer_total_adjustment_amount:
+          type:
+          - integer
+          - 'null'
+          description: The numeric amount of the refund in the buyer currency.
+          minimum: 0
+          example: 2500
+        total_fee_adjustment_amount:
+          type:
+          - integer
+          - 'null'
+          description: The numeric amount of card processing fees associated with a payment adjustment.
+          minimum: 0
+          example: 2500
+        create_timestamp:
+          type: integer
+          description: The transaction's creation date and time, in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        created_timestamp:
+          type: integer
+          description: The transaction's creation date and time, in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        update_timestamp:
+          type: integer
+          description: The date and time of the last change to the payment adjustment in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        updated_timestamp:
+          type: integer
+          description: The date and time of the last change to the payment adjustment in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        payment_adjustment_items:
+          type: array
+          description: List of payment adjustment line items.
+          items:
+            description: List of payment adjustment line items.
+            oneOf:
+            - $ref: '#/components/schemas/PaymentAdjustmentItem'
+    PaymentAdjustmentItem:
+      type: object
+      x-resource-id: PaymentAdjustmentItem
+      description: A payment adjustment line item for a payment adjustment.
+      properties:
+        payment_adjustment_id:
+          type: integer
+          description: The numeric ID for a payment adjustment.
+          format: int64
+          minimum: 1
+          example: 1
+        payment_adjustment_item_id:
+          type: integer
+          description: Unique ID for the adjustment line item.
+          format: int64
+          minimum: 1
+          example: 1
+        adjustment_type:
+          type:
+          - string
+          - 'null'
+          description: String indicating the type of adjustment for this line item.
+          example: example string
+        amount:
+          type: integer
+          description: Integer value for the amount of the adjustment in original currency.
+          default: 0
+          example: 2500
+        shop_amount:
+          type: integer
+          description: Integer value for the amount of the adjustment in currency for the shop.
+          default: 0
+          example: 2500
+        transaction_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique numeric ID for a transaction.
+          format: int64
+          minimum: 1
+          example: 345678901
+        bill_payment_id:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID for the bill payment adjustment.
+          format: int64
+          minimum: 1
+          example: 1
+        created_timestamp:
+          type: integer
+          description: The transaction's creation date and time, in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        updated_timestamp:
+          type: integer
+          description: The update date and time the payment adjustment in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
     Payment:
       type: object
       x-resource-id: Payment
@@ -513,190 +697,6 @@ components:
             description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustment'
-    Payments:
-      type: object
-      x-resource-id: Payments
-      description: Represents several payments made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.
-      properties:
-        count:
-          type: integer
-          description: The number of payments in the response.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: A list of payments.
-          items:
-            description: A list of payments.
-            oneOf:
-            - $ref: '#/components/schemas/Payment'
-    PaymentAdjustmentItem:
-      type: object
-      x-resource-id: PaymentAdjustmentItem
-      description: A payment adjustment line item for a payment adjustment.
-      properties:
-        payment_adjustment_id:
-          type: integer
-          description: The numeric ID for a payment adjustment.
-          format: int64
-          minimum: 1
-          example: 1
-        payment_adjustment_item_id:
-          type: integer
-          description: Unique ID for the adjustment line item.
-          format: int64
-          minimum: 1
-          example: 1
-        adjustment_type:
-          type:
-          - string
-          - 'null'
-          description: String indicating the type of adjustment for this line item.
-          example: example string
-        amount:
-          type: integer
-          description: Integer value for the amount of the adjustment in original currency.
-          default: 0
-          example: 2500
-        shop_amount:
-          type: integer
-          description: Integer value for the amount of the adjustment in currency for the shop.
-          default: 0
-          example: 2500
-        transaction_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique numeric ID for a transaction.
-          format: int64
-          minimum: 1
-          example: 345678901
-        bill_payment_id:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID for the bill payment adjustment.
-          format: int64
-          minimum: 1
-          example: 1
-        created_timestamp:
-          type: integer
-          description: The transaction's creation date and time, in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        updated_timestamp:
-          type: integer
-          description: The update date and time the payment adjustment in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-    PaymentAdjustment:
-      type: object
-      x-resource-id: PaymentAdjustment
-      description: Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.
-      properties:
-        payment_adjustment_id:
-          type: integer
-          description: The numeric ID for a payment adjustment.
-          format: int64
-          minimum: 1
-          example: 1
-        payment_id:
-          type: integer
-          description: A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).
-          format: int64
-          minimum: 1
-          example: 1
-        status:
-          type: string
-          description: The status string of the payment adjustment.
-          example: example string
-        is_success:
-          type: boolean
-          description: When true, the payment adjustment was or is likely to complete successfully.
-          example: true
-        user_id:
-          type: integer
-          description: The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.
-          format: int64
-          minimum: 1
-          example: 456789
-        reason_code:
-          type: string
-          description: A human-readable string describing the reason for the refund.
-          example: example string
-        total_adjustment_amount:
-          type:
-          - integer
-          - 'null'
-          description: The total numeric amount of the refund in the payment currency.
-          minimum: 0
-          example: 2500
-        shop_total_adjustment_amount:
-          type:
-          - integer
-          - 'null'
-          description: The numeric amount of the refund in the shop currency.
-          minimum: 0
-          example: 2500
-        buyer_total_adjustment_amount:
-          type:
-          - integer
-          - 'null'
-          description: The numeric amount of the refund in the buyer currency.
-          minimum: 0
-          example: 2500
-        total_fee_adjustment_amount:
-          type:
-          - integer
-          - 'null'
-          description: The numeric amount of card processing fees associated with a payment adjustment.
-          minimum: 0
-          example: 2500
-        create_timestamp:
-          type: integer
-          description: The transaction's creation date and time, in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        created_timestamp:
-          type: integer
-          description: The transaction's creation date and time, in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        update_timestamp:
-          type: integer
-          description: The date and time of the last change to the payment adjustment in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        updated_timestamp:
-          type: integer
-          description: The date and time of the last change to the payment adjustment in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        payment_adjustment_items:
-          type: array
-          description: List of payment adjustment line items.
-          items:
-            description: List of payment adjustment line items.
-            oneOf:
-            - $ref: '#/components/schemas/PaymentAdjustmentItem'
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema

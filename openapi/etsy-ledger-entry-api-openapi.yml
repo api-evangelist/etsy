@@ -273,155 +273,6 @@ paths:
       summary: Etsy Get Shop Payment Account Ledger Entries
 components:
   schemas:
-    PaymentAccountLedgerEntries:
-      type: object
-      x-resource-id: PaymentAccountLedgerEntries
-      description: A set of PaymentAccountLedgerEntry resources
-      properties:
-        count:
-          type: integer
-          description: The number of PaymentAccountLedgerEntry resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The PaymentAccountLedgerEntry resources found.
-          items:
-            description: The PaymentAccountLedgerEntry resources found.
-            oneOf:
-            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
-    PaymentAccountLedgerEntry:
-      type: object
-      x-resource-id: PaymentAccountLedgerEntry
-      description: Represents an entry in a shop's ledger.
-      properties:
-        entry_id:
-          type: integer
-          description: The ledger entry's numeric ID.
-          format: int64
-          minimum: 1
-          example: 1
-        ledger_id:
-          type: integer
-          description: The ledger's numeric ID.
-          format: int64
-          minimum: 1
-          example: 1
-        sequence_number:
-          type: integer
-          description: The sequence allows ledger entries to be sorted chronologically. The higher the sequence, the more recent the entry.
-          example: 1
-        amount:
-          type: integer
-          description: The amount of money credited to the ledger.
-          example: 2500
-        currency:
-          type: string
-          description: The currency of the entry on the ledger.
-          example: example string
-        description:
-          type: string
-          description: 'Details what kind of ledger entry this is: a payment, refund, reversal of a failed refund, disbursement, returned disbursement, recoupment, miscellaneous credit, miscellaneous debit, or bill payment.'
-          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
-        balance:
-          type: integer
-          description: The amount of money in the shop's ledger the moment after this entry was applied.
-          example: 1
-        create_date:
-          type: integer
-          description: The date and time the ledger entry was created in Epoch seconds.
-          minimum: 0
-          example: 1
-        created_timestamp:
-          type: integer
-          description: The date and time the ledger entry was created in Epoch seconds.
-          minimum: 0
-          example: 1758153645
-        ledger_type:
-          type: string
-          description: The original reference type for the ledger entry.
-          example: example string
-        reference_type:
-          type: string
-          description: The object type the ledger entry refers to.
-          example: example string
-        reference_id:
-          type:
-          - string
-          - 'null'
-          description: The object id the ledger entry refers to.
-          example: example string
-        parent_entry_id:
-          type: integer
-          description: The parent ledger entry ID used to match related entries (e.g., vat_seller_services to originating seller fees).
-          minimum: 0
-          example: 1
-        payment_adjustments:
-          type: array
-          description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
-          items:
-            description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
-            oneOf:
-            - $ref: '#/components/schemas/PaymentAdjustment'
-    PaymentAdjustmentItem:
-      type: object
-      x-resource-id: PaymentAdjustmentItem
-      description: A payment adjustment line item for a payment adjustment.
-      properties:
-        payment_adjustment_id:
-          type: integer
-          description: The numeric ID for a payment adjustment.
-          format: int64
-          minimum: 1
-          example: 1
-        payment_adjustment_item_id:
-          type: integer
-          description: Unique ID for the adjustment line item.
-          format: int64
-          minimum: 1
-          example: 1
-        adjustment_type:
-          type:
-          - string
-          - 'null'
-          description: String indicating the type of adjustment for this line item.
-          example: example string
-        amount:
-          type: integer
-          description: Integer value for the amount of the adjustment in original currency.
-          default: 0
-          example: 2500
-        shop_amount:
-          type: integer
-          description: Integer value for the amount of the adjustment in currency for the shop.
-          default: 0
-          example: 2500
-        transaction_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique numeric ID for a transaction.
-          format: int64
-          minimum: 1
-          example: 345678901
-        bill_payment_id:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID for the bill payment adjustment.
-          format: int64
-          minimum: 1
-          example: 1
-        created_timestamp:
-          type: integer
-          description: The transaction's creation date and time, in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
-        updated_timestamp:
-          type: integer
-          description: The update date and time the payment adjustment in epoch seconds.
-          minimum: 946684800
-          example: 1758153645
     PaymentAdjustment:
       type: object
       x-resource-id: PaymentAdjustment
@@ -512,6 +363,155 @@ components:
             description: List of payment adjustment line items.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustmentItem'
+    PaymentAdjustmentItem:
+      type: object
+      x-resource-id: PaymentAdjustmentItem
+      description: A payment adjustment line item for a payment adjustment.
+      properties:
+        payment_adjustment_id:
+          type: integer
+          description: The numeric ID for a payment adjustment.
+          format: int64
+          minimum: 1
+          example: 1
+        payment_adjustment_item_id:
+          type: integer
+          description: Unique ID for the adjustment line item.
+          format: int64
+          minimum: 1
+          example: 1
+        adjustment_type:
+          type:
+          - string
+          - 'null'
+          description: String indicating the type of adjustment for this line item.
+          example: example string
+        amount:
+          type: integer
+          description: Integer value for the amount of the adjustment in original currency.
+          default: 0
+          example: 2500
+        shop_amount:
+          type: integer
+          description: Integer value for the amount of the adjustment in currency for the shop.
+          default: 0
+          example: 2500
+        transaction_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique numeric ID for a transaction.
+          format: int64
+          minimum: 1
+          example: 345678901
+        bill_payment_id:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID for the bill payment adjustment.
+          format: int64
+          minimum: 1
+          example: 1
+        created_timestamp:
+          type: integer
+          description: The transaction's creation date and time, in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+        updated_timestamp:
+          type: integer
+          description: The update date and time the payment adjustment in epoch seconds.
+          minimum: 946684800
+          example: 1758153645
+    PaymentAccountLedgerEntry:
+      type: object
+      x-resource-id: PaymentAccountLedgerEntry
+      description: Represents an entry in a shop's ledger.
+      properties:
+        entry_id:
+          type: integer
+          description: The ledger entry's numeric ID.
+          format: int64
+          minimum: 1
+          example: 1
+        ledger_id:
+          type: integer
+          description: The ledger's numeric ID.
+          format: int64
+          minimum: 1
+          example: 1
+        sequence_number:
+          type: integer
+          description: The sequence allows ledger entries to be sorted chronologically. The higher the sequence, the more recent the entry.
+          example: 1
+        amount:
+          type: integer
+          description: The amount of money credited to the ledger.
+          example: 2500
+        currency:
+          type: string
+          description: The currency of the entry on the ledger.
+          example: example string
+        description:
+          type: string
+          description: 'Details what kind of ledger entry this is: a payment, refund, reversal of a failed refund, disbursement, returned disbursement, recoupment, miscellaneous credit, miscellaneous debit, or bill payment.'
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+        balance:
+          type: integer
+          description: The amount of money in the shop's ledger the moment after this entry was applied.
+          example: 1
+        create_date:
+          type: integer
+          description: The date and time the ledger entry was created in Epoch seconds.
+          minimum: 0
+          example: 1
+        created_timestamp:
+          type: integer
+          description: The date and time the ledger entry was created in Epoch seconds.
+          minimum: 0
+          example: 1758153645
+        ledger_type:
+          type: string
+          description: The original reference type for the ledger entry.
+          example: example string
+        reference_type:
+          type: string
+          description: The object type the ledger entry refers to.
+          example: example string
+        reference_id:
+          type:
+          - string
+          - 'null'
+          description: The object id the ledger entry refers to.
+          example: example string
+        parent_entry_id:
+          type: integer
+          description: The parent ledger entry ID used to match related entries (e.g., vat_seller_services to originating seller fees).
+          minimum: 0
+          example: 1
+        payment_adjustments:
+          type: array
+          description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
+          items:
+            description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
+            oneOf:
+            - $ref: '#/components/schemas/PaymentAdjustment'
+    PaymentAccountLedgerEntries:
+      type: object
+      x-resource-id: PaymentAccountLedgerEntries
+      description: A set of PaymentAccountLedgerEntry resources
+      properties:
+        count:
+          type: integer
+          description: The number of PaymentAccountLedgerEntry resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The PaymentAccountLedgerEntry resources found.
+          items:
+            description: The PaymentAccountLedgerEntry resources found.
+            oneOf:
+            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema

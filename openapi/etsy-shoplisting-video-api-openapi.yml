@@ -494,32 +494,6 @@ paths:
       summary: Etsy Upload Listing Video
 components:
   schemas:
-    ListingVideos:
-      type: object
-      x-resource-id: ListingVideos
-      description: Represents a list of listing video resources, each of which contains the reference URLs for the videos.
-      properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ListingVideo'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingVideo:
       type: object
       x-resource-id: ListingVideo
@@ -557,6 +531,32 @@ components:
           - flagged
           default: active
           example: active
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ListingVideos:
+      type: object
+      x-resource-id: ListingVideos
+      description: Represents a list of listing video resources, each of which contains the reference URLs for the videos.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/ListingVideo'
   securitySchemes:
     api_key:
       type: apiKey
