@@ -2085,79 +2085,135 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
-    ShopShippingProfile:
+    ShopShippingProfileDestination:
       type: object
-      x-resource-id: ShopShippingProfile
-      description: Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
+      x-resource-id: ShopShippingProfileDestination
+      description: Represents a shipping destination assigned to a shipping profile.
       properties:
+        shipping_profile_destination_id:
+          type: integer
+          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
+          format: int64
+          minimum: 1
+          example: 1
         shipping_profile_id:
           type: integer
           description: The numeric ID of the shipping profile.
           format: int64
           minimum: 1
           example: 1
-        title:
-          type:
-          - string
-          - 'null'
-          description: The name string of this shipping profile.
-          example: Handmade Ceramic Mug — Stoneware
-        user_id:
-          type: integer
-          description: The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.
-          format: int64
-          minimum: 1
-          example: 456789
         origin_country_iso:
           type: string
           description: The ISO code of the country from which the listing ships.
           format: ISO 3166-1 alpha-2
           example: US
-        is_deleted:
-          type: boolean
-          description: When true, someone deleted this shipping profile.
-          example: true
-        shipping_profile_destinations:
-          type: array
-          description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
-          items:
-            description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileDestination'
-        shipping_profile_upgrades:
-          type: array
-          description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
-          items:
-            description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
-        origin_postal_code:
+        destination_country_iso:
+          type: string
+          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
+          example: US
+        destination_region:
+          type: string
+          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
+          enum:
+          - eu
+          - non_eu
+          - none
+          example: eu
+        primary_cost:
+          description: The cost of shipping to this country/region alone, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        secondary_cost:
+          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        shipping_carrier_id:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: 1
+        mail_class:
           type:
           - string
           - 'null'
-          description: The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` supports postal codes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#countries-requiring-postal-codes) for more info
-          example: '11201'
-        profile_type:
+          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
+          example: example string
+        min_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+        max_delivery_days:
+          type:
+          - integer
+          - 'null'
+          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+          minimum: 1
+          maximum: 45
+          example: 1
+    ShopShippingProfileDestinations:
+      type: object
+      x-resource-id: ShopShippingProfileDestinations
+      description: Represents a list of shipping destination objects.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileDestination'
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
           type: string
-          enum:
-          - manual
-          - calculated
-          default: manual
-          example: manual
-        domestic_handling_fee:
-          type: number
-          description: The domestic handling fee added to buyer's shipping total - only available for calculated shipping profiles.
-          format: float
+          description: The ISO currency code for this data.
+          example: USD
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ShopShippingProfiles:
+      type: object
+      x-resource-id: ShopShippingProfiles
+      description: Represents several ShopShippingProfiles.
+      properties:
+        count:
+          type: integer
           minimum: 0
-          default: 0
-          example: 1.0
-        international_handling_fee:
-          type: number
-          description: The international handling fee added to buyer's shipping total - only available for calculated shipping profiles.
-          format: float
-          minimum: 0
-          default: 0
-          example: 1.0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopShippingProfile'
     ShopShippingProfileUpgrade:
       type: object
       x-resource-id: ShopShippingProfileUpgrade
@@ -2233,78 +2289,92 @@ components:
           minimum: 1
           maximum: 45
           example: 1
-    ShopShippingProfileDestination:
+    ShopShippingProfile:
       type: object
-      x-resource-id: ShopShippingProfileDestination
-      description: Represents a shipping destination assigned to a shipping profile.
+      x-resource-id: ShopShippingProfile
+      description: Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
       properties:
-        shipping_profile_destination_id:
-          type: integer
-          description: The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
-          format: int64
-          minimum: 1
-          example: 1
         shipping_profile_id:
           type: integer
           description: The numeric ID of the shipping profile.
           format: int64
           minimum: 1
           example: 1
+        title:
+          type:
+          - string
+          - 'null'
+          description: The name string of this shipping profile.
+          example: Handmade Ceramic Mug — Stoneware
+        user_id:
+          type: integer
+          description: The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.
+          format: int64
+          minimum: 1
+          example: 456789
         origin_country_iso:
           type: string
           description: The ISO code of the country from which the listing ships.
           format: ISO 3166-1 alpha-2
           example: US
-        destination_country_iso:
-          type: string
-          description: The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
-          example: US
-        destination_region:
-          type: string
-          description: The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
-          enum:
-          - eu
-          - non_eu
-          - none
-          example: eu
-        primary_cost:
-          description: The cost of shipping to this country/region alone, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        secondary_cost:
-          description: The cost of shipping to this country/region with another item, measured in the store's default currency.
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        shipping_carrier_id:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
-          example: 1
-        mail_class:
+        is_deleted:
+          type: boolean
+          description: When true, someone deleted this shipping profile.
+          example: true
+        shipping_profile_destinations:
+          type: array
+          description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
+          items:
+            description: A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileDestination'
+        shipping_profile_upgrades:
+          type: array
+          description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
+          items:
+            description: A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
+            oneOf:
+            - $ref: '#/components/schemas/ShopShippingProfileUpgrade'
+        origin_postal_code:
           type:
           - string
           - 'null'
-          description: The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
+          description: The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` supports postal codes. See the [Fulfillment Tutorial docs](https://developer.etsy.com/documentation/tutorials/fulfillment/#countries-requiring-postal-codes) for more info
+          example: '11201'
+        profile_type:
+          type: string
+          enum:
+          - manual
+          - calculated
+          default: manual
+          example: manual
+        domestic_handling_fee:
+          type: number
+          description: The domestic handling fee added to buyer's shipping total - only available for calculated shipping profiles.
+          format: float
+          minimum: 0
+          default: 0
+          example: 1.0
+        international_handling_fee:
+          type: number
+          description: The international handling fee added to buyer's shipping total - only available for calculated shipping profiles.
+          format: float
+          minimum: 0
+          default: 0
+          example: 1.0
+    ShippingCarrierMailClass:
+      type: object
+      x-resource-id: ShippingCarrierMailClass
+      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
+      properties:
+        mail_class_key:
+          type: string
+          description: The unique identifier of this mail class.
           example: example string
-        min_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
-        max_delivery_days:
-          type:
-          - integer
-          - 'null'
-          description: The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
-          minimum: 1
-          maximum: 45
-          example: 1
+        name:
+          type: string
+          description: The name of this mail class.
+          example: Handmade Ceramic Mug
     ShippingCarrier:
       type: object
       x-resource-id: ShippingCarrier
@@ -2334,24 +2404,6 @@ components:
             description: Set of international mail classes of this shipping carrier.
             oneOf:
             - $ref: '#/components/schemas/ShippingCarrierMailClass'
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
     ShippingCarriers:
       type: object
       x-resource-id: ShippingCarriers
@@ -2365,58 +2417,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShippingCarrier'
-    ShippingCarrierMailClass:
-      type: object
-      x-resource-id: ShippingCarrierMailClass
-      description: A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.
-      properties:
-        mail_class_key:
-          type: string
-          description: The unique identifier of this mail class.
-          example: example string
-        name:
-          type: string
-          description: The name of this mail class.
-          example: Handmade Ceramic Mug
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
-    ShopShippingProfiles:
-      type: object
-      x-resource-id: ShopShippingProfiles
-      description: Represents several ShopShippingProfiles.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopShippingProfile'
-    ShopShippingProfileDestinations:
-      type: object
-      x-resource-id: ShopShippingProfileDestinations
-      description: Represents a list of shipping destination objects.
-      properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopShippingProfileDestination'
   securitySchemes:
     api_key:
       type: apiKey

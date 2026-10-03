@@ -532,6 +532,32 @@ paths:
       summary: Etsy Upload Listing File
 components:
   schemas:
+    ShopListingFiles:
+      type: object
+      x-resource-id: ShopListingFiles
+      description: Represents several ShopListingFiles.
+      properties:
+        count:
+          type: integer
+          description: The number of ShopListingFiles being returned..
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: An array of ShopListingFile resources.
+          items:
+            description: An array of ShopListingFile resources.
+            oneOf:
+            - $ref: '#/components/schemas/ShopListingFile'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ShopListingFile:
       type: object
       x-resource-id: ShopListingFile
@@ -581,32 +607,6 @@ components:
           description: The unique numeric ID of a file associated with a digital listing.
           minimum: 946684800
           example: 1758153645
-    ShopListingFiles:
-      type: object
-      x-resource-id: ShopListingFiles
-      description: Represents several ShopListingFiles.
-      properties:
-        count:
-          type: integer
-          description: The number of ShopListingFiles being returned..
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: An array of ShopListingFile resources.
-          items:
-            description: An array of ShopListingFile resources.
-            oneOf:
-            - $ref: '#/components/schemas/ShopListingFile'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

@@ -106,25 +106,6 @@ paths:
       summary: Etsy Get Shop Production Partners
 components:
   schemas:
-    ShopProductionPartner:
-      type: object
-      x-resource-id: ShopProductionPartner
-      description: Represents a description of a shop production partner.
-      properties:
-        production_partner_id:
-          type: integer
-          description: The numeric ID of a production partner.
-          format: int64
-          minimum: 1
-          example: 1
-        partner_name:
-          type: string
-          description: The name or title of the production partner.
-          example: Handmade Ceramic Mug
-        location:
-          type: string
-          description: A string representing the production partner location.
-          example: example string
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema
@@ -151,6 +132,25 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/ShopProductionPartner'
+    ShopProductionPartner:
+      type: object
+      x-resource-id: ShopProductionPartner
+      description: Represents a description of a shop production partner.
+      properties:
+        production_partner_id:
+          type: integer
+          description: The numeric ID of a production partner.
+          format: int64
+          minimum: 1
+          example: 1
+        partner_name:
+          type: string
+          description: The name or title of the production partner.
+          example: Handmade Ceramic Mug
+        location:
+          type: string
+          description: A string representing the production partner location.
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

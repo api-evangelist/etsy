@@ -202,6 +202,15 @@ paths:
       summary: Etsy Get Me
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     Self:
       type: object
       x-resource-id: Self
@@ -255,15 +264,6 @@ components:
           - 'null'
           description: The user's avatar URL.
           example: https://www.etsy.com/listing/123456789
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

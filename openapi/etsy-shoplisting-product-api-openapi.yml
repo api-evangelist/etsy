@@ -140,6 +140,33 @@ paths:
       summary: Etsy Get Listing Product
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
     ListingInventoryProduct:
       type: object
       x-resource-id: ListingInventoryProduct
@@ -173,6 +200,43 @@ components:
             description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
             oneOf:
             - $ref: '#/components/schemas/ListingPropertyValue'
+    ListingInventoryProductOffering:
+      type: object
+      x-resource-id: ListingInventoryProductOffering
+      description: A representation of an offering for a listing.
+      properties:
+        offering_id:
+          type: integer
+          description: The ID for the ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+        quantity:
+          type: integer
+          description: The quantity the ProductOffering
+          minimum: 0
+          example: 1
+        is_enabled:
+          type: boolean
+          description: Whether or not the offering can be shown to buyers.
+          example: true
+        is_deleted:
+          type: boolean
+          description: Whether or not the offering has been deleted.
+          example: true
+        price:
+          description: Price data for this ProductOffering
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        readiness_state_id:
+          type:
+          - integer
+          - 'null'
+          description: Processing Profile for this ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
     ListingPropertyValue:
       type: object
       x-resource-id: ListingPropertyValue
@@ -216,70 +280,6 @@ components:
           description: The Property values
           items:
             type: string
-    Money:
-      type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
-      properties:
-        amount:
-          type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
-          type: string
-          description: The ISO currency code for this data.
-          example: USD
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
-    ListingInventoryProductOffering:
-      type: object
-      x-resource-id: ListingInventoryProductOffering
-      description: A representation of an offering for a listing.
-      properties:
-        offering_id:
-          type: integer
-          description: The ID for the ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
-        quantity:
-          type: integer
-          description: The quantity the ProductOffering
-          minimum: 0
-          example: 1
-        is_enabled:
-          type: boolean
-          description: Whether or not the offering can be shown to buyers.
-          example: true
-        is_deleted:
-          type: boolean
-          description: Whether or not the offering has been deleted.
-          example: true
-        price:
-          description: Price data for this ProductOffering
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        readiness_state_id:
-          type:
-          - integer
-          - 'null'
-          description: Processing Profile for this ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
   securitySchemes:
     api_key:
       type: apiKey

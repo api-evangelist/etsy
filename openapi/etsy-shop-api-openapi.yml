@@ -537,32 +537,6 @@ paths:
       summary: Etsy Find Shops
 components:
   schemas:
-    Shops:
-      type: object
-      x-resource-id: Shops
-      description: A set of Shop records.
-      properties:
-        count:
-          type: integer
-          description: The total number of Shops
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The Shop resources.
-          items:
-            description: The Shop resources.
-            oneOf:
-            - $ref: '#/components/schemas/Shop'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     Shop:
       type: object
       x-resource-id: Shop
@@ -811,6 +785,32 @@ components:
           description: Average rating based on reviews of shop listings in the past year.
           format: float
           example: 1.0
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    Shops:
+      type: object
+      x-resource-id: Shops
+      description: A set of Shop records.
+      properties:
+        count:
+          type: integer
+          description: The total number of Shops
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The Shop resources.
+          items:
+            description: The Shop resources.
+            oneOf:
+            - $ref: '#/components/schemas/Shop'
   securitySchemes:
     api_key:
       type: apiKey

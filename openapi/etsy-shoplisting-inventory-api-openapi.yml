@@ -433,116 +433,6 @@ paths:
       summary: Etsy Update Listing Inventory
 components:
   schemas:
-    ListingInventoryProduct:
-      type: object
-      x-resource-id: ListingInventoryProduct
-      description: A representation of a product for a listing.
-      properties:
-        product_id:
-          type: integer
-          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
-          format: int64
-          minimum: 1
-          example: 567890123
-        sku:
-          type: string
-          description: The SKU string for the product
-          example: SKU-12345
-        is_deleted:
-          type: boolean
-          description: When true, someone deleted this product.
-          example: true
-        offerings:
-          type: array
-          description: A list of product offering entries for this product.
-          items:
-            description: A list of product offering entries for this product.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProductOffering'
-        property_values:
-          type: array
-          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-          items:
-            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-            oneOf:
-            - $ref: '#/components/schemas/ListingPropertyValue'
-    ListingPropertyValue:
-      type: object
-      x-resource-id: ListingPropertyValue
-      description: A representation of structured data values.
-      properties:
-        property_id:
-          type: integer
-          description: The numeric ID of the Property.
-          format: int64
-          minimum: 1
-          example: 1
-        property_name:
-          type:
-          - string
-          - 'null'
-          description: The name of the Property.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of the scale (if any).
-          format: int64
-          minimum: 1
-          example: 1
-        scale_name:
-          type:
-          - string
-          - 'null'
-          description: The label used to describe the chosen scale (if any).
-          example: Handmade Ceramic Mug
-        value_ids:
-          type: array
-          description: The numeric IDs of the Property values
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        values:
-          type: array
-          description: The Property values
-          items:
-            type: string
-    ListingInventory:
-      type: object
-      x-resource-id: ListingInventory
-      description: A representation of a single listing's inventory record.
-      properties:
-        products:
-          type: array
-          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-          items:
-            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProduct'
-        price_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
-          items:
-            type: integer
-        quantity_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        sku_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        readiness_state_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
     ShopListing:
       type: object
       x-resource-id: ShopListing
@@ -892,6 +782,73 @@ components:
         error:
           type: string
           example: example string
+    ListingInventory:
+      type: object
+      x-resource-id: ListingInventory
+      description: A representation of a single listing's inventory record.
+      properties:
+        products:
+          type: array
+          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+          items:
+            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProduct'
+        price_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
+          items:
+            type: integer
+        quantity_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        sku_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        readiness_state_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+    ListingInventoryProduct:
+      type: object
+      x-resource-id: ListingInventoryProduct
+      description: A representation of a product for a listing.
+      properties:
+        product_id:
+          type: integer
+          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
+          format: int64
+          minimum: 1
+          example: 567890123
+        sku:
+          type: string
+          description: The SKU string for the product
+          example: SKU-12345
+        is_deleted:
+          type: boolean
+          description: When true, someone deleted this product.
+          example: true
+        offerings:
+          type: array
+          description: A list of product offering entries for this product.
+          items:
+            description: A list of product offering entries for this product.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProductOffering'
+        property_values:
+          type: array
+          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+          items:
+            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+            oneOf:
+            - $ref: '#/components/schemas/ListingPropertyValue'
     ListingInventoryWithAssociations:
       type: object
       x-resource-id: ListingInventoryWithAssociations
@@ -968,6 +925,49 @@ components:
           format: int64
           minimum: 1
           example: 1
+    ListingPropertyValue:
+      type: object
+      x-resource-id: ListingPropertyValue
+      description: A representation of structured data values.
+      properties:
+        property_id:
+          type: integer
+          description: The numeric ID of the Property.
+          format: int64
+          minimum: 1
+          example: 1
+        property_name:
+          type:
+          - string
+          - 'null'
+          description: The name of the Property.
+          example: Handmade Ceramic Mug
+        scale_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric ID of the scale (if any).
+          format: int64
+          minimum: 1
+          example: 1
+        scale_name:
+          type:
+          - string
+          - 'null'
+          description: The label used to describe the chosen scale (if any).
+          example: Handmade Ceramic Mug
+        value_ids:
+          type: array
+          description: The numeric IDs of the Property values
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        values:
+          type: array
+          description: The Property values
+          items:
+            type: string
   securitySchemes:
     api_key:
       type: apiKey

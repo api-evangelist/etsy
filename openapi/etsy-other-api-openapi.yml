@@ -159,6 +159,15 @@ paths:
       summary: Etsy Token Scopes
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     Pong:
       type: object
       x-resource-id: Pong
@@ -175,15 +184,6 @@ components:
       x-resource-id: Scopes
       description: A list of scopes allowed for the token.
       properties: {}
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
   securitySchemes:
     api_key:
       type: apiKey

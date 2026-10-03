@@ -296,6 +296,15 @@ paths:
       summary: Etsy Update Variation Images
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ListingVariationImage:
       type: object
       x-resource-id: ListingVariationImage
@@ -325,15 +334,6 @@ components:
           format: int64
           minimum: 1
           example: 1
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingVariationImages:
       type: object
       x-resource-id: ListingVariationImages
