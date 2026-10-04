@@ -45,6 +45,9 @@ description: >-
 created: '2026-05-05'
 modified: '2026-05-30'
 specificationVersion: '0.23'
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
 tags:
   - Marketplace
   - E-Commerce
