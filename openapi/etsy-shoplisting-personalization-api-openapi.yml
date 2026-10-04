@@ -458,15 +458,14 @@ paths:
       summary: Etsy Get Listing Personalization
 components:
   schemas:
-    ErrorSchema:
+    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
       properties:
-        error:
-          type: string
-          example: example string
+        personalization_questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
     Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion:
       type: object
       x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion
@@ -522,14 +521,15 @@ components:
             required:
             - option_id
             - label
-    Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization:
+    ErrorSchema:
       type: object
-      x-resource-id: Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        personalization_questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion'
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey

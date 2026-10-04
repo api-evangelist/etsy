@@ -657,19 +657,6 @@ components:
         error:
           type: string
           example: example string
-    ShopProcessingProfiles:
-      type: object
-      x-resource-id: ShopProcessingProfiles
-      description: Represents several ProcessingProfiles.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopProcessingProfile'
     ShopProcessingProfile:
       type: object
       x-resource-id: ShopProcessingProfile
@@ -708,6 +695,19 @@ components:
           type: string
           description: Translated display label string for processing days, for example "3 - 5 days".
           example: example string
+    ShopProcessingProfiles:
+      type: object
+      x-resource-id: ShopProcessingProfiles
+      description: Represents several ProcessingProfiles.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopProcessingProfile'
   securitySchemes:
     api_key:
       type: apiKey

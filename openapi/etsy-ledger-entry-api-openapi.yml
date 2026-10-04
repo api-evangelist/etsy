@@ -273,6 +273,15 @@ paths:
       summary: Etsy Get Shop Payment Account Ledger Entries
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     PaymentAdjustment:
       type: object
       x-resource-id: PaymentAdjustment
@@ -363,15 +372,6 @@ components:
             description: List of payment adjustment line items.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustmentItem'
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     PaymentAccountLedgerEntry:
       type: object
       x-resource-id: PaymentAccountLedgerEntry

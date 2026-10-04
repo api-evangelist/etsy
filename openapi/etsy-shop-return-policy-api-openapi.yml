@@ -721,19 +721,6 @@ paths:
       summary: Etsy Update Shop Return Policy
 components:
   schemas:
-    ShopReturnPolicies:
-      type: object
-      x-resource-id: ShopReturnPolicies
-      description: Represents a shop's listing-level return policies list.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShopReturnPolicy'
     ShopReturnPolicy:
       type: object
       x-resource-id: ShopReturnPolicy
@@ -774,6 +761,19 @@ components:
         error:
           type: string
           example: example string
+    ShopReturnPolicies:
+      type: object
+      x-resource-id: ShopReturnPolicies
+      description: Represents a shop's listing-level return policies list.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShopReturnPolicy'
   securitySchemes:
     api_key:
       type: apiKey

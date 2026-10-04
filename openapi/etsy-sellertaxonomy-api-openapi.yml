@@ -158,23 +158,15 @@ paths:
       summary: Etsy Get Properties by Taxonomy Id
 components:
   schemas:
-    SellerTaxonomyNodes:
+    ErrorSchema:
       type: object
-      x-resource-id: SellerTaxonomyNodes
-      description: A list of taxonomy nodes from the seller taxonomy tree.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/SellerTaxonomyNode'
+        error:
+          type: string
+          example: example string
     TaxonomyPropertyScale:
       type: object
       x-resource-id: TaxonomyPropertyScale
@@ -194,58 +186,6 @@ components:
           type: string
           description: The description string for a scale.
           example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
-    SellerTaxonomyNode:
-      type: object
-      x-resource-id: SellerTaxonomyNode
-      description: A taxonomy node in the seller taxonomy tree.
-      properties:
-        id:
-          type: integer
-          description: 'The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the "shoes" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than "girls'' shoes" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes "shoes" or "girls'' shoes" support access to the "EU" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:"1394", and `name`:"38".'
-          format: int64
-          minimum: 1
-          example: 1
-        level:
-          type: integer
-          description: The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.
-          minimum: 0
-          example: 1
-        name:
-          type: string
-          description: The name string for this taxonomy node.
-          example: Handmade Ceramic Mug
-        parent_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric taxonomy ID of the parent of this node.
-          format: int64
-          minimum: 1
-          default: null
-          example: 1
-        children:
-          type: array
-          description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
-          items:
-            description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
-            oneOf:
-            - $ref: '#/components/schemas/SellerTaxonomyNode'
-        full_path_taxonomy_ids:
-          type: array
-          description: An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
     TaxonomyPropertyValue:
       type: object
       x-resource-id: TaxonomyPropertyValue
@@ -356,6 +296,66 @@ components:
             description: A list of property value strings automatically and always selected for the given property.
             oneOf:
             - $ref: '#/components/schemas/TaxonomyPropertyValue'
+    SellerTaxonomyNodes:
+      type: object
+      x-resource-id: SellerTaxonomyNodes
+      description: A list of taxonomy nodes from the seller taxonomy tree.
+      properties:
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/SellerTaxonomyNode'
+    SellerTaxonomyNode:
+      type: object
+      x-resource-id: SellerTaxonomyNode
+      description: A taxonomy node in the seller taxonomy tree.
+      properties:
+        id:
+          type: integer
+          description: 'The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the "shoes" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than "girls'' shoes" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes "shoes" or "girls'' shoes" support access to the "EU" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:"1394", and `name`:"38".'
+          format: int64
+          minimum: 1
+          example: 1
+        level:
+          type: integer
+          description: The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.
+          minimum: 0
+          example: 1
+        name:
+          type: string
+          description: The name string for this taxonomy node.
+          example: Handmade Ceramic Mug
+        parent_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric taxonomy ID of the parent of this node.
+          format: int64
+          minimum: 1
+          default: null
+          example: 1
+        children:
+          type: array
+          description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
+          items:
+            description: An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
+            oneOf:
+            - $ref: '#/components/schemas/SellerTaxonomyNode'
+        full_path_taxonomy_ids:
+          type: array
+          description: An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
   securitySchemes:
     api_key:
       type: apiKey

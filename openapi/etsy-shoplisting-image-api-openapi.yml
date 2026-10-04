@@ -524,23 +524,15 @@ paths:
       summary: Etsy Upload Listing Image
 components:
   schemas:
-    ListingImages:
+    ErrorSchema:
       type: object
-      x-resource-id: ListingImages
-      description: Represents a list of listing image resources, each of which contains the reference URLs and metadata for an image.
+      x-resource-id: ErrorSchema
+      required:
+      - error
       properties:
-        count:
-          type: integer
-          description: The number of results.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The list of requested resources.
-          items:
-            description: The list of requested resources.
-            oneOf:
-            - $ref: '#/components/schemas/ListingImage'
+        error:
+          type: string
+          example: example string
     ListingImage:
       type: object
       x-resource-id: ListingImage
@@ -663,15 +655,23 @@ components:
           - 'null'
           description: Alt text for the listing image. Max length 500 characters.
           example: example string
-    ErrorSchema:
+    ListingImages:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: ListingImages
+      description: Represents a list of listing image resources, each of which contains the reference URLs and metadata for an image.
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of results.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The list of requested resources.
+          items:
+            description: The list of requested resources.
+            oneOf:
+            - $ref: '#/components/schemas/ListingImage'
   securitySchemes:
     api_key:
       type: apiKey

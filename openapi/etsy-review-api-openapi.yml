@@ -266,15 +266,6 @@ paths:
       summary: Etsy Get Reviews by Shop
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingReview:
       type: object
       x-resource-id: ListingReview
@@ -334,6 +325,49 @@ components:
           description: The date and time the TransactionReview was updated in epoch seconds.
           minimum: 946684800
           example: 1758153645
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    TransactionReviews:
+      type: object
+      x-resource-id: TransactionReviews
+      description: A set of transaction review records left by Users.
+      properties:
+        count:
+          type: integer
+          description: The number of TransactionReview resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The TransactionReview resources found.
+          items:
+            description: The TransactionReview resources found.
+            oneOf:
+            - $ref: '#/components/schemas/TransactionReview'
+    ListingReviews:
+      type: object
+      x-resource-id: ListingReviews
+      description: A set of listing review records left by Users.
+      properties:
+        count:
+          type: integer
+          description: The number of TransactionReview resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The TransactionReview resources found.
+          items:
+            description: The TransactionReview resources found.
+            oneOf:
+            - $ref: '#/components/schemas/ListingReview'
     TransactionReview:
       type: object
       x-resource-id: TransactionReview
@@ -406,40 +440,6 @@ components:
           description: The date and time the TransactionReview was updated in epoch seconds.
           minimum: 946684800
           example: 1758153645
-    TransactionReviews:
-      type: object
-      x-resource-id: TransactionReviews
-      description: A set of transaction review records left by Users.
-      properties:
-        count:
-          type: integer
-          description: The number of TransactionReview resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The TransactionReview resources found.
-          items:
-            description: The TransactionReview resources found.
-            oneOf:
-            - $ref: '#/components/schemas/TransactionReview'
-    ListingReviews:
-      type: object
-      x-resource-id: ListingReviews
-      description: A set of listing review records left by Users.
-      properties:
-        count:
-          type: integer
-          description: The number of TransactionReview resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The TransactionReview resources found.
-          items:
-            description: The TransactionReview resources found.
-            oneOf:
-            - $ref: '#/components/schemas/ListingReview'
   securitySchemes:
     api_key:
       type: apiKey

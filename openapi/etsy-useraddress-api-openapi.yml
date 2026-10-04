@@ -288,15 +288,6 @@ paths:
       summary: Etsy Get User Addresses
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     UserAddress:
       type: object
       x-resource-id: UserAddress
@@ -360,6 +351,15 @@ components:
           type: boolean
           description: Is this the user's default shipping address.
           example: true
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     UserAddresses:
       type: object
       x-resource-id: UserAddresses

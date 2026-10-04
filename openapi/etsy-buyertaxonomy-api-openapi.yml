@@ -146,6 +146,15 @@ paths:
       summary: Etsy Get Properties by Buyer Taxonomy Id
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     BuyerTaxonomyNode:
       type: object
       x-resource-id: BuyerTaxonomyNode
@@ -189,15 +198,87 @@ components:
             type: integer
             format: int64
             minimum: 1
-    ErrorSchema:
+    BuyerTaxonomyPropertyScale:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: BuyerTaxonomyPropertyScale
+      description: A scale defining the assignable increments for the property values available to specific product properties.
       properties:
-        error:
+        scale_id:
+          type: integer
+          description: The unique numeric ID of a scale.
+          format: int64
+          minimum: 1
+          example: 1
+        display_name:
           type: string
-          example: example string
+          description: The name string for a scale.
+          example: Handmade Ceramic Mug
+        description:
+          type: string
+          description: The description string for a scale.
+          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
+    BuyerTaxonomyNodeProperty:
+      type: object
+      x-resource-id: BuyerTaxonomyNodeProperty
+      description: A product property definition.
+      properties:
+        property_id:
+          type: integer
+          description: The unique numeric ID of this product property.
+          format: int64
+          minimum: 1
+          example: 1
+        name:
+          type: string
+          description: The name string for this taxonomy node.
+          example: Handmade Ceramic Mug
+        display_name:
+          type: string
+          description: The human-readable product property name string.
+          example: Handmade Ceramic Mug
+        scales:
+          type: array
+          description: A list of available scales.
+          items:
+            description: A list of available scales.
+            oneOf:
+            - $ref: '#/components/schemas/BuyerTaxonomyPropertyScale'
+        is_required:
+          type: boolean
+          description: When true, listings assigned eligible taxonomy IDs require this property.
+          example: true
+        supports_attributes:
+          type: boolean
+          description: When true, you can use this property in listing properties.
+          example: true
+        supports_variations:
+          type: boolean
+          description: When true, you can use this property in listing inventory.
+          example: true
+        is_multivalued:
+          type: boolean
+          description: When true, you can assign multiple property values to this property
+          example: true
+        max_values_allowed:
+          type:
+          - integer
+          - 'null'
+          description: When true, you can assign multiple property values to this property
+          example: 1
+        possible_values:
+          type: array
+          description: A list of supported property value strings for this property.
+          items:
+            description: A list of supported property value strings for this property.
+            oneOf:
+            - $ref: '#/components/schemas/BuyerTaxonomyPropertyValue'
+        selected_values:
+          type: array
+          description: A list of property value strings automatically and always selected for the given property.
+          items:
+            description: A list of property value strings automatically and always selected for the given property.
+            oneOf:
+            - $ref: '#/components/schemas/BuyerTaxonomyPropertyValue'
     BuyerTaxonomyNodes:
       type: object
       x-resource-id: BuyerTaxonomyNodes
@@ -263,87 +344,6 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/BuyerTaxonomyNodeProperty'
-    BuyerTaxonomyNodeProperty:
-      type: object
-      x-resource-id: BuyerTaxonomyNodeProperty
-      description: A product property definition.
-      properties:
-        property_id:
-          type: integer
-          description: The unique numeric ID of this product property.
-          format: int64
-          minimum: 1
-          example: 1
-        name:
-          type: string
-          description: The name string for this taxonomy node.
-          example: Handmade Ceramic Mug
-        display_name:
-          type: string
-          description: The human-readable product property name string.
-          example: Handmade Ceramic Mug
-        scales:
-          type: array
-          description: A list of available scales.
-          items:
-            description: A list of available scales.
-            oneOf:
-            - $ref: '#/components/schemas/BuyerTaxonomyPropertyScale'
-        is_required:
-          type: boolean
-          description: When true, listings assigned eligible taxonomy IDs require this property.
-          example: true
-        supports_attributes:
-          type: boolean
-          description: When true, you can use this property in listing properties.
-          example: true
-        supports_variations:
-          type: boolean
-          description: When true, you can use this property in listing inventory.
-          example: true
-        is_multivalued:
-          type: boolean
-          description: When true, you can assign multiple property values to this property
-          example: true
-        max_values_allowed:
-          type:
-          - integer
-          - 'null'
-          description: When true, you can assign multiple property values to this property
-          example: 1
-        possible_values:
-          type: array
-          description: A list of supported property value strings for this property.
-          items:
-            description: A list of supported property value strings for this property.
-            oneOf:
-            - $ref: '#/components/schemas/BuyerTaxonomyPropertyValue'
-        selected_values:
-          type: array
-          description: A list of property value strings automatically and always selected for the given property.
-          items:
-            description: A list of property value strings automatically and always selected for the given property.
-            oneOf:
-            - $ref: '#/components/schemas/BuyerTaxonomyPropertyValue'
-    BuyerTaxonomyPropertyScale:
-      type: object
-      x-resource-id: BuyerTaxonomyPropertyScale
-      description: A scale defining the assignable increments for the property values available to specific product properties.
-      properties:
-        scale_id:
-          type: integer
-          description: The unique numeric ID of a scale.
-          format: int64
-          minimum: 1
-          example: 1
-        display_name:
-          type: string
-          description: The name string for a scale.
-          example: Handmade Ceramic Mug
-        description:
-          type: string
-          description: The description string for a scale.
-          example: Beautifully crafted handmade ceramic mug, kiln-fired in our Brooklyn studio.
   securitySchemes:
     api_key:
       type: apiKey

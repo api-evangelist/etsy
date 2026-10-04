@@ -433,6 +433,54 @@ paths:
       summary: Etsy Update Listing Inventory
 components:
   schemas:
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
+    ListingInventoryWithAssociations:
+      type: object
+      x-resource-id: ListingInventoryWithAssociations
+      description: A representation of a single listing's inventory record with associations
+      properties:
+        products:
+          type: array
+          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+          items:
+            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProduct'
+        price_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
+          items:
+            type: integer
+        quantity_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        sku_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+        readiness_state_on_property:
+          type: array
+          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        listing:
+          description: An enumerated string that attaches a valid association. Default value is null.
+          oneOf:
+          - $ref: '#/components/schemas/ShopListing'
+          example: example
     ShopListing:
       type: object
       x-resource-id: ShopListing
@@ -755,33 +803,39 @@ components:
           - 'null'
           description: A title string suggested by Etsy. Only available for a user's own listings, when allow_suggested_title param is present, and when a shop's language setting is English. Not all listings will have suggestions.
           example: Handmade Ceramic Mug — Stoneware
-    Money:
+    ListingInventoryProduct:
       type: object
-      x-resource-id: Money
-      description: A representation of an amount of money.
+      x-resource-id: ListingInventoryProduct
+      description: A representation of a product for a listing.
       properties:
-        amount:
+        product_id:
           type: integer
-          description: The amount of represented by this data.
-          example: 2500
-        divisor:
-          type: integer
-          description: The divisor to render the amount.
-          minimum: 0
-          example: 1
-        currency_code:
+          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
+          format: int64
+          minimum: 1
+          example: 567890123
+        sku:
           type: string
-          description: The ISO currency code for this data.
-          example: USD
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
+          description: The SKU string for the product
+          example: SKU-12345
+        is_deleted:
+          type: boolean
+          description: When true, someone deleted this product.
+          example: true
+        offerings:
+          type: array
+          description: A list of product offering entries for this product.
+          items:
+            description: A list of product offering entries for this product.
+            oneOf:
+            - $ref: '#/components/schemas/ListingInventoryProductOffering'
+        property_values:
+          type: array
+          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+          items:
+            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
+            oneOf:
+            - $ref: '#/components/schemas/ListingPropertyValue'
     ListingInventory:
       type: object
       x-resource-id: ListingInventory
@@ -816,115 +870,6 @@ components:
             type: integer
             format: int64
             minimum: 1
-    ListingInventoryProduct:
-      type: object
-      x-resource-id: ListingInventoryProduct
-      description: A representation of a product for a listing.
-      properties:
-        product_id:
-          type: integer
-          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
-          format: int64
-          minimum: 1
-          example: 567890123
-        sku:
-          type: string
-          description: The SKU string for the product
-          example: SKU-12345
-        is_deleted:
-          type: boolean
-          description: When true, someone deleted this product.
-          example: true
-        offerings:
-          type: array
-          description: A list of product offering entries for this product.
-          items:
-            description: A list of product offering entries for this product.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProductOffering'
-        property_values:
-          type: array
-          description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-          items:
-            description: 'A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.'
-            oneOf:
-            - $ref: '#/components/schemas/ListingPropertyValue'
-    ListingInventoryWithAssociations:
-      type: object
-      x-resource-id: ListingInventoryWithAssociations
-      description: A representation of a single listing's inventory record with associations
-      properties:
-        products:
-          type: array
-          description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-          items:
-            description: A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
-            oneOf:
-            - $ref: '#/components/schemas/ListingInventoryProduct'
-        price_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
-          items:
-            type: integer
-        quantity_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        sku_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-        readiness_state_on_property:
-          type: array
-          description: An array of unique [listing property](/documentation/reference#operation/getListingInventory) ID integers for the properties that change processing profile, if any. For example, if you need specific processing profiles for different colored products in the same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        listing:
-          description: An enumerated string that attaches a valid association. Default value is null.
-          oneOf:
-          - $ref: '#/components/schemas/ShopListing'
-          example: example
-    ListingInventoryProductOffering:
-      type: object
-      x-resource-id: ListingInventoryProductOffering
-      description: A representation of an offering for a listing.
-      properties:
-        offering_id:
-          type: integer
-          description: The ID for the ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
-        quantity:
-          type: integer
-          description: The quantity the ProductOffering
-          minimum: 0
-          example: 1
-        is_enabled:
-          type: boolean
-          description: Whether or not the offering can be shown to buyers.
-          example: true
-        is_deleted:
-          type: boolean
-          description: Whether or not the offering has been deleted.
-          example: true
-        price:
-          description: Price data for this ProductOffering
-          oneOf:
-          - $ref: '#/components/schemas/Money'
-          example: example
-        readiness_state_id:
-          type:
-          - integer
-          - 'null'
-          description: Processing Profile for this ProductOffering
-          format: int64
-          minimum: 1
-          example: 1
     ListingPropertyValue:
       type: object
       x-resource-id: ListingPropertyValue
@@ -968,6 +913,61 @@ components:
           description: The Property values
           items:
             type: string
+    ListingInventoryProductOffering:
+      type: object
+      x-resource-id: ListingInventoryProductOffering
+      description: A representation of an offering for a listing.
+      properties:
+        offering_id:
+          type: integer
+          description: The ID for the ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+        quantity:
+          type: integer
+          description: The quantity the ProductOffering
+          minimum: 0
+          example: 1
+        is_enabled:
+          type: boolean
+          description: Whether or not the offering can be shown to buyers.
+          example: true
+        is_deleted:
+          type: boolean
+          description: Whether or not the offering has been deleted.
+          example: true
+        price:
+          description: Price data for this ProductOffering
+          oneOf:
+          - $ref: '#/components/schemas/Money'
+          example: example
+        readiness_state_id:
+          type:
+          - integer
+          - 'null'
+          description: Processing Profile for this ProductOffering
+          format: int64
+          minimum: 1
+          example: 1
+    Money:
+      type: object
+      x-resource-id: Money
+      description: A representation of an amount of money.
+      properties:
+        amount:
+          type: integer
+          description: The amount of represented by this data.
+          example: 2500
+        divisor:
+          type: integer
+          description: The divisor to render the amount.
+          minimum: 0
+          example: 1
+        currency_code:
+          type: string
+          description: The ISO currency code for this data.
+          example: USD
   securitySchemes:
     api_key:
       type: apiKey
