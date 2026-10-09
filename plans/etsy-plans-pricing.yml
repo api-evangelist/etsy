@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-30 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-30'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -209,3 +214,47 @@ plans:
       - name: Restock request notifications
       - name: Discount on custom web address
       - name: Discount on Etsy-branded packaging and marketing materials
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - negotiated
+  - period
+  - request
+  - transaction
+  plans:
+  - name: Etsy Open API v3 (Developer Free Tier)
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    - request
+    periods:
+    - day
+    - month
+    - per-use
+    - second
+  - name: Etsy Marketplace (Standard Seller)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - negotiated
+    - transaction
+    periods:
+    - day
+    - per-use
+  - name: Etsy Plus
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - negotiated
+    - period
+    - transaction
+    periods:
+    - month
