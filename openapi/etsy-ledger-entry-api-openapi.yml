@@ -273,15 +273,23 @@ paths:
       summary: Etsy Get Shop Payment Account Ledger Entries
 components:
   schemas:
-    ErrorSchema:
+    PaymentAccountLedgerEntries:
       type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
+      x-resource-id: PaymentAccountLedgerEntries
+      description: A set of PaymentAccountLedgerEntry resources
       properties:
-        error:
-          type: string
-          example: example string
+        count:
+          type: integer
+          description: The number of PaymentAccountLedgerEntry resources found.
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          description: The PaymentAccountLedgerEntry resources found.
+          items:
+            description: The PaymentAccountLedgerEntry resources found.
+            oneOf:
+            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
     PaymentAdjustment:
       type: object
       x-resource-id: PaymentAdjustment
@@ -372,6 +380,15 @@ components:
             description: List of payment adjustment line items.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustmentItem'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     PaymentAccountLedgerEntry:
       type: object
       x-resource-id: PaymentAccountLedgerEntry
@@ -445,23 +462,6 @@ components:
             description: List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
             oneOf:
             - $ref: '#/components/schemas/PaymentAdjustment'
-    PaymentAccountLedgerEntries:
-      type: object
-      x-resource-id: PaymentAccountLedgerEntries
-      description: A set of PaymentAccountLedgerEntry resources
-      properties:
-        count:
-          type: integer
-          description: The number of PaymentAccountLedgerEntry resources found.
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          description: The PaymentAccountLedgerEntry resources found.
-          items:
-            description: The PaymentAccountLedgerEntry resources found.
-            oneOf:
-            - $ref: '#/components/schemas/PaymentAccountLedgerEntry'
     PaymentAdjustmentItem:
       type: object
       x-resource-id: PaymentAdjustmentItem

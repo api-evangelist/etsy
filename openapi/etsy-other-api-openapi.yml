@@ -168,6 +168,11 @@ components:
         error:
           type: string
           example: example string
+    Scopes:
+      type: object
+      x-resource-id: Scopes
+      description: A list of scopes allowed for the token.
+      properties: {}
     Pong:
       type: object
       x-resource-id: Pong
@@ -179,11 +184,6 @@ components:
           format: int64
           minimum: 1
           example: 1
-    Scopes:
-      type: object
-      x-resource-id: Scopes
-      description: A list of scopes allowed for the token.
-      properties: {}
   securitySchemes:
     api_key:
       type: apiKey

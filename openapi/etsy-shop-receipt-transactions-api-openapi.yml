@@ -561,15 +561,6 @@ paths:
       summary: Etsy Get Shop Receipt Transactions by Shop
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     TransactionVariations:
       type: object
       x-resource-id: TransactionVariations
@@ -599,49 +590,6 @@ components:
           - 'null'
           description: '[Personalization only] The ID of the original personalization question.'
           example: 1
-    ListingPropertyValue:
-      type: object
-      x-resource-id: ListingPropertyValue
-      description: A representation of structured data values.
-      properties:
-        property_id:
-          type: integer
-          description: The numeric ID of the Property.
-          format: int64
-          minimum: 1
-          example: 1
-        property_name:
-          type:
-          - string
-          - 'null'
-          description: The name of the Property.
-          example: Handmade Ceramic Mug
-        scale_id:
-          type:
-          - integer
-          - 'null'
-          description: The numeric ID of the scale (if any).
-          format: int64
-          minimum: 1
-          example: 1
-        scale_name:
-          type:
-          - string
-          - 'null'
-          description: The label used to describe the chosen scale (if any).
-          example: Handmade Ceramic Mug
-        value_ids:
-          type: array
-          description: The numeric IDs of the Property values
-          items:
-            type: integer
-            format: int64
-            minimum: 1
-        values:
-          type: array
-          description: The Property values
-          items:
-            type: string
     ShopReceiptTransactions:
       type: object
       x-resource-id: ShopReceiptTransactions
@@ -658,6 +606,15 @@ components:
             description: The ShopReceiptTransaction resources found.
             oneOf:
             - $ref: '#/components/schemas/ShopReceiptTransaction'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ShopReceiptTransaction:
       type: object
       x-resource-id: ShopReceiptTransaction
@@ -846,6 +803,49 @@ components:
           format: float
           default: 0
           example: 1.0
+    ListingPropertyValue:
+      type: object
+      x-resource-id: ListingPropertyValue
+      description: A representation of structured data values.
+      properties:
+        property_id:
+          type: integer
+          description: The numeric ID of the Property.
+          format: int64
+          minimum: 1
+          example: 1
+        property_name:
+          type:
+          - string
+          - 'null'
+          description: The name of the Property.
+          example: Handmade Ceramic Mug
+        scale_id:
+          type:
+          - integer
+          - 'null'
+          description: The numeric ID of the scale (if any).
+          format: int64
+          minimum: 1
+          example: 1
+        scale_name:
+          type:
+          - string
+          - 'null'
+          description: The label used to describe the chosen scale (if any).
+          example: Handmade Ceramic Mug
+        value_ids:
+          type: array
+          description: The numeric IDs of the Property values
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+        values:
+          type: array
+          description: The Property values
+          items:
+            type: string
     Money:
       type: object
       x-resource-id: Money

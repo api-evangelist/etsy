@@ -130,15 +130,6 @@ paths:
       summary: Etsy Get Listing Offering
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingInventoryProductOffering:
       type: object
       x-resource-id: ListingInventoryProductOffering
@@ -176,6 +167,15 @@ components:
           format: int64
           minimum: 1
           example: 1
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     Money:
       type: object
       x-resource-id: Money

@@ -296,6 +296,19 @@ paths:
       summary: Etsy Update Variation Images
 components:
   schemas:
+    ListingVariationImages:
+      type: object
+      x-resource-id: ListingVariationImages
+      description: Represents several ListingVariationImages.
+      properties:
+        count:
+          type: integer
+          minimum: 0
+          example: 1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListingVariationImage'
     ErrorSchema:
       type: object
       x-resource-id: ErrorSchema
@@ -334,19 +347,6 @@ components:
           format: int64
           minimum: 1
           example: 1
-    ListingVariationImages:
-      type: object
-      x-resource-id: ListingVariationImages
-      description: Represents several ListingVariationImages.
-      properties:
-        count:
-          type: integer
-          minimum: 0
-          example: 1
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListingVariationImage'
   securitySchemes:
     api_key:
       type: apiKey

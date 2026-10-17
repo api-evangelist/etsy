@@ -553,15 +553,6 @@ paths:
       summary: Etsy Update Shop Section
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ShopSections:
       type: object
       x-resource-id: ShopSections
@@ -579,6 +570,15 @@ components:
             description: The list of requested resources.
             oneOf:
             - $ref: '#/components/schemas/ShopSection'
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
     ShopSection:
       type: object
       x-resource-id: ShopSection

@@ -433,15 +433,6 @@ paths:
       summary: Etsy Update Listing Translation
 components:
   schemas:
-    ErrorSchema:
-      type: object
-      x-resource-id: ErrorSchema
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          example: example string
     ListingTranslation:
       type: object
       x-resource-id: ListingTranslation
@@ -474,6 +465,15 @@ components:
           description: The tags of the Listing of this Translation.
           items:
             type: string
+    ErrorSchema:
+      type: object
+      x-resource-id: ErrorSchema
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          example: example string
   securitySchemes:
     api_key:
       type: apiKey
