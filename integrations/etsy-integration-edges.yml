@@ -12,6 +12,13 @@ checked:
 - https://monid.ai/tools/etsy
 - https://n8n.io/integrations/etsy/
 - https://zapier.com/apps/etsy/integrations
+- https://appexchange.salesforce.com/explore/business-needs?category=commerce
+- https://commercetools.com/partners
+- https://machalliance.org/members
+- https://marketplace.commercetools.com
+- https://printify.com/integrations/
+- https://www.bigcommerce.com/apps/
+- https://www.printful.com/integrations
 summary: null
 marketplace_apps: []
 edges:
@@ -41,4 +48,36 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Printful
+  app: Printful for Etsy
+  partner: printful
+  partner_match: domain
+  type: marketplace
+  marketplace: builder-directory
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.printful.com/integrations/etsy
+  category: print-on-demand fulfilment integration
+  partner_url: https://raw.githubusercontent.com/api-evangelist/printful/refs/heads/main/apis.yml
+  signal_note: the builder's own integrations directory (served from its own domain) names this platform as a channel
+    it publishes onto
+  detected_by: sweep-mach-headless-commerce.py
+  detected: '2026-10-20'
+- partner_name: Printify
+  app: Printify for Etsy
+  partner: printify
+  partner_match: domain
+  type: marketplace
+  marketplace: builder-directory
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://printify.com/etsy/
+  category: print-on-demand fulfilment integration
+  partner_url: https://raw.githubusercontent.com/api-evangelist/printify/refs/heads/main/apis.yml
+  signal_note: the builder's own integrations directory (served from its own domain) names this platform as a channel
+    it publishes onto
+  detected_by: sweep-mach-headless-commerce.py
+  detected: '2026-10-20'
 templates: []

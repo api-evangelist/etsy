@@ -29,3 +29,29 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: etsy-printful
+  label: Printful
+  partner: printful
+  partner_name: Printful
+  category: print-on-demand fulfilment integration
+  type: marketplace
+  marketplace: builder-directory
+  channel: partner-built
+  evidence: https://www.printful.com/integrations/etsy
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: etsy-printify
+  label: Printify
+  partner: printify
+  partner_name: Printify
+  category: print-on-demand fulfilment integration
+  type: marketplace
+  marketplace: builder-directory
+  channel: partner-built
+  evidence: https://printify.com/etsy/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
