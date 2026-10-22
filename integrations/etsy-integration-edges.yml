@@ -19,6 +19,11 @@ checked:
 - https://printify.com/integrations/
 - https://www.bigcommerce.com/apps/
 - https://www.printful.com/integrations
+- https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+- https://www.bankofcanada.ca/rps-api/cif2/accounts/list
+- https://www.payments.ca/payment-resources/directories?field_directory_type=10
+- https://www.payments.ca/payment-resources/directories?field_directory_type=13
+- https://www.payments.ca/payment-resources/directories?field_directory_type=14
 summary: null
 marketplace_apps: []
 edges:
@@ -80,4 +85,45 @@ edges:
     it publishes onto
   detected_by: sweep-mach-headless-commerce.py
   detected: '2026-10-20'
+- partner_name: Bank of Canada RPAA registry of payment service providers
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+  category: Canadian retail payment activities (RPAA) PSP registration
+  contract_reference:
+    register: Bank of Canada RPAA registry of payment service providers
+    spec_file: null
+    standard: null
+    role: registered-psp
+    registrations:
+    - registered_name: Etsy Canada Limited
+      register_status: registered
+      register_country: CA
+      register_id: b61919cc-91a2-ef11-a72d-002248b00a0f
+      matched_domain: etsy.com
+      matched_by: domain
+      evidence_url: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/psp-registry-details/?account_id=b61919cc-91a2-ef11-a72d-002248b00a0f
+      licences:
+      - RPAA registered PSP
+      brand: Etsy
+      registration_date: '2025-11-21'
+      head_office_country: Canada
+      trade_names:
+      - Etsy.com
+      - Etsy Canada
+      - Etsy Payments
+      - Etsy Payments
+      - Etsy.com
+      - Etsy Canada
+      has_violations: false
+    signal_note: 'participation only: a regulator registration / payment-system membership; no API conformance is
+      published by this register'
+    detected_by: sweep-canada-rpaa-psp-registry.py
+    detected: '2026-10-22'
+  detected_by: sweep-canada-rpaa-psp-registry.py
+  first_seen: '2026-10-22'
 templates: []
