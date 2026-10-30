@@ -1,4 +1,4 @@
-# Etsy (etsy)
+# Etsy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,213 +66,329 @@
 
 Etsy is a global marketplace for unique and creative handmade, vintage, and craft-supply goods. The Etsy Open API v3 is a REST + OAuth 2.0 surface that third-party developers, sellers, and integration partners use to manage shops, listings, inventory, receipts, transactions, payments, ledger entries, reviews, shipping profiles, processing profiles, production partners, return policies, and seller/buyer taxonomy. Webhooks deliver order lifecycle events (order.paid, order.canceled, order.shipped, order.delivered) to subscriber endpoints. This profile catalogs the public API surface, machine-readable artifacts, plans, rate limits, FinOps alignment, and Naftiko capabilities.
 
-**URL:** [Visit APIs.json URL](https://developers.etsy.com)
+**Areas:** Marketplace · E-Commerce · Handmade · Listings · Order · Payments · Reviews · Shipping · Taxonomy · Authentication · Agentic Commerce
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=etsy-api-evangelist&utm_content=repo)
+## Etsy on APIs.io
 
-## Tags
+Everything profiled for Etsy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/etsy/](https://apis.io/providers/etsy/)** — or go straight to one of the APIs or properties below.
 
-- Marketplace, Ecommerce, Handmade, Listings, Orders, Payments, Reviews, Shipping, Taxonomy, OAuth2
+### APIs (28)
 
-## Timestamps
+- [Etsy Open API v3 Webhooks](https://apis.io/apis/etsy/webhooks/) — AsyncAPI 2.6 description of Etsy's outbound webhook surface for the Open API v3. Covers the four documented event types (order.paid, order.canceled,…
+- [Etsy BuyerTaxonomy API](https://apis.io/apis/etsy/etsy-buyertaxonomy-api/) — The BuyerTaxonomy API from Etsy — 2 operation(s) for buyertaxonomy.
+- [Etsy Ledger Entry API](https://apis.io/apis/etsy/etsy-ledger-entry-api/) — The Ledger Entry API from Etsy — 2 operation(s) for ledger entry.
+- [Etsy Other API](https://apis.io/apis/etsy/etsy-other-api/) — The Other API from Etsy — 2 operation(s) for other.
+- [Etsy Payment API](https://apis.io/apis/etsy/etsy-payment-api/) — The Payment API from Etsy — 3 operation(s) for payment.
+- [Etsy Review API](https://apis.io/apis/etsy/etsy-review-api/) — The Review API from Etsy — 2 operation(s) for review.
+- [Etsy SellerTaxonomy API](https://apis.io/apis/etsy/etsy-sellertaxonomy-api/) — The SellerTaxonomy API from Etsy — 2 operation(s) for sellertaxonomy.
+- [Etsy Shop API](https://apis.io/apis/etsy/etsy-shop-api/) — The Shop API from Etsy — 3 operation(s) for shop.
+- [Etsy Shop HolidayPreferences API](https://apis.io/apis/etsy/etsy-shop-holidaypreferences-api/) — The Shop HolidayPreferences API from Etsy — 2 operation(s) for shop holidaypreferences.
+- [Etsy Shop ProcessingProfiles API](https://apis.io/apis/etsy/etsy-shop-processingprofiles-api/) — The Shop ProcessingProfiles API from Etsy — 2 operation(s) for shop processingprofiles.
+- [Etsy Shop ProductionPartner API](https://apis.io/apis/etsy/etsy-shop-productionpartner-api/) — The Shop ProductionPartner API from Etsy — 1 operation(s) for shop productionpartner.
+- [Etsy Shop Receipt API](https://apis.io/apis/etsy/etsy-shop-receipt-api/) — The Shop Receipt API from Etsy — 3 operation(s) for shop receipt.
+- [Etsy Shop Receipt Transactions API](https://apis.io/apis/etsy/etsy-shop-receipt-transactions-api/) — The Shop Receipt Transactions API from Etsy — 4 operation(s) for shop receipt transactions.
+- [Etsy Shop Return Policy API](https://apis.io/apis/etsy/etsy-shop-return-policy-api/) — The Shop Return Policy API from Etsy — 3 operation(s) for shop return policy.
+- [Etsy Shop Section API](https://apis.io/apis/etsy/etsy-shop-section-api/) — The Shop Section API from Etsy — 2 operation(s) for shop section.
+- [Etsy Shop ShippingProfile API](https://apis.io/apis/etsy/etsy-shop-shippingprofile-api/) — The Shop ShippingProfile API from Etsy — 7 operation(s) for shop shippingprofile.
+- [Etsy ShopListing API](https://apis.io/apis/etsy/etsy-shoplisting-api/) — The ShopListing API from Etsy — 13 operation(s) for shoplisting.
+- [Etsy ShopListing File API](https://apis.io/apis/etsy/etsy-shoplisting-file-api/) — The ShopListing File API from Etsy — 2 operation(s) for shoplisting file.
+- [Etsy ShopListing Image API](https://apis.io/apis/etsy/etsy-shoplisting-image-api/) — The ShopListing Image API from Etsy — 4 operation(s) for shoplisting image.
+- [Etsy ShopListing Inventory API](https://apis.io/apis/etsy/etsy-shoplisting-inventory-api/) — The ShopListing Inventory API from Etsy — 1 operation(s) for shoplisting inventory.
+- [Etsy ShopListing Offering API](https://apis.io/apis/etsy/etsy-shoplisting-offering-api/) — The ShopListing Offering API from Etsy — 1 operation(s) for shoplisting offering.
+- [Etsy ShopListing Personalization API](https://apis.io/apis/etsy/etsy-shoplisting-personalization-api/) — The ShopListing Personalization API from Etsy — 2 operation(s) for shoplisting personalization.
+- [Etsy ShopListing Product API](https://apis.io/apis/etsy/etsy-shoplisting-product-api/) — The ShopListing Product API from Etsy — 1 operation(s) for shoplisting product.
+- [Etsy ShopListing Translation API](https://apis.io/apis/etsy/etsy-shoplisting-translation-api/) — The ShopListing Translation API from Etsy — 1 operation(s) for shoplisting translation.
+- [Etsy ShopListing VariationImage API](https://apis.io/apis/etsy/etsy-shoplisting-variationimage-api/) — The ShopListing VariationImage API from Etsy — 1 operation(s) for shoplisting variationimage.
+- [Etsy ShopListing Video API](https://apis.io/apis/etsy/etsy-shoplisting-video-api/) — The ShopListing Video API from Etsy — 4 operation(s) for shoplisting video.
+- [Etsy User API](https://apis.io/apis/etsy/etsy-user-api/) — The User API from Etsy — 2 operation(s) for user.
+- [Etsy UserAddress API](https://apis.io/apis/etsy/etsy-useraddress-api/) — The UserAddress API from Etsy — 2 operation(s) for useraddress.
 
-- **Created:** 2026-05-05
-- **Modified:** 2026-05-30
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Etsy Open API v3
+#### Arazzo workflows (18)
 
-The Etsy Open API v3 is the official REST + OAuth 2.0 surface used to build applications against the Etsy marketplace. It focuses on three primary use cases: listing management, post-purchase order management, and shop management. Authentication uses an x-api-key header (your keystring) on every request, with OAuth 2.0 Authorization Code + PKCE for user-scoped operations. Default base URL: `https://openapi.etsy.com` (production calls also resolve at `https://api.etsy.com/v3/application`).
+Multi-step workflows that chain operations into a business task.
 
-**Human URL:** [https://developers.etsy.com/documentation](https://developers.etsy.com/documentation)
+- [Etsy Clone an Image to a New Listing](https://apis.io/arazzos/etsy/etsy-clone-image-to-new-listing-workflow/)
+- [Etsy Create Return Policy and Listing](https://apis.io/arazzos/etsy/etsy-create-return-policy-and-listing-workflow/)
+- [Etsy Create Shipping Profile and Listing](https://apis.io/arazzos/etsy/etsy-create-shipping-profile-and-listing-workflow/)
+- [Etsy Fulfill a Receipt](https://apis.io/arazzos/etsy/etsy-fulfill-receipt-workflow/)
+- [Etsy Get My Shop Listings](https://apis.io/arazzos/etsy/etsy-get-my-shop-listings-workflow/)
+- [Etsy Listing Reviews](https://apis.io/arazzos/etsy/etsy-listing-reviews-workflow/)
+- [Etsy Listing with Inventory](https://apis.io/arazzos/etsy/etsy-listing-with-inventory-workflow/)
+- [Etsy Organize a Listing into a Section](https://apis.io/arazzos/etsy/etsy-organize-listing-into-section-workflow/)
+- [Etsy Process Unshipped Orders](https://apis.io/arazzos/etsy/etsy-process-unshipped-orders-workflow/)
+- [Etsy Publish a Physical Listing](https://apis.io/arazzos/etsy/etsy-publish-physical-listing-workflow/)
+- [Etsy Receipt Listings Detail](https://apis.io/arazzos/etsy/etsy-receipt-listings-detail-workflow/)
+- [Etsy Receipt with Transactions](https://apis.io/arazzos/etsy/etsy-receipt-with-transactions-workflow/)
+- [Etsy Reprice Listing Inventory](https://apis.io/arazzos/etsy/etsy-reprice-listing-inventory-workflow/)
+- [Etsy Shop Reviews Overview](https://apis.io/arazzos/etsy/etsy-shop-reviews-overview-workflow/)
+- [Etsy Shop Shipping Profiles](https://apis.io/arazzos/etsy/etsy-shop-shipping-profiles-workflow/)
+- [Etsy Shop Transactions Report](https://apis.io/arazzos/etsy/etsy-shop-transactions-report-workflow/)
+- [Etsy Update Shop Storefront](https://apis.io/arazzos/etsy/etsy-update-shop-storefront-workflow/)
+- [Etsy User Shop Profile](https://apis.io/arazzos/etsy/etsy-user-shop-profile-workflow/)
 
-**Base URL:** `https://openapi.etsy.com`
+#### AsyncAPI (1)
 
-#### Tags
+Event-driven and webhook contracts.
 
-- Open API v3, Marketplace, Listings, Receipts, Shop, Taxonomy, OAuth2
+- [Etsy Open API v3 Webhooks](https://apis.io/asyncapis/etsy/etsy-webhooks-asyncapi/)
 
-#### Properties
+#### Event channels (1)
 
-- [Documentation](https://developers.etsy.com/documentation)
-- [Reference](https://developers.etsy.com/documentation/reference)
-- [Authentication](https://developers.etsy.com/documentation/essentials/authentication)
-- [OAuth2](https://developers.etsy.com/documentation/essentials/oauth2)
-- [RateLimits](https://developers.etsy.com/documentation/essentials/rate-limits)
-- [Requests](https://developers.etsy.com/documentation/essentials/requests)
-- [Migration](https://developers.etsy.com/documentation/migration/index)
-- [OpenAPI](openapi/etsy-openapi-original.yml)
-- [Upstream OpenAPI JSON](https://www.etsy.com/openapi/generated/oas/3.0.0.json)
-- [Open API repo](https://github.com/etsy/open-api)
+Individual events and webhooks the provider emits.
 
-### Etsy Open API v3 Webhooks
+- [/etsy/webhook](https://apis.io/channels/etsy/etsy-webhook/)
 
-AsyncAPI 2.6 description of Etsy's outbound webhook surface for the Open API v3. Covers the four documented event types (order.paid, order.canceled, order.shipped, order.delivered), the common webhook envelope, the signing headers, HMAC-SHA256 signature verification procedure, and Etsy's documented retry schedule.
+#### Agentic access (1)
 
-**Human URL:** [https://developers.etsy.com/documentation/essentials/webhooks](https://developers.etsy.com/documentation/essentials/webhooks)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Etsy Agentic Access](https://apis.io/agentic-access/etsy/etsy-agentic-access/)
 
-- Webhooks, Events, AsyncAPI, Order Lifecycle
+#### JSON Schema (86)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://developers.etsy.com/documentation/essentials/webhooks)
-- [AsyncAPI](asyncapi/etsy-webhooks-asyncapi.yml)
+- [BuyerTaxonomyNode](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-node/)
+- [BuyerTaxonomyNodeProperties](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-node-properties/)
+- [BuyerTaxonomyNodeProperty](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-node-property/)
+- [BuyerTaxonomyNodes](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-nodes/)
+- [BuyerTaxonomyPropertyScale](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-property-scale/)
+- [BuyerTaxonomyPropertyValue](https://apis.io/schemas/etsy/open-api-v3-buyer-taxonomy-property-value/)
+- [ErrorSchema](https://apis.io/schemas/etsy/open-api-v3-error-schema/)
+- [Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_ListingPersonalization](https://apis.io/schemas/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-listing-personalization/)
+- [Etsy_Modules_ListingPersonalization_Api_Resources_OpenApi_PersonalizationQuestion](https://apis.io/schemas/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-personalization-question/)
+- [ListingBuyerPrice](https://apis.io/schemas/etsy/open-api-v3-listing-buyer-price/)
+- [ListingImage](https://apis.io/schemas/etsy/open-api-v3-listing-image/)
+- [ListingImages](https://apis.io/schemas/etsy/open-api-v3-listing-images/)
+- [ListingInventory](https://apis.io/schemas/etsy/open-api-v3-listing-inventory/)
+- [ListingInventoryProduct](https://apis.io/schemas/etsy/open-api-v3-listing-inventory-product/)
+- [ListingInventoryProductOffering](https://apis.io/schemas/etsy/open-api-v3-listing-inventory-product-offering/)
+- [ListingInventoryWithAssociations](https://apis.io/schemas/etsy/open-api-v3-listing-inventory-with-associations/)
+- [ListingPropertyValue](https://apis.io/schemas/etsy/open-api-v3-listing-property-value/)
+- [ListingPropertyValues](https://apis.io/schemas/etsy/open-api-v3-listing-property-values/)
+- [ListingReview](https://apis.io/schemas/etsy/open-api-v3-listing-review/)
+- [ListingReviews](https://apis.io/schemas/etsy/open-api-v3-listing-reviews/)
+- [ListingTranslation](https://apis.io/schemas/etsy/open-api-v3-listing-translation/)
+- [ListingTranslations](https://apis.io/schemas/etsy/open-api-v3-listing-translations/)
+- [ListingVariationImage](https://apis.io/schemas/etsy/open-api-v3-listing-variation-image/)
+- [ListingVariationImages](https://apis.io/schemas/etsy/open-api-v3-listing-variation-images/)
+- [ListingVideo](https://apis.io/schemas/etsy/open-api-v3-listing-video/)
+- …and 61 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (86)
+
+Data models expressed in JSON Structure.
+
+- [Open Api V3 Buyer Taxonomy Node Properties Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-node-properties-structure/)
+- [Open Api V3 Buyer Taxonomy Node Property Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-node-property-structure/)
+- [Open Api V3 Buyer Taxonomy Node Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-node-structure/)
+- [Open Api V3 Buyer Taxonomy Nodes Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-nodes-structure/)
+- [Open Api V3 Buyer Taxonomy Property Scale Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-property-scale-structure/)
+- [Open Api V3 Buyer Taxonomy Property Value Structure](https://apis.io/json-structure/etsy/open-api-v3-buyer-taxonomy-property-value-structure/)
+- [Open Api V3 Error Schema Structure](https://apis.io/json-structure/etsy/open-api-v3-error-schema-structure/)
+- [Open Api V3 Etsy Modules Listing Personalization Api Resources Open Api Listing Personalization Structure](https://apis.io/json-structure/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-listing-personalization-structure/)
+- [Open Api V3 Etsy Modules Listing Personalization Api Resources Open Api Personalization Question Structure](https://apis.io/json-structure/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-personalization-question-structure/)
+- [Open Api V3 Listing Buyer Price Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-buyer-price-structure/)
+- [Open Api V3 Listing Image Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-image-structure/)
+- [Open Api V3 Listing Images Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-images-structure/)
+- [Open Api V3 Listing Inventory Product Offering Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-inventory-product-offering-structure/)
+- [Open Api V3 Listing Inventory Product Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-inventory-product-structure/)
+- [Open Api V3 Listing Inventory Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-inventory-structure/)
+- [Open Api V3 Listing Inventory With Associations Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-inventory-with-associations-structure/)
+- [Open Api V3 Listing Property Value Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-property-value-structure/)
+- [Open Api V3 Listing Property Values Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-property-values-structure/)
+- [Open Api V3 Listing Review Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-review-structure/)
+- [Open Api V3 Listing Reviews Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-reviews-structure/)
+- [Open Api V3 Listing Translation Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-translation-structure/)
+- [Open Api V3 Listing Translations Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-translations-structure/)
+- [Open Api V3 Listing Variation Image Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-variation-image-structure/)
+- [Open Api V3 Listing Variation Images Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-variation-images-structure/)
+- [Open Api V3 Listing Video Structure](https://apis.io/json-structure/etsy/open-api-v3-listing-video-structure/)
+- …and 61 more published on APIs.io
+
+#### JSON-LD (2)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Etsy Open Api V3 Context](https://apis.io/jsonld/etsy/etsy-open-api-v3-context/)
+- [Etsy Webhooks Context](https://apis.io/jsonld/etsy/etsy-webhooks-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Etsy Vocabulary](https://apis.io/vocabularies/etsy/etsy-vocabulary/)
+
+#### Examples (86)
+
+Example requests and responses.
+
+- [Open Api V3 Buyer Taxonomy Node Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-node-example/)
+- [Open Api V3 Buyer Taxonomy Node Properties Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-node-properties-example/)
+- [Open Api V3 Buyer Taxonomy Node Property Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-node-property-example/)
+- [Open Api V3 Buyer Taxonomy Nodes Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-nodes-example/)
+- [Open Api V3 Buyer Taxonomy Property Scale Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-property-scale-example/)
+- [Open Api V3 Buyer Taxonomy Property Value Example](https://apis.io/examples/etsy/open-api-v3-buyer-taxonomy-property-value-example/)
+- [Open Api V3 Error Schema Example](https://apis.io/examples/etsy/open-api-v3-error-schema-example/)
+- [Open Api V3 Etsy Modules Listing Personalization Api Resources Open Api Listing Personalization Example](https://apis.io/examples/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-listing-personalization-example/)
+- [Open Api V3 Etsy Modules Listing Personalization Api Resources Open Api Personalization Question Example](https://apis.io/examples/etsy/open-api-v3-etsy-modules-listing-personalization-api-resources-open-api-personalization-question-example/)
+- [Open Api V3 Listing Buyer Price Example](https://apis.io/examples/etsy/open-api-v3-listing-buyer-price-example/)
+- [Open Api V3 Listing Image Example](https://apis.io/examples/etsy/open-api-v3-listing-image-example/)
+- [Open Api V3 Listing Images Example](https://apis.io/examples/etsy/open-api-v3-listing-images-example/)
+- [Open Api V3 Listing Inventory Example](https://apis.io/examples/etsy/open-api-v3-listing-inventory-example/)
+- [Open Api V3 Listing Inventory Product Example](https://apis.io/examples/etsy/open-api-v3-listing-inventory-product-example/)
+- [Open Api V3 Listing Inventory Product Offering Example](https://apis.io/examples/etsy/open-api-v3-listing-inventory-product-offering-example/)
+- [Open Api V3 Listing Inventory With Associations Example](https://apis.io/examples/etsy/open-api-v3-listing-inventory-with-associations-example/)
+- [Open Api V3 Listing Property Value Example](https://apis.io/examples/etsy/open-api-v3-listing-property-value-example/)
+- [Open Api V3 Listing Property Values Example](https://apis.io/examples/etsy/open-api-v3-listing-property-values-example/)
+- [Open Api V3 Listing Review Example](https://apis.io/examples/etsy/open-api-v3-listing-review-example/)
+- [Open Api V3 Listing Reviews Example](https://apis.io/examples/etsy/open-api-v3-listing-reviews-example/)
+- [Open Api V3 Listing Translation Example](https://apis.io/examples/etsy/open-api-v3-listing-translation-example/)
+- [Open Api V3 Listing Translations Example](https://apis.io/examples/etsy/open-api-v3-listing-translations-example/)
+- [Open Api V3 Listing Variation Image Example](https://apis.io/examples/etsy/open-api-v3-listing-variation-image-example/)
+- [Open Api V3 Listing Variation Images Example](https://apis.io/examples/etsy/open-api-v3-listing-variation-images-example/)
+- [Open Api V3 Listing Video Example](https://apis.io/examples/etsy/open-api-v3-listing-video-example/)
+- …and 61 more published on APIs.io
+
+#### Collections (27)
+
+Postman and Open Collection request collections.
+
+- [Etsy Open API v3 BuyerTaxonomy API](https://apis.io/collections/etsy/open-etsy-buyertaxonomy-api/)
+- [Etsy Open API v3 BuyerTaxonomy Ledger Entry API](https://apis.io/collections/etsy/open-etsy-ledger-entry-api/)
+- [Etsy Open API v3 BuyerTaxonomy Other API](https://apis.io/collections/etsy/open-etsy-other-api/)
+- [Etsy Open API v3 BuyerTaxonomy Payment API](https://apis.io/collections/etsy/open-etsy-payment-api/)
+- [Etsy Open API v3 BuyerTaxonomy SellerTaxonomy API](https://apis.io/collections/etsy/open-etsy-sellertaxonomy-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop API](https://apis.io/collections/etsy/open-etsy-shop-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop HolidayPreferences API](https://apis.io/collections/etsy/open-etsy-shop-holidaypreferences-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop ProcessingProfiles API](https://apis.io/collections/etsy/open-etsy-shop-processingprofiles-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop ProductionPartner API](https://apis.io/collections/etsy/open-etsy-shop-productionpartner-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop Receipt API](https://apis.io/collections/etsy/open-etsy-shop-receipt-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop Receipt Transactions API](https://apis.io/collections/etsy/open-etsy-shop-receipt-transactions-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop Return Policy API](https://apis.io/collections/etsy/open-etsy-shop-return-policy-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop Section API](https://apis.io/collections/etsy/open-etsy-shop-section-api/)
+- [Etsy Open API v3 BuyerTaxonomy Shop ShippingProfile API](https://apis.io/collections/etsy/open-etsy-shop-shippingprofile-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing API](https://apis.io/collections/etsy/open-etsy-shoplisting-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing File API](https://apis.io/collections/etsy/open-etsy-shoplisting-file-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Image API](https://apis.io/collections/etsy/open-etsy-shoplisting-image-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Inventory API](https://apis.io/collections/etsy/open-etsy-shoplisting-inventory-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Offering API](https://apis.io/collections/etsy/open-etsy-shoplisting-offering-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Personalization API](https://apis.io/collections/etsy/open-etsy-shoplisting-personalization-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Product API](https://apis.io/collections/etsy/open-etsy-shoplisting-product-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Translation API](https://apis.io/collections/etsy/open-etsy-shoplisting-translation-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing VariationImage API](https://apis.io/collections/etsy/open-etsy-shoplisting-variationimage-api/)
+- [Etsy Open API v3 BuyerTaxonomy ShopListing Video API](https://apis.io/collections/etsy/open-etsy-shoplisting-video-api/)
+- [Etsy Open API v3 BuyerTaxonomy User API](https://apis.io/collections/etsy/open-etsy-user-api/)
+- …and 2 more published on APIs.io
+
+#### Governance rules (3)
+
+Spectral rulesets for the provider's contracts.
+
+- [Etsy — asyncapi rules](https://apis.io/rules/etsy/etsy-asyncapi-spectral-rules/)
+- [Etsy — jsonschema rules](https://apis.io/rules/etsy/etsy-jsonschema-spectral-rules/)
+- [Etsy API Rules](https://apis.io/rules/etsy/etsy-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Etsy Authentication](https://apis.io/security/etsy/etsy-authentication/)
+- [Etsy Domain Security](https://apis.io/security/etsy/etsy-domain-security/)
+- [Etsy Vulnerability Disclosure](https://apis.io/security/etsy/etsy-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Etsy Scopes](https://apis.io/scopes/etsy/etsy-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Etsy Plans Pricing](https://apis.io/plans/etsy/etsy-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Etsy Rate Limits](https://apis.io/rate-limits/etsy/etsy-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Etsy Finops](https://apis.io/finops/etsy/etsy-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.etsy.com)
-- [DeveloperPortal](https://developers.etsy.com/)
 - [Documentation](https://developers.etsy.com/documentation)
-- [Reference](https://developers.etsy.com/documentation/reference)
-- [GitHubOrganization](https://github.com/etsy)
-- [LinkedIn](https://www.linkedin.com/company/etsy)
-- [TwitterAccount](https://twitter.com/etsy)
-- [StatusPage](https://www.etsystatus.com/)
-- [TermsOfService](https://www.etsy.com/legal/api/terms)
-- [PrivacyPolicy](https://www.etsy.com/legal/privacy)
 - [Pricing](https://developers.etsy.com/documentation/essentials/rate-limits)
-- [Support](mailto:developers@etsy.com)
-- [ChangeLog](https://developers.etsy.com/changelog)
-- [CodeOfConduct](https://etsy.github.io/codeofconduct.html)
-- [Plans](plans/etsy-plans-pricing.yml)
-- [RateLimits](rate-limits/etsy-rate-limits.yml)
-- [FinOps](finops/etsy-finops.yml)
-- [Vocabulary](vocabulary/etsy-vocabulary.yml)
-- [SpectralRules](rules/etsy-rules.yml)
-- [Pinot MCP Server (Etsy fork)](https://github.com/etsy/mcp-pinot)
-- [XCLogParser](https://github.com/etsy/XCLogParser)
-- [Cartography](https://github.com/etsy/cartography)
+- [Changelog](https://developers.etsy.com/changelog)
+- [Terms of service](https://www.etsy.com/legal/api/terms)
+- [Privacy policy](https://www.etsy.com/legal/privacy)
+- [GitHub](https://github.com/etsy)
+- [Status](https://www.etsystatus.com/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Listing Management | Create, update, retrieve, deactivate, and delete shop listings; manage listing images, videos, files, translations, personalization, variation images, inventory, offerings, and products. |
-| Order & Receipt Management | Read shop receipts, transactions, payments, and ledger entries; mark receipts paid or shipped; create shipment tracking entries; manage post-purchase order workflows. |
-| Shop Management | Update shop properties, sections, shipping profiles, processing profiles, production partners, return policies, and holiday preferences. |
-| Taxonomy | Browse the buyer taxonomy used for navigation and the seller taxonomy used to classify listings. |
-| Reviews | Retrieve transaction-level and shop-level reviews left by buyers. |
-| Webhooks | Subscribe an HTTPS endpoint to order lifecycle events; verify with HMAC-SHA256 and the documented retry schedule. |
-| OAuth 2.0 Authentication | Authorization Code + PKCE flow with refresh tokens for user-scoped operations; per-request x-api-key header for every call. |
+**Kin Score 50.3** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 67.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 44.0 |
+| Access clarity | 39.5 |
 
-| Name | Description |
-|------|-------------|
-| Inventory Sync | Keep shop listings, prices, quantities, and product variations in sync between Etsy and a seller's inventory management system. |
-| Multi-Channel Order Fulfillment | Pull paid Etsy receipts into a fulfillment platform, generate shipping labels, write tracking back to Etsy, and trigger seller notifications. |
-| Shop Analytics | Aggregate ledger entries, payments, and receipts to produce seller revenue, fee, and payout reporting. |
-| Listing Automation | Programmatically create and update listings from a product catalog, including images, videos, variations, and personalization options. |
-| Customer Service | Surface reviews and message-related receipt context to seller-side customer service tooling. |
-| Shipping Integration | Manage shop shipping profiles, attach tracking codes to fulfilled receipts, and configure region- and weight-based shipping rules. |
+**Agent readiness 34.0** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| QuickBooks | Sync Etsy sales, fees, and payouts into QuickBooks accounting. |
-| ShipStation | Pull Etsy orders into ShipStation for label generation and tracking. |
-| Printful / Printify | Connect print-on-demand fulfillment for Etsy listings. |
-| Zapier | Trigger workflows from Etsy receipts, listings, and webhook events. |
-| Make.com (Integromat) | Visual automation around Etsy shop, listings, and order events. |
+**Regulatory alignment 36.6** — Payments
 
-## Solutions
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/etsy/](https://apis.io/providers/etsy/).
 
-| Name | Description |
-|------|-------------|
-| Inventory & Catalog Management | Maintain Etsy listings, inventory levels, and variations from a central PIM. |
-| Order Operations | Run paid-order processing, shipping, refunds, and post-purchase messaging against Etsy receipts and transactions. |
-| Financial Reporting | Reconcile Etsy ledger entries, payments, and refunds into bookkeeping, tax, and revenue recognition systems. |
-| Marketplace Expansion | Use Etsy alongside other marketplaces to expand reach for handmade, vintage, and craft-supply sellers. |
+## How this profile is made
 
-## Artifacts
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-Machine-readable API specifications organized by format.
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Etsy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### OpenAPI
+## Open an issue
 
-- [Etsy Open API v3](openapi/etsy-openapi-original.yml) — 74 operations, 81 schemas
-
-### AsyncAPI
-
-- [Etsy Open API v3 Webhooks](asyncapi/etsy-webhooks-asyncapi.yml) — 4 events
-
-### JSON Schema
-
-- 86 standalone JSON Schema files under [`json-schema/`](json-schema/)
-
-### JSON Structure
-
-- 86 JSON Structure files under [`json-structure/`](json-structure/)
-
-### JSON-LD
-
-- [Etsy Open API v3 Context](json-ld/etsy-open-api-v3-context.jsonld) — 81 types, 348 properties
-- [Etsy Webhooks Context](json-ld/etsy-webhooks-context.jsonld) — 1 type, 3 properties
-
-### Examples
-
-- 86 example payloads under [`examples/`](examples/)
-
-## Capabilities
-
-Naftiko capabilities organized as one self-contained file per OpenAPI tag, each exposing both a REST adapter and an MCP adapter routed through an inline consumes block.
-
-| Capability | Tag | Operations | File |
-|---|---|---|---|
-| Etsy Open API v3 — User | User | 2 | [open-api-v3-user.yaml](capabilities/open-api-v3-user.yaml) |
-| Etsy Open API v3 — UserAddress | UserAddress | 3 | [open-api-v3-user-address.yaml](capabilities/open-api-v3-user-address.yaml) |
-| Etsy Open API v3 — Shop | Shop | 4 | [open-api-v3-shop.yaml](capabilities/open-api-v3-shop.yaml) |
-| Etsy Open API v3 — Shop Section | Shop Section | 5 | [open-api-v3-shop-section.yaml](capabilities/open-api-v3-shop-section.yaml) |
-| Etsy Open API v3 — Shop ShippingProfile | Shop ShippingProfile | 14 | [open-api-v3-shop-shipping-profile.yaml](capabilities/open-api-v3-shop-shipping-profile.yaml) |
-| Etsy Open API v3 — Shop ProcessingProfiles | Shop ProcessingProfiles | 5 | [open-api-v3-shop-processing-profiles.yaml](capabilities/open-api-v3-shop-processing-profiles.yaml) |
-| Etsy Open API v3 — Shop ProductionPartner | Shop ProductionPartner | 1 | [open-api-v3-shop-production-partner.yaml](capabilities/open-api-v3-shop-production-partner.yaml) |
-| Etsy Open API v3 — Shop Return Policy | Shop Return Policy | 6 | [open-api-v3-shop-return-policy.yaml](capabilities/open-api-v3-shop-return-policy.yaml) |
-| Etsy Open API v3 — Shop HolidayPreferences | Shop HolidayPreferences | 2 | [open-api-v3-shop-holiday-preferences.yaml](capabilities/open-api-v3-shop-holiday-preferences.yaml) |
-| Etsy Open API v3 — Shop Receipt | Shop Receipt | 4 | [open-api-v3-shop-receipt.yaml](capabilities/open-api-v3-shop-receipt.yaml) |
-| Etsy Open API v3 — Shop Receipt Transactions | Shop Receipt Transactions | 4 | [open-api-v3-shop-receipt-transactions.yaml](capabilities/open-api-v3-shop-receipt-transactions.yaml) |
-| Etsy Open API v3 — ShopListing | ShopListing | 16 | [open-api-v3-shop-listing.yaml](capabilities/open-api-v3-shop-listing.yaml) |
-| Etsy Open API v3 — ShopListing File | ShopListing File | 4 | [open-api-v3-shop-listing-file.yaml](capabilities/open-api-v3-shop-listing-file.yaml) |
-| Etsy Open API v3 — ShopListing Image | ShopListing Image | 4 | [open-api-v3-shop-listing-image.yaml](capabilities/open-api-v3-shop-listing-image.yaml) |
-| Etsy Open API v3 — ShopListing Video | ShopListing Video | 4 | [open-api-v3-shop-listing-video.yaml](capabilities/open-api-v3-shop-listing-video.yaml) |
-| Etsy Open API v3 — ShopListing Inventory | ShopListing Inventory | 2 | [open-api-v3-shop-listing-inventory.yaml](capabilities/open-api-v3-shop-listing-inventory.yaml) |
-| Etsy Open API v3 — ShopListing Offering | ShopListing Offering | 1 | [open-api-v3-shop-listing-offering.yaml](capabilities/open-api-v3-shop-listing-offering.yaml) |
-| Etsy Open API v3 — ShopListing Product | ShopListing Product | 1 | [open-api-v3-shop-listing-product.yaml](capabilities/open-api-v3-shop-listing-product.yaml) |
-| Etsy Open API v3 — ShopListing Translation | ShopListing Translation | 3 | [open-api-v3-shop-listing-translation.yaml](capabilities/open-api-v3-shop-listing-translation.yaml) |
-| Etsy Open API v3 — ShopListing Personalization | ShopListing Personalization | 3 | [open-api-v3-shop-listing-personalization.yaml](capabilities/open-api-v3-shop-listing-personalization.yaml) |
-| Etsy Open API v3 — ShopListing VariationImage | ShopListing VariationImage | 2 | [open-api-v3-shop-listing-variation-image.yaml](capabilities/open-api-v3-shop-listing-variation-image.yaml) |
-| Etsy Open API v3 — Payment | Payment | 3 | [open-api-v3-payment.yaml](capabilities/open-api-v3-payment.yaml) |
-| Etsy Open API v3 — Ledger Entry | Ledger Entry | 2 | [open-api-v3-ledger-entry.yaml](capabilities/open-api-v3-ledger-entry.yaml) |
-| Etsy Open API v3 — Review | Review | 2 | [open-api-v3-review.yaml](capabilities/open-api-v3-review.yaml) |
-| Etsy Open API v3 — BuyerTaxonomy | BuyerTaxonomy | 2 | [open-api-v3-buyer-taxonomy.yaml](capabilities/open-api-v3-buyer-taxonomy.yaml) |
-| Etsy Open API v3 — SellerTaxonomy | SellerTaxonomy | 2 | [open-api-v3-seller-taxonomy.yaml](capabilities/open-api-v3-seller-taxonomy.yaml) |
-| Etsy Open API v3 — Other | Other | 2 | [open-api-v3-other.yaml](capabilities/open-api-v3-other.yaml) |
-
-## Vocabulary
-
-- [Etsy Vocabulary](vocabulary/etsy-vocabulary.yml) — Unified taxonomy mapping 27 resources, 5 actions, 27 workflows, and 5 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Etsy Spectral Rules](rules/etsy-rules.yml) — 56 rules across 13 categories enforcing Etsy Open API v3 conventions (kebab-case paths, snake_case schemas, camelCase operationIds, dual x-api-key + OAuth 2.0 security, Microcks compatibility)
-
-## Plans
-
-- [Etsy Plans & Pricing](plans/etsy-plans-pricing.yml) — Free developer tier (10k req/day, 10 req/s default) plus the seller-side marketplace fees (listing fee, 6.5% transaction fee, payment processing fees, Etsy Ads, Etsy Plus subscription)
-
-## Rate Limits
-
-- [Etsy Rate Limits](rate-limits/etsy-rate-limits.yml) — Application-scoped QPS + QPD limits with x-limit-per-second / x-limit-per-day / x-remaining-* response headers and retry-after on 429
-
-## FinOps
-
-- [Etsy FinOps](finops/etsy-finops.yml) — FOCUS-aligned marketplace FinOps view: take-rate + subscription billing, 8 meters (api_requests, listings_published, marketplace_transactions, GMV, payment_processing_fees, offsite_ads_attribution, etsy_ads_spend, refunds_and_chargebacks)
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/etsy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
